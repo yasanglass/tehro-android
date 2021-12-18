@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran
+package dev.yasan.metro.tehran.ui.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
