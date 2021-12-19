@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -17,12 +18,15 @@ import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.themePrimary
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
+import dev.yasan.metro.tehran.util.getTextOnColor
 
 @Composable
 fun TehTitle(
     modifier: Modifier = Modifier,
     title: String,
-    fontFamily: FontFamily = LocaleHelper.properFontFamily
+    fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    colorBackground: Color = themePrimary,
+    colorText: Color = colorBackground.getTextOnColor()
 ) {
     Row(
         modifier = modifier
@@ -34,7 +38,8 @@ fun TehTitle(
             text = title,
             fontFamily = fontFamily,
             fontWeight = FontWeight.Black,
-            fontSize = 18.sp
+            fontSize = 18.sp,
+            color = colorText
         )
     }
 }
