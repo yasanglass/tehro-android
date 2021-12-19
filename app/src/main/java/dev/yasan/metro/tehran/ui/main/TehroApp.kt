@@ -1,19 +1,20 @@
 package dev.yasan.metro.tehran.ui.main
 
-import androidx.compose.material.Text
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.theme.TehroTheme
 
+@ExperimentalAnimationApi
 @Composable
 fun TehroApp() {
     TehroTheme {
-        Text(text = "Hello ${stringResource(id = R.string.app_name)}!")
+        NavGraph()
     }
 }
 
+@ExperimentalAnimationApi
 @Preview
 @Composable
 fun TehroAppPreview() {
