@@ -1,8 +1,11 @@
 package dev.yasan.metro.tehran.ui.main
 
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
+import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.theme.TehroTheme
 
@@ -10,7 +13,9 @@ import dev.yasan.metro.tehran.ui.theme.TehroTheme
 @Composable
 fun TehroApp() {
     TehroTheme {
-        NavGraph()
+        Surface(color = colorResource(id = R.color.layer_midground)) {
+            NavGraph()
+        }
     }
 }
 
