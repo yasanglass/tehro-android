@@ -1,6 +1,7 @@
 package dev.yasan.metro.tehran.ui.composable.common
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import dev.yasan.metro.tehran.R
@@ -32,14 +34,16 @@ fun TehTitle(
         modifier = modifier
             .fillMaxWidth()
             .background(color = themePrimary)
-            .padding(grid(2))
+            .padding(grid(2)),
+        horizontalArrangement = Arrangement.Center
     ) {
         Text(
             text = title,
             fontFamily = fontFamily,
             fontWeight = FontWeight.Black,
             fontSize = 18.sp,
-            color = colorText
+            color = colorText,
+            textAlign = TextAlign.Center
         )
     }
 }
