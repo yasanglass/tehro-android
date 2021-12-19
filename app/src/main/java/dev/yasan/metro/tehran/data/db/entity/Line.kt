@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import dev.yasan.metro.tehran.util.LocaleHelper
 import kotlinx.parcelize.IgnoredOnParcel
 
 @Entity(tableName = "lines")
@@ -23,6 +24,8 @@ data class Line(
 
     val color: Color
         get() = if (!colorHex.isNullOrBlank())
-            Color(android.graphics.Color.parseColor(colorHex)) else Color.DarkGray
+            Color(android.graphics.Color.parseColor("#$colorHex")) else Color.DarkGray
+
+    val name: String get() = if (LocaleHelper.isFarsi) nameFa else nameEn.uppercase()
 
 }

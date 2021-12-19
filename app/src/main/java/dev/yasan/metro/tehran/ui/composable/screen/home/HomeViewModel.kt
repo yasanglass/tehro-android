@@ -18,13 +18,13 @@ class HomeViewModel @Inject constructor(
     private val lineRepository: LineRepository
 ) : ViewModel() {
 
-    private var _lines = MutableLiveData<Resource<List<Line>>>(Resource.Initial())
-    val lines: LiveData<Resource<List<Line>>> get() = _lines
+    private var _lines = MutableLiveData<Resource<ArrayList<Line>>>(Resource.Initial())
+    val lines: LiveData<Resource<ArrayList<Line>>> get() = _lines
 
     fun loadLines() {
         viewModelScope.launch(dispatchers.io) {
             _lines.postValue(Resource.Loading())
-            val data: List<Line> = lineRepository.getLines()
+            val data = (lineRepository.getLines() as ArrayList).apply { sortBy { it.id } }
             _lines.postValue(Resource.Success(data = data))
         }
     }

@@ -1,6 +1,8 @@
 package dev.yasan.metro.tehran.ui.composable.screen.home
 
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
@@ -11,7 +13,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.ui.composable.common.TehProgress
 import dev.yasan.metro.tehran.ui.composable.common.TehTitle
+import dev.yasan.metro.tehran.ui.composable.screen.home.modules.LineItem
+import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.util.Resource
 
 @Composable
@@ -30,11 +35,6 @@ fun HomeScreen(viewModel: HomeViewModel) {
         }
 
         when (lines.value) {
-            is Resource.Loading -> {
-                item {
-                    Text(text = "Loading")
-                }
-            }
             is Resource.Error -> {
                 item {
                     Text(text = "Error")
@@ -43,13 +43,18 @@ fun HomeScreen(viewModel: HomeViewModel) {
             is Resource.Success -> {
 
                 item {
-                    Text(text = "Success")
+                    Spacer(modifier = Modifier.requiredHeight(grid()))
                 }
 
-                items(lines.value!!.data!!) {
-                    Text(text = it.nameEn)
+                items(lines.value!!.data!!) { line ->
+                    LineItem(line = line)
                 }
 
+            }
+            else -> {
+                item {
+                    TehProgress()
+                }
             }
         }
 
