@@ -14,4 +14,16 @@
     <color name="theme_accent_light">#ffff52</color>
     <color name="on_theme_accent">@color/black</color>
 
+    <!-- Layout Layers -->
+
+    <color name="layer_foreground">#fff</color>
+    <color name="layer_midground">#EEEEEE</color>
+    <color name="layer_background">#D8D8D8</color>
+    <color name="divider">@color/layer_background</color>
+
+    <!-- Text -->
+
+    <color name="text_title">#212121</color>
+    <color name="text_desc">#666666</color>
+
 </resources>

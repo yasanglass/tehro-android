@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Layout Layers -->
+
+    <color name="layer_background">#000</color>
+    <color name="layer_midground">#121212</color>
+    <color name="layer_foreground">#1F1F1F</color>
+    <color name="divider">@color/layer_background</color>
+
+    <!-- Text -->
+
+    <color name="text_title">#E0E0E0</color>
+    <color name="text_desc">#A0A0A0</color>
+
+</resources>
