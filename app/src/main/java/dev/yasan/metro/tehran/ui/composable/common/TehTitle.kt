@@ -13,8 +13,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.ui.theme.Purple200
 import dev.yasan.metro.tehran.ui.theme.grid
+import dev.yasan.metro.tehran.ui.theme.themePrimary
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 
@@ -27,14 +27,14 @@ fun TehTitle(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(color = Purple200)
+            .background(color = themePrimary)
             .padding(grid(2))
     ) {
         Text(
             text = title,
             fontFamily = fontFamily,
-            fontWeight = FontWeight.Bold,
-            fontSize = 16.sp
+            fontWeight = FontWeight.Black,
+            fontSize = 18.sp
         )
     }
 }
