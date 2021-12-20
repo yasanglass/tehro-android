@@ -15,12 +15,16 @@ data class Line(
     @ColumnInfo(name = "name_fa") val nameFa: String,
     @ColumnInfo(name = "name_en") val nameEn: String,
     @ColumnInfo(name = "color") val colorHex: String?,
-    @ColumnInfo(name = "is_branch", defaultValue = "0") val isBranchInt: Int
+    @ColumnInfo(name = "type", defaultValue = "1") val typeInt: Int
 ) {
+
+    companion object {
+        private const val TAG = "Line"
+    }
 
     @Ignore
     @IgnoredOnParcel
-    val isBranch = isBranchInt == 1
+    val type = LineType.fromInt(typeInt)
 
     val color: Color
         get() = if (!colorHex.isNullOrBlank())

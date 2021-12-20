@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Line
+import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
@@ -28,7 +29,7 @@ fun LineItem(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
-    if (!line.isBranch) {
+    if (line.type == LineType.METRO_LINE) {
         val color = line.color
         Row(
             modifier = modifier
@@ -57,7 +58,7 @@ private fun LinePreviewEn() {
         nameFa = "یک",
         nameEn = "One",
         colorHex = "C53642",
-        isBranchInt = 0
+        typeInt = LineType.METRO_LINE.ordinal
     )
     Column(
         modifier = Modifier
@@ -76,7 +77,7 @@ private fun LinePreviewFa() {
         nameFa = "یک",
         nameEn = "One",
         colorHex = "C53642",
-        isBranchInt = 0
+        typeInt = LineType.METRO_LINE.ordinal
     )
     Column(
         modifier = Modifier
