@@ -1,10 +1,7 @@
 package dev.yasan.metro.tehran.ui.composable.screen.home.modules
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,6 +17,7 @@ import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
+import dev.yasan.metro.tehran.util.PreviewHelper
 import dev.yasan.metro.tehran.util.getTextOnColor
 
 @Composable
@@ -50,40 +48,62 @@ fun LineItem(
     }
 }
 
-@Preview(name = "Line (En)", locale = "en")
+@Preview(name = "Lines (En)", locale = "en")
 @Composable
-private fun LinePreviewEn() {
-    val line = Line(
-        id = 1,
-        nameFa = "یک",
-        nameEn = "One",
-        colorHex = "C53642",
-        typeInt = LineType.METRO_LINE.ordinal
-    )
+private fun LinesPreviewEn() {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
             .padding(bottom = grid())
     ) {
-        LineItem(line = line, fontFamily = rubikFamily, forceFarsi = false)
+        Spacer(modifier = Modifier.requiredHeight(grid()))
+        PreviewHelper.lines.forEach {
+            LineItem(line = it, fontFamily = rubikFamily, forceFarsi = false)
+        }
+        Spacer(modifier = Modifier.requiredHeight(grid()))
+    }
+}
+
+@Preview(name = "Lines (Fa)", locale = "fa")
+@Composable
+private fun LinesPreviewFa() {
+    Column(
+        modifier = Modifier
+            .background(colorResource(id = R.color.layer_midground))
+            .padding(bottom = grid())
+    ) {
+        Spacer(modifier = Modifier.requiredHeight(grid()))
+        PreviewHelper.lines.forEach {
+            LineItem(line = it, fontFamily = vazirFamily, forceFarsi = true)
+        }
+        Spacer(modifier = Modifier.requiredHeight(grid()))
+    }
+}
+
+@Preview(name = "Line (En)", locale = "en")
+@Composable
+private fun LinePreviewEn() {
+    Column(
+        modifier = Modifier
+            .background(colorResource(id = R.color.layer_midground))
+            .padding(bottom = grid())
+    ) {
+        Spacer(modifier = Modifier.requiredHeight(grid()))
+        LineItem(line = PreviewHelper.lines.random(), fontFamily = rubikFamily, forceFarsi = false)
+        Spacer(modifier = Modifier.requiredHeight(grid()))
     }
 }
 
 @Preview(name = "Line (Fa)", locale = "fa")
 @Composable
 private fun LinePreviewFa() {
-    val line = Line(
-        id = 1,
-        nameFa = "یک",
-        nameEn = "One",
-        colorHex = "C53642",
-        typeInt = LineType.METRO_LINE.ordinal
-    )
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
             .padding(bottom = grid())
     ) {
-        LineItem(line = line, fontFamily = vazirFamily, forceFarsi = true)
+        Spacer(modifier = Modifier.requiredHeight(grid()))
+        LineItem(line = PreviewHelper.lines.random(), fontFamily = vazirFamily, forceFarsi = true)
+        Spacer(modifier = Modifier.requiredHeight(grid()))
     }
 }
