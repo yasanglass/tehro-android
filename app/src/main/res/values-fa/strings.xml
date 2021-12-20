@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">تهرو</string>
+    <string name="error">خطا</string>
+    <string name="try_again">تلاش مجدد</string>
+    <string name="failed_to_load_data">خطا در بارگذاری اطلاعات</string>
 </resources>

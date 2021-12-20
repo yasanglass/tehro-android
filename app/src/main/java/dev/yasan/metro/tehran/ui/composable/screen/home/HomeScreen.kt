@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -13,6 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.ui.composable.common.TehError
 import dev.yasan.metro.tehran.ui.composable.common.TehProgress
 import dev.yasan.metro.tehran.ui.composable.common.TehTitle
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.LineItem
@@ -37,7 +37,9 @@ fun HomeScreen(viewModel: HomeViewModel) {
         when (lines.value) {
             is Resource.Error -> {
                 item {
-                    Text(text = "Error")
+                    TehError {
+                        viewModel.loadLines()
+                    }
                 }
             }
             is Resource.Success -> {
