@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.data.db.entity
 import android.util.Log
 
 enum class LineType {
-    METRO_LINE, METRO_BRANCH, INVALID;
+    INVALID, METRO_LINE, METRO_BRANCH;
 
     companion object {
 
@@ -11,8 +11,8 @@ enum class LineType {
 
         fun fromInt(value: Int): LineType {
             return try {
-                values().first { it.ordinal + 1 == value }
-            } catch (e: Exception) {
+                values().first { it.ordinal == value }
+            } catch (e: NoSuchElementException) {
                 Log.d(TAG, "fromInt: ${e.message}")
                 INVALID
             }
