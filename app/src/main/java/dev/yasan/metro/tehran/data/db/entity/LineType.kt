@@ -9,14 +9,7 @@ enum class LineType {
 
         private const val TAG = "LineType"
 
-        fun fromInt(value: Int): LineType {
-            return try {
-                values().first { it.ordinal == value }
-            } catch (e: NoSuchElementException) {
-                Log.d(TAG, "fromInt: ${e.message}")
-                INVALID
-            }
-        }
+        fun fromInt(value: Int) = values().getOrNull(value) ?: INVALID
     }
 
 }
