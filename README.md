@@ -1,4 +1,4 @@
-<img align="center" src="https://github.com/yasandev/tehro-android/raw/main/PROMO.png">
+<img align="center" src="https://github.com/yasandev/tehro-branding/raw/main/PROMO.png">
 
 # Tehro
 
