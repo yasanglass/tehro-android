@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تهرو</string>
+    <string name="error">خطا</string>
+    <string name="try_again">تلاش مجدد</string>
+    <string name="failed_to_load_data">خطا در بارگذاری اطلاعات</string>
+    <string name="back">بازگشت</string>
+    <string name="line_not_found">خط پیدا نشد</string>
+    <string name="line">خط</string>
+    <string name="n_lines">%1$d خط</string>
+    <string name="n_stations">%1$d ایستگاه</string>
+    <string name="yasan_logo">لوگو یاسان</string>
+    <string name="map">نقشه</string>
+    <string name="lines">خط‌ها</string>
+    <string name="no_stations_found">هیچ ایستگاه‌ای پیدا نشد</string>
+    <string name="no_lines_found">هیچ خطی پیدا نشد</string>
+    <string name="version_prefix">"نسخه "</string>
+    <string name="branch">انشعاب</string>
+    <string name="about">درباره</string>
+    <string name="github">گیت‌هاب</string>
+    <string name="about_app">تهرو یک برنامه‌ی متن‌باز برای متروی تهران است.</string>
+    <string name="about_yasan">من یک توسعه‌دهنده و طراح مستقل هستم.</string>
+</resources>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Tehro</string>
+    <string name="app_name_en" translatable="false">Tehro</string>
+    <string name="app_database_en" translatable="false">Tehro Database</string>
+    <string name="error">Error</string>
+    <string name="try_again">Try Again</string>
+    <string name="failed_to_load_data">Failed to load data</string>
+    <string name="back">Go Back</string>
+    <string name="line_not_found">Line not found</string>
+    <string name="no_stations_found">No stations found</string>
+    <string name="no_lines_found">No lines found</string>
+    <string name="line">Line</string>
+    <string name="lines">Lines</string>
+    <string name="n_lines">%1$d Lines</string>
+    <string name="n_stations">%1$d Stations</string>
+    <string name="yasan_logo">YASAN Logo</string>
+    <string name="map">Map</string>
+    <string name="version_prefix">v</string>
+    <string name="branch">Branch</string>
+    <string name="about">About</string>
+    <string name="github">GitHub</string>
+    <string name="about_app">Tehro is an open-source metro guide for Tehran.</string>
+    <string name="about_yasan">I\'m an indie developer &amp; designer.</string>
+    <string name="twitter">Twitter</string>
+    <string name="instagram">Instagram</string>
+    <string name="discord_server">Discord Server</string>
+    <string name="telegram_channel">Telegram Channel</string>
+    <string name="medium">مدیوم</string>
+</resources>
