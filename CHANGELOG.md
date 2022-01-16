@@ -1,5 +1,9 @@
 # Tehro Changelog
 
+## v2.0.4
+
+- Removed Firebase.
+
 ## v2.0.3
 
 - New station icons for 20+ keywords.
