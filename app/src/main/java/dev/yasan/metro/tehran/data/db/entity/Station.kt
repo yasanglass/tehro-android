@@ -93,7 +93,7 @@ data class Station(
             nameFa.contains("میدان") -> TehroIcons.TripOrigin
             nameFa.contains("فرودگاه") -> TehroIcons.LocalAirport
             nameFa.contains("خرداد") || nameFa.contains("هفتم تیر") -> TehroIcons.Event
-            nameFa.contains("تئاتر") -> if (PrideHelper.prideMode) TehroIcons.Looks else TehroIcons.TheaterComedy
+            nameFa.contains("تئاتر") -> if (PrideHelper.isPrideMonth) TehroIcons.Looks else TehroIcons.TheaterComedy
             else -> null
         }
     }

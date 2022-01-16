@@ -26,7 +26,7 @@ fun YasanBrandingFooter(
     spacerBottom: Boolean = true,
     ignorePride: Boolean = false
 ) {
-    val prideMode = !ignorePride && PrideHelper.prideMode
+    val prideMode = !ignorePride && PrideHelper.isPrideMonth
 
     val imageResource =
         if (prideMode) R.drawable.ic_logo_text2_pride else R.drawable.ic_yasan_logo_text2_color

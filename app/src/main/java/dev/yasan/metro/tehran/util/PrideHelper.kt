@@ -1,6 +1,5 @@
 package dev.yasan.metro.tehran.util
 
-import dev.yasan.metro.tehran.BuildConfig
 import java.util.*
 
 /**
@@ -8,8 +7,6 @@ import java.util.*
  */
 object PrideHelper {
 
-    val homophobicBuildFlavor = BuildConfig.FLAVOR.contains("bazaar")
-
-    val prideMode = !homophobicBuildFlavor && Calendar.getInstance()[Calendar.MONTH] == Calendar.FEBRUARY
+    val isPrideMonth = Calendar.getInstance()[Calendar.MONTH] == Calendar.FEBRUARY
 
 }
