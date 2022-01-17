@@ -1,0 +1,7 @@
+Tehro is an open-source minimal & modern guide app for Tehran's Metro.
+
+Features:
+• English & Farsi support
+• Map support
+• Dark & Light theme support
+• Modern & minimal design
