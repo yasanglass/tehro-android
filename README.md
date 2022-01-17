@@ -4,6 +4,7 @@
 
 [![license](https://img.shields.io/github/license/yasandev/tehro-android)](https://github.com/yasandev/tehro-android/blob/main/LICENSE)
 [![code quality](https://img.shields.io/codacy/grade/abe344aa3a7a4b0b87673ccccfae1c51)](https://app.codacy.com/gh/yasandev/tehro-android/dashboard?utm_source=github.com&utm_medium=referral&utm_content=yasandev/tehro-android&utm_campaign=Badge_Grade)
+[![release](https://img.shields.io/github/v/release/yasandev/tehro-android)](https://github.com/yasandev/tehro-android/releases)
 
 Tehro is a public transport guide app powered by Kotlin & Jetpack Compose.
 
