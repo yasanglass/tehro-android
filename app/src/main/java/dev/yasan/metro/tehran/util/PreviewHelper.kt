@@ -61,7 +61,7 @@ object PreviewHelper {
         ),
     )
 
-    val lineSixStations = listOf(
+    val lineSixStations = sequenceOf(
         Station(
             id = 28,
             nameEn = "Emam Hossein",

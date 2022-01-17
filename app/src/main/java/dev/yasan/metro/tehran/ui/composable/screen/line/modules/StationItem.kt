@@ -14,15 +14,17 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.preview.station.StationListPreviewProvider
+import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.*
 import dev.yasan.metro.tehran.util.LocaleHelper
-import dev.yasan.metro.tehran.util.PreviewHelper
 import dev.yasan.metro.tehran.util.extension.getTextOnColor
 
 /**
@@ -102,7 +104,7 @@ fun StationItem(
     locale = "fa"
 )
 @Composable
-private fun StationItemPreviewFa() {
+private fun StationItemPreviewFa(@PreviewParameter(StationPreviewProvider::class) station: Station) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -110,7 +112,7 @@ private fun StationItemPreviewFa() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid(0.5f)))
         StationItem(
-            station = PreviewHelper.lineSixStations.random(),
+            station = station,
             navController = rememberNavController(),
             fontFamily = vazirFamily,
             forceFarsi = true
@@ -125,7 +127,7 @@ private fun StationItemPreviewFa() {
     locale = "en"
 )
 @Composable
-private fun StationItemPreviewEn() {
+private fun StationItemPreviewEn(@PreviewParameter(StationPreviewProvider::class) station: Station) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -133,7 +135,7 @@ private fun StationItemPreviewEn() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid(0.5f)))
         StationItem(
-            station = PreviewHelper.lineSixStations.random(),
+            station = station,
             navController = rememberNavController(),
             fontFamily = rubikFamily,
             forceFarsi = false
@@ -148,11 +150,11 @@ private fun StationItemPreviewEn() {
     locale = "en"
 )
 @Composable
-private fun StationItemsPreviewEn() {
+private fun StationItemsPreviewEn(@PreviewParameter(StationListPreviewProvider::class) stations: List<Station>) {
     val navController = rememberNavController()
     Column(modifier = Modifier.background(color = colorResource(id = R.color.layer_midground))) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lineSixStations.forEach { station ->
+        stations.forEach { station ->
             StationItem(
                 station = station,
                 navController = navController,
@@ -170,11 +172,11 @@ private fun StationItemsPreviewEn() {
     locale = "fa"
 )
 @Composable
-private fun StationItemsPreviewFa() {
+private fun StationItemsPreviewFa(@PreviewParameter(StationListPreviewProvider::class) stations: List<Station>) {
     val navController = rememberNavController()
     Column(modifier = Modifier.background(color = colorResource(id = R.color.layer_midground))) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lineSixStations.forEach { station ->
+        stations.forEach { station ->
             StationItem(
                 station = station,
                 navController = navController,
