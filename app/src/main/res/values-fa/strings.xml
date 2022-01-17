@@ -25,4 +25,5 @@
     <string name="discord_server">سرور دیسکورد</string>
     <string name="instagram">اینستاگرام</string>
     <string name="twitter">توییتر</string>
+    <string name="database_last_modified_on_date">دیتابیس آخرین‌ بار در %1$s بروزرسانی شده است.</string>
 </resources>

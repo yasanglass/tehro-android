@@ -28,6 +28,10 @@ class AboutViewModel @Inject constructor(
         private const val TAG = "AboutViewModel"
     }
 
+    init {
+        loadDatabaseInformation()
+    }
+
     private var _databaseInformation =
         MutableLiveData<Resource<DatabaseInformation>>(Resource.Initial())
     val databaseInformation: LiveData<Resource<DatabaseInformation>> get() = _databaseInformation
@@ -37,7 +41,7 @@ class AboutViewModel @Inject constructor(
      *
      * @see databaseInformation
      */
-    fun loadDatabaseInformation() {
+    private fun loadDatabaseInformation() {
         viewModelScope.launch(dispatchers.io) {
             _databaseInformation.postValue(Resource.Loading())
             val data = databaseInformationRepository.getInformation()
