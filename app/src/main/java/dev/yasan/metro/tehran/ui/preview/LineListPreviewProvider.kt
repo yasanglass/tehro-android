@@ -5,10 +5,10 @@ import dev.yasan.metro.tehran.data.db.entity.Line
 import dev.yasan.metro.tehran.util.PreviewHelper
 
 /**
- * Provides preview parameters for [Line].
+ * Provides preview parameters for [List]<[Line]>.
  */
-class LinePreviewProvider : PreviewParameterProvider<Line> {
+class LineListPreviewProvider : PreviewParameterProvider<List<Line>> {
 
-    override val values = PreviewHelper.lines
+    override val values = sequenceOf(PreviewHelper.lines.toList())
 
 }

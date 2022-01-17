@@ -19,12 +19,12 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Line
 import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.preview.LineListPreviewProvider
 import dev.yasan.metro.tehran.ui.preview.LinePreviewProvider
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
-import dev.yasan.metro.tehran.util.PreviewHelper
 import dev.yasan.metro.tehran.util.extension.getTextOnColor
 import dev.yasan.metro.tehran.util.extension.toStringPersian
 
@@ -78,14 +78,14 @@ fun LineItem(
     locale = "en"
 )
 @Composable
-private fun LinesPreviewEn() {
+private fun LinesPreviewEn(@PreviewParameter(LineListPreviewProvider::class) lines: List<Line>) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lines.forEach {
+        lines.forEach {
             LineItem(
                 line = it,
                 navController = rememberNavController(),
@@ -103,14 +103,14 @@ private fun LinesPreviewEn() {
     locale = "fa"
 )
 @Composable
-private fun LinesPreviewFa() {
+private fun LinesPreviewFa(@PreviewParameter(LineListPreviewProvider::class) lines: List<Line>) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lines.forEach {
+        lines.forEach {
             LineItem(
                 line = it,
                 navController = rememberNavController(),
