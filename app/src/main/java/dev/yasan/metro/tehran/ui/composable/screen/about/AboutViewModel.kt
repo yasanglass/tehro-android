@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen.home
+package dev.yasan.metro.tehran.ui.composable.screen.about
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,18 +14,22 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- * ViewModel for [HomeScreen]. Handles loading data exclusive to [HomeScreen]
+ * ViewModel for [AboutScreen].
  *
  * @see loadDatabaseInformation
  */
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class AboutViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
     private val databaseInformationRepository: DatabaseInformationRepository
 ) : ViewModel() {
 
     companion object {
-        private const val TAG = "HomeViewModel"
+        private const val TAG = "AboutViewModel"
+    }
+
+    init {
+        loadDatabaseInformation()
     }
 
     private var _databaseInformation =
@@ -37,7 +41,7 @@ class HomeViewModel @Inject constructor(
      *
      * @see databaseInformation
      */
-    fun loadDatabaseInformation() {
+    private fun loadDatabaseInformation() {
         viewModelScope.launch(dispatchers.io) {
             _databaseInformation.postValue(Resource.Loading())
             val data = databaseInformationRepository.getInformation()
@@ -48,4 +52,5 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
+
 }

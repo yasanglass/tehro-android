@@ -26,4 +26,6 @@
     <string name="discord_server">Discord Server</string>
     <string name="telegram_channel">Telegram Channel</string>
     <string name="medium">Medium</string>
+    <string name="database_last_modified_on_date">Database last modified on %1$s.</string>
+
 </resources>
