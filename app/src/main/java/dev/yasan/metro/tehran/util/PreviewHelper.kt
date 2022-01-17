@@ -9,7 +9,7 @@ import dev.yasan.metro.tehran.data.db.entity.*
  */
 object PreviewHelper {
 
-    val lines = listOf(
+    val lines = sequenceOf(
         Line(
             id = 1,
             nameFa = "یک",
@@ -61,7 +61,7 @@ object PreviewHelper {
         ),
     )
 
-    val lineSixStations = listOf(
+    val lineSixStations = sequenceOf(
         Station(
             id = 28,
             nameEn = "Emam Hossein",
@@ -113,7 +113,7 @@ object PreviewHelper {
             lineId = 6,
             interchangeId = 7
         ).apply {
-            line = lines[lineId - 1]
+            line = lines.toList()[lineId - 1]
         }
         stationB = Station(
             id = 102,
@@ -123,7 +123,7 @@ object PreviewHelper {
             lineId = 4,
             interchangeId = 7
         ).apply {
-            line = lines[lineId - 1]
+            line = lines.toList()[lineId - 1]
         }
     }
 
@@ -140,7 +140,7 @@ object PreviewHelper {
             lineId = 6,
             interchangeId = 11
         ).apply {
-            line = lines[lineId - 1]
+            line = lines.toList()[lineId - 1]
         }
         stationB = Station(
             id = 57,
@@ -150,7 +150,7 @@ object PreviewHelper {
             lineId = 2,
             interchangeId = 11
         ).apply {
-            line = lines[lineId - 1]
+            line = lines.toList()[lineId - 1]
         }
     }
 

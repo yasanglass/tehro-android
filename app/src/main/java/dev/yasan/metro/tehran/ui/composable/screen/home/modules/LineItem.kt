@@ -11,6 +11,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -18,11 +19,12 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Line
 import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.preview.line.LineListPreviewProvider
+import dev.yasan.metro.tehran.ui.preview.line.LinePreviewProvider
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
-import dev.yasan.metro.tehran.util.PreviewHelper
 import dev.yasan.metro.tehran.util.extension.getTextOnColor
 import dev.yasan.metro.tehran.util.extension.toStringPersian
 
@@ -31,7 +33,7 @@ import dev.yasan.metro.tehran.util.extension.toStringPersian
  */
 @Composable
 fun LineItem(
-    line: Line,
+    @PreviewParameter(LinePreviewProvider::class) line: Line,
     modifier: Modifier = Modifier,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
@@ -76,14 +78,14 @@ fun LineItem(
     locale = "en"
 )
 @Composable
-private fun LinesPreviewEn() {
+private fun LinesPreviewEn(@PreviewParameter(LineListPreviewProvider::class) lines: List<Line>) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lines.forEach {
+        lines.forEach {
             LineItem(
                 line = it,
                 navController = rememberNavController(),
@@ -101,14 +103,14 @@ private fun LinesPreviewEn() {
     locale = "fa"
 )
 @Composable
-private fun LinesPreviewFa() {
+private fun LinesPreviewFa(@PreviewParameter(LineListPreviewProvider::class) lines: List<Line>) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lines.forEach {
+        lines.forEach {
             LineItem(
                 line = it,
                 navController = rememberNavController(),
@@ -126,7 +128,9 @@ private fun LinesPreviewFa() {
     locale = "en"
 )
 @Composable
-private fun LinePreviewEn() {
+private fun LinePreviewEn(
+    @PreviewParameter(LinePreviewProvider::class) line: Line
+) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -134,7 +138,7 @@ private fun LinePreviewEn() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
         LineItem(
-            line = PreviewHelper.lines.random(),
+            line = line,
             navController = rememberNavController(),
             fontFamily = rubikFamily,
             forceFarsi = false
@@ -149,7 +153,9 @@ private fun LinePreviewEn() {
     locale = "fa"
 )
 @Composable
-private fun LinePreviewFa() {
+private fun LinePreviewFa(
+    @PreviewParameter(LinePreviewProvider::class) line: Line
+) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -157,7 +163,7 @@ private fun LinePreviewFa() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
         LineItem(
-            line = PreviewHelper.lines.random(),
+            line = line,
             navController = rememberNavController(),
             fontFamily = vazirFamily,
             forceFarsi = true

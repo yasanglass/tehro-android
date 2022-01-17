@@ -14,9 +14,9 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.*
 import dev.yasan.metro.tehran.ui.composable.common.yasan.YasanBrandingFooter
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
+import dev.yasan.metro.tehran.ui.composable.screen.home.modules.AppVersionFooter
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.LineItem
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.MapButton
-import dev.yasan.metro.tehran.ui.composable.screen.home.modules.VersionFooter
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -92,7 +92,7 @@ fun HomeScreen(
                 }
 
                 item {
-                    VersionFooter(databaseInformation = databaseInformation.value?.data)
+                    AppVersionFooter()
                 }
 
                 item {
