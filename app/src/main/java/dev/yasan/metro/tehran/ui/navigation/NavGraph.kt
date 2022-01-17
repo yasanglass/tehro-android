@@ -4,7 +4,6 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.expandIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -18,8 +17,8 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
+import dev.yasan.metro.tehran.ui.composable.screen.about.AboutViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
-import dev.yasan.metro.tehran.ui.composable.screen.home.HomeViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
@@ -67,13 +66,11 @@ fun NavGraph(
 
             systemUiController.setStatusBarColor(color = themePrimary)
 
-            val homeViewModel: HomeViewModel = hiltViewModel(it)
-
             HomeScreen(
                 mainViewModel = mainViewModel,
-                homeViewModel = homeViewModel,
                 navController = navController
             )
+
         }
 
         composable(
@@ -114,7 +111,9 @@ fun NavGraph(
             route = NavRoutes.routeAbout(),
         ) {
 
-            AboutScreen()
+            val aboutViewModel: AboutViewModel = hiltViewModel(it)
+
+            AboutScreen(aboutViewModel = aboutViewModel)
         }
     }
 }

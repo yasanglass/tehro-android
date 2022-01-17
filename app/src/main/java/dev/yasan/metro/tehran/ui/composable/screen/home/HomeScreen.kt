@@ -32,19 +32,13 @@ import dev.yasan.metro.tehran.util.Resource
 @Composable
 fun HomeScreen(
     mainViewModel: MainViewModel,
-    homeViewModel: HomeViewModel,
     navController: NavController
 ) {
 
     val lines = mainViewModel.lines.observeAsState()
-    val databaseInformation = homeViewModel.databaseInformation.observeAsState()
 
     if (lines.value is Resource.Initial) {
         mainViewModel.loadLines()
-    }
-
-    if (databaseInformation.value is Resource.Initial) {
-        homeViewModel.loadDatabaseInformation()
     }
 
     TehScreen(title = stringResource(id = R.string.app_name)) {

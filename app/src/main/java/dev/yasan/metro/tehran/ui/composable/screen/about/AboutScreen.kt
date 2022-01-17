@@ -34,7 +34,10 @@ import dev.yasan.metro.tehran.util.LocaleHelper
  * @see NavRoutes.routeAbout
  */
 @Composable
-fun AboutScreen(fontFamily: FontFamily = LocaleHelper.properFontFamily) {
+fun AboutScreen(
+    fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    aboutViewModel: AboutViewModel
+) {
 
     val context = LocalContext.current
 
@@ -154,16 +157,4 @@ fun AboutScreen(fontFamily: FontFamily = LocaleHelper.properFontFamily) {
             Divider(modifier = Modifier.background(color = colorResource(id = R.color.divider)))
         }
     }
-}
-
-@Composable
-@Preview(locale = "en")
-private fun AboutScreenPreviewEn() {
-    AboutScreen(fontFamily = rubikFamily)
-}
-
-@Composable
-@Preview(locale = "fa")
-private fun AboutScreenPreviewFa() {
-    AboutScreen(fontFamily = vazirFamily)
 }
