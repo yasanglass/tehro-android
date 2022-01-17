@@ -20,4 +20,9 @@
     <string name="github">گیت‌هاب</string>
     <string name="about_app">تهرو یک برنامه‌ی متن‌باز برای متروی تهران است.</string>
     <string name="about_yasan">من یک توسعه‌دهنده و طراح مستقل هستم.</string>
+    <string name="medium">مدیوم</string>
+    <string name="telegram_channel">کانال تلگرام</string>
+    <string name="discord_server">سرور دیسکورد</string>
+    <string name="instagram">اینستاگرام</string>
+    <string name="twitter">توییتر</string>
 </resources>
