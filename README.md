@@ -6,11 +6,11 @@
 [![code quality](https://img.shields.io/codacy/grade/abe344aa3a7a4b0b87673ccccfae1c51)](https://app.codacy.com/gh/yasandev/tehro-android/dashboard?utm_source=github.com&utm_medium=referral&utm_content=yasandev/tehro-android&utm_campaign=Badge_Grade)
 [![release](https://img.shields.io/github/v/release/yasandev/tehro-android)](https://github.com/yasandev/tehro-android/releases)
 
-Tehro is a public transport guide app powered by Kotlin & Jetpack Compose.
+Tehro is a metro guide app for Tehran.
 
 ## Database
 
-The database used in the app is stored at [tehro-database repository](https://github.com/yasandev/tehro-database) as the database is and should be a separate project from the Android client.
+The database used in the app is stored at [tehro-database repository](https://github.com/yasandev/tehro-database) as the database is a separate project from the Android client.
 
 ## Releases
 
@@ -18,7 +18,7 @@ You can get the official releases from either [GitHub](https://github.com/yasand
 
 ## Contributing
 
-Pull requests are welcome. I recommend checking out the [open issues](https://github.com/yasandev/tehro-android/issues) and the [TODO comments](https://www.jetbrains.com/help/idea/using-todo.html) on your IDE.
+Pull requests are welcome. I recommend checking out the [open issues](https://github.com/yasandev/tehro-android/issues) and the [TODO comments](https://www.jetbrains.com/help/idea/using-todo.html).
 
 For major changes, please open an issue first to discuss what you would like to change.
 
