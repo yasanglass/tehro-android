@@ -8,13 +8,13 @@
 
 Tehro is a metro guide app for Tehran.
 
-## Database
-
-The database used in the app is stored at [tehro-database repository](https://github.com/yasandev/tehro-database) as the database is a separate project from the Android client.
-
 ## Releases
 
 You can get the official releases from either [GitHub](https://github.com/yasandev/tehro-android/releases) or [Google Play Store](https://play.google.com/store/apps/details?id=dev.yasan.metro).
+
+## Database
+
+The database used in the app is stored at [tehro-database repository](https://github.com/yasandev/tehro-database) as the database is a separate project from the Android client.
 
 ## Contributing
 
