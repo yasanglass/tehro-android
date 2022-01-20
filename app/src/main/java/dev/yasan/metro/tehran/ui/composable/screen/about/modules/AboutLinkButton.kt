@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen.about
+package dev.yasan.metro.tehran.ui.composable.screen.about.modules
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -22,7 +22,6 @@ fun AboutLinkButton(
     icon: Painter,
     url: String,
     contentDescription: String,
-    linkTitle: String
 ) {
     val context = LocalContext.current
     if (url.isNotBlank() && url.isURL()) {

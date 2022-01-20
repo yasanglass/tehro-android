@@ -1,5 +1,6 @@
 package dev.yasan.metro.tehran.ui.composable.screen.home.modules
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -33,7 +34,7 @@ import dev.yasan.metro.tehran.util.extension.toStringPersian
  */
 @Composable
 fun LineItem(
-    @PreviewParameter(LinePreviewProvider::class) line: Line,
+    line: Line,
     modifier: Modifier = Modifier,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
@@ -75,7 +76,14 @@ fun LineItem(
 @Preview(
     name = "Lines [en]",
     group = "Lines List",
-    locale = "en"
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Lines [en]",
+    group = "Lines List",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun LinesPreviewEn(@PreviewParameter(LineListPreviewProvider::class) lines: List<Line>) {
@@ -100,7 +108,14 @@ private fun LinesPreviewEn(@PreviewParameter(LineListPreviewProvider::class) lin
 @Preview(
     name = "Lines [fa]",
     group = "Lines List",
-    locale = "fa"
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Lines [fa]",
+    group = "Lines List",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun LinesPreviewFa(@PreviewParameter(LineListPreviewProvider::class) lines: List<Line>) {
@@ -125,7 +140,14 @@ private fun LinesPreviewFa(@PreviewParameter(LineListPreviewProvider::class) lin
 @Preview(
     name = "Line [en]",
     group = "Single Line",
-    locale = "en"
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Line [en]",
+    group = "Single Line",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun LinePreviewEn(
@@ -150,7 +172,14 @@ private fun LinePreviewEn(
 @Preview(
     name = "Line [fa]",
     group = "Single Line",
-    locale = "fa"
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Line [fa]",
+    group = "Single Line",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun LinePreviewFa(

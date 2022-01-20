@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen.about
+package dev.yasan.metro.tehran.ui.composable.screen.about.modules
 
 /**
  * Holds constant string variables for URLs used on [AboutScreen].

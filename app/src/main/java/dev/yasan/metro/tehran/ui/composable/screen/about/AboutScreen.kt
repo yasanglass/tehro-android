@@ -1,5 +1,6 @@
 package dev.yasan.metro.tehran.ui.composable.screen.about
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
@@ -22,6 +23,9 @@ import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.common.yasan.YasanBrandingFooter
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutIcons
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinkButton
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinks
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.dbinfo.DatabaseInformationPreviewProvider
@@ -40,8 +44,6 @@ fun AboutScreen(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     aboutViewModel: AboutViewModel
 ) {
-
-    val context = LocalContext.current
 
     val databaseInformation = aboutViewModel.databaseInformation.observeAsState()
 
@@ -68,7 +70,10 @@ fun AboutScreen(
     }
 }
 
-@Preview("About App")
+@Preview(name = "About App", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(name = "About App", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(name = "About App", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(name = "About App", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable
 /**
  * A segment on [AboutScreen] that shows information about the app.
@@ -117,7 +122,7 @@ private fun AboutSegmentApp(
                     info.getLastModifiedString()
                 ),
                 fontFamily = fontFamily,
-                fontSize = 16.sp,
+                fontSize = 12.sp,
                 color = colorResource(id = R.color.text_desc)
             )
 
@@ -162,7 +167,6 @@ private fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFami
                 contentDescription = stringResource(
                     id = R.string.twitter
                 ),
-                linkTitle = "dev.twitter"
             )
 
             AboutLinkButton(
@@ -171,7 +175,6 @@ private fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFami
                 contentDescription = stringResource(
                     id = R.string.telegram_channel
                 ),
-                linkTitle = "dev.telegram"
             )
 
             AboutLinkButton(
@@ -180,7 +183,6 @@ private fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFami
                 contentDescription = stringResource(
                     id = R.string.medium
                 ),
-                linkTitle = "dev.medium"
             )
 
             AboutLinkButton(
@@ -189,7 +191,6 @@ private fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFami
                 contentDescription = stringResource(
                     id = R.string.discord_server
                 ),
-                linkTitle = "dev.discord"
             )
 
             AboutLinkButton(
@@ -198,7 +199,6 @@ private fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFami
                 contentDescription = stringResource(
                     id = R.string.instagram
                 ),
-                linkTitle = "dev.instagram"
             )
         }
 

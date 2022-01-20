@@ -1,5 +1,6 @@
 package dev.yasan.metro.tehran.ui.composable.screen.line.modules
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -98,10 +99,18 @@ fun StationItem(
 }
 
 // FIXME: 2021-12-26 fix previews not showing interchanges
+
 @Preview(
     name = "Station [fa]",
     group = "Single Station",
-    locale = "fa"
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station [fa]",
+    group = "Station",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun StationItemPreviewFa(@PreviewParameter(StationPreviewProvider::class) station: Station) {
@@ -124,7 +133,14 @@ private fun StationItemPreviewFa(@PreviewParameter(StationPreviewProvider::class
 @Preview(
     name = "Station [en]",
     group = "Single Station",
-    locale = "en"
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station [en]",
+    group = "Station",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun StationItemPreviewEn(@PreviewParameter(StationPreviewProvider::class) station: Station) {
@@ -147,7 +163,14 @@ private fun StationItemPreviewEn(@PreviewParameter(StationPreviewProvider::class
 @Preview(
     name = "Station List [en]",
     group = "Station List",
-    locale = "en"
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station List [en]",
+    group = "Station List",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun StationItemsPreviewEn(@PreviewParameter(StationListPreviewProvider::class) stations: List<Station>) {
@@ -169,7 +192,14 @@ private fun StationItemsPreviewEn(@PreviewParameter(StationListPreviewProvider::
 @Preview(
     name = "Station List [fa]",
     group = "Station List",
-    locale = "fa"
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station List [fa]",
+    group = "Station List",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun StationItemsPreviewFa(@PreviewParameter(StationListPreviewProvider::class) stations: List<Station>) {
