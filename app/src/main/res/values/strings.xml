@@ -7,6 +7,7 @@
     <string name="failed_to_load_data">Failed to load data</string>
     <string name="back">Go Back</string>
     <string name="line_not_found">Line not found</string>
+    <string name="station_not_found">Station not found</string>
     <string name="no_stations_found">No stations found</string>
     <string name="no_lines_found">No lines found</string>
     <string name="line">Line</string>
