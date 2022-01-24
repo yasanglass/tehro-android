@@ -145,7 +145,7 @@ private fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFami
 
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
-        YasanBrandingFooter(spacerTop = false, spacerBottom = false, ignorePride = true)
+        YasanBrandingFooter(spacerTop = false, spacerBottom = false)
 
         Text(
             modifier = Modifier.padding(grid(2)),
