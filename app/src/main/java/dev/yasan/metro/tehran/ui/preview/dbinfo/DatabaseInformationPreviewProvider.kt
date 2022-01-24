@@ -7,8 +7,8 @@ import dev.yasan.metro.tehran.util.PreviewHelper
 /**
  * Provides preview parameters for [DatabaseInformation].
  */
-class DatabaseInformationPreviewProvider : PreviewParameterProvider<DatabaseInformation> {
+class DatabaseInformationPreviewProvider : PreviewParameterProvider<DatabaseInformation?> {
 
-    override val values = sequenceOf(PreviewHelper.databaseInformation)
+    override val values = sequenceOf(PreviewHelper.databaseInformation, null)
 
 }
