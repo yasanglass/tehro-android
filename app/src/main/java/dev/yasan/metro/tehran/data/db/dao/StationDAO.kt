@@ -34,6 +34,6 @@ interface StationDAO {
     /**
      * @return A list of [Station]s with matching interchange ids.
      */
-    @Query("SELECT * FROM stations WHERE interchange_id=:interchangeId")
-    suspend fun getByInterchangeId(interchangeId: Int): List<Station>
+    @Query("SELECT * FROM stations WHERE intersection_id=:intersectionId")
+    suspend fun getByIntersectionId(intersectionId: Int): List<Station>
 }

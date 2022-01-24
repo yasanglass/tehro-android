@@ -68,9 +68,9 @@ object PreviewHelper {
             nameFa = "امام حسین",
             lineId = 6,
             positionInLine = 0,
-            interchangeId = 11
+            intersectionId = 11
         ).apply {
-            interchange = interchange11
+            intersection = interchange11
         },
         Station(
             id = 29,
@@ -78,9 +78,9 @@ object PreviewHelper {
             nameFa = "میدان شهدا",
             lineId = 6,
             positionInLine = 1,
-            interchangeId = 7
+            intersectionId = 7
         ).apply {
-            interchange = interchange7
+            intersection = interchange7
         },
         Station(
             id = 30,
@@ -88,7 +88,7 @@ object PreviewHelper {
             nameFa = "بعثت",
             lineId = 6,
             positionInLine = 2,
-            interchangeId = null
+            intersectionId = null
         ),
         Station(
             id = 31,
@@ -96,11 +96,11 @@ object PreviewHelper {
             nameFa = "دولت\u200Cآباد",
             lineId = 6,
             positionInLine = 3,
-            interchangeId = null
+            intersectionId = null
         )
     )
 
-    private val interchange7 = Interchange(
+    private val interchange7 = Intersection(
         id = 7,
         stationIdA = 29,
         stationIdB = 102
@@ -111,7 +111,7 @@ object PreviewHelper {
             nameEn = "Meydan-e Shohada",
             positionInLine = 1,
             lineId = 6,
-            interchangeId = 7
+            intersectionId = 7
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -121,13 +121,13 @@ object PreviewHelper {
             nameEn = "Meydan-e Shohada",
             positionInLine = 5,
             lineId = 4,
-            interchangeId = 7
+            intersectionId = 7
         ).apply {
             line = lines.toList()[lineId - 1]
         }
     }
 
-    private val interchange11 = Interchange(
+    private val interchange11 = Intersection(
         id = 7,
         stationIdA = 28,
         stationIdB = 57
@@ -138,7 +138,7 @@ object PreviewHelper {
             nameEn = "Emam Hossein",
             positionInLine = 1,
             lineId = 6,
-            interchangeId = 11
+            intersectionId = 11
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -148,7 +148,7 @@ object PreviewHelper {
             nameEn = "Emam Hossein",
             positionInLine = 5,
             lineId = 2,
-            interchangeId = 11
+            intersectionId = 11
         ).apply {
             line = lines.toList()[lineId - 1]
         }

@@ -24,9 +24,9 @@ import kotlinx.parcelize.IgnoredOnParcel
             childColumns = arrayOf("line_id"),
             onDelete = ForeignKey.NO_ACTION
         ), ForeignKey(
-            entity = Interchange::class,
+            entity = Intersection::class,
             parentColumns = arrayOf("id"),
-            childColumns = arrayOf("interchange_id"),
+            childColumns = arrayOf("intersection_id"),
             onDelete = ForeignKey.NO_ACTION
         )
     ]
@@ -38,7 +38,7 @@ data class Station(
     @ColumnInfo(name = "name_en") val nameEn: String,
     @ColumnInfo(name = "position_in_line") val positionInLine: Int,
     @ColumnInfo(name = "line_id") val lineId: Int,
-    @ColumnInfo(name = "interchange_id") val interchangeId: Int?,
+    @ColumnInfo(name = "intersection_id") val intersectionId: Int?,
 ) {
 
     /**
@@ -58,7 +58,7 @@ data class Station(
 
     @Ignore
     @IgnoredOnParcel
-    var interchange: Interchange? = null
+    var intersection: Intersection? = null
 
     @Ignore
     @IgnoredOnParcel
