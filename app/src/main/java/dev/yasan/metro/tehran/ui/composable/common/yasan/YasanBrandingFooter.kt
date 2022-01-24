@@ -24,12 +24,9 @@ import dev.yasan.metro.tehran.util.PrideHelper
 fun YasanBrandingFooter(
     spacerTop: Boolean = true,
     spacerBottom: Boolean = true,
-    ignorePride: Boolean = false
 ) {
-    val prideMode = !ignorePride && PrideHelper.isPrideMonth
 
-    val imageResource =
-        if (prideMode) R.drawable.ic_logo_text2_pride else R.drawable.ic_yasan_logo_text2_color
+    val imageResource = R.drawable.ic_yasan_logo_text2_color
 
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         if (spacerTop) {
