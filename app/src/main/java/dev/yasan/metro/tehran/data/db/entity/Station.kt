@@ -11,7 +11,6 @@ import kotlinx.parcelize.IgnoredOnParcel
 
 /**
  * This class represents a station on [MetroDatabase].
- * An interchange represents place passengers can enter/exit the public transport. All stations belong to a line.
  *
  * @see Line
  */
