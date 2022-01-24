@@ -48,6 +48,10 @@ android {
         play {
             dimension 'store'
         }
+        bazaar {
+            dimension 'store'
+            applicationIdSuffix(".bazaar")
+        }
         github {
             dimension 'store'
             applicationIdSuffix(".github")
