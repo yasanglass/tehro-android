@@ -7,10 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.yasan.metro.tehran.data.db.MetroDatabase
-import dev.yasan.metro.tehran.data.db.dao.DatabaseInformationDAO
-import dev.yasan.metro.tehran.data.db.dao.IntersectionDAO
-import dev.yasan.metro.tehran.data.db.dao.LineDAO
-import dev.yasan.metro.tehran.data.db.dao.StationDAO
+import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.repo.dbinfo.DatabaseInformationRepository
 import dev.yasan.metro.tehran.data.repo.dbinfo.DatabaseInformationRepositoryImp
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
@@ -19,6 +16,8 @@ import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepositoryImp
+import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
+import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepositoryImp
 import dev.yasan.metro.tehran.util.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -60,6 +59,10 @@ class ApplicationModule {
         metroDatabase.databaseInformationDAO()
 
     @Provides
+    fun provideStationLocationDAO(metroDatabase: MetroDatabase) =
+        metroDatabase.stationLocationDAO()
+
+    @Provides
     fun provideInterchangeDAO(metroDatabase: MetroDatabase) = metroDatabase.interchangeDAO()
 
     @Provides
@@ -87,5 +90,10 @@ class ApplicationModule {
     @Provides
     fun provideDatabaseInformationRepository(databaseInformationDAO: DatabaseInformationDAO): DatabaseInformationRepository =
         DatabaseInformationRepositoryImp(databaseInformationDAO = databaseInformationDAO)
+
+    @Singleton
+    @Provides
+    fun provideStationLocationRepository(stationLocationDAO: StationLocationDAO): StationLocationRepository =
+        StationLocationRepositoryImp(stationLocationDAO = stationLocationDAO)
 
 }

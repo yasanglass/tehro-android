@@ -13,7 +13,6 @@ fun StationScreen(stationViewModel: StationViewModel, stationId: Int) {
 
     fun loadData() {
         stationViewModel.loadStation(stationId = stationId)
-
     }
 
     val stationResource = stationViewModel.station.observeAsState()

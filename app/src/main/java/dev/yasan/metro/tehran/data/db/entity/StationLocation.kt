@@ -14,16 +14,16 @@ import androidx.room.PrimaryKey
     tableName = "station_locations",
     foreignKeys = [
         ForeignKey(
-            entity = Line::class,
+            entity = Station::class,
             parentColumns = arrayOf("id"),
-            childColumns = arrayOf("line_id"),
+            childColumns = arrayOf("station_id"),
             onDelete = ForeignKey.NO_ACTION
         )
     ]
 )
 data class StationLocation(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "line_id") val lineId: Int,
+    @ColumnInfo(name = "station_id") val stationId: Int,
     @ColumnInfo(name = "latitude") val latitude: Double,
     @ColumnInfo(name = "longitude") val longitude: Double,
 )
