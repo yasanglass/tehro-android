@@ -55,14 +55,8 @@ fun StationItem(
             .fillMaxWidth()
             .background(color = colorBackground)
             .border(width = dimenDivider, color = colorBorder)
-            .clickable(enabled = hasInterchange) {
-                if (hasInterchange) {
-                    station.intersection
-                        ?.getOppositeLine(station.id)
-                        ?.let { line ->
-                            navController.navigate(NavRoutes.routeLine(line = line))
-                        }
-                }
+            .clickable {
+                navController.navigate(NavRoutes.routeStation(station = station))
             }
             .padding(horizontal = grid(2))
             .padding(vertical = grid(1.25f)),
