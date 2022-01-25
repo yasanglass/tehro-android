@@ -2,7 +2,6 @@ package dev.yasan.metro.tehran.ui.composable.screen.station.modules
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -42,27 +41,30 @@ fun StationScreenSuccess(
 
         item {
 
-            Row(verticalAlignment = Alignment.CenterVertically) {
-
-                station.getIcon()?.let {
-                    Icon(
-                        imageVector = it,
-                        contentDescription = null,
-                        tint = colorResource(id = R.color.text_title)
-                    )
-                }
-
-                Text(
-                    modifier = Modifier.padding(grid(2)),
-                    text = if (forceFarsi) station.nameFa else station.name,
-                    fontFamily = fontFamily,
-                    color = colorResource(id = R.color.text_title),
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 18.sp
+            station.getIcon()?.let {
+                Icon(
+                    modifier = Modifier
+                        .padding(horizontal = grid(2))
+                        .padding(top = grid(2)),
+                    imageVector = it,
+                    contentDescription = null,
+                    tint = colorResource(id = R.color.text_title)
                 )
-
             }
+
+        }
+
+        item {
+
+            Text(
+                modifier = Modifier.padding(grid(2)),
+                text = if (forceFarsi) station.nameFa else station.name,
+                fontFamily = fontFamily,
+                color = colorResource(id = R.color.text_title),
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                fontSize = 18.sp
+            )
 
         }
 
