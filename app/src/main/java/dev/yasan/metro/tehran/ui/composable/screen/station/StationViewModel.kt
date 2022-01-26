@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
+import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
 import dev.yasan.metro.tehran.util.DispatcherProvider
 import dev.yasan.metro.tehran.util.Resource
 import kotlinx.coroutines.launch
@@ -16,7 +17,8 @@ import javax.inject.Inject
 @HiltViewModel
 class StationViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
-    private val stationRepository: StationRepository
+    private val stationRepository: StationRepository,
+    private val stationLocationRepository: StationLocationRepository
 ) : ViewModel() {
 
     private var _station = MutableLiveData<Resource<Station>>(Resource.Initial())
@@ -28,9 +30,12 @@ class StationViewModel @Inject constructor(
     fun loadStation(stationId: Int) {
         viewModelScope.launch(dispatchers.io) {
             _station.postValue(Resource.Loading())
-            val data = stationRepository.getStation(stationId = stationId)
-            if (data != null) {
-                _station.postValue(Resource.Success(data = data))
+            val mStation = stationRepository.getStation(stationId = stationId)
+            if (mStation != null) {
+                stationLocationRepository.getByStationId(stationId = stationId)?.let {
+                    mStation.location = it
+                }
+                _station.postValue(Resource.Success(data = mStation))
             } else {
                 _station.postValue(Resource.Error(messageResourceId = R.string.station_not_found))
             }

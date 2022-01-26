@@ -63,6 +63,10 @@ data class Station(
     @IgnoredOnParcel
     var line: Line? = null
 
+    @Ignore
+    @IgnoredOnParcel
+    var location: StationLocation? = null
+
     /**
      * @return A custom icon based on the name of the station.
      */

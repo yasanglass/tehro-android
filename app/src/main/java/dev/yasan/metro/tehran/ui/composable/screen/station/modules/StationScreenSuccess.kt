@@ -1,16 +1,23 @@
 package dev.yasan.metro.tehran.ui.composable.screen.station.modules
 
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.icons.sharp.Map
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -19,11 +26,14 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
+import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
+import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
+
 
 @Composable
 fun StationScreenSuccess(
@@ -31,6 +41,8 @@ fun StationScreenSuccess(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
+
+    val context = LocalContext.current
 
     LazyColumn(
         modifier = Modifier
@@ -67,6 +79,29 @@ fun StationScreenSuccess(
             )
 
         }
+
+        station.location?.let {
+
+            item {
+                TehButton(
+                    title = stringResource(R.string.view_on_map),
+                    icon = TehroIcons.Map,
+                    onClick = {
+
+                        val uri = "geo:${it.latitude},${it.longitude}"
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                        context.startActivity(intent)
+
+                    }
+                )
+            }
+
+            item {
+                Spacer(modifier = Modifier.requiredHeight(grid(2)))
+            }
+
+        }
+
 
     }
 
