@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
-import dev.yasan.metro.tehran.data.repo.interchange.InterchangeRepository
+import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.util.DispatcherProvider
@@ -24,7 +24,7 @@ import javax.inject.Inject
 class LineViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
     private val stationRepository: StationRepository,
-    private val interchangeRepository: InterchangeRepository,
+    private val intersectionRepository: IntersectionRepository,
     private val lineRepository: LineRepository
 ) : ViewModel() {
 
@@ -51,9 +51,9 @@ class LineViewModel @Inject constructor(
                     // Sort stations
                     sortBy { it.positionInLine }
                     forEach { station ->
-                        station.interchangeId?.let { interchangeId ->
+                        station.intersectionId?.let { interchangeId ->
                             // Load interchange data for station
-                            interchangeRepository.getInterchange(interchangeId = interchangeId)
+                            intersectionRepository.getIntersection(interchangeId = interchangeId)
                                 ?.let {
                                     it.stationA =
                                         stationRepository.getStation(stationId = it.stationIdA)
@@ -70,7 +70,7 @@ class LineViewModel @Inject constructor(
 
                                     if (it.hasBothStations()) {
                                         // Only use the interchange data if both stations are properly loaded
-                                        station.interchange = it
+                                        station.intersection = it
                                     }
                                 }
                         }

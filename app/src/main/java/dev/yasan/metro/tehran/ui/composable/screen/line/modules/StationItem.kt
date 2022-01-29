@@ -39,8 +39,8 @@ fun StationItem(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
-    val hasInterchange = station.interchange != null
-    val oppositeLineColor = station.interchange?.getOppositeLine(stationId = station.id)?.color
+    val hasInterchange = station.intersection != null
+    val oppositeLineColor = station.intersection?.getOppositeLine(stationId = station.id)?.color
     val colorBackground = oppositeLineColor ?: colorResource(id = R.color.layer_foreground)
     val colorBorder = oppositeLineColor ?: colorResource(id = R.color.divider)
 
@@ -55,14 +55,8 @@ fun StationItem(
             .fillMaxWidth()
             .background(color = colorBackground)
             .border(width = dimenDivider, color = colorBorder)
-            .clickable(enabled = hasInterchange) {
-                if (hasInterchange) {
-                    station.interchange
-                        ?.getOppositeLine(station.id)
-                        ?.let { line ->
-                            navController.navigate(NavRoutes.routeLine(line = line))
-                        }
-                }
+            .clickable {
+                navController.navigate(NavRoutes.routeStation(station = station))
             }
             .padding(horizontal = grid(2))
             .padding(vertical = grid(1.25f)),

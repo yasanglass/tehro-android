@@ -13,6 +13,9 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
+import com.google.accompanist.navigation.material.ModalBottomSheetLayout
+import com.google.accompanist.navigation.material.bottomSheet
+import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
@@ -23,6 +26,8 @@ import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapViewModel
+import dev.yasan.metro.tehran.ui.composable.screen.station.StationScreen
+import dev.yasan.metro.tehran.ui.composable.screen.station.StationViewModel
 import dev.yasan.metro.tehran.ui.theme.themePrimary
 
 /**
@@ -39,81 +44,108 @@ fun NavGraph(
     startDestination: String = NavRoutes.routeHome()
 ) {
 
-    val navController = rememberAnimatedNavController()
+    val bottomSheetNavigator = rememberBottomSheetNavigator()
+    val navController = rememberAnimatedNavController(bottomSheetNavigator)
     val systemUiController = rememberSystemUiController()
         .apply { setNavigationBarColor(color = colorResource(id = R.color.layer_background)) }
 
     val mainViewModel: MainViewModel = hiltViewModel()
 
-    AnimatedNavHost(
-        navController = navController,
-        startDestination = startDestination,
-        enterTransition = { _, _ ->
-            expandIn()
-        },
-        popEnterTransition = { _, _ ->
-            expandIn()
-        },
-        exitTransition = { _, _ ->
-            fadeOut()
-        },
-        popExitTransition = { _, _ ->
-            fadeOut()
-        },
-    ) {
-
-        composable(route = NavRoutes.routeHome()) {
-
-            systemUiController.setStatusBarColor(color = themePrimary)
-
-            HomeScreen(
-                mainViewModel = mainViewModel,
-                navController = navController
-            )
-
-        }
-
-        composable(
-            route = NavRoutes.routeLineBase(),
-            arguments = listOf(
-                navArgument(NavRoutes.EXTRA_LINE_ID) {
-                    type = NavType.IntType
-                },
-            )
+    ModalBottomSheetLayout(bottomSheetNavigator) {
+        AnimatedNavHost(
+            navController = navController,
+            startDestination = startDestination,
+            enterTransition = { _, _ ->
+                expandIn()
+            },
+            popEnterTransition = { _, _ ->
+                expandIn()
+            },
+            exitTransition = { _, _ ->
+                fadeOut()
+            },
+            popExitTransition = { _, _ ->
+                fadeOut()
+            },
         ) {
 
-            val lineViewModel: LineViewModel = hiltViewModel(it)
+            composable(route = NavRoutes.routeHome()) {
 
-            val lineId =
-                it.arguments?.getInt(NavRoutes.EXTRA_LINE_ID) ?: 0
+                systemUiController.setStatusBarColor(color = themePrimary)
 
-            val line = mainViewModel.getLineById(lineId = lineId)
+                HomeScreen(
+                    mainViewModel = mainViewModel,
+                    navController = navController
+                )
 
-            systemUiController.setStatusBarColor(color = line?.color ?: Color.DarkGray)
+            }
 
-            LineScreen(
-                lineViewModel = lineViewModel,
-                navController = navController,
-                line = line
-            )
-        }
+            composable(
+                route = NavRoutes.routeLineBase(),
+                arguments = listOf(
+                    navArgument(NavRoutes.EXTRA_LINE_ID) {
+                        type = NavType.IntType
+                    },
+                )
+            ) {
 
-        composable(route = NavRoutes.routeMap()) {
+                val lineViewModel: LineViewModel = hiltViewModel(it)
 
-            systemUiController.setStatusBarColor(color = themePrimary)
+                val lineId =
+                    it.arguments?.getInt(NavRoutes.EXTRA_LINE_ID) ?: 0
 
-            val mapViewModel: MapViewModel = hiltViewModel(it)
+                val line = mainViewModel.getLineById(lineId = lineId)
 
-            MapScreen(mapViewModel = mapViewModel)
-        }
+                systemUiController.setStatusBarColor(color = line?.color ?: Color.DarkGray)
 
-        composable(
-            route = NavRoutes.routeAbout(),
-        ) {
+                LineScreen(
+                    lineViewModel = lineViewModel,
+                    navController = navController,
+                    line = line
+                )
+            }
 
-            val aboutViewModel: AboutViewModel = hiltViewModel(it)
+            composable(route = NavRoutes.routeMap()) {
 
-            AboutScreen(aboutViewModel = aboutViewModel)
+                systemUiController.setStatusBarColor(color = themePrimary)
+
+                val mapViewModel: MapViewModel = hiltViewModel(it)
+
+                MapScreen(mapViewModel = mapViewModel)
+            }
+
+            composable(
+                route = NavRoutes.routeAbout(),
+            ) {
+
+                val aboutViewModel: AboutViewModel = hiltViewModel(it)
+
+                AboutScreen(aboutViewModel = aboutViewModel)
+            }
+
+            bottomSheet(
+                route = NavRoutes.routeStationBase(),
+                arguments = listOf(
+                    navArgument(NavRoutes.EXTRA_STATION_ID) {
+                        type = NavType.IntType
+                    },
+                )
+            ) {
+
+                val stationId =
+                    it.arguments?.getInt(NavRoutes.EXTRA_STATION_ID) ?: 0
+
+                val stationViewModel: StationViewModel = hiltViewModel(it)
+
+                StationScreen(
+                    stationViewModel = stationViewModel,
+                    navController = navController,
+                    stationId = stationId
+                )
+
+            }
+
         }
     }
+
 }
