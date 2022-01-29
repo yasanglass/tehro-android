@@ -18,6 +18,15 @@
     <string name="branch">انشعاب</string>
     <string name="about">درباره</string>
     <string name="github">گیت‌هاب</string>
-    <string name="about_app">تهرو یک برنامه‌ی متن‌باز برای متروی تهران است.</string>
+    <string name="about_app">تهرو یک برنامه‌ آزاد و متن‌باز کمکی برای متروی تهران است.</string>
     <string name="about_yasan">من یک توسعه‌دهنده و طراح مستقل هستم.</string>
+    <string name="medium">مدیوم</string>
+    <string name="telegram_channel">کانال تلگرام</string>
+    <string name="discord_server">سرور دیسکورد</string>
+    <string name="instagram">اینستاگرام</string>
+    <string name="twitter">توییتر</string>
+    <string name="database_last_modified_on_date">دیتابیس آخرین‌ بار در %1$s بروزرسانی شده است.</string>
+    <string name="view_on_map">دیدن روی نقشه</string>
+    <string name="station_not_found">ایستگاه پیدا نشد</string>
+    <string name="no_app_found_map">برنامه‌ای برای باز کردن نقشه پیدا نشد</string>
 </resources>

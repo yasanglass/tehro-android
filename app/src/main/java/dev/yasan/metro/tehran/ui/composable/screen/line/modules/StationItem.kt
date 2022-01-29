@@ -1,5 +1,6 @@
 package dev.yasan.metro.tehran.ui.composable.screen.line.modules
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,15 +15,17 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.preview.station.StationListPreviewProvider
+import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.*
 import dev.yasan.metro.tehran.util.LocaleHelper
-import dev.yasan.metro.tehran.util.PreviewHelper
 import dev.yasan.metro.tehran.util.extension.getTextOnColor
 
 /**
@@ -36,8 +39,8 @@ fun StationItem(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
-    val hasInterchange = station.interchange != null
-    val oppositeLineColor = station.interchange?.getOppositeLine(stationId = station.id)?.color
+    val hasInterchange = station.intersection != null
+    val oppositeLineColor = station.intersection?.getOppositeLine(stationId = station.id)?.color
     val colorBackground = oppositeLineColor ?: colorResource(id = R.color.layer_foreground)
     val colorBorder = oppositeLineColor ?: colorResource(id = R.color.divider)
 
@@ -52,14 +55,8 @@ fun StationItem(
             .fillMaxWidth()
             .background(color = colorBackground)
             .border(width = dimenDivider, color = colorBorder)
-            .clickable(enabled = hasInterchange) {
-                if (hasInterchange) {
-                    station.interchange
-                        ?.getOppositeLine(station.id)
-                        ?.let { line ->
-                            navController.navigate(NavRoutes.routeLine(line = line))
-                        }
-                }
+            .clickable {
+                navController.navigate(NavRoutes.routeStation(station = station))
             }
             .padding(horizontal = grid(2))
             .padding(vertical = grid(1.25f)),
@@ -96,13 +93,21 @@ fun StationItem(
 }
 
 // FIXME: 2021-12-26 fix previews not showing interchanges
+
 @Preview(
     name = "Station [fa]",
     group = "Single Station",
-    locale = "fa"
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station [fa]",
+    group = "Station",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun StationItemPreviewFa() {
+private fun StationItemPreviewFa(@PreviewParameter(StationPreviewProvider::class) station: Station) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -110,7 +115,7 @@ private fun StationItemPreviewFa() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid(0.5f)))
         StationItem(
-            station = PreviewHelper.lineSixStations.random(),
+            station = station,
             navController = rememberNavController(),
             fontFamily = vazirFamily,
             forceFarsi = true
@@ -122,10 +127,17 @@ private fun StationItemPreviewFa() {
 @Preview(
     name = "Station [en]",
     group = "Single Station",
-    locale = "en"
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station [en]",
+    group = "Station",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun StationItemPreviewEn() {
+private fun StationItemPreviewEn(@PreviewParameter(StationPreviewProvider::class) station: Station) {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -133,7 +145,7 @@ private fun StationItemPreviewEn() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid(0.5f)))
         StationItem(
-            station = PreviewHelper.lineSixStations.random(),
+            station = station,
             navController = rememberNavController(),
             fontFamily = rubikFamily,
             forceFarsi = false
@@ -145,14 +157,21 @@ private fun StationItemPreviewEn() {
 @Preview(
     name = "Station List [en]",
     group = "Station List",
-    locale = "en"
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station List [en]",
+    group = "Station List",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun StationItemsPreviewEn() {
+private fun StationItemsPreviewEn(@PreviewParameter(StationListPreviewProvider::class) stations: List<Station>) {
     val navController = rememberNavController()
     Column(modifier = Modifier.background(color = colorResource(id = R.color.layer_midground))) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lineSixStations.forEach { station ->
+        stations.forEach { station ->
             StationItem(
                 station = station,
                 navController = navController,
@@ -167,14 +186,21 @@ private fun StationItemsPreviewEn() {
 @Preview(
     name = "Station List [fa]",
     group = "Station List",
-    locale = "fa"
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Station List [fa]",
+    group = "Station List",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun StationItemsPreviewFa() {
+private fun StationItemsPreviewFa(@PreviewParameter(StationListPreviewProvider::class) stations: List<Station>) {
     val navController = rememberNavController()
     Column(modifier = Modifier.background(color = colorResource(id = R.color.layer_midground))) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        PreviewHelper.lineSixStations.forEach { station ->
+        stations.forEach { station ->
             StationItem(
                 station = station,
                 navController = navController,

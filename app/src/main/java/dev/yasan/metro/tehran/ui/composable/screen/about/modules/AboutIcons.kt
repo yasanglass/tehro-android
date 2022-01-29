@@ -1,9 +1,10 @@
-package dev.yasan.metro.tehran.ui.composable.screen.about
+package dev.yasan.metro.tehran.ui.composable.screen.about.modules
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 
 /**
  * Holds icons used on [AboutScreen] which are not a part of the Material icons library.

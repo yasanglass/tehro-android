@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen.about
+package dev.yasan.metro.tehran.ui.composable.screen.about.modules
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -16,13 +16,16 @@ import dev.yasan.helper.library.WebHelper
 import dev.yasan.helper.library.isURL
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.theme.grid
+import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 
+/**
+ * A simple composable that shows a clickable icon. Meant to be used on [AboutScreen].
+ */
 @Composable
 fun AboutLinkButton(
     icon: Painter,
     url: String,
     contentDescription: String,
-    linkTitle: String
 ) {
     val context = LocalContext.current
     if (url.isNotBlank() && url.isURL()) {
@@ -43,12 +46,14 @@ fun AboutLinkButton(
     }
 }
 
+/**
+ * A simple composable that shows a clickable icon. Meant to be used on [AboutScreen].
+ */
 @Composable
 fun AboutLinkButton(
     icon: ImageVector,
     url: String,
     contentDescription: String,
-    linkTitle: String
 ) {
     if (url.isNotBlank() && url.isURL()) {
         val context = LocalContext.current

@@ -1,5 +1,8 @@
 package dev.yasan.metro.tehran.ui.composable.common.teh
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Surface
@@ -17,10 +20,12 @@ import dev.yasan.metro.tehran.ui.theme.grid
  */
 @Composable
 fun TehProgress(modifier: Modifier = Modifier) {
-    CircularProgressIndicator(
-        modifier = modifier.padding(grid(2)),
-        color = colorResource(id = R.color.text_desc),
-    )
+    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+        CircularProgressIndicator(
+            modifier = modifier.padding(grid(2)),
+            color = colorResource(id = R.color.text_desc),
+        )
+    }
 }
 
 @Preview

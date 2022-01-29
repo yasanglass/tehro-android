@@ -7,6 +7,7 @@
     <string name="failed_to_load_data">Failed to load data</string>
     <string name="back">Go Back</string>
     <string name="line_not_found">Line not found</string>
+    <string name="station_not_found">Station not found</string>
     <string name="no_stations_found">No stations found</string>
     <string name="no_lines_found">No lines found</string>
     <string name="line">Line</string>
@@ -19,11 +20,15 @@
     <string name="branch">Branch</string>
     <string name="about">About</string>
     <string name="github">GitHub</string>
-    <string name="about_app">Tehro is an open-source metro guide for Tehran.</string>
+    <string name="about_app">Tehro is a free &amp; open-source guide application for Tehran Metro.</string>
     <string name="about_yasan">I\'m an indie developer &amp; designer.</string>
     <string name="twitter">Twitter</string>
     <string name="instagram">Instagram</string>
     <string name="discord_server">Discord Server</string>
     <string name="telegram_channel">Telegram Channel</string>
-    <string name="medium">مدیوم</string>
+    <string name="medium">Medium</string>
+    <string name="database_last_modified_on_date">Database last modified on %1$s.</string>
+    <string name="view_on_map">View on Map</string>
+    <string name="no_app_found_map">Could not find an app to open the location</string>
+
 </resources>

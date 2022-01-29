@@ -5,11 +5,11 @@ import dev.yasan.metro.tehran.data.db.MetroDatabase
 import kotlinx.parcelize.IgnoredOnParcel
 
 /**
- * This class represents an interchange on [MetroDatabase].
+ * This class represents an intersection on [MetroDatabase].
  * An interchange represents a place where two [Line]s cross each other & passengers can change the [Line] they are on.
  */
 @Entity(
-    tableName = "interchanges",
+    tableName = "intersections",
     foreignKeys = [
         ForeignKey(
             entity = Station::class,
@@ -24,7 +24,7 @@ import kotlinx.parcelize.IgnoredOnParcel
         )
     ],
 )
-data class Interchange(
+data class Intersection(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "station_a", index = true) val stationIdA: Int,
