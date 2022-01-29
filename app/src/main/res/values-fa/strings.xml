@@ -28,4 +28,5 @@
     <string name="database_last_modified_on_date">دیتابیس آخرین‌ بار در %1$s بروزرسانی شده است.</string>
     <string name="view_on_map">دیدن روی نقشه</string>
     <string name="station_not_found">ایستگاه پیدا نشد</string>
+    <string name="no_app_found_map">برنامه‌ای برای باز کردن نقشه پیدا نشد</string>
 </resources>
