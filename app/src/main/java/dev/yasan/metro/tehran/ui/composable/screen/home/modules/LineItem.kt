@@ -63,7 +63,7 @@ fun LineItem(
             )
             Spacer(modifier = Modifier.weight(1f))
             Text(
-                text = if (forceFarsi) line.id.toStringPersian() else line.id.toString(),
+                text = if (LocaleHelper.isFarsi || forceFarsi) line.id.toStringPersian() else line.id.toString(),
                 color = color.getTextOnColor(),
                 fontFamily = fontFamily,
                 fontWeight = FontWeight.Bold,
