@@ -11,6 +11,7 @@ import androidx.compose.material.icons.sharp.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -18,6 +19,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.theme.*
@@ -36,12 +38,17 @@ fun TehButton(
     modifier: Modifier = Modifier,
     title: String,
     icon: ImageVector,
-    onClick: () -> Unit,
+    color: Color = themeAccent,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    fontSize: TextUnit = 16.sp,
+    onClick: () -> Unit,
 ) {
+
+    val tint = color.getTextOnColor()
+
     Row(
         modifier = modifier
-            .background(color = themeAccent)
+            .background(color = color)
             .clickable {
                 onClick()
             }
@@ -53,7 +60,7 @@ fun TehButton(
             modifier = Modifier,
             imageVector = icon,
             contentDescription = null,
-            tint = onThemeAccent,
+            tint = tint,
         )
         Spacer(modifier = Modifier.requiredWidth(grid(0.5f)))
         Text(
@@ -61,8 +68,8 @@ fun TehButton(
             text = title.uppercase(),
             fontFamily = fontFamily,
             fontWeight = FontWeight.Bold,
-            fontSize = 16.sp,
-            color = themeAccent.getTextOnColor(),
+            fontSize = fontSize,
+            color = tint,
             textAlign = TextAlign.Center
         )
     }

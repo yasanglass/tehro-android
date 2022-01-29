@@ -4,10 +4,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -16,6 +13,7 @@ import androidx.compose.material.icons.sharp.MultipleStop
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -64,7 +62,7 @@ fun StationScreenSuccess(
                 Icon(
                     modifier = Modifier
                         .padding(horizontal = grid(2))
-                        .padding(top = grid(2)),
+                        .padding(top = if (LocaleHelper.isFarsi) grid(3) else grid(2)),
                     imageVector = it,
                     contentDescription = null,
                     tint = colorResource(id = R.color.text_title)
@@ -82,60 +80,69 @@ fun StationScreenSuccess(
                 color = colorResource(id = R.color.text_title),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
-                fontSize = 18.sp
+                fontSize = 22.sp
             )
 
         }
 
-        station.location?.let {
+        item {
 
-            item {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = grid(2))
+            ) {
 
-                TehButton(
-                    title = stringResource(R.string.view_on_map),
-                    icon = TehroIcons.Map,
-                    onClick = {
-
-                        val uri = "geo:${it.latitude},${it.longitude}"
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
-                        context.startActivity(intent)
-
-                    }
-                )
-            }
-
-            item {
-                Spacer(modifier = Modifier.requiredHeight(grid(2)))
-            }
-
-        }
-
-        station.intersection?.let { intersection ->
-
-            intersection.getOppositeLine(stationId = station.id)?.let { line ->
-
-                item {
-
-                    val intersectionButtonTitle: String =
-                        when (line.type) {
-                            LineType.METRO_BRANCH ->
-                                "${stringResource(id = R.string.line)} ${line.name} (${stringResource(id = R.string.branch)})"
-                            else -> "${stringResource(id = R.string.line)} ${line.name}"
-                        }
+                station.location?.let {
 
                     TehButton(
-                        title = intersectionButtonTitle,
-                        icon = TehroIcons.MultipleStop,
+                        modifier = Modifier.fillMaxWidth(),
+                        title = stringResource(R.string.view_on_map),
+                        icon = TehroIcons.Map,
                         onClick = {
-                            navController.navigate(NavRoutes.routeLine(line = line))
+
+                            val uri = "geo:${it.latitude},${it.longitude}"
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                            context.startActivity(intent)
+
                         }
                     )
 
+                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
                 }
 
-                item {
-                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+                station.intersection?.let { intersection ->
+
+                    intersection.getOppositeLine(stationId = station.id)?.let { line ->
+
+                        val intersectionButtonTitle: String =
+                            when (line.type) {
+                                LineType.METRO_BRANCH ->
+                                    "${stringResource(id = R.string.line)} ${line.name} (${
+                                        stringResource(
+                                            id = R.string.branch
+                                        )
+                                    })"
+                                else -> "${stringResource(id = R.string.line)} ${line.name}"
+                            }
+
+                        TehButton(
+                            color = line.color,
+                            modifier = Modifier.fillMaxWidth(),
+                            title = intersectionButtonTitle,
+                            icon = TehroIcons.MultipleStop,
+                            onClick = {
+                                navController.navigate(NavRoutes.routeLine(line = line))
+                            }
+                        )
+
+                        Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
+                    }
+
                 }
+
             }
 
         }
