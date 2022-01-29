@@ -1,5 +1,12 @@
 # Tehro Changelog
 
+## v2.0.5
+
+- New stations details bottom sheet that shows all the available information for that station including location.
+- Fixed line number not being converted to Persian numbers when the locale is Persian.
+- About screen now shows when was the database last modified.
+- Removed the Pride variant of YASAN logo.
+
 ## v2.0.4
 
 - Removed Firebase.
