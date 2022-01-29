@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
+import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
+import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
 import dev.yasan.metro.tehran.util.DispatcherProvider
@@ -18,7 +20,9 @@ import javax.inject.Inject
 class StationViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
     private val stationRepository: StationRepository,
-    private val stationLocationRepository: StationLocationRepository
+    private val stationLocationRepository: StationLocationRepository,
+    private val intersectionRepository: IntersectionRepository,
+    private val lineRepository: LineRepository
 ) : ViewModel() {
 
     private var _station = MutableLiveData<Resource<Station>>(Resource.Initial())
@@ -32,9 +36,35 @@ class StationViewModel @Inject constructor(
             _station.postValue(Resource.Loading())
             val mStation = stationRepository.getStation(stationId = stationId)
             if (mStation != null) {
-                stationLocationRepository.getByStationId(stationId = stationId)?.let {
-                    mStation.location = it
+                // Location
+                stationLocationRepository.getByStationId(stationId = stationId)
+                    ?.let { mStation.location = it }
+
+                // Intersection
+                mStation.intersectionId?.let { interchangeId ->
+                    // Load interchange data for station
+                    intersectionRepository.getIntersection(interchangeId = interchangeId)
+                        ?.let {
+                            it.stationA =
+                                stationRepository.getStation(stationId = it.stationIdA)
+                                    ?.apply {
+                                        line =
+                                            lineRepository.getLine(lineId = this.lineId)
+                                    }
+                            it.stationB =
+                                stationRepository.getStation(stationId = it.stationIdB)
+                                    ?.apply {
+                                        line =
+                                            lineRepository.getLine(lineId = this.lineId)
+                                    }
+
+                            if (it.hasBothStations()) {
+                                // Only use the interchange data if both stations are properly loaded
+                                mStation.intersection = it
+                            }
+                        }
                 }
+
                 _station.postValue(Resource.Success(data = mStation))
             } else {
                 _station.postValue(Resource.Error(messageResourceId = R.string.station_not_found))

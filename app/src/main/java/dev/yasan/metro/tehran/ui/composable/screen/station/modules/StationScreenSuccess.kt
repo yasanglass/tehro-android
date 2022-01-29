@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Map
+import androidx.compose.material.icons.sharp.MultipleStop
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,9 +25,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import dev.yasan.helper.library.NavigationHelper
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
+import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid
@@ -38,6 +44,7 @@ import dev.yasan.metro.tehran.util.LocaleHelper
 @Composable
 fun StationScreenSuccess(
     station: Station,
+    navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
@@ -83,6 +90,7 @@ fun StationScreenSuccess(
         station.location?.let {
 
             item {
+
                 TehButton(
                     title = stringResource(R.string.view_on_map),
                     icon = TehroIcons.Map,
@@ -102,6 +110,35 @@ fun StationScreenSuccess(
 
         }
 
+        station.intersection?.let { intersection ->
+
+            intersection.getOppositeLine(stationId = station.id)?.let { line ->
+
+                item {
+
+                    val intersectionButtonTitle: String =
+                        when (line.type) {
+                            LineType.METRO_BRANCH ->
+                                "${stringResource(id = R.string.line)} ${line.name} (${stringResource(id = R.string.branch)})"
+                            else -> "${stringResource(id = R.string.line)} ${line.name}"
+                        }
+
+                    TehButton(
+                        title = intersectionButtonTitle,
+                        icon = TehroIcons.MultipleStop,
+                        onClick = {
+                            navController.navigate(NavRoutes.routeLine(line = line))
+                        }
+                    )
+
+                }
+
+                item {
+                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+                }
+            }
+
+        }
 
     }
 
@@ -121,7 +158,11 @@ fun StationScreenSuccess(
 )
 @Composable
 private fun StationScreenSuccessPreviewEn(@PreviewParameter(StationPreviewProvider::class) station: Station) {
-    StationScreenSuccess(station = station, fontFamily = rubikFamily)
+    StationScreenSuccess(
+        station = station,
+        fontFamily = rubikFamily,
+        navController = rememberNavController()
+    )
 }
 
 @Preview(
@@ -138,5 +179,10 @@ private fun StationScreenSuccessPreviewEn(@PreviewParameter(StationPreviewProvid
 )
 @Composable
 private fun StationScreenSuccessPreviewFa(@PreviewParameter(StationPreviewProvider::class) station: Station) {
-    StationScreenSuccess(station = station, fontFamily = vazirFamily, forceFarsi = true)
+    StationScreenSuccess(
+        station = station,
+        fontFamily = vazirFamily,
+        forceFarsi = true,
+        navController = rememberNavController()
+    )
 }

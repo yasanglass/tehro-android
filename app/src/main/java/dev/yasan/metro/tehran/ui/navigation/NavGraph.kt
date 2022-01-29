@@ -137,7 +137,11 @@ fun NavGraph(
 
                 val stationViewModel: StationViewModel = hiltViewModel(it)
 
-                StationScreen(stationViewModel = stationViewModel, stationId = stationId)
+                StationScreen(
+                    stationViewModel = stationViewModel,
+                    navController = navController,
+                    stationId = stationId
+                )
 
             }
 
