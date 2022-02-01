@@ -7,6 +7,6 @@ import java.util.*
  */
 object PrideHelper {
 
-    val isPrideMonth = Calendar.getInstance()[Calendar.MONTH] == Calendar.FEBRUARY
+    val isPrideMonth = Calendar.getInstance()[Calendar.MONTH] == Calendar.JUNE
 
 }
