@@ -5,6 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
     id 'io.gitlab.arturbosch.detekt'
+    id 'me.moallemi.advanced-build-version'
     id 'com.adarshr.test-logger' version '3.0.0'
 }
 
@@ -20,8 +21,26 @@ android {
         minSdk 21
         targetSdk 31
 
-        versionCode 205
-        versionName "2.0.5"
+        advancedVersioning {
+            nameOptions {
+                versionMajor 2
+                versionMinor 0
+                versionPatch 5
+            }
+            codeOptions {
+                versionCodeType 'GIT_COMMIT_COUNT'
+            }
+            outputOptions {
+                renameOutput true
+                nameFormat 'tehro-${versionName}-${versionCode}-${buildType}-${flavorName}'
+            }
+        }
+
+        def appVersionName = advancedVersioning.versionName
+        def appVersionCode = advancedVersioning.versionCode
+
+        versionCode appVersionCode
+        versionName appVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -82,6 +101,7 @@ android {
         }
     }
 }
+advancedVersioning.renameOutputApk()
 
 dependencies {
 
