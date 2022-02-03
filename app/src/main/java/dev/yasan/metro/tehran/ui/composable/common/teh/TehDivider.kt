@@ -12,5 +12,9 @@ import dev.yasan.metro.tehran.ui.theme.dimenDivider
  */
 @Composable
 fun TehDivider(modifier: Modifier = Modifier) {
-    Divider(color = colorResource(id = R.color.divider), thickness = dimenDivider)
+    Divider(
+        modifier = modifier,
+        color = colorResource(id = R.color.divider),
+        thickness = dimenDivider
+    )
 }
