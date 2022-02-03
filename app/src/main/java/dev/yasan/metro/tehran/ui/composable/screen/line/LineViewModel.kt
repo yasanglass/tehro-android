@@ -10,8 +10,8 @@ import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
-import dev.yasan.metro.tehran.util.DispatcherProvider
-import dev.yasan.metro.tehran.util.Resource
+import dev.yasan.kit.library.util.DispatcherProvider
+import dev.yasan.kit.library.util.Resource
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

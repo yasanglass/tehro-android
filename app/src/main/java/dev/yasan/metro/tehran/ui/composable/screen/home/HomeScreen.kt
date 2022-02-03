@@ -10,6 +10,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import dev.yasan.kit.library.util.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.*
 import dev.yasan.metro.tehran.ui.composable.common.yasan.YasanBrandingFooter
@@ -21,7 +22,6 @@ import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid
-import dev.yasan.metro.tehran.util.Resource
 
 /**
  * The Main/home screen of Tehro. This is the first navigation route that the users see.

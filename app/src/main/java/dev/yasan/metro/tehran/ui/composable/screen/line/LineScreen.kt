@@ -2,7 +2,6 @@ package dev.yasan.metro.tehran.ui.composable.screen.line
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
@@ -10,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import dev.yasan.kit.library.util.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Line
 import dev.yasan.metro.tehran.data.db.entity.LineType
@@ -19,7 +19,6 @@ import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItem
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.theme.grid
-import dev.yasan.metro.tehran.util.Resource
 
 /**
  * This screen shows the detailed data for a single [Line] which mainly includes the list of [Station]s inside it.
