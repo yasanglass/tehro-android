@@ -6,13 +6,13 @@
 [![code quality](https://img.shields.io/codacy/grade/abe344aa3a7a4b0b87673ccccfae1c51)](https://app.codacy.com/gh/yasandev/tehro-android/dashboard?utm_source=github.com&utm_medium=referral&utm_content=yasandev/tehro-android&utm_campaign=Badge_Grade)
 [![release](https://img.shields.io/github/v/release/yasandev/tehro-android)](https://github.com/yasandev/tehro-android/releases)
 [![fdroid](https://img.shields.io/f-droid/v/dev.yasan.metro.fdroid)](https://f-droid.org/packages/dev.yasan.metro.fdroid)
-[![commits since latest release](https://img.shields.io/github/commits-since/yasandev/tehro-android/latest/develop)](https://github.com/yasandev/tehro-android/tree/develop)
+[![commits since latest release](https://img.shields.io/github/commits-since/yasandev/tehro-android/latest/main)](https://github.com/yasandev/tehro-android/tree/develop)
 
-Tehro is a metro guide app for Tehran.
+Tehro is a guide app for Tehran Metro.
 
 ## Releases
 
-You can get the official releases from either [GitHub](https://github.com/yasandev/tehro-android/releases), [F-Droid](https://f-droid.org/packages/dev.yasan.metro.fdroid/) or [Google Play Store](https://play.google.com/store/apps/details?id=dev.yasan.metro).
+You can get the official releases from either [GitHub](https://github.com/yasandev/tehro-android/releases), [F-Droid](https://f-droid.org/packages/dev.yasan.metro.fdroid/), [Cafe Bazaar](https://cafebazaar.ir/app/dev.yasan.metro.bazaar) or [Google Play Store](https://play.google.com/store/apps/details?id=dev.yasan.metro).
 
 ## Database
 

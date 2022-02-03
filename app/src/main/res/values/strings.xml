@@ -30,5 +30,9 @@
     <string name="database_last_modified_on_date">Database last modified on %1$s.</string>
     <string name="view_on_map">View on Map</string>
     <string name="no_app_found_map">Could not find an app to open the location</string>
+    <string name="play_store">Play Store</string>
+    <string name="cafe_bazaar">Bazaar</string>
+    <string name="f_droid">F-Droid</string>
+    <string name="unknown">Unknown</string>
 
 </resources>
