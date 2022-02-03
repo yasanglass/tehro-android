@@ -107,6 +107,7 @@ dependencies {
     // YASAN Development Kit
     implementation(project(':ydk:library'))
 
+    // Misc
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -155,9 +156,6 @@ dependencies {
 
     // Leak Canary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
-
-    // YASAN Helper: Android
-    implementation 'com.github.yasandev:yasan-helper-android:1.1.8'
 
     // Subsampling Scale ImageView
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
