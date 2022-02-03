@@ -17,7 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
-import dev.yasan.helper.library.WebHelper
+import dev.yasan.kit.library.helper.WebHelper
 import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
