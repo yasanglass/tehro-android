@@ -22,6 +22,7 @@ import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
+import dev.yasan.metro.tehran.ui.composable.common.teh.TehDivider
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.preview.dbinfo.DatabaseInformationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -67,7 +68,7 @@ fun AboutSegmentApp(
 
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
-        Divider(modifier = Modifier.background(color = colorResource(id = R.color.divider)))
+        TehDivider()
 
         databaseInformation?.let { info ->
 
@@ -83,7 +84,7 @@ fun AboutSegmentApp(
                 textAlign = TextAlign.Center
             )
 
-            Divider(modifier = Modifier.background(color = colorResource(id = R.color.divider)))
+            TehDivider()
 
         }
 
