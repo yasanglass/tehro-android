@@ -15,7 +15,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.theme.grid
-import dev.yasan.metro.tehran.ui.theme.rubikFamily
+import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 

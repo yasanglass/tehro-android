@@ -1,0 +1,3 @@
+[submodule "ydk"]
+	path = ydk
+	url = git@github.com:yasandev/ydk-android.git

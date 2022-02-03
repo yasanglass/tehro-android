@@ -10,8 +10,8 @@ import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.data.db.entity.Line
 import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
-import dev.yasan.metro.tehran.util.DispatcherProvider
-import dev.yasan.metro.tehran.util.Resource
+import dev.yasan.kit.library.util.DispatcherProvider
+import dev.yasan.kit.library.util.Resource
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

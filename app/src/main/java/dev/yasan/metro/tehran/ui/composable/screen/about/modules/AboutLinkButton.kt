@@ -12,8 +12,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import dev.yasan.helper.library.WebHelper
-import dev.yasan.helper.library.isURL
+import dev.yasan.kit.library.helper.WebHelper
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
@@ -28,7 +27,7 @@ fun AboutLinkButton(
     contentDescription: String,
 ) {
     val context = LocalContext.current
-    if (url.isNotBlank() && url.isURL()) {
+    if (url.isNotBlank() && WebHelper.isStringURL(string = url)) {
         Icon(
             icon,
             contentDescription = contentDescription,
@@ -39,7 +38,7 @@ fun AboutLinkButton(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = rememberRipple(bounded = false)
                 ) {
-                    WebHelper.openWebView(context, url)
+                    WebHelper.openWebView(context = context, url = url)
                 }
                 .padding(grid())
         )
@@ -55,7 +54,7 @@ fun AboutLinkButton(
     url: String,
     contentDescription: String,
 ) {
-    if (url.isNotBlank() && url.isURL()) {
+    if (url.isNotBlank() && WebHelper.isStringURL(string = url)) {
         val context = LocalContext.current
         Icon(
             icon,
@@ -67,7 +66,7 @@ fun AboutLinkButton(
                     interactionSource = remember { MutableInteractionSource() },
                     indication = rememberRipple(bounded = false)
                 ) {
-                    WebHelper.openWebView(context, url)
+                    WebHelper.openWebView(context = context, url = url)
                 }
                 .padding(grid())
         )

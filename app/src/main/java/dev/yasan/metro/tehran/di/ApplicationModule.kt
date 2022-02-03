@@ -18,7 +18,7 @@ import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
 import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepositoryImp
-import dev.yasan.metro.tehran.util.DispatcherProvider
+import dev.yasan.kit.library.util.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
