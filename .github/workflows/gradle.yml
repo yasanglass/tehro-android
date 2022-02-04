@@ -1,5 +1,10 @@
 name: Run Gradle on PRs
-on: pull_request
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 jobs:
   gradle:
     strategy:
