@@ -43,7 +43,7 @@ fun StatsList(
                         .weight(1f)
                         .padding(grid()),
                     text = stringResource(id = stat.titleStringResourceId),
-                    color = colorResource(id = R.color.text_title),
+                    color = colorResource(id = R.color.text_desc),
                     fontFamily = fontFamily,
                     textAlign = TextAlign.Start
                 )
@@ -54,10 +54,10 @@ fun StatsList(
                         .padding(grid()),
                     text =
                     if (LocaleHelper.isFarsi || forceFarsi)
-                        stat.value.toString().toPersianNumbers()
+                        text.toPersianNumbers()
                     else
-                        stat.value.toString(),
-                    color = colorResource(id = R.color.text_desc),
+                        text,
+                    color = colorResource(id = R.color.text_title),
                     fontFamily = fontFamily,
                     textAlign = TextAlign.End
                 )
