@@ -41,7 +41,7 @@ fun StatsList(
                 Text(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(grid()),
+                        .padding(vertical = grid(), horizontal = grid(2)),
                     text = stringResource(id = stat.titleStringResourceId),
                     color = colorResource(id = R.color.text_desc),
                     fontFamily = fontFamily,
@@ -51,7 +51,7 @@ fun StatsList(
                 Text(
                     modifier = Modifier
                         .weight(1f)
-                        .padding(grid()),
+                        .padding(grid(2)),
                     text =
                     if (LocaleHelper.isFarsi || forceFarsi)
                         text.toPersianNumbers()
@@ -62,7 +62,6 @@ fun StatsList(
                     textAlign = TextAlign.End
                 )
             }
-            TehDivider()
         }
     }
 }

@@ -13,6 +13,7 @@ import dev.yasan.metro.tehran.data.db.entity.Stat
 import dev.yasan.metro.tehran.data.repo.dbinfo.DatabaseInformationRepository
 import dev.yasan.metro.tehran.data.repo.stat.StatRepository
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -32,8 +33,14 @@ class AboutViewModel @Inject constructor(
     }
 
     init {
-        loadDatabaseInformation()
-        loadStats()
+        loadAllData()
+    }
+
+    private fun loadAllData() {
+        viewModelScope.launch(dispatchers.io) {
+            loadDatabaseInformation()
+            loadStats()
+        }
     }
 
     private var _databaseInformation =
@@ -45,32 +52,28 @@ class AboutViewModel @Inject constructor(
      *
      * @see databaseInformation
      */
-    private fun loadDatabaseInformation() {
-        viewModelScope.launch(dispatchers.io) {
-            _databaseInformation.postValue(Resource.Loading())
-            val data = databaseInformationRepository.getInformation()
-            if (data != null) {
-                _databaseInformation.postValue(Resource.Success(data = data))
-            } else {
-                _databaseInformation.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
-            }
+    private suspend fun loadDatabaseInformation() {
+        _databaseInformation.postValue(Resource.Loading())
+        val data = databaseInformationRepository.getInformation()
+        if (data != null) {
+            _databaseInformation.postValue(Resource.Success(data = data))
+        } else {
+            _databaseInformation.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
         }
     }
 
     /**
      * Loads statistics about the database into [_stats] (observable through [stats]).
      *
-     * @see databaseInformation
+     * @see Stat
      */
-    private fun loadStats(){
-        viewModelScope.launch(dispatchers.io) {
-            _stats.postValue(Resource.Loading())
-            val data = statRepository.getStatistics()
-            if (data.isNotEmpty()) {
-                _stats.postValue(Resource.Success(data = data))
-            } else {
-                _stats.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
-            }
+    private suspend fun loadStats() {
+        _stats.postValue(Resource.Loading())
+        val data = statRepository.getStatistics()
+        if (data.isNotEmpty()) {
+            _stats.postValue(Resource.Success(data = data))
+        } else {
+            _stats.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
         }
     }
 
