@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Accessible
+import androidx.compose.material.icons.sharp.Cancel
+import androidx.compose.material.icons.sharp.CheckCircle
 import androidx.compose.material.icons.sharp.TwoWheeler
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.data.db.entity.AccessibilityBlind
 import dev.yasan.metro.tehran.data.db.entity.AccessibilityWheelchair
 import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityWheelchairPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -59,6 +62,23 @@ fun AccessibilityWheelchairIndicator(
                 fontFamily = fontFamily,
                 color = colorResource(id = R.color.text_title)
             )
+            if (accessibilityWheelchair == AccessibilityWheelchair.NONE) {
+                Spacer(modifier = Modifier.requiredWidth(paddingSize))
+                Icon(
+                    modifier = Modifier,
+                    imageVector = TehroIcons.Cancel,
+                    contentDescription = null,
+                    tint = colorResource(id = R.color.text_title)
+                )
+            } else if (accessibilityWheelchair == AccessibilityWheelchair.MAX) {
+                Spacer(modifier = Modifier.requiredWidth(paddingSize))
+                Icon(
+                    modifier = Modifier,
+                    imageVector = TehroIcons.CheckCircle,
+                    contentDescription = null,
+                    tint = colorResource(id = R.color.text_title)
+                )
+            }
         }
 
     }
