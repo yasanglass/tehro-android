@@ -9,15 +9,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
+import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.theme.grid
-import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
+import dev.yasan.metro.tehran.util.extension.toPersianNumbers
 
 /**
  * Tehro-themed footer. Simple footer to show a text on the bottom of a screen.
@@ -38,7 +40,11 @@ fun TehFooter(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         if (spacerTop) {
-            Spacer(modifier = Modifier.requiredHeight(grid(8)))
+            Spacer(
+                modifier = Modifier
+                    .requiredHeight(grid(8))
+                    .testTag("spacer")
+            )
         }
 
         Text(
@@ -48,7 +54,11 @@ fun TehFooter(
         )
 
         if (spacerBottom) {
-            Spacer(modifier = Modifier.requiredHeight(grid(8)))
+            Spacer(
+                modifier = Modifier
+                    .requiredHeight(grid(8))
+                    .testTag("spacer")
+            )
         }
     }
 }
@@ -69,7 +79,7 @@ private fun TehFooterPreviewEn() {
 private fun TehFooterPreviewFa() {
     Surface(color = colorResource(id = R.color.layer_midground)) {
         TehFooter(
-            text = stringResource(R.string.n_lines, 9),
+            text = stringResource(R.string.n_lines, 9).toPersianNumbers(),
             fontFamily = vazirFamily
         )
     }
