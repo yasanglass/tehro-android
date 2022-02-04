@@ -1,5 +1,9 @@
 # Tehro Changelog
 
+## Unreleased
+
+- Accessibility information if stations is now shown on the Station bottom sheet.
+
 ## v2.0.5
 
 - New stations details bottom sheet that shows all the available information for that station including location.
