@@ -45,5 +45,7 @@
     <string name="accessibility_blind_not_accessible">Not accessible to the visually impaired</string>
     <string name="accessibility_blind_platforms_only">Accessible to the visually impaired on platforms only</string>
     <string name="accessibility_blind_fully_accessible">Accessible to the visually impaired</string>
+    <string name="stations">Stations</string>
+    <string name="intersections">Intersections</string>
 
 </resources>
