@@ -4,13 +4,8 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
-    id 'io.gitlab.arturbosch.detekt'
     id 'me.moallemi.advanced-build-version'
     id 'com.adarshr.test-logger' version '3.0.0'
-}
-
-detekt {
-    autoCorrect = true
 }
 
 android {
@@ -159,10 +154,6 @@ dependencies {
 
     // Subsampling Scale ImageView
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
-
-    // Detekt
-    detekt "io.gitlab.arturbosch.detekt:detekt-formatting:$detekt_version"
-    detekt "io.gitlab.arturbosch.detekt:detekt-cli:$detekt_version"
 
     // Coil
     implementation("io.coil-kt:coil-compose:$coil_version")
