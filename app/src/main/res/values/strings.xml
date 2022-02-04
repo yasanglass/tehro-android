@@ -39,5 +39,8 @@
     <string name="accessibility_wheelchair_level_2">Elevator from street to both platforms</string>
     <string name="accessibility_wheelchair_level_3">Elevator from ticket sales hall to platform</string>
     <string name="accessibility_wheelchair_max">Elevator from street to ticket sales hall &amp; from ticket sales hall to platform</string>
+    <string name="ems_available">Emergency medical services available</string>
+    <string name="ems_unavailable">Emergency medical services unavailable</string>
+    <string name="emergency_medical_services">Emergency Medical Services</string>
 
 </resources>
