@@ -42,5 +42,8 @@
     <string name="ems_available">Emergency medical services available</string>
     <string name="ems_unavailable">Emergency medical services unavailable</string>
     <string name="emergency_medical_services">Emergency Medical Services</string>
+    <string name="accessibility_blind_not_accessible">Not accessible to the visually impaired</string>
+    <string name="accessibility_blind_platforms_only">Accessible to the visually impaired on platforms only</string>
+    <string name="accessibility_blind_fully_accessible">Accessible to the visually impaired</string>
 
 </resources>

@@ -41,5 +41,7 @@
     <string name="ems_available">دارای خدمات اورژانس پزشکی</string>
     <string name="ems_unavailable">قافد خدمات اورژانس پزشکی</string>
     <string name="emergency_medical_services">خدمات اورژانس پزشکی</string>
-
+    <string name="accessibility_blind_not_accessible">فاقد مسیر نابینایان</string>
+    <string name="accessibility_blind_platforms_only">دارای مسیر نابینابان در سکو‌ها</string>
+    <string name="accessibility_blind_fully_accessible">دارای مسیر نابینایان در تمام ایستگاه</string>
 </resources>

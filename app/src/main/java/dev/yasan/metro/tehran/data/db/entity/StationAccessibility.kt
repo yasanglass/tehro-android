@@ -71,12 +71,15 @@ enum class AccessibilityWheelchair(@StringRes val stringResourceId: Int) {
 
 }
 
-enum class AccessibilityBlind {
-    NONE, PLATFORMS_ONLY, FULL, INVALID;
+enum class AccessibilityBlind(@StringRes val stringResourceId: Int) {
+    NONE(R.string.accessibility_blind_not_accessible),
+    PLATFORMS_ONLY(R.string.accessibility_blind_platforms_only),
+    FULL(R.string.accessibility_blind_fully_accessible),
+    INVALID(R.string.failed_to_load_data);
 
     companion object {
         fun fromInt(value: Int) =
-            AccessibilityBlind.values().getOrNull(value) ?: AccessibilityBlind.INVALID
+            values().getOrNull(value) ?: INVALID
     }
 
 }
