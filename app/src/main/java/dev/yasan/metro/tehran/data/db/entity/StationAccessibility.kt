@@ -58,7 +58,7 @@ data class StationAccessibility(
 }
 
 enum class AccessibilityWheelchair(@StringRes val stringResourceId: Int) {
-    NONE(R.string.not_accessible),
+    NONE(R.string.accessibility_wheelchair_not_accessible),
     LEVEL_1(R.string.accessibility_wheelchair_level_1),
     LEVEL_2(R.string.accessibility_wheelchair_level_2),
     LEVEL_3(R.string.accessibility_wheelchair_level_3),

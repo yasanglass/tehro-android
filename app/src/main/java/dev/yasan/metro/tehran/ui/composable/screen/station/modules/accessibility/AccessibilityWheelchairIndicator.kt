@@ -35,7 +35,7 @@ fun AccessibilityWheelchairIndicator(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(color = colorResource(id = R.color.layer_foreground))
+            .background(color = colorResource(id = R.color.layer_midground))
     ) {
 
         val text = stringResource(id = accessibilityWheelchair.stringResourceId)

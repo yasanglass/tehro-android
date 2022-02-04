@@ -34,7 +34,7 @@
     <string name="cafe_bazaar">Bazaar</string>
     <string name="f_droid">F-Droid</string>
     <string name="unknown">Unknown</string>
-    <string name="not_accessible">Not accessible</string>
+    <string name="accessibility_wheelchair_not_accessible">Not wheelchair accessible</string>
     <string name="accessibility_wheelchair_level_1">Elevator from street to one platform</string>
     <string name="accessibility_wheelchair_level_2">Elevator from street to both platforms</string>
     <string name="accessibility_wheelchair_level_3">Elevator from ticket sales hall to platform</string>
