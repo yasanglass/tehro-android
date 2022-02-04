@@ -6,7 +6,7 @@ import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import javax.inject.Inject
 
 /**
- * The main implementation of [StationRepository].
+ * The main implementation of [StationLocationRepository].
  */
 class StationLocationRepositoryImp @Inject constructor(
     private val stationLocationDAO: StationLocationDAO

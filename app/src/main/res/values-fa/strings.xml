@@ -33,4 +33,15 @@
     <string name="cafe_bazaar">بازار</string>
     <string name="f_droid">اف‌دروید</string>
     <string name="unknown">ناشناخته</string>
+    <string name="accessibility_wheelchair_not_accessible">با ویلچر قابل دسترسی نیست</string>
+    <string name="accessibility_wheelchair_level_1">آسانسور از سطح خیابان به یک سکو</string>
+    <string name="accessibility_wheelchair_level_2">آسانسور از سطح خیابان به هر دو سکو</string>
+    <string name="accessibility_wheelchair_level_3">آسانسور از سالن فروش بلیت به سکو</string>
+    <string name="accessibility_wheelchair_max">آسانسور از سطح خیابان به سالن فروش بلیت و از سالن فروش بلیت به سکو</string>
+    <string name="ems_available">دارای خدمات اورژانس پزشکی</string>
+    <string name="ems_unavailable">قافد خدمات اورژانس پزشکی</string>
+    <string name="emergency_medical_services">خدمات اورژانس پزشکی</string>
+    <string name="accessibility_blind_not_accessible">فاقد مسیر نابینایان</string>
+    <string name="accessibility_blind_platforms_only">دارای مسیر نابینابان در سکو‌ها</string>
+    <string name="accessibility_blind_fully_accessible">دارای مسیر نابینایان در تمام ایستگاه</string>
 </resources>

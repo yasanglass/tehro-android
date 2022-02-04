@@ -7,8 +7,15 @@ import dev.yasan.metro.tehran.data.db.entity.*
 import javax.inject.Inject
 
 @Database(
-    entities = [Line::class, Station::class, Intersection::class, DatabaseInformation::class, StationLocation::class],
-    version = 2,
+    entities = [
+        Line::class,
+        Station::class,
+        Intersection::class,
+        DatabaseInformation::class,
+        StationLocation::class,
+        StationAccessibility::class
+    ],
+    version = 3,
 )
 abstract class MetroDatabase : RoomDatabase() {
 
@@ -22,6 +29,7 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun lineDAO(): LineDAO
     abstract fun stationDAO(): StationDAO
     abstract fun stationLocationDAO(): StationLocationDAO
+    abstract fun stationStationAccessibilityDAO(): StationAccessibilityDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
 

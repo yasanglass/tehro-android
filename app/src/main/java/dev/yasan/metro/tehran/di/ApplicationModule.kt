@@ -19,6 +19,8 @@ import dev.yasan.metro.tehran.data.repo.station.StationRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
 import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepositoryImp
 import dev.yasan.kit.library.util.DispatcherProvider
+import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepository
+import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepositoryImp
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
@@ -71,6 +73,9 @@ class ApplicationModule {
     @Provides
     fun provideStationDAO(metroDatabase: MetroDatabase) = metroDatabase.stationDAO()
 
+    @Provides
+    fun provideStationAccessibilityDAO(metroDatabase: MetroDatabase) = metroDatabase.stationStationAccessibilityDAO()
+
     @Singleton
     @Provides
     fun provideLineRepository(lineDAO: LineDAO): LineRepository =
@@ -95,5 +100,10 @@ class ApplicationModule {
     @Provides
     fun provideStationLocationRepository(stationLocationDAO: StationLocationDAO): StationLocationRepository =
         StationLocationRepositoryImp(stationLocationDAO = stationLocationDAO)
+
+    @Singleton
+    @Provides
+    fun provideStationAccessibilityRepository(stationAccessibilityDAO: StationAccessibilityDAO): StationAccessibilityRepository =
+        StationAccessibilityRepositoryImp(stationAccessibilityDAO = stationAccessibilityDAO)
 
 }

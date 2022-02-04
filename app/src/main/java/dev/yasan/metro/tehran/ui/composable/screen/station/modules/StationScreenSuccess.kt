@@ -32,6 +32,9 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
+import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityBlindIndicator
+import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityEmsIndicator
+import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityWheelchairIndicator
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -93,6 +96,22 @@ fun StationScreenSuccess(
                     .fillMaxWidth()
                     .padding(horizontal = grid(2))
             ) {
+
+                station.accessibility?.let { accessibility ->
+
+                    AccessibilityEmsIndicator(emergencyMedicalServices = accessibility.emergencyMedicalServices)
+
+                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
+                    AccessibilityBlindIndicator(accessibilityBlind = accessibility.blindAccessibilityLevel)
+
+                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
+                    AccessibilityWheelchairIndicator(accessibilityWheelchair = accessibility.wheelchairAccessibilityLevel)
+
+                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
+                }
 
                 station.location?.let {
 
