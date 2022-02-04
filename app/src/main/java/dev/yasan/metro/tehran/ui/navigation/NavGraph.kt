@@ -77,7 +77,6 @@ fun NavGraph(
                     mainViewModel = mainViewModel,
                     navController = navController
                 )
-
             }
 
             composable(
@@ -142,10 +141,7 @@ fun NavGraph(
                     navController = navController,
                     stationId = stationId
                 )
-
             }
-
         }
     }
-
 }

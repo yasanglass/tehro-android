@@ -15,7 +15,6 @@ import androidx.compose.material.icons.sharp.MultipleStop
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -41,7 +40,6 @@ import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
-
 
 @Composable
 fun StationScreenSuccess(
@@ -72,7 +70,6 @@ fun StationScreenSuccess(
                     tint = colorResource(id = R.color.text_title)
                 )
             }
-
         }
 
         item {
@@ -86,7 +83,6 @@ fun StationScreenSuccess(
                 fontWeight = FontWeight.Bold,
                 fontSize = 22.sp
             )
-
         }
 
         item {
@@ -110,7 +106,6 @@ fun StationScreenSuccess(
                     AccessibilityWheelchairIndicator(accessibilityWheelchair = accessibility.wheelchairAccessibilityLevel)
 
                     Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
                 }
 
                 station.location?.let {
@@ -133,12 +128,10 @@ fun StationScreenSuccess(
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
-
                         }
                     )
 
                     Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
                 }
 
                 station.intersection?.let { intersection ->
@@ -149,9 +142,9 @@ fun StationScreenSuccess(
                             when (line.type) {
                                 LineType.METRO_BRANCH ->
                                     "${stringResource(id = R.string.line)} ${line.name} (${
-                                        stringResource(
-                                            id = R.string.branch
-                                        )
+                                    stringResource(
+                                        id = R.string.branch
+                                    )
                                     })"
                                 else -> "${stringResource(id = R.string.line)} ${line.name}"
                             }
@@ -167,17 +160,11 @@ fun StationScreenSuccess(
                         )
 
                         Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }
 
 @Preview(

@@ -24,10 +24,9 @@ data class DatabaseInformation(
      */
     fun getLastModifiedString(): String {
         return if (LocaleHelper.isFarsi) {
-            "${lastModifiedYear}/${lastModifiedMonth}/${lastModifiedDay}".toPersianNumbers()
+            "$lastModifiedYear/$lastModifiedMonth/$lastModifiedDay".toPersianNumbers()
         } else {
-            "${lastModifiedYear}-${lastModifiedMonth}-${lastModifiedDay}"
+            "$lastModifiedYear-$lastModifiedMonth-$lastModifiedDay"
         }
     }
-
 }

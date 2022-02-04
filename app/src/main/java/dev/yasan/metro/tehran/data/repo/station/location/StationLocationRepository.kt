@@ -21,5 +21,4 @@ interface StationLocationRepository {
      * @see StationLocationDAO
      */
     suspend fun getByStationId(stationId: Int): StationLocation?
-
 }

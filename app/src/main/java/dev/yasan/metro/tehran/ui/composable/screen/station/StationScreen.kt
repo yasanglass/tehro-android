@@ -39,5 +39,4 @@ fun StationScreen(
             TehProgress()
         }
     }
-
 }

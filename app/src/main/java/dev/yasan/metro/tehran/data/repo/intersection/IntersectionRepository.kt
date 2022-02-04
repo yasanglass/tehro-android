@@ -14,5 +14,4 @@ interface IntersectionRepository {
      * @see IntersectionDAO
      */
     suspend fun getIntersection(interchangeId: Int): Intersection?
-
 }

@@ -54,7 +54,6 @@ data class StationAccessibility(
         )
 
     val blindAccessibilityLevel get() = AccessibilityBlind.fromInt(blindAccessibilityLevelInt)
-
 }
 
 enum class AccessibilityWheelchair(@StringRes val stringResourceId: Int) {
@@ -68,7 +67,6 @@ enum class AccessibilityWheelchair(@StringRes val stringResourceId: Int) {
     companion object {
         fun fromInt(value: Int) = values().getOrNull(value) ?: INVALID
     }
-
 }
 
 enum class AccessibilityBlind(@StringRes val stringResourceId: Int) {
@@ -81,5 +79,4 @@ enum class AccessibilityBlind(@StringRes val stringResourceId: Int) {
         fun fromInt(value: Int) =
             values().getOrNull(value) ?: INVALID
     }
-
 }

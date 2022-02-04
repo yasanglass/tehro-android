@@ -5,15 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dev.yasan.kit.library.util.DispatcherProvider
 import dev.yasan.kit.library.util.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
-import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
-import dev.yasan.kit.library.util.DispatcherProvider
 import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepository
+import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -77,5 +77,4 @@ class StationViewModel @Inject constructor(
             }
         }
     }
-
 }

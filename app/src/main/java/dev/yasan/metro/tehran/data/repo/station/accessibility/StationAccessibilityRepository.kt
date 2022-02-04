@@ -21,5 +21,4 @@ interface StationAccessibilityRepository {
      * @see StationLocationDAO
      */
     suspend fun getByStationId(stationId: Int): StationAccessibility?
-
 }

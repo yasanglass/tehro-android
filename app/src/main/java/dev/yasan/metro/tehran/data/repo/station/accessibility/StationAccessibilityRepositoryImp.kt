@@ -1,10 +1,7 @@
 package dev.yasan.metro.tehran.data.repo.station.accessibility
 
 import dev.yasan.metro.tehran.data.db.dao.StationAccessibilityDAO
-import dev.yasan.metro.tehran.data.db.dao.StationLocationDAO
 import dev.yasan.metro.tehran.data.db.entity.StationAccessibility
-import dev.yasan.metro.tehran.data.db.entity.StationLocation
-import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import javax.inject.Inject
 
 /**
@@ -21,5 +18,4 @@ class StationAccessibilityRepositoryImp @Inject constructor(
     override suspend fun getByStationId(stationId: Int): StationAccessibility? {
         return stationAccessibilityDAO.getByStationId(stationId = stationId)
     }
-
 }

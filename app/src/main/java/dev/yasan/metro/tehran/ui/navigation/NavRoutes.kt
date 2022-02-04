@@ -69,5 +69,4 @@ object NavRoutes {
      */
     fun routeAbout() = ROUTE_ABOUT
 
-
 }

@@ -32,5 +32,4 @@ class MapViewModel @Inject constructor(
             _isLoaded.postValue(loaded)
         }
     }
-
 }

@@ -63,7 +63,6 @@ fun MapScreen(mapViewModel: MapViewModel) {
         override fun onPreviewReleased() {
             Log.d(TAG, "onPreviewReleased: ")
         }
-
     }
 
     Column(
@@ -96,8 +95,6 @@ fun MapScreen(mapViewModel: MapViewModel) {
             androidx.compose.animation.AnimatedVisibility(visible = isLoaded.value != true) {
                 TehProgress()
             }
-
         }
     }
-
 }

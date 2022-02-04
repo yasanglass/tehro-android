@@ -17,8 +17,6 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import dev.yasan.kit.library.ui.preview.BooleanPreviewProvider
 import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.AccessibilityWheelchair
-import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityWheelchairPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
@@ -68,9 +66,7 @@ fun AccessibilityEmsIndicator(
                 tint = colorResource(id = R.color.text_title)
             )
         }
-
     }
-
 }
 
 @Preview(

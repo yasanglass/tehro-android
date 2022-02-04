@@ -32,5 +32,4 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun stationStationAccessibilityDAO(): StationAccessibilityDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
-
 }

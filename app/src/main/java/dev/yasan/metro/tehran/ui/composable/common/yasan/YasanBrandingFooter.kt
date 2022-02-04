@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.theme.grid
-import dev.yasan.metro.tehran.util.PrideHelper
 
 /**
  * YASAN branding footer composable. Must be used on the initial route of the app.

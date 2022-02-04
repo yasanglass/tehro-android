@@ -37,7 +37,6 @@ fun AboutScreen(
         item {
 
             AboutSegmentApp(databaseInformation = databaseInformation.value?.data)
-
         }
 
         item {
@@ -47,8 +46,6 @@ fun AboutScreen(
         item {
 
             AboutSegmentDev()
-
         }
     }
 }
-

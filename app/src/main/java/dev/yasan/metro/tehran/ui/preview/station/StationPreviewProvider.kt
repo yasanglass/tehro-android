@@ -10,5 +10,4 @@ import dev.yasan.metro.tehran.util.PreviewHelper
 class StationPreviewProvider : PreviewParameterProvider<Station> {
 
     override val values = PreviewHelper.lineSixStations
-
 }

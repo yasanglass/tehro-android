@@ -10,5 +10,4 @@ import dev.yasan.metro.tehran.util.PreviewHelper
 class LineListPreviewProvider : PreviewParameterProvider<List<Line>> {
 
     override val values = sequenceOf(PreviewHelper.lines.toList())
-
 }

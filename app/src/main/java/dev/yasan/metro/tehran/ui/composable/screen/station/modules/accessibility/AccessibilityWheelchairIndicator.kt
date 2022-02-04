@@ -8,7 +8,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Accessible
 import androidx.compose.material.icons.sharp.Cancel
 import androidx.compose.material.icons.sharp.CheckCircle
-import androidx.compose.material.icons.sharp.TwoWheeler
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.AccessibilityBlind
 import dev.yasan.metro.tehran.data.db.entity.AccessibilityWheelchair
 import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityWheelchairPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -80,9 +78,7 @@ fun AccessibilityWheelchairIndicator(
                 )
             }
         }
-
     }
-
 }
 
 @Preview(

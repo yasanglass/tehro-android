@@ -1,7 +1,6 @@
 package dev.yasan.metro.tehran.ui.composable.screen.about.modules
 
 import android.content.res.Configuration
-import android.graphics.Bitmap
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
@@ -18,10 +17,10 @@ import androidx.compose.ui.unit.sp
 import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.yasan.YasanBrandingFooter
+import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
-import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 
 /**
  * A segment of [AboutScreen] that shows information about the app's developer.
@@ -97,9 +96,7 @@ fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFamily) {
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
         Divider(modifier = Modifier.background(color = colorResource(id = R.color.divider)))
-
     }
-
 }
 
 @Preview("About Dev [en]", group = "light", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_NO)

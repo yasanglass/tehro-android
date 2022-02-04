@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import dev.yasan.kit.library.util.DispatcherProvider
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.repo.dbinfo.DatabaseInformationRepository
@@ -16,11 +17,10 @@ import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepositoryImp
-import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
-import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepositoryImp
-import dev.yasan.kit.library.util.DispatcherProvider
 import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepository
 import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepositoryImp
+import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
+import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepositoryImp
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
@@ -105,5 +105,4 @@ class ApplicationModule {
     @Provides
     fun provideStationAccessibilityRepository(stationAccessibilityDAO: StationAccessibilityDAO): StationAccessibilityRepository =
         StationAccessibilityRepositoryImp(stationAccessibilityDAO = stationAccessibilityDAO)
-
 }

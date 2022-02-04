@@ -14,5 +14,4 @@ class IntersectionRepositoryImp @Inject constructor(
     override suspend fun getIntersection(interchangeId: Int): Intersection? {
         return IntersectionDAO.getById(intersectionId = interchangeId)
     }
-
 }

@@ -8,5 +8,4 @@ import java.util.*
 object PrideHelper {
 
     val isPrideMonth = Calendar.getInstance()[Calendar.MONTH] == Calendar.JUNE
-
 }

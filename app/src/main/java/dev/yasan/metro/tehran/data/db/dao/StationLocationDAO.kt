@@ -24,5 +24,4 @@ interface StationLocationDAO {
      */
     @Query("SELECT * FROM station_locations WHERE station_id=:stationId")
     suspend fun getByStationId(stationId: Int): StationLocation?
-
 }

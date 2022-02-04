@@ -3,7 +3,6 @@ package dev.yasan.metro.tehran.ui.composable.screen.about.modules
 import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Launch
 import androidx.compose.runtime.Composable
@@ -85,23 +84,24 @@ fun AboutSegmentApp(
             )
 
             TehDivider()
-
         }
-
     }
-
 }
 
 @Preview("About App [en]", group = "light", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview("About App [en]", group = "dark", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun AboutSegmentAppPreviewEn(@PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?) {
+private fun AboutSegmentAppPreviewEn(
+    @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
+) {
     AboutSegmentApp(databaseInformation = databaseInformation, fontFamily = rubikFamily)
 }
 
 @Preview("About App [fa]", group = "light", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview("About App [fa]", group = "dark", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun AboutSegmentAppPreviewFa(@PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?) {
+private fun AboutSegmentAppPreviewFa(
+    @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
+) {
     AboutSegmentApp(databaseInformation = databaseInformation, fontFamily = vazirFamily)
 }
