@@ -47,6 +47,7 @@
     <string name="accessibility_blind_fully_accessible">Accessible to the visually impaired</string>
     <string name="stations">Stations</string>
     <string name="intersections">Intersections</string>
-    <string name="statistics">Statistics</string>
-
+    <string name="database">Database</string>
+    <string name="station_location">Stations\' Location</string>
+    <string name="station_accessibility">Stations\' Accessibility</string>
 </resources>

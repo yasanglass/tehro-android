@@ -55,7 +55,7 @@ fun SegmentStats(
 
         Text(
             modifier = Modifier.padding(grid(2)),
-            text = stringResource(R.string.statistics).uppercase(),
+            text = stringResource(R.string.database).uppercase(),
             fontFamily = fontFamily,
             fontSize = 18.sp,
             color = colorResource(id = R.color.text_title),

@@ -8,10 +8,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -37,7 +39,7 @@ fun StatsList(
             .background(color = colorResource(id = R.color.layer_foreground))
     ) {
         stats.forEach { stat ->
-            Row {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
                     modifier = Modifier
                         .weight(1f)
@@ -49,9 +51,7 @@ fun StatsList(
                 )
                 val text = stat.value.toString()
                 Text(
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(grid(2)),
+                    modifier = Modifier.padding(vertical = grid(), horizontal = grid(2)),
                     text =
                     if (LocaleHelper.isFarsi || forceFarsi)
                         text.toPersianNumbers()
@@ -59,7 +59,8 @@ fun StatsList(
                         text,
                     color = colorResource(id = R.color.text_title),
                     fontFamily = fontFamily,
-                    textAlign = TextAlign.End
+                    textAlign = TextAlign.End,
+                    fontWeight = FontWeight.Bold
                 )
             }
         }
