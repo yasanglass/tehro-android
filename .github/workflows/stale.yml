@@ -25,5 +25,5 @@ jobs:
         stale-pr-message: 'Stale pull request message'
         stale-issue-label: 'no-issue-activity'
         stale-pr-label: 'no-pr-activity'
-        idle-before-stale: 30
+        days-before-stale: 30
         
