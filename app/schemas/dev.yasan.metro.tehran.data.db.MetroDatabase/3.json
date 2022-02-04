@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 3,
-    "identityHash": "c89c22addf808fd6b6b1a99f4528c225",
+    "identityHash": "0793d47d21e0e089f99aec8618c16eb6",
     "entities": [
       {
         "tableName": "lines",
@@ -280,7 +280,7 @@
       },
       {
         "tableName": "stations_accessibility",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`station_id` INTEGER NOT NULL, `emergency_medical_services` INTEGER NOT NULL, `wheelchair_accessibility_level` INTEGER NOT NULL, `blind_accessibility_level` INTEGER NOT NULL, PRIMARY KEY(`station_id`), FOREIGN KEY(`station_id`) REFERENCES `stations`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`station_id` INTEGER NOT NULL, `emergency_medical_services` INTEGER NOT NULL DEFAULT 0, `wheelchair_accessibility_level` INTEGER NOT NULL DEFAULT 0, `blind_accessibility_level` INTEGER NOT NULL DEFAULT 0, PRIMARY KEY(`station_id`), FOREIGN KEY(`station_id`) REFERENCES `stations`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "stationId",
@@ -292,19 +292,22 @@
             "fieldPath": "emergencyMedicalServicesInt",
             "columnName": "emergency_medical_services",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": true,
+            "defaultValue": "0"
           },
           {
             "fieldPath": "wheelchairAccessibilityLevelInt",
             "columnName": "wheelchair_accessibility_level",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": true,
+            "defaultValue": "0"
           },
           {
             "fieldPath": "blindAccessibilityLevelInt",
             "columnName": "blind_accessibility_level",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": true,
+            "defaultValue": "0"
           }
         ],
         "primaryKey": {
@@ -332,7 +335,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c89c22addf808fd6b6b1a99f4528c225')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0793d47d21e0e089f99aec8618c16eb6')"
     ]
   }
 }
