@@ -13,6 +13,7 @@ import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
 import dev.yasan.kit.library.util.DispatcherProvider
+import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,7 +23,8 @@ class StationViewModel @Inject constructor(
     private val stationRepository: StationRepository,
     private val stationLocationRepository: StationLocationRepository,
     private val intersectionRepository: IntersectionRepository,
-    private val lineRepository: LineRepository
+    private val lineRepository: LineRepository,
+    private val stationAccessibilityRepository: StationAccessibilityRepository
 ) : ViewModel() {
 
     private var _station = MutableLiveData<Resource<Station>>(Resource.Initial())
@@ -39,6 +41,10 @@ class StationViewModel @Inject constructor(
                 // Location
                 stationLocationRepository.getByStationId(stationId = stationId)
                     ?.let { mStation.location = it }
+
+                // Accessibility
+                stationAccessibilityRepository.getByStationId(stationId = stationId)
+                    ?.let { mStation.accessibility = it }
 
                 // Intersection
                 mStation.intersectionId?.let { interchangeId ->
