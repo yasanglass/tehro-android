@@ -2,7 +2,6 @@ package dev.yasan.metro.tehran.data.repo.stat
 
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.dao.*
-import dev.yasan.metro.tehran.data.db.entity.Line
 import dev.yasan.metro.tehran.data.db.entity.Stat
 import javax.inject.Inject
 
@@ -25,9 +24,9 @@ class StatRepositoryImp @Inject constructor(
         val stationLocationCount = stationLocationDAO.getAll().size
 
         return listOf(
-            Stat(title = R.string.lines, lineCount),
-            Stat(title = R.string.stations, stationCount),
-            Stat(title = R.string.intersections, intersectionCount),
+            Stat(titleStringResourceId = R.string.lines, lineCount),
+            Stat(titleStringResourceId = R.string.stations, stationCount),
+            Stat(titleStringResourceId = R.string.intersections, intersectionCount),
         )
     }
 
