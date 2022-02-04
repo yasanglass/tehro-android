@@ -33,4 +33,10 @@
     <string name="cafe_bazaar">بازار</string>
     <string name="f_droid">اف‌دروید</string>
     <string name="unknown">ناشناخته</string>
+    <string name="not_accessible">قابل دسترسی نیست</string>
+    <string name="accessibility_wheelchair_level_1">آسانسور از سطح خیابان به یک سکو</string>
+    <string name="accessibility_wheelchair_level_2">آسانسور از سطح خیابان به هر دو سکو</string>
+    <string name="accessibility_wheelchair_level_3">آسانسور از سالن فروش بلیت به سکو</string>
+    <string name="accessibility_wheelchair_max">آسانسور از سطح خیابان به سالن فروش بلیت و از سالن فروش بلیط به سکو</string>
+
 </resources>
