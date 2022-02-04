@@ -26,9 +26,21 @@ import dev.yasan.metro.tehran.R
 data class StationAccessibility(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "station_id") val stationId: Int,
-    @ColumnInfo(name = "emergency_medical_services") val emergencyMedicalServicesInt: Int,
-    @ColumnInfo(name = "wheelchair_accessibility_level") val wheelchairAccessibilityLevelInt: Int,
-    @ColumnInfo(name = "blind_accessibility_level") val blindAccessibilityLevelInt: Int,
+    @ColumnInfo(
+        name = "emergency_medical_services",
+        defaultValue = "0"
+    )
+    val emergencyMedicalServicesInt: Int,
+    @ColumnInfo(
+        name = "wheelchair_accessibility_level",
+        defaultValue = "0"
+    )
+    val wheelchairAccessibilityLevelInt: Int,
+    @ColumnInfo(
+        name = "blind_accessibility_level",
+        defaultValue = "0"
+    )
+    val blindAccessibilityLevelInt: Int,
 ) {
 
     /**
