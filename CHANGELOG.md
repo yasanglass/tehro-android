@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Accessibility information if stations is now shown on the Station bottom sheet.
+- The store flavor of the app is now shown on the home screen footer.
 
 ## v2.0.5
 
