@@ -73,6 +73,9 @@ class ApplicationModule {
     @Provides
     fun provideStationDAO(metroDatabase: MetroDatabase) = metroDatabase.stationDAO()
 
+    @Provides
+    fun provideStationAccessibilityDAO(metroDatabase: MetroDatabase) = metroDatabase.stationStationAccessibilityDAO()
+
     @Singleton
     @Provides
     fun provideLineRepository(lineDAO: LineDAO): LineRepository =
