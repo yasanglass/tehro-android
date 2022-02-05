@@ -19,8 +19,8 @@ android {
         advancedVersioning {
             nameOptions {
                 versionMajor 2
-                versionMinor 0
-                versionPatch 5
+                versionMinor 1
+                versionPatch 0
             }
             codeOptions {
                 versionCodeType 'GIT_COMMIT_COUNT'
