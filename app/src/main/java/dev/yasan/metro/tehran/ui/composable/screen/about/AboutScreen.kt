@@ -8,8 +8,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
-import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutSegmentApp
-import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutSegmentDev
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.app.AboutSegmentApp
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.dev.AboutSegmentDev
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat.SegmentStats
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.theme.grid
@@ -28,6 +29,7 @@ fun AboutScreen(
 ) {
 
     val databaseInformation = aboutViewModel.databaseInformation.observeAsState()
+    val stats = aboutViewModel.stats.observeAsState()
 
     TehScreen(
         title = stringResource(id = R.string.about),
@@ -44,8 +46,20 @@ fun AboutScreen(
         }
 
         item {
-
             AboutSegmentDev()
         }
+
+
+        item {
+            Spacer(modifier = Modifier.requiredHeight(grid(2)))
+        }
+
+        item {
+            stats.value?.let {
+                SegmentStats(statsResource = it)
+                Spacer(modifier = Modifier.requiredHeight(grid(2)))
+            }
+        }
+
     }
 }

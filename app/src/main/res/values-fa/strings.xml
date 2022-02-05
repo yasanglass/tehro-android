@@ -44,4 +44,9 @@
     <string name="accessibility_blind_not_accessible">فاقد مسیر نابینایان</string>
     <string name="accessibility_blind_platforms_only">دارای مسیر نابینابان در سکو‌ها</string>
     <string name="accessibility_blind_fully_accessible">دارای مسیر نابینایان در تمام ایستگاه</string>
+    <string name="stations">ایستگاه‌ها</string>
+    <string name="database">پایگاه داده</string>
+    <string name="intersections">تقاطع‌ها</string>
+    <string name="station_location">لوکیشن ایستگاه‌ها</string>
+    <string name="station_accessibility">دسترسی ایستگاه‌ها</string>
 </resources>

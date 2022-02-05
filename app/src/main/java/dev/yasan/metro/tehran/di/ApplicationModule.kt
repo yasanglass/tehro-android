@@ -15,6 +15,8 @@ import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepositoryImp
 import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepositoryImp
+import dev.yasan.metro.tehran.data.repo.stat.StatRepository
+import dev.yasan.metro.tehran.data.repo.stat.StatRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepository
@@ -74,7 +76,8 @@ class ApplicationModule {
     fun provideStationDAO(metroDatabase: MetroDatabase) = metroDatabase.stationDAO()
 
     @Provides
-    fun provideStationAccessibilityDAO(metroDatabase: MetroDatabase) = metroDatabase.stationStationAccessibilityDAO()
+    fun provideStationAccessibilityDAO(metroDatabase: MetroDatabase) =
+        metroDatabase.stationStationAccessibilityDAO()
 
     @Singleton
     @Provides
@@ -105,4 +108,24 @@ class ApplicationModule {
     @Provides
     fun provideStationAccessibilityRepository(stationAccessibilityDAO: StationAccessibilityDAO): StationAccessibilityRepository =
         StationAccessibilityRepositoryImp(stationAccessibilityDAO = stationAccessibilityDAO)
+
+    @Singleton
+    @Provides
+    fun provideStatRepository(
+        intersectionDAO: IntersectionDAO,
+        lineDAO: LineDAO,
+        stationAccessibilityDAO: StationAccessibilityDAO,
+        stationDAO: StationDAO,
+        stationLocationDAO: StationLocationDAO
+    ): StatRepository =
+        StatRepositoryImp(
+            intersectionDAO = intersectionDAO,
+            lineDAO = lineDAO,
+            stationAccessibilityDAO = stationAccessibilityDAO,
+            stationDAO = stationDAO,
+            stationLocationDAO = stationLocationDAO
+        )
+
 }
+
+
