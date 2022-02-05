@@ -37,7 +37,6 @@ fun AboutScreen(
     ) {
 
         item {
-
             AboutSegmentApp(databaseInformation = databaseInformation.value?.data)
         }
 
@@ -48,7 +47,6 @@ fun AboutScreen(
         item {
             AboutSegmentDev()
         }
-
 
         item {
             Spacer(modifier = Modifier.requiredHeight(grid(2)))

@@ -37,7 +37,8 @@ import dev.yasan.metro.tehran.util.LocaleHelper
 @Composable
 fun AboutSegmentApp(
     databaseInformation: DatabaseInformation?,
-    fontFamily: FontFamily = LocaleHelper.properFontFamily
+    fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    forceFarsi: Boolean = false
 ) {
 
     val context = LocalContext.current
@@ -89,7 +90,7 @@ fun AboutSegmentApp(
                 modifier = Modifier.padding(grid(2)),
                 text = stringResource(
                     id = R.string.database_last_modified_on_date,
-                    info.getLastModifiedString()
+                    info.getLastModifiedString(forceFarsi = forceFarsi)
                 ),
                 fontFamily = fontFamily,
                 fontSize = 12.sp,
@@ -117,5 +118,9 @@ private fun AboutSegmentAppPreviewEn(
 private fun AboutSegmentAppPreviewFa(
     @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
 ) {
-    AboutSegmentApp(databaseInformation = databaseInformation, fontFamily = vazirFamily)
+    AboutSegmentApp(
+        databaseInformation = databaseInformation,
+        fontFamily = vazirFamily,
+        forceFarsi = true
+    )
 }

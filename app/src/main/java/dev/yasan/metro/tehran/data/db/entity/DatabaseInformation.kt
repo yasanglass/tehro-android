@@ -22,8 +22,8 @@ data class DatabaseInformation(
     /**
      * Converts all date variables into an easily readable [String].
      */
-    fun getLastModifiedString(): String {
-        return if (LocaleHelper.isFarsi) {
+    fun getLastModifiedString(forceFarsi: Boolean = false): String {
+        return if (LocaleHelper.isFarsi || forceFarsi) {
             "$lastModifiedYear/$lastModifiedMonth/$lastModifiedDay".toPersianNumbers()
         } else {
             "$lastModifiedYear-$lastModifiedMonth-$lastModifiedDay"
