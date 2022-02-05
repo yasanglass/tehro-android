@@ -27,6 +27,9 @@ import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.extension.toPersianNumbers
 
+/**
+ * Shows a list of [Stat]s in a Composable.
+ */
 @Composable
 fun StatsList(
     stats: List<Stat>,

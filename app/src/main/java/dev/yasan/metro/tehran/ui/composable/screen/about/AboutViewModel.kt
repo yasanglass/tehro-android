@@ -47,11 +47,6 @@ class AboutViewModel @Inject constructor(
         MutableLiveData<Resource<DatabaseInformation>>(Resource.Initial())
     val databaseInformation: LiveData<Resource<DatabaseInformation>> get() = _databaseInformation
 
-    /**
-     * Loads database information into [_databaseInformation] (observable through [databaseInformation]).
-     *
-     * @see databaseInformation
-     */
     private suspend fun loadDatabaseInformation() {
         _databaseInformation.postValue(Resource.Loading())
         val data = databaseInformationRepository.getInformation()
@@ -62,11 +57,6 @@ class AboutViewModel @Inject constructor(
         }
     }
 
-    /**
-     * Loads statistics about the database into [_stats] (observable through [stats]).
-     *
-     * @see Stat
-     */
     private suspend fun loadStats() {
         _stats.postValue(Resource.Loading())
         val data = statRepository.getStatistics()

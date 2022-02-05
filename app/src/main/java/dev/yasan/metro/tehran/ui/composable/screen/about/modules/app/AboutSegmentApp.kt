@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen.about.modules
+package dev.yasan.metro.tehran.ui.composable.screen.about.modules.app
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -24,6 +24,7 @@ import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehDivider
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinks
 import dev.yasan.metro.tehran.ui.preview.dbinfo.DatabaseInformationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid

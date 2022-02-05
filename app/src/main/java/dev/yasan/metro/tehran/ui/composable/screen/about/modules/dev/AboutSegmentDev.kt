@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen.about.modules
+package dev.yasan.metro.tehran.ui.composable.screen.about.modules.dev
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
@@ -18,6 +18,9 @@ import dev.yasan.kit.library.ui.theme.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.yasan.YasanBrandingFooter
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutIcons
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinkButton
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinks
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
