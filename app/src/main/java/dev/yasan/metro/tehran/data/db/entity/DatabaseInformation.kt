@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.extension.toPersianNumbers
+import saman.zamani.persiandate.PersianDate
 
 /**
  * This class contains a set of general data related to [MetroDatabase].
@@ -24,9 +25,16 @@ data class DatabaseInformation(
      */
     fun getLastModifiedString(forceFarsi: Boolean = false): String {
         return if (LocaleHelper.isFarsi || forceFarsi) {
-            "$lastModifiedYear/$lastModifiedMonth/$lastModifiedDay".toPersianNumbers()
+            val pDate = PersianDate().apply {
+                grgDay = lastModifiedDay
+                grgMonth = lastModifiedMonth
+                grgYear = lastModifiedYear
+            }
+            "${pDate.shYear}/${pDate.shMonth}/${pDate.shDay}".toPersianNumbers()
         } else {
             "$lastModifiedYear-$lastModifiedMonth-$lastModifiedDay"
         }
+
     }
+
 }
