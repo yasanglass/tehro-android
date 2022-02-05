@@ -19,8 +19,8 @@ android {
         advancedVersioning {
             nameOptions {
                 versionMajor 2
-                versionMinor 0
-                versionPatch 5
+                versionMinor 1
+                versionPatch 0
             }
             codeOptions {
                 versionCodeType 'GIT_COMMIT_COUNT'
@@ -34,7 +34,8 @@ android {
         def appVersionName = advancedVersioning.versionName
         def appVersionCode = advancedVersioning.versionCode
 
-        versionCode appVersionCode
+        // Replace with `appVersionCode` once git count is higher than the current build code
+        versionCode 210
         versionName appVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

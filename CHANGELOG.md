@@ -1,10 +1,12 @@
 # Tehro Changelog
 
-## Unreleased
+## v2.1.0
 
-- Accessibility information if stations is now shown on the Station bottom sheet.
+- Now more information about stations are shown on the station details bottom sheet.
 - The store flavor of the app is now shown on the home screen footer.
 - The last modified date of the database is now shown in Jalali date when the app is in Farsi/Persian.
+- App name is now more stylized on the about screen.
+- Basic database statistics are now shown on the about screen.
 
 ## v2.0.5
 
