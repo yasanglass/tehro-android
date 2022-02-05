@@ -1,8 +1,13 @@
-name: Gradle Build
-on: pull_request
+name: Run Tests
+on:   
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
 jobs:
   gradle:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout Root
       uses: actions/checkout@v2
@@ -23,5 +28,11 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
     
-    - name: Execute Gradle build
-      run: ./gradlew build
+    - name: Run Local Unit Tests
+      run: ./gradlew testStagingUnitTest
+
+    - name: Run Instrumented Unit Tests
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        script: ./gradlew connectedCheck
