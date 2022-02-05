@@ -161,4 +161,7 @@ dependencies {
     // Coil
     implementation("io.coil-kt:coil-compose:$coil_version")
 
+    // Persian Date
+    implementation 'com.github.samanzamani:PersianDate:1.3.4'
+
 }

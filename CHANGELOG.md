@@ -4,6 +4,7 @@
 
 - Accessibility information if stations is now shown on the Station bottom sheet.
 - The store flavor of the app is now shown on the home screen footer.
+- The last modified date of the database is now shown in Jalali date when the app is in Farsi/Persian.
 
 ## v2.0.5
 
