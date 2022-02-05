@@ -55,6 +55,12 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+        }
+        staging {
+            initWith debug
+        }
     }
 
     flavorDimensions 'store'
