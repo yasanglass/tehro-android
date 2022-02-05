@@ -29,10 +29,10 @@ jobs:
       uses: gradle/gradle-build-action@v2
     
     - name: Run Local Unit Tests
-      run: ./gradlew testStagingUnitTest
+      run: ./gradlew test
 
-    - name: Run Instrumented Unit Tests
+    - name: Run Instrumented Tests
       uses: reactivecircus/android-emulator-runner@v2
       with:
         api-level: 29
-        script: ./gradlew connectedCheck
+        script: ./gradlew connectedAndroidTest
