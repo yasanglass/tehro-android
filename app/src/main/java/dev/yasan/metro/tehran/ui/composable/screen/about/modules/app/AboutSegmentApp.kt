@@ -1,6 +1,8 @@
 package dev.yasan.metro.tehran.ui.composable.screen.about.modules.app
 
 import android.content.res.Configuration
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
@@ -8,6 +10,7 @@ import androidx.compose.material.icons.sharp.Launch
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -30,10 +33,12 @@ import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
+import dev.yasan.metro.tehran.util.PreviewHelper
 
 /**
  * A segment of [AboutScreen] that shows information about the app.
  */
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AboutSegmentApp(
     databaseInformation: DatabaseInformation?,
@@ -50,17 +55,32 @@ fun AboutSegmentApp(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Text(
+        Box(
             modifier = Modifier
-                .padding(horizontal = grid(2))
-                .padding(top = grid(2)),
-            text = stringResource(R.string.app_name).uppercase(),
-            fontFamily = fontFamily,
-            fontSize = 24.sp,
-            color = colorResource(id = R.color.text_title),
-            textAlign = TextAlign.Center,
-            fontWeight = FontWeight.Black
-        )
+                .fillMaxWidth()
+                .height(IntrinsicSize.Min),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(modifier = Modifier.fillMaxSize()) {
+                PreviewHelper.lineColors.forEach { color ->
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                            .background(color = color)
+                    )
+                }
+            }
+            Text(
+                modifier = Modifier.padding(grid(2)),
+                text = stringResource(R.string.app_name).uppercase(),
+                fontFamily = fontFamily,
+                fontSize = 32.sp,
+                color = colorResource(id = R.color.black),
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Black,
+            )
+        }
 
         Text(
             modifier = Modifier.padding(grid(2)),
@@ -109,7 +129,10 @@ fun AboutSegmentApp(
 private fun AboutSegmentAppPreviewEn(
     @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
 ) {
-    AboutSegmentApp(databaseInformation = databaseInformation, fontFamily = rubikFamily)
+    AboutSegmentApp(
+        databaseInformation = databaseInformation,
+        fontFamily = rubikFamily,
+    )
 }
 
 @Preview("About App [fa]", group = "light", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_NO)
@@ -121,6 +144,6 @@ private fun AboutSegmentAppPreviewFa(
     AboutSegmentApp(
         databaseInformation = databaseInformation,
         fontFamily = vazirFamily,
-        forceFarsi = true
+        forceFarsi = true,
     )
 }

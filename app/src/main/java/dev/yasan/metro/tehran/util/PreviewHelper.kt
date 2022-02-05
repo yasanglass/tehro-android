@@ -1,5 +1,6 @@
 package dev.yasan.metro.tehran.util
 
+import androidx.compose.ui.graphics.Color
 import dev.yasan.metro.tehran.data.db.entity.*
 
 /**
@@ -60,6 +61,8 @@ object PreviewHelper {
             typeInt = LineType.METRO_LINE.ordinal
         ),
     )
+
+    val lineColors get() = ArrayList<Color>().apply { lines.forEach { line -> add(line.color) } }
 
     val lineSixStations = sequenceOf(
         Station(
