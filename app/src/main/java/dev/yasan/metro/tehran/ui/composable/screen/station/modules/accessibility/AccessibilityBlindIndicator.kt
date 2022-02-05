@@ -2,6 +2,7 @@ package dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibilit
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -19,6 +20,7 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.AccessibilityBlind
 import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityBlindPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
+import dev.yasan.metro.tehran.ui.theme.dimenDivider
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
@@ -35,6 +37,7 @@ fun AccessibilityBlindIndicator(
         modifier = Modifier
             .fillMaxWidth()
             .background(color = colorResource(id = R.color.layer_midground))
+            .border(width = dimenDivider, color = colorResource(id = R.color.divider))
     ) {
 
         val text = stringResource(id = accessibilityBlind.stringResourceId)
