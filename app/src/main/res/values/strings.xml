@@ -48,6 +48,6 @@
     <string name="stations">Stations</string>
     <string name="intersections">Intersections</string>
     <string name="database">Database</string>
-    <string name="station_location">Stations\' Location</string>
-    <string name="station_accessibility">Stations\' Accessibility</string>
+    <string name="station_location">Station Location</string>
+    <string name="station_accessibility">Station Accessibility</string>
 </resources>
