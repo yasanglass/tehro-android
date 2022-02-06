@@ -36,3 +36,9 @@ jobs:
       with:
         api-level: 29
         script: ./gradlew connectedAndroidTest
+        
+    - name: Report Coverage
+      uses: codecov/codecov-action@v2
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        verbose: true
