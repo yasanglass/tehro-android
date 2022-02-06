@@ -6,7 +6,7 @@
 [![code quality](https://img.shields.io/codacy/grade/abe344aa3a7a4b0b87673ccccfae1c51)](https://app.codacy.com/gh/yasandev/tehro-android/dashboard?utm_source=github.com&utm_medium=referral&utm_content=yasandev/tehro-android&utm_campaign=Badge_Grade)
 [![release](https://img.shields.io/github/v/release/yasandev/tehro-android)](https://github.com/yasandev/tehro-android/releases)
 [![fdroid](https://img.shields.io/f-droid/v/dev.yasan.metro.fdroid)](https://f-droid.org/packages/dev.yasan.metro.fdroid)
-[![checks](https://img.shields.io/github/checks-status/yasandev/tehro-android/main)](https://github.com/yasandev/tehro-android/commits/main)
+[![checks](https://github.com/yasandev/tehro-android/workflows/Android%20CI/badge.svg)](https://github.com/yasandev/tehro-android/commits/main)
 
 Tehro is a guide app for Tehran Metro.
 
