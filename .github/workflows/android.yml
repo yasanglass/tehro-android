@@ -1,4 +1,4 @@
-name: Run Tests
+name: Android CI
 on:   
   push:
     branches: [ main ]
