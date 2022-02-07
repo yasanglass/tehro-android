@@ -3,11 +3,11 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ '*' ]
   workflow_dispatch:
 jobs:
   gradle:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Root
       uses: actions/checkout@v2
@@ -24,18 +24,22 @@ jobs:
       with:
         distribution: temurin
         java-version: 11
-        
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v2
-    
-    - name: Run Local Unit Tests
-      run: ./gradlew test
-
-    - name: Run Instrumented Tests
-      uses: reactivecircus/android-emulator-runner@v2
+  
+    - name: Cache Gradle and wrapper
+      uses: actions/cache@v2
       with:
-        api-level: 29
-        script: ./gradlew connectedAndroidTest
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+
+    - name: Make Gradle executable
+      run: chmod +x ./gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build
         
     - name: Report Coverage
       uses: codecov/codecov-action@v2
