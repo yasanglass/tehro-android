@@ -55,16 +55,16 @@ fun NavGraph(
         AnimatedNavHost(
             navController = navController,
             startDestination = startDestination,
-            enterTransition = { _, _ ->
+            enterTransition = {
                 expandIn()
             },
-            popEnterTransition = { _, _ ->
+            popEnterTransition = {
                 expandIn()
             },
-            exitTransition = { _, _ ->
+            exitTransition = {
                 fadeOut()
             },
-            popExitTransition = { _, _ ->
+            popExitTransition = {
                 fadeOut()
             },
         ) {

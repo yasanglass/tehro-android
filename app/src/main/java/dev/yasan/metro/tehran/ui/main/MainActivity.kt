@@ -16,12 +16,14 @@ import dev.yasan.metro.tehran.ui.composable.TehroApp
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @ExperimentalMaterialNavigationApi
-    @ExperimentalAnimationApi
+    @OptIn(ExperimentalMaterialNavigationApi::class,
+        ExperimentalAnimationApi::class
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TehroApp()
         }
     }
+
 }
