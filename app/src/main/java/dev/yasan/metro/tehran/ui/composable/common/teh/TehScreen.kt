@@ -28,7 +28,6 @@ fun TehScreen(
     title: String,
     color: Color = themePrimary,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
-    lazyColumnModifier: Modifier = Modifier,
     content: LazyListScope.() -> Unit
 ) {
 
@@ -41,7 +40,7 @@ fun TehScreen(
         TehTitle(title = title, colorBackground = color, fontFamily = fontFamily)
 
         LazyColumn(
-            modifier = lazyColumnModifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f),
             horizontalAlignment = Alignment.CenterHorizontally
