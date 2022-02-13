@@ -71,7 +71,7 @@ fun MapScreen(mapViewModel: MapViewModel) {
             .background(colorResource(id = R.color.layer_midground))
     ) {
 
-        TehTitle(title = stringResource(id = R.string.map), colorBackground = themePrimary)
+        TehTitle(title = stringResource(id = R.string.map))
 
         Box(
             modifier = Modifier
