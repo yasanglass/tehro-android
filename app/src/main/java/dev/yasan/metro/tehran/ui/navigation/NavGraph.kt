@@ -2,6 +2,7 @@ package dev.yasan.metro.tehran.ui.navigation
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.expandIn
+import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -56,10 +57,10 @@ fun NavGraph(
             navController = navController,
             startDestination = startDestination,
             enterTransition = {
-                expandIn()
+                fadeIn()
             },
             popEnterTransition = {
-                expandIn()
+                fadeIn()
             },
             exitTransition = {
                 fadeOut()
