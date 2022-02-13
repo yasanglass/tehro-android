@@ -61,21 +61,22 @@ android {
         }
     }
 
-    flavorDimensions 'store'
+    def dimenStore = 'store'
+    flavorDimensions dimenStore
     productFlavors {
         play {
-            dimension 'store'
+            dimension dimenStore
         }
         bazaar {
-            dimension 'store'
+            dimension dimenStore
             applicationIdSuffix(".bazaar")
         }
         github {
-            dimension 'store'
+            dimension dimenStore
             applicationIdSuffix(".github")
         }
         fdroid {
-            dimension 'store'
+            dimension dimenStore
             applicationIdSuffix(".fdroid")
         }
     }
