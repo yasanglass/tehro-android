@@ -72,7 +72,7 @@ fun NavGraph(
 
             composable(route = NavRoutes.routeHome()) {
 
-                systemUiController.setStatusBarColor(color = themePrimary)
+                systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
 
                 HomeScreen(
                     mainViewModel = mainViewModel,
@@ -107,7 +107,7 @@ fun NavGraph(
 
             composable(route = NavRoutes.routeMap()) {
 
-                systemUiController.setStatusBarColor(color = themePrimary)
+                systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
 
                 val mapViewModel: MapViewModel = hiltViewModel(it)
 
