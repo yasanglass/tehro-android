@@ -174,3 +174,8 @@ ruler {
     screenDensity.set(480)
     sdkVersion.set(27)
 }
+
+tasks.named("check").configure {
+    dependsOn("analyzePlayDebugBundle")
+    dependsOn("analyzePlayReleaseBundle")
+}
