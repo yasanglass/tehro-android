@@ -6,6 +6,7 @@ plugins {
     id 'kotlin-parcelize'
     id 'me.moallemi.advanced-build-version'
     id 'com.adarshr.test-logger' version '3.1.0'
+    id 'com.spotify.ruler'
 }
 
 android {
