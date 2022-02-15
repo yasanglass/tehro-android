@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.yasan.kit.library.util.DispatcherProvider
-import dev.yasan.kit.library.util.Resource
+import dev.yasan.kit.core.DispatcherProvider
+import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository

@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import dev.yasan.kit.library.helper.WebHelper
+import dev.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.theme.grid

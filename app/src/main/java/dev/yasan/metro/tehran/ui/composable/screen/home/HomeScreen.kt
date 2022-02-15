@@ -9,11 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import dev.yasan.kit.library.util.Resource
+import dev.yasan.kit.compose.parts.branding.YasanBrandingFooter
+import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.*
-import dev.yasan.metro.tehran.ui.composable.common.yasan.YasanBrandingFooter
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.AppVersionFooter
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.LineItem
@@ -90,7 +91,7 @@ fun HomeScreen(
                 }
 
                 item {
-                    YasanBrandingFooter(spacerTop = false)
+                    YasanBrandingFooter(spacerTop = 0.dp)
                 }
             }
             else -> {

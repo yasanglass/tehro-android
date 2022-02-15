@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.yasan.kit.library.util.DispatcherProvider
+import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.repo.dbinfo.DatabaseInformationRepository
