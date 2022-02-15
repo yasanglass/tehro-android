@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.ui.composable.screen.station
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.navigation.NavController
-import dev.yasan.kit.library.util.Resource
+import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehError
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehErrorType
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
