@@ -10,4 +10,5 @@ dependencyResolutionManagement {
 rootProject.name = "Tehro"
 include ':app'
 include ':ydk'
-include ':ydk:library'
+include ':ydk:core'
+include ':ydk:compose'

@@ -8,7 +8,7 @@
 [![fdroid](https://img.shields.io/f-droid/v/dev.yasan.metro.fdroid)](https://f-droid.org/packages/dev.yasan.metro.fdroid)
 [![checks](https://github.com/yasandev/tehro-android/workflows/Android%20CI/badge.svg)](https://github.com/yasandev/tehro-android/commits/main)
 
-Tehro is a guide app for Tehran Metro.
+Tehro is a guide app for Tehran Metro powered by [Jetpack Compose](https://developer.android.com/jetpack/compose).
 
 ## Releases
 
@@ -16,7 +16,7 @@ You can get the official releases from either [GitHub](https://github.com/yasand
 
 ## Database
 
-The database used in the app is stored at [tehro-database repository](https://github.com/yasandev/tehro-database) as the database is a separate project from the Android client.
+The database used in the app is stored at [tehro-database](https://github.com/yasandev/tehro-database) repository as the database is a separate project from the Android client. You are more than welcome to create your own Tehro client for any platform.
 
 ## Contributing
 
