@@ -1,6 +1,6 @@
 - identifier: :app
   owner: app
-- identifier: :ydk-core
+- identifier: :ydk:core
   owner: ydk
-- identifier: :ydk-compose
+- identifier: :ydk:compose
   owner: ydk
