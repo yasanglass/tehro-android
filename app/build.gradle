@@ -35,7 +35,7 @@ android {
         def appVersionName = advancedVersioning.versionName
         def appVersionCode = advancedVersioning.versionCode
 
-        versionCode appVersionCode
+        versionCode 211
         versionName appVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
