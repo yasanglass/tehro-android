@@ -1,0 +1,3 @@
+- Updated app style & theme.
+- Improved About screen content including a new animation.
+- Fixed About screen sometimes crashing on start.
