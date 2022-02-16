@@ -31,42 +31,35 @@ class AboutViewModel @Inject constructor(
         private const val TAG = "AboutViewModel"
     }
 
-    init {
-        loadAllData()
-    }
-
-    private fun loadAllData() {
-        viewModelScope.launch(dispatchers.io) {
-            loadDatabaseInformation()
-            loadStats()
-        }
-    }
-
     private var _databaseInformation =
         MutableLiveData<Resource<DatabaseInformation>>(Resource.Initial())
     val databaseInformation: LiveData<Resource<DatabaseInformation>> get() = _databaseInformation
 
-    private suspend fun loadDatabaseInformation() {
-        _databaseInformation.postValue(Resource.Loading())
-        val data = databaseInformationRepository.getInformation()
-        if (data != null) {
-            _databaseInformation.postValue(Resource.Success(data = data))
-        } else {
-            _databaseInformation.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
-        }
-    }
-
-    private suspend fun loadStats() {
-        _stats.postValue(Resource.Loading())
-        val data = statRepository.getStatistics()
-        if (data.isNotEmpty()) {
-            _stats.postValue(Resource.Success(data = data))
-        } else {
-            _stats.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
+     fun loadDatabaseInformation() {
+        viewModelScope.launch(dispatchers.io) {
+            _databaseInformation.postValue(Resource.Loading())
+            val data = databaseInformationRepository.getInformation()
+            if (data != null) {
+                _databaseInformation.postValue(Resource.Success(data = data))
+            } else {
+                _databaseInformation.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
+            }
         }
     }
 
     private var _stats = MutableLiveData<Resource<List<Stat>>>(Resource.Initial())
     val stats: LiveData<Resource<List<Stat>>> get() = _stats
+
+     fun loadStats() {
+        viewModelScope.launch(dispatchers.io) {
+            _stats.postValue(Resource.Loading())
+            val data = statRepository.getStatistics()
+            if (data.isNotEmpty()) {
+                _stats.postValue(Resource.Success(data = data))
+            } else {
+                _stats.postValue(Resource.Error(messageResourceId = R.string.failed_to_load_data))
+            }
+        }
+    }
 
 }

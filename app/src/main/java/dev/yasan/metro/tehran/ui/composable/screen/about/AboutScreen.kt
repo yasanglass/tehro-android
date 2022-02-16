@@ -6,6 +6,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
+import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.app.AboutSegmentApp
@@ -28,8 +29,17 @@ fun AboutScreen(
     aboutViewModel: AboutViewModel
 ) {
 
-    val databaseInformation = aboutViewModel.databaseInformation.observeAsState()
-    val stats = aboutViewModel.stats.observeAsState()
+    val databaseInformation = aboutViewModel.databaseInformation.observeAsState().also {
+        if (it.value is Resource.Initial) {
+            aboutViewModel.loadDatabaseInformation()
+        }
+    }
+
+    val stats = aboutViewModel.stats.observeAsState().also {
+        if (it.value is Resource.Initial) {
+            aboutViewModel.loadStats()
+        }
+    }
 
     TehScreen(
         title = stringResource(id = R.string.about),
@@ -60,4 +70,5 @@ fun AboutScreen(
         }
 
     }
+
 }
