@@ -40,3 +40,9 @@ jobs:
 
     - name: Gradlew Check
       run: ./gradlew check
+
+    - name: Upload Ruler Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: ruler-report
+        path: app/build/reports/ruler/*/report.html
