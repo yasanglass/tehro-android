@@ -1,6 +1,9 @@
 package dev.yasan.metro.tehran.ui.composable.common.teh
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
@@ -39,7 +42,7 @@ fun TehButton(
     modifier: Modifier = Modifier,
     title: String,
     icon: ImageVector,
-    color: Color = colorResource(id = R.color.button_background),
+    color: Color = colorResource(id = R.color.layer_foreground),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     fontSize: TextUnit = 16.sp,
     onClick: () -> Unit,
@@ -50,6 +53,7 @@ fun TehButton(
     Row(
         modifier = modifier
             .background(color = color)
+            .border(width = dimenDivider, color = colorResource(id = R.color.divider))
             .clickable {
                 onClick()
             }
@@ -79,7 +83,14 @@ fun TehButton(
 @Preview(
     name = "Try Again Button [en]",
     group = "Try Again Button",
-    locale = "en"
+    locale = "en",
+    uiMode = UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Try Again Button [en]",
+    group = "Try Again Button",
+    locale = "en",
+    uiMode = UI_MODE_NIGHT_YES
 )
 @Composable
 private fun TehButtonPreviewEn() {
@@ -96,7 +107,14 @@ private fun TehButtonPreviewEn() {
 @Preview(
     name = "Try Again Button [fa]",
     group = "Try Again Button",
-    locale = "fa"
+    locale = "fa",
+    uiMode = UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Try Again Button [fa]",
+    group = "Try Again Button",
+    locale = "fa",
+    uiMode = UI_MODE_NIGHT_YES
 )
 @Composable
 private fun TehButtonPreviewFa() {
@@ -113,7 +131,14 @@ private fun TehButtonPreviewFa() {
 @Preview(
     name = "About Button [en]",
     group = "About Button",
-    locale = "en"
+    locale = "en",
+    uiMode = UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "About Button [en]",
+    group = "About Button",
+    locale = "en",
+    uiMode = UI_MODE_NIGHT_YES
 )
 @Composable
 private fun TehButtonPreviewEn2() {
@@ -130,7 +155,14 @@ private fun TehButtonPreviewEn2() {
 @Preview(
     name = "About Button [fa]",
     group = "About Button",
-    locale = "fa"
+    locale = "fa",
+    uiMode = UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "About Button [fa]",
+    group = "About Button",
+    locale = "fa",
+    uiMode = UI_MODE_NIGHT_YES
 )
 @Composable
 private fun TehButtonPreviewFa2() {
