@@ -70,6 +70,7 @@ fun StationScreenSuccess(
                     tint = colorResource(id = R.color.text_title)
                 )
             }
+
         }
 
         item {
@@ -83,6 +84,7 @@ fun StationScreenSuccess(
                 fontWeight = FontWeight.Bold,
                 fontSize = 22.sp
             )
+
         }
 
         item {
@@ -106,6 +108,7 @@ fun StationScreenSuccess(
                     AccessibilityWheelchairIndicator(accessibilityWheelchair = accessibility.wheelchairAccessibilityLevel)
 
                     Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
                 }
 
                 station.location?.let {
@@ -152,7 +155,8 @@ fun StationScreenSuccess(
                             }
 
                         TehButton(
-                            color = line.color,
+                            colorBackground = line.color,
+                            colorBorder = line.color,
                             modifier = Modifier.fillMaxWidth(),
                             title = intersectionButtonTitle,
                             icon = TehroIcons.MultipleStop,
@@ -165,6 +169,7 @@ fun StationScreenSuccess(
                     }
                 }
             }
+
         }
     }
 }

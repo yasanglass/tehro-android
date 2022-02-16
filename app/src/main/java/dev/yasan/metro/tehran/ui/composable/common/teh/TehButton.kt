@@ -10,6 +10,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Info
+import androidx.compose.material.icons.sharp.Map
 import androidx.compose.material.icons.sharp.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -42,17 +43,17 @@ fun TehButton(
     modifier: Modifier = Modifier,
     title: String,
     icon: ImageVector,
-    color: Color = colorResource(id = R.color.text_title),
+    colorBackground: Color = colorResource(id = R.color.text_title),
+    colorBorder: Color = colorBackground.getTextOnColor(),
+    colorContent: Color = colorBackground.getTextOnColor(),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     fontSize: TextUnit = 16.sp,
     onClick: () -> Unit,
 ) {
 
-    val tint = color.getTextOnColor()
-
     Row(
         modifier = modifier
-            .background(color = color)
+            .background(color = colorBackground)
             .border(width = dimenDivider, color = tint)
             .clickable {
                 onClick()
@@ -65,7 +66,7 @@ fun TehButton(
             modifier = Modifier,
             imageVector = icon,
             contentDescription = null,
-            tint = tint,
+            tint = colorContent,
         )
         Spacer(modifier = Modifier.requiredWidth(grid(0.5f)))
         Text(
@@ -74,7 +75,7 @@ fun TehButton(
             fontFamily = fontFamily,
             fontWeight = FontWeight.Bold,
             fontSize = fontSize,
-            color = tint,
+            color = colorContent,
             textAlign = TextAlign.Center
         )
     }
@@ -170,6 +171,54 @@ private fun TehButtonPreviewFa2() {
         TehButton(
             title = stringResource(id = R.string.about),
             icon = TehroIcons.Info,
+            onClick = {},
+            fontFamily = vazirFamily,
+        )
+    }
+}
+
+@Preview(
+    name = "About Button [en]",
+    group = "About Button",
+    locale = "en",
+    uiMode = UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Map Button [en]",
+    group = "Map Button",
+    locale = "en",
+    uiMode = UI_MODE_NIGHT_YES
+)
+@Composable
+private fun TehButtonPreviewEn3() {
+    Surface(color = colorResource(id = R.color.layer_midground)) {
+        TehButton(
+            title = stringResource(R.string.view_on_map),
+            icon = TehroIcons.Map,
+            onClick = {},
+            fontFamily = rubikFamily,
+        )
+    }
+}
+
+@Preview(
+    name = "Map Button [fa]",
+    group = "Map Button",
+    locale = "fa",
+    uiMode = UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Map Button [fa]",
+    group = "Map Button",
+    locale = "fa",
+    uiMode = UI_MODE_NIGHT_YES
+)
+@Composable
+private fun TehButtonPreviewFa3() {
+    Surface(color = colorResource(id = R.color.layer_midground)) {
+        TehButton(
+            title = stringResource(R.string.view_on_map),
+            icon = TehroIcons.Map,
             onClick = {},
             fontFamily = vazirFamily,
         )
