@@ -3,6 +3,7 @@ package dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
+import androidx.compose.material.icons.sharp.Launch
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,12 +16,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.core.Resource
+import dev.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
 import dev.yasan.metro.tehran.data.db.entity.Stat
+import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehDivider
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinks
+import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.util.LocaleHelper
 
@@ -34,6 +39,8 @@ fun SegmentStats(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
+
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -66,11 +73,23 @@ fun SegmentStats(
                 )
             }
             is Resource.Success -> {
+
                 val stats = statsResource.data ?: emptyList()
+
                 StatsList(
                     stats = stats,
                     fontFamily = fontFamily,
                     forceFarsi = forceFarsi
+                )
+
+                TehButton(
+                    modifier = Modifier.padding(vertical = grid(2)),
+                    title = stringResource(id = R.string.github),
+                    icon = TehroIcons.Launch,
+                    onClick = {
+                        WebHelper.openWebView(context = context, url = AboutLinks.URL_DATABASE_GITHUB)
+                    },
+                    fontFamily = fontFamily,
                 )
 
                 databaseInformation?.let { info ->

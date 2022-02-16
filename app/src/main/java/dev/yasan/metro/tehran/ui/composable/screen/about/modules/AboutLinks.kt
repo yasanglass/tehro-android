@@ -1,11 +1,14 @@
 package dev.yasan.metro.tehran.ui.composable.screen.about.modules
 
+import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
+
 /**
  * Holds constant string variables for URLs used on [AboutScreen].
  */
 object AboutLinks {
 
     const val URL_APP_GITHUB = "https://github.com/yasandev/tehro-android"
+    const val URL_DATABASE_GITHUB = "https://github.com/yasandev/tehro-database"
 
     const val URL_DEV_TELEGRAM = "https://t.me/YASANupdates"
     const val URL_DEV_INSTAGRAM = "https://www.instagram.com/Yasandev"
