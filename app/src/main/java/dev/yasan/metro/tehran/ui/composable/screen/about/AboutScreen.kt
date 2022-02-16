@@ -1,7 +1,10 @@
 package dev.yasan.metro.tehran.ui.composable.screen.about
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -29,15 +32,18 @@ fun AboutScreen(
     aboutViewModel: AboutViewModel
 ) {
 
-    val databaseInformation = aboutViewModel.databaseInformation.observeAsState().also {
-        if (it.value is Resource.Initial) {
+    val databaseInformation = aboutViewModel.databaseInformation.observeAsState()
+    val stats = aboutViewModel.stats.observeAsState()
+
+    DisposableEffect(key1 = aboutViewModel) {
+        if (databaseInformation.value is Resource.Initial) {
             aboutViewModel.loadDatabaseInformation()
         }
-    }
-
-    val stats = aboutViewModel.stats.observeAsState().also {
-        if (it.value is Resource.Initial) {
+        if (stats.value is Resource.Initial) {
             aboutViewModel.loadStats()
+        }
+        onDispose {
+
         }
     }
 
