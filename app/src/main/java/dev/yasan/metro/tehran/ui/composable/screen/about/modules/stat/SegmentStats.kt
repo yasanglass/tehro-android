@@ -16,6 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
 import dev.yasan.metro.tehran.data.db.entity.Stat
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehDivider
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
@@ -29,6 +30,7 @@ import dev.yasan.metro.tehran.util.LocaleHelper
 @Composable
 fun SegmentStats(
     statsResource: Resource<List<Stat>>,
+    databaseInformation: DatabaseInformation?,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
@@ -70,6 +72,29 @@ fun SegmentStats(
                     fontFamily = fontFamily,
                     forceFarsi = forceFarsi
                 )
+
+                databaseInformation?.let { info ->
+
+                    Spacer(modifier = Modifier.requiredHeight(grid()))
+
+                    TehDivider()
+
+                    Text(
+                        modifier = Modifier
+                            .padding(top = grid(2))
+                            .padding(horizontal = grid(2)),
+                        text = stringResource(
+                            id = R.string.database_last_modified_on_date,
+                            info.getLastModifiedString(forceFarsi = forceFarsi)
+                        ),
+                        fontFamily = fontFamily,
+                        fontSize = 12.sp,
+                        color = colorResource(id = R.color.text_desc),
+                        textAlign = TextAlign.Center
+                    )
+
+                }
+
             }
             else -> {
                 TehProgress()

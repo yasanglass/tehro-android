@@ -39,7 +39,7 @@ fun AboutScreen(
     ) {
 
         item {
-            AboutSegmentApp(databaseInformation = databaseInformation.value?.data)
+            AboutSegmentApp()
         }
 
         item {
@@ -55,8 +55,11 @@ fun AboutScreen(
         }
 
         item {
-            stats.value?.let {
-                SegmentStats(statsResource = it)
+            stats.value?.let { statsResource ->
+                SegmentStats(
+                    statsResource = statsResource,
+                    databaseInformation = databaseInformation.value?.data
+                )
                 Spacer(modifier = Modifier.requiredHeight(grid(2)))
             }
         }

@@ -39,9 +39,7 @@ import dev.yasan.metro.tehran.util.PreviewHelper
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AboutSegmentApp(
-    databaseInformation: DatabaseInformation?,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
-    forceFarsi: Boolean = false
 ) {
 
     val context = LocalContext.current
@@ -95,53 +93,34 @@ fun AboutSegmentApp(
             onClick = {
                 WebHelper.openWebView(context = context, url = AboutLinks.URL_APP_GITHUB)
             },
-            fontFamily = fontFamily
+            fontFamily = fontFamily,
         )
 
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
         TehDivider()
 
-        databaseInformation?.let { info ->
-
-            Text(
-                modifier = Modifier.padding(grid(2)),
-                text = stringResource(
-                    id = R.string.database_last_modified_on_date,
-                    info.getLastModifiedString(forceFarsi = forceFarsi)
-                ),
-                fontFamily = fontFamily,
-                fontSize = 12.sp,
-                color = colorResource(id = R.color.text_desc),
-                textAlign = TextAlign.Center
-            )
-
-            TehDivider()
-        }
     }
 }
 
-@Preview("About App [en]", group = "light", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_NO)
-@Preview("About App [en]", group = "dark", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview("About App [en]", group = "Light", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview("About App [en]", group = "Dark", locale = "en", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun AboutSegmentAppPreviewEn(
     @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
 ) {
     AboutSegmentApp(
-        databaseInformation = databaseInformation,
         fontFamily = rubikFamily,
     )
 }
 
-@Preview("About App [fa]", group = "light", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_NO)
-@Preview("About App [fa]", group = "dark", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview("About App [fa]", group = "Light", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview("About App [fa]", group = "Dark", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 private fun AboutSegmentAppPreviewFa(
     @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
 ) {
     AboutSegmentApp(
-        databaseInformation = databaseInformation,
         fontFamily = vazirFamily,
-        forceFarsi = true,
     )
 }
