@@ -1,14 +1,19 @@
 package dev.yasan.metro.tehran.ui.composable.screen.about.modules.app
 
 import android.content.res.Configuration
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Launch
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
@@ -32,6 +37,7 @@ import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.PreviewHelper
+import kotlinx.coroutines.delay
 
 /**
  * A segment of [AboutScreen] that shows information about the app.
@@ -43,6 +49,26 @@ fun AboutSegmentApp(
 ) {
 
     val context = LocalContext.current
+
+    val lineColors = PreviewHelper.lineColors
+    val disabledLineColor: MutableState<Color?> = remember {
+        mutableStateOf(lineColors.random())
+    }
+
+    fun disableAnotherColor() {
+        val enabledColors = ArrayList<Color>().apply {
+            addAll(lineColors)
+            remove(disabledLineColor.value)
+        }
+        disabledLineColor.value = enabledColors.random()
+    }
+
+    LaunchedEffect(Unit) {
+        while (true) {
+            disableAnotherColor()
+            delay(1000)
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -57,18 +83,28 @@ fun AboutSegmentApp(
                 .height(IntrinsicSize.Min),
             contentAlignment = Alignment.Center
         ) {
-            Column(modifier = Modifier.fillMaxSize()) {
-                PreviewHelper.lineColors.forEach { color ->
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .weight(1f)
-                            .background(color = color)
-                    )
+            Column(
+                modifier = Modifier
+                    .animateContentSize()
+                    .fillMaxSize()
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                    ) { disableAnotherColor() }
+            ) {
+                lineColors.forEach { color ->
+                    AnimatedVisibility(color != disabledLineColor.value) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .requiredHeight(grid(3))
+                                .background(color = color)
+                        )
+                    }
                 }
             }
             Text(
-                modifier = Modifier.padding(grid(2)),
+                modifier = Modifier.padding(grid(3)),
                 text = stringResource(R.string.app_name).uppercase(),
                 fontFamily = fontFamily,
                 fontSize = 32.sp,
@@ -109,9 +145,7 @@ fun AboutSegmentApp(
 private fun AboutSegmentAppPreviewEn(
     @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
 ) {
-    AboutSegmentApp(
-        fontFamily = rubikFamily,
-    )
+    AboutSegmentApp(fontFamily = rubikFamily,)
 }
 
 @Preview("About App [fa]", group = "Light", locale = "fa", uiMode = Configuration.UI_MODE_NIGHT_NO)
@@ -120,7 +154,5 @@ private fun AboutSegmentAppPreviewEn(
 private fun AboutSegmentAppPreviewFa(
     @PreviewParameter(DatabaseInformationPreviewProvider::class) databaseInformation: DatabaseInformation?
 ) {
-    AboutSegmentApp(
-        fontFamily = vazirFamily,
-    )
+    AboutSegmentApp(fontFamily = vazirFamily,)
 }
