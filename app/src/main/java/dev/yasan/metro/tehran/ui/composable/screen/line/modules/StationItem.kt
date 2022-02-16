@@ -55,10 +55,10 @@ fun StationItem(
             .padding(top = grid())
             .fillMaxWidth()
             .background(color = colorBackground)
-            .border(width = dimenDivider, color = colorBorder)
             .clickable {
                 navController.navigate(NavRoutes.routeStation(station = station))
             }
+            .border(width = dimenDivider, color = colorBorder)
             .padding(horizontal = grid(2))
             .padding(vertical = grid(1.25f)),
         verticalAlignment = Alignment.CenterVertically

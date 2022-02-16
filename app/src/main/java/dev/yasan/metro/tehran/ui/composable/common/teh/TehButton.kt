@@ -54,10 +54,10 @@ fun TehButton(
     Row(
         modifier = modifier
             .background(color = colorBackground)
-            .border(width = dimenDivider, color = tint)
             .clickable {
                 onClick()
             }
+            .border(width = dimenDivider, color = colorBorder)
             .padding(grid(2)),
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically
