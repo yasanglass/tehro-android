@@ -1,5 +1,9 @@
 # Tehro Changelog
 
+## Unreleased
+
+- The base app theme is no longer colorful.
+
 ## v2.1.0
 
 - Now more information about stations is shown on the station details bottom sheet.

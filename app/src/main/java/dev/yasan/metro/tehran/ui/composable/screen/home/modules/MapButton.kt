@@ -44,7 +44,7 @@ fun MapButton(
             .padding(top = grid())
             .fillMaxWidth()
             .background(color = colorBackground)
-            .border(width = dimenDivider, color = colorResource(id = R.color.divider))
+            .border(width = dimenDivider, color = colorForeground)
             .clickable {
                 navController.navigate(NavRoutes.routeMap())
             }

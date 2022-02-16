@@ -26,7 +26,7 @@ import dev.yasan.metro.tehran.util.LocaleHelper
 @Composable
 fun TehScreen(
     title: String,
-    color: Color = themePrimary,
+    color: Color = colorResource(id = R.color.layer_foreground),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     content: LazyListScope.() -> Unit
 ) {
@@ -47,6 +47,8 @@ fun TehScreen(
         ) {
 
             content()
+
         }
     }
+
 }

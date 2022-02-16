@@ -4,15 +4,10 @@
     <color name="black">#000</color>
     <color name="white">#fff</color>
 
-    <color name="theme_primary">#b2dfdb</color>
-    <color name="theme_primary_dark">#82ada9</color>
-    <color name="theme_primary_light">#e5ffff</color>
-    <color name="on_theme_primary">@color/black</color>
-
-    <color name="theme_accent">#ffd600</color>
-    <color name="theme_accent_dark">#c7a500</color>
-    <color name="theme_accent_light">#ffff52</color>
-    <color name="on_theme_accent">@color/black</color>
+    <color name="theme_primary">#333333</color>
+    <color name="theme_primary_dark">#0c0c0c</color>
+    <color name="theme_primary_light">#5c5c5c</color>
+    <color name="on_theme_primary">@color/white</color>
 
     <!-- Layout Layers -->
 

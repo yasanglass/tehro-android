@@ -128,10 +128,12 @@ fun StationScreenSuccess(
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
+
                         }
                     )
 
                     Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
                 }
 
                 station.intersection?.let { intersection ->
