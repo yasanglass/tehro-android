@@ -39,7 +39,7 @@ fun TehButton(
     modifier: Modifier = Modifier,
     title: String,
     icon: ImageVector,
-    color: Color = themeAccent,
+    color: Color = colorResource(id = R.color.button_background),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     fontSize: TextUnit = 16.sp,
     onClick: () -> Unit,

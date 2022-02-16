@@ -26,4 +26,8 @@
     <color name="text_title">#212121</color>
     <color name="text_desc">#666666</color>
 
+    <!-- Button -->
+
+    <color name="button_background">@color/text_title</color>
+
 </resources>
