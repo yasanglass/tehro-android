@@ -12,7 +12,7 @@ jobs:
     - name: Checkout Root
       uses: actions/checkout@v2
 
-    - name: Checkout submodules
+    - name: Checkout Submodules
       shell: bash
       run: |
        git config --global url."https://github.com/".insteadOf "git@github.com:"
@@ -25,7 +25,7 @@ jobs:
         distribution: temurin
         java-version: 11
   
-    - name: Cache Gradle and wrapper
+    - name: Cache Gradle and Wrapper
       uses: actions/cache@v2
       with:
         path: |
@@ -38,5 +38,11 @@ jobs:
     - name: Make Gradle executable
       run: chmod +x ./gradlew
 
-    - name: Build with Gradle
-      run: ./gradlew build
+    - name: Gradlew Check
+      run: ./gradlew check
+
+    - name: Upload Ruler Reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: ruler-report
+        path: app/build/reports/ruler/*/report.html
