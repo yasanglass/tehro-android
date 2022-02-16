@@ -42,7 +42,7 @@ fun TehButton(
     modifier: Modifier = Modifier,
     title: String,
     icon: ImageVector,
-    color: Color = colorResource(id = R.color.layer_foreground),
+    color: Color = colorResource(id = R.color.text_title),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     fontSize: TextUnit = 16.sp,
     onClick: () -> Unit,
@@ -53,7 +53,7 @@ fun TehButton(
     Row(
         modifier = modifier
             .background(color = color)
-            .border(width = dimenDivider, color = colorResource(id = R.color.divider))
+            .border(width = dimenDivider, color = tint)
             .clickable {
                 onClick()
             }
