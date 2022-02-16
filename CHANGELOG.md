@@ -2,7 +2,9 @@
 
 ## Unreleased
 
-- The base app theme is no longer colorful.
+- Border thickness is now 2dp (increased from 1dp).
+- The base app theme is no longer colorful & the theme is adjusted.
+- Fixed crash when opening About screen.
 
 ## v2.1.0
 
