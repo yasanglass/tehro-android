@@ -21,7 +21,7 @@ android {
             nameOptions {
                 versionMajor 2
                 versionMinor 1
-                versionPatch 0
+                versionPatch 1
             }
             codeOptions {
                 versionCodeType 'GIT_COMMIT_COUNT'
