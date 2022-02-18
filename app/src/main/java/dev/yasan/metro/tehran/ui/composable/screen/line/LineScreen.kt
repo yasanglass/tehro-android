@@ -2,6 +2,7 @@ package dev.yasan.metro.tehran.ui.composable.screen.line
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.requiredHeight
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
@@ -75,17 +76,13 @@ fun LineScreen(
                         Spacer(modifier = Modifier.requiredHeight(grid()))
                     }
 
-                    itemsIndexed(items = list) { index, station ->
-                        val stationPosition = when (index) {
-                            0 -> Station.StationPosition.FIRST
-                            stationCount - 1 -> Station.StationPosition.LAST
-                            else -> Station.StationPosition.MIDDLE
-                        }
-
+                    items(
+                        items = list,
+                        key = { it.id }
+                    ) { station ->
                         StationItem(
                             station = station,
                             navController = navController,
-                            stationPosition = stationPosition
                         )
                     }
 

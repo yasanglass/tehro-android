@@ -41,14 +41,6 @@ data class Station(
 ) {
 
     /**
-     * Different types of position a station can have in a line.
-     * Used to customize the style of first and last stations.
-     */
-    enum class StationPosition {
-        FIRST, MIDDLE, LAST
-    }
-
-    /**
      * The proper name based on the device's default language.
      * @see nameFa
      * @see nameEn

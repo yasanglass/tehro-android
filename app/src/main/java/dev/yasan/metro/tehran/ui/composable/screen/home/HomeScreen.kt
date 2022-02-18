@@ -71,7 +71,7 @@ fun HomeScreen(
                     )
                 }
 
-                items(list) { line ->
+                items(items = list, key = { it.id }) { line ->
                     LineItem(line = line, navController = navController)
                 }
 

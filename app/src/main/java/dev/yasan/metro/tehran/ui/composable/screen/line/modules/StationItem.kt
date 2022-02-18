@@ -36,7 +36,6 @@ import dev.yasan.metro.tehran.util.extension.getTextOnColor
 fun StationItem(
     station: Station,
     navController: NavController,
-    stationPosition: Station.StationPosition = Station.StationPosition.MIDDLE,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
