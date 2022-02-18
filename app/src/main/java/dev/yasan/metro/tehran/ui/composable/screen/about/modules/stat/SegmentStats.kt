@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
 import dev.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
@@ -26,7 +27,6 @@ import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinks
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
-import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.util.LocaleHelper
 
 /**

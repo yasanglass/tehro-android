@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Line
@@ -19,7 +20,6 @@ import dev.yasan.metro.tehran.ui.composable.common.teh.*
 import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItem
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
-import dev.yasan.metro.tehran.ui.theme.grid
 
 /**
  * This screen shows the detailed data for a single [Line] which mainly includes the list of [Station]s inside it.

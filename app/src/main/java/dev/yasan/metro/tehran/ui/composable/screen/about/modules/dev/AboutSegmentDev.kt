@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.parts.branding.YasanBrandingFooter
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
@@ -22,7 +23,6 @@ import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutIcons
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinkButton
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinks
-import dev.yasan.metro.tehran.ui.theme.grid
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 
