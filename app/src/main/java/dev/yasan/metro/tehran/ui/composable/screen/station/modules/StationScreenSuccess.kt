@@ -117,6 +117,7 @@ fun StationScreenSuccess(
                         modifier = Modifier.fillMaxWidth(),
                         title = stringResource(R.string.view_on_map),
                         icon = TehroIcons.Map,
+                        colorBorder = colorResource(id = R.color.text_title),
                         onClick = {
 
                             val uri = "geo:${it.latitude},${it.longitude}"
