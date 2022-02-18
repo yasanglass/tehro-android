@@ -1,10 +1,10 @@
 # Tehro Changelog
 
-## Unreleased
+## v2.1.1
 
-- Border thickness is now 2dp (increased from 1dp).
-- The base app theme is no longer colorful & the theme is adjusted.
-- Fixed crash when opening About screen.
+- Updated app style & theme.
+- Improved About screen content including a new animation.
+- Fixed About screen sometimes crashing on start.
 
 ## v2.1.0
 
