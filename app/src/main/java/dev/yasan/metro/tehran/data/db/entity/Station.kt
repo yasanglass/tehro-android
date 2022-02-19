@@ -4,6 +4,8 @@ import androidx.compose.material.icons.sharp.*
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.*
 import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.PrideHelper
