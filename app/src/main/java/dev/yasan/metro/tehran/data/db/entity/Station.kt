@@ -26,9 +26,15 @@ import kotlinx.parcelize.IgnoredOnParcel
             onDelete = ForeignKey.NO_ACTION
         ),
         ForeignKey(
-            entity = Intersection::class,
+            entity = AccessibilityLevelWheelchair::class,
             parentColumns = arrayOf("id"),
-            childColumns = arrayOf("intersection_id"),
+            childColumns = arrayOf("accessibility_wheelchair_level"),
+            onDelete = ForeignKey.NO_ACTION
+        ),
+        ForeignKey(
+            entity = AccessibilityLevelBlindness::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("accessibility_blindness_level"),
             onDelete = ForeignKey.NO_ACTION
         )
     ]
