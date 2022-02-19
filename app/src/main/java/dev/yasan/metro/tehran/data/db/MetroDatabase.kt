@@ -12,10 +12,8 @@ import javax.inject.Inject
         Station::class,
         Intersection::class,
         DatabaseInformation::class,
-        StationLocation::class,
-        StationAccessibility::class
     ],
-    version = 3,
+    version = 4,
 )
 abstract class MetroDatabase : RoomDatabase() {
 
@@ -28,8 +26,8 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun interchangeDAO(): IntersectionDAO
     abstract fun lineDAO(): LineDAO
     abstract fun stationDAO(): StationDAO
-    abstract fun stationLocationDAO(): StationLocationDAO
-    abstract fun stationStationAccessibilityDAO(): StationAccessibilityDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
+
 }
+
