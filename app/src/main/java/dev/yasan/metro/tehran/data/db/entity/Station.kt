@@ -22,7 +22,8 @@ import kotlinx.parcelize.IgnoredOnParcel
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("line_id"),
             onDelete = ForeignKey.NO_ACTION
-        ), ForeignKey(
+        ),
+        ForeignKey(
             entity = Intersection::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("intersection_id"),
@@ -35,9 +36,15 @@ data class Station(
     @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "name_fa") val nameFa: String,
     @ColumnInfo(name = "name_en") val nameEn: String,
-    @ColumnInfo(name = "position_in_line") val positionInLine: Int,
     @ColumnInfo(name = "line_id") val lineId: Int,
-    @ColumnInfo(name = "intersection_id") val intersectionId: Int?,
+    @ColumnInfo(name = "position_in_line") val positionInLine: Int,
+    @ColumnInfo(name = "location_lat") val locationLatitude: Double?,
+    @ColumnInfo(name = "location_long") val locationLongitude: Double?,
+    @ColumnInfo(name = "map_x") val mapX: Int?,
+    @ColumnInfo(name = "map_y") val mapY: Int?,
+    @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean?,
+    @ColumnInfo(name = "accessibility_wheelchair_level") val accessibilityWheelchair: AccessibilityLevelWheelchair?,
+    @ColumnInfo(name = "accessibility_blindness_level") val accessibilityBlindness: AccessibilityLevelBlindness?,
 ) {
 
     /**
@@ -54,14 +61,6 @@ data class Station(
     @Ignore
     @IgnoredOnParcel
     var line: Line? = null
-
-    @Ignore
-    @IgnoredOnParcel
-    var location: StationLocation? = null
-
-    @Ignore
-    @IgnoredOnParcel
-    var accessibility: StationAccessibility? = null
 
     /**
      * @return A custom icon based on the name of the station.
@@ -85,10 +84,10 @@ data class Station(
             nameFa.contains("راه‌آهن") -> TehroIcons.Train
             nameFa.contains("گلشهر") -> TehroIcons.LocalFlorist
             nameFa.contains("رودکی") ||
-                nameFa.contains("مولوی") ||
-                nameFa.contains("فردوسی") ||
-                nameFa.contains("خیام") ||
-                nameFa.contains("سعدی") -> TehroIcons.HistoryEdu
+                    nameFa.contains("مولوی") ||
+                    nameFa.contains("فردوسی") ||
+                    nameFa.contains("خیام") ||
+                    nameFa.contains("سعدی") -> TehroIcons.HistoryEdu
             nameFa.contains("میدان") -> TehroIcons.TripOrigin
             nameFa.contains("فرودگاه") -> TehroIcons.LocalAirport
             nameFa.contains("خرداد") || nameFa.contains("هفتم تیر") -> TehroIcons.Event
@@ -96,4 +95,5 @@ data class Station(
             else -> null
         }
     }
+
 }
