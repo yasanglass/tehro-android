@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.compose.preview.BooleanPreviewProvider
+import dev.yasan.kit.compose.preview.bool.BooleanPreviewProvider
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
