@@ -51,8 +51,8 @@ data class Station(
     @ColumnInfo(name = "map_x") val mapX: Int?,
     @ColumnInfo(name = "map_y") val mapY: Int?,
     @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean?,
-    @ColumnInfo(name = "accessibility_wheelchair_level") val accessibilityWheelchair: AccessibilityLevelWheelchair?,
-    @ColumnInfo(name = "accessibility_blindness_level") val accessibilityBlindness: AccessibilityLevelBlindness?,
+    @ColumnInfo(name = "accessibility_wheelchair_level") val accessibilityWheelchair: Int?,
+    @ColumnInfo(name = "accessibility_blindness_level") val accessibilityBlindness: Int?,
 ) {
 
     /**
