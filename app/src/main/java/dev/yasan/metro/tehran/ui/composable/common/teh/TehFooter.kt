@@ -30,13 +30,14 @@ import dev.yasan.metro.tehran.util.extension.toPersianNumbers
  */
 @Composable
 fun TehFooter(
+    modifier: Modifier = Modifier,
     text: String,
     spacerTop: Boolean = true,
     spacerBottom: Boolean = true,
     fontFamily: FontFamily = LocaleHelper.properFontFamily
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         if (spacerTop) {
