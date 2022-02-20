@@ -26,6 +26,7 @@ import dev.yasan.metro.tehran.util.LocaleHelper
 
 @Composable
 fun AccessibilityEmsIndicator(
+    modifier: Modifier = Modifier,
     emergencyMedicalServices: Boolean,
     fontFamily: FontFamily = LocaleHelper.properFontFamily
 ) {
@@ -33,7 +34,7 @@ fun AccessibilityEmsIndicator(
     val paddingSize = grid(2)
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(color = colorResource(id = R.color.layer_midground))
             .border(width = dimenDivider, color = colorResource(id = R.color.divider))

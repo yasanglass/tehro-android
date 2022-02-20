@@ -32,6 +32,7 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
+import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityEmsIndicator
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -92,22 +93,22 @@ fun StationScreenSuccess(
                     .padding(horizontal = grid(2))
             ) {
 
-                /*station.accessibility?.let { accessibility ->
+                station.hasEmergencyMedicalServices?.let { ems ->
 
-                    AccessibilityEmsIndicator(emergencyMedicalServices = accessibility.emergencyMedicalServices)
+                    AccessibilityEmsIndicator(
+                        modifier = Modifier.padding(bottom = grid(2)),
+                        emergencyMedicalServices = ems
+                    )
 
-                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+                }
 
-                    AccessibilityBlindIndicator(accessibilityBlind = accessibility.blindAccessibilityLevel)
+                //AccessibilityBlindIndicator(accessibilityBlind = accessibility.blindAccessibilityLevel)
 
-                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+                //Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
-                    AccessibilityWheelchairIndicator(accessibilityWheelchair = accessibility.wheelchairAccessibilityLevel)
+                //AccessibilityWheelchairIndicator(accessibilityWheelchair = accessibility.wheelchairAccessibilityLevel)
 
-                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
-                }*/
-
+                //Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
                 if (station.hasLocation) {
 
