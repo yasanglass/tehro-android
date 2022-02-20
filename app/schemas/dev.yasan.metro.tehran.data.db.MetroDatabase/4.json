@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 4,
-    "identityHash": "a5d4bb82da2c17dfb7d053cca78f73f9",
+    "identityHash": "b473bbc14cc717c513311ef22a566ffa",
     "entities": [
       {
         "tableName": "lines",
@@ -51,7 +51,7 @@
       },
       {
         "tableName": "stations",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name_fa` TEXT NOT NULL, `name_en` TEXT NOT NULL, `line_id` INTEGER NOT NULL, `position_in_line` INTEGER NOT NULL, `location_lat` REAL, `location_long` REAL, `map_x` INTEGER, `map_y` INTEGER, `has_emergency_medical_services` INTEGER, `accessibility_wheelchair_level` TEXT, `accessibility_blindness_level` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`line_id`) REFERENCES `lines`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_wheelchair_level`) REFERENCES `stations_accessibility_wheelchair_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_blindness_level`) REFERENCES `stations_accessibility_blindness_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name_fa` TEXT NOT NULL, `name_en` TEXT NOT NULL, `line_id` INTEGER NOT NULL, `position_in_line` INTEGER NOT NULL, `location_lat` REAL, `location_long` REAL, `map_x` INTEGER, `map_y` INTEGER, `has_emergency_medical_services` INTEGER, `accessibility_wheelchair_level` INTEGER, `accessibility_blindness_level` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`line_id`) REFERENCES `lines`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_wheelchair_level`) REFERENCES `stations_accessibility_wheelchair_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_blindness_level`) REFERENCES `stations_accessibility_blindness_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -116,13 +116,13 @@
           {
             "fieldPath": "accessibilityWheelchair",
             "columnName": "accessibility_wheelchair_level",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": false
           },
           {
             "fieldPath": "accessibilityBlindness",
             "columnName": "accessibility_blindness_level",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": false
           }
         ],
@@ -132,7 +132,35 @@
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_stations_line_id",
+            "unique": false,
+            "columnNames": [
+              "line_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_stations_line_id` ON `${TABLE_NAME}` (`line_id`)"
+          },
+          {
+            "name": "index_stations_accessibility_wheelchair_level",
+            "unique": false,
+            "columnNames": [
+              "accessibility_wheelchair_level"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_stations_accessibility_wheelchair_level` ON `${TABLE_NAME}` (`accessibility_wheelchair_level`)"
+          },
+          {
+            "name": "index_stations_accessibility_blindness_level",
+            "unique": false,
+            "columnNames": [
+              "accessibility_blindness_level"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_stations_accessibility_blindness_level` ON `${TABLE_NAME}` (`accessibility_blindness_level`)"
+          }
+        ],
         "foreignKeys": [
           {
             "table": "lines",
@@ -280,12 +308,76 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "stations_accessibility_wheelchair_levels",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `description_en` TEXT NOT NULL, `description_fa` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descriptionEn",
+            "columnName": "description_en",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descriptionFa",
+            "columnName": "description_fa",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "stations_accessibility_blindness_levels",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `description_en` TEXT NOT NULL, `description_fa` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descriptionEn",
+            "columnName": "description_en",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descriptionFa",
+            "columnName": "description_fa",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a5d4bb82da2c17dfb7d053cca78f73f9')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b473bbc14cc717c513311ef22a566ffa')"
     ]
   }
 }

@@ -71,7 +71,13 @@ object PreviewHelper {
             nameFa = "امام حسین",
             lineId = 6,
             positionInLine = 0,
-            intersectionId = 11
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         ).apply {
             intersection = interchange11
         },
@@ -81,7 +87,13 @@ object PreviewHelper {
             nameFa = "میدان شهدا",
             lineId = 6,
             positionInLine = 1,
-            intersectionId = 7
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         ).apply {
             intersection = interchange7
         },
@@ -91,7 +103,13 @@ object PreviewHelper {
             nameFa = "بعثت",
             lineId = 6,
             positionInLine = 2,
-            intersectionId = null
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         ),
         Station(
             id = 31,
@@ -99,7 +117,13 @@ object PreviewHelper {
             nameFa = "دولت\u200Cآباد",
             lineId = 6,
             positionInLine = 3,
-            intersectionId = null
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         )
     )
 
@@ -114,7 +138,13 @@ object PreviewHelper {
             nameEn = "Meydan-e Shohada",
             positionInLine = 1,
             lineId = 6,
-            intersectionId = 7
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -124,7 +154,13 @@ object PreviewHelper {
             nameEn = "Meydan-e Shohada",
             positionInLine = 5,
             lineId = 4,
-            intersectionId = 7
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -141,7 +177,13 @@ object PreviewHelper {
             nameEn = "Emam Hossein",
             positionInLine = 1,
             lineId = 6,
-            intersectionId = 11
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -151,7 +193,13 @@ object PreviewHelper {
             nameEn = "Emam Hossein",
             positionInLine = 5,
             lineId = 2,
-            intersectionId = 11
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = null,
+            accessibilityBlindness = null,
+            accessibilityWheelchair = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -163,4 +211,5 @@ object PreviewHelper {
         lastModifiedMonth = 2,
         lastModifiedYear = 2022
     )
+
 }

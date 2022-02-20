@@ -1,3 +1,4 @@
+/*
 package dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility
 
 import android.content.res.Configuration
@@ -127,3 +128,4 @@ private fun AccessibilityWheelchairIndicatorPreviewFa(
         fontFamily = vazirFamily
     )
 }
+*/

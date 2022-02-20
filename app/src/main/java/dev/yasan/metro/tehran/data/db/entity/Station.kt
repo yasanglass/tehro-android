@@ -44,15 +44,21 @@ data class Station(
     @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "name_fa") val nameFa: String,
     @ColumnInfo(name = "name_en") val nameEn: String,
-    @ColumnInfo(name = "line_id") val lineId: Int,
+    @ColumnInfo(name = "line_id", index = true) val lineId: Int,
     @ColumnInfo(name = "position_in_line") val positionInLine: Int,
     @ColumnInfo(name = "location_lat") val locationLatitude: Double?,
     @ColumnInfo(name = "location_long") val locationLongitude: Double?,
     @ColumnInfo(name = "map_x") val mapX: Int?,
     @ColumnInfo(name = "map_y") val mapY: Int?,
     @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean?,
-    @ColumnInfo(name = "accessibility_wheelchair_level") val accessibilityWheelchair: Int?,
-    @ColumnInfo(name = "accessibility_blindness_level") val accessibilityBlindness: Int?,
+    @ColumnInfo(
+        name = "accessibility_wheelchair_level",
+        index = true
+    ) val accessibilityWheelchair: Int?,
+    @ColumnInfo(
+        name = "accessibility_blindness_level",
+        index = true
+    ) val accessibilityBlindness: Int?,
 ) {
 
     /**

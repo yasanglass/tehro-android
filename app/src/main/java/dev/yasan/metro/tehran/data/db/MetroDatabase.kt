@@ -4,6 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.db.entity.*
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
 import javax.inject.Inject
 
 @Database(
@@ -12,6 +14,8 @@ import javax.inject.Inject
         Station::class,
         Intersection::class,
         DatabaseInformation::class,
+        AccessibilityLevelWheelchair::class,
+        AccessibilityLevelBlindness::class
     ],
     version = 4,
 )

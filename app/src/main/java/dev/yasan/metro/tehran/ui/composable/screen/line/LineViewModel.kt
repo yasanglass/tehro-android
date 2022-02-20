@@ -51,7 +51,10 @@ class LineViewModel @Inject constructor(
                     // Sort stations
                     sortBy { it.positionInLine }
                     forEach { station ->
-                        station.intersectionId?.let { interchangeId ->
+
+                        // TODO
+
+                        /*station.intersectionId?.let { interchangeId ->
                             // Load interchange data for station
                             intersectionRepository.getIntersection(interchangeId = interchangeId)
                                 ?.let {
@@ -73,7 +76,7 @@ class LineViewModel @Inject constructor(
                                         station.intersection = it
                                     }
                                 }
-                        }
+                        }*/
                     }
                 }
             if (stationsList.isNotEmpty()) {

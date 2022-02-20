@@ -1,3 +1,4 @@
+/*
 package dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility
 
 import android.content.res.Configuration
@@ -18,7 +19,6 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.AccessibilityBlind
 import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityBlindPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.dimenDivider
@@ -125,3 +125,4 @@ private fun AccessibilityBlindIndicatorPreviewFa(
         fontFamily = vazirFamily
     )
 }
+*/
