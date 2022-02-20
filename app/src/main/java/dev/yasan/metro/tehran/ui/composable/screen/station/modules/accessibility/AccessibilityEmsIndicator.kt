@@ -24,8 +24,12 @@ import dev.yasan.metro.tehran.ui.theme.dimenDivider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 
+/**
+ * Composable function that presents EMS availability of a station.
+ */
 @Composable
 fun AccessibilityEmsIndicator(
+    modifier: Modifier = Modifier,
     emergencyMedicalServices: Boolean,
     fontFamily: FontFamily = LocaleHelper.properFontFamily
 ) {
@@ -33,7 +37,7 @@ fun AccessibilityEmsIndicator(
     val paddingSize = grid(2)
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(color = colorResource(id = R.color.layer_midground))
             .border(width = dimenDivider, color = colorResource(id = R.color.divider))

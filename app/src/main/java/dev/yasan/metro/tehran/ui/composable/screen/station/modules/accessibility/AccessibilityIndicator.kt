@@ -11,36 +11,46 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.AccessibilityBlind
-import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityBlindPreviewProvider
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.dimenDivider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 
+/**
+ * Composable function that presents a level-based [AccessibilityLevel] object.
+ */
 @Composable
-fun AccessibilityBlindIndicator(
-    accessibilityBlind: AccessibilityBlind,
-    fontFamily: FontFamily = LocaleHelper.properFontFamily
+fun AccessibilityIndicator(
+    modifier: Modifier = Modifier,
+    accessibility: AccessibilityLevel,
+    fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    forceFarsi: Boolean = false
 ) {
 
     val paddingSize = grid(2)
 
+    val icon = when (accessibility) {
+        is AccessibilityLevelWheelchair -> TehroIcons.Accessible
+        is AccessibilityLevelBlindness -> TehroIcons.VisibilityOff
+        else -> TehroIcons.Info
+    }
+
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .background(color = colorResource(id = R.color.layer_midground))
             .border(width = dimenDivider, color = colorResource(id = R.color.divider))
     ) {
-
-        val text = stringResource(id = accessibilityBlind.stringResourceId)
 
         Row(
             modifier = Modifier
@@ -50,18 +60,21 @@ fun AccessibilityBlindIndicator(
         ) {
             Icon(
                 modifier = Modifier,
-                imageVector = TehroIcons.VisibilityOff,
+                imageVector = icon,
                 contentDescription = null,
                 tint = colorResource(id = R.color.text_title)
             )
             Spacer(modifier = Modifier.requiredWidth(paddingSize))
             Text(
-                text = text,
+                text = accessibility.description(forceFarsi = forceFarsi),
                 modifier = Modifier.weight(1f),
                 fontFamily = fontFamily,
                 color = colorResource(id = R.color.text_title)
             )
-            if (accessibilityBlind == AccessibilityBlind.NONE) {
+
+            val type = accessibility.getType()
+
+            if (type == AccessibilityLevel.Type.MIN) {
                 Spacer(modifier = Modifier.requiredWidth(paddingSize))
                 Icon(
                     modifier = Modifier,
@@ -69,7 +82,7 @@ fun AccessibilityBlindIndicator(
                     contentDescription = null,
                     tint = colorResource(id = R.color.text_title)
                 )
-            } else if (accessibilityBlind == AccessibilityBlind.FULL) {
+            } else if (type == AccessibilityLevel.Type.MAX) {
                 Spacer(modifier = Modifier.requiredWidth(paddingSize))
                 Icon(
                     modifier = Modifier,
@@ -78,6 +91,7 @@ fun AccessibilityBlindIndicator(
                     tint = colorResource(id = R.color.text_title)
                 )
             }
+
         }
     }
 }
@@ -95,11 +109,11 @@ fun AccessibilityBlindIndicator(
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun AccessibilityBlindIndicatorPreviewEn(
-    @PreviewParameter(StationAccessibilityBlindPreviewProvider::class) accessibilityBlind: AccessibilityBlind
+private fun AccessibilityIndicatorPreviewEn(
+    @PreviewParameter(StationAccessibilityPreviewProvider::class) accessibility: AccessibilityLevel
 ) {
-    AccessibilityBlindIndicator(
-        accessibilityBlind = accessibilityBlind,
+    AccessibilityIndicator(
+        accessibility = accessibility,
         fontFamily = rubikFamily
     )
 }
@@ -117,11 +131,14 @@ private fun AccessibilityBlindIndicatorPreviewEn(
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun AccessibilityBlindIndicatorPreviewFa(
-    @PreviewParameter(StationAccessibilityBlindPreviewProvider::class) accessibilityBlind: AccessibilityBlind
+private fun AccessibilityIndicatorPreviewFa(
+    @PreviewParameter(StationAccessibilityPreviewProvider::class) accessibility: AccessibilityLevel
 ) {
-    AccessibilityBlindIndicator(
-        accessibilityBlind = accessibilityBlind,
-        fontFamily = vazirFamily
+    AccessibilityIndicator(
+        accessibility = accessibility,
+        fontFamily = vazirFamily,
+        forceFarsi = true
     )
 }
+
+

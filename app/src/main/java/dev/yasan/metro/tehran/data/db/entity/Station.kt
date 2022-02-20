@@ -4,6 +4,8 @@ import androidx.compose.material.icons.sharp.*
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.room.*
 import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.PrideHelper
@@ -22,10 +24,17 @@ import kotlinx.parcelize.IgnoredOnParcel
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("line_id"),
             onDelete = ForeignKey.NO_ACTION
-        ), ForeignKey(
-            entity = Intersection::class,
+        ),
+        ForeignKey(
+            entity = AccessibilityLevelWheelchair::class,
             parentColumns = arrayOf("id"),
-            childColumns = arrayOf("intersection_id"),
+            childColumns = arrayOf("accessibility_wheelchair_level"),
+            onDelete = ForeignKey.NO_ACTION
+        ),
+        ForeignKey(
+            entity = AccessibilityLevelBlindness::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("accessibility_blindness_level"),
             onDelete = ForeignKey.NO_ACTION
         )
     ]
@@ -35,9 +44,21 @@ data class Station(
     @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "name_fa") val nameFa: String,
     @ColumnInfo(name = "name_en") val nameEn: String,
+    @ColumnInfo(name = "line_id", index = true) val lineId: Int,
     @ColumnInfo(name = "position_in_line") val positionInLine: Int,
-    @ColumnInfo(name = "line_id") val lineId: Int,
-    @ColumnInfo(name = "intersection_id") val intersectionId: Int?,
+    @ColumnInfo(name = "location_lat") val locationLatitude: Double?,
+    @ColumnInfo(name = "location_long") val locationLongitude: Double?,
+    @ColumnInfo(name = "map_x") val mapX: Int?,
+    @ColumnInfo(name = "map_y") val mapY: Int?,
+    @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean,
+    @ColumnInfo(
+        name = "accessibility_wheelchair_level",
+        index = true
+    ) val accessibilityWheelchairInt: Int?,
+    @ColumnInfo(
+        name = "accessibility_blindness_level",
+        index = true
+    ) val accessibilityBlindnessInt: Int?,
 ) {
 
     /**
@@ -57,11 +78,16 @@ data class Station(
 
     @Ignore
     @IgnoredOnParcel
-    var location: StationLocation? = null
+    var accessibilityLevelWheelchair: AccessibilityLevelWheelchair? = null
 
     @Ignore
     @IgnoredOnParcel
-    var accessibility: StationAccessibility? = null
+    var accessibilityLevelBlindness: AccessibilityLevelBlindness? = null
+
+    /**
+     * If the station has valid location data.
+     */
+    val hasLocation: Boolean get() = locationLatitude != null && locationLongitude != null
 
     /**
      * @return A custom icon based on the name of the station.
@@ -85,10 +111,10 @@ data class Station(
             nameFa.contains("راه‌آهن") -> TehroIcons.Train
             nameFa.contains("گلشهر") -> TehroIcons.LocalFlorist
             nameFa.contains("رودکی") ||
-                nameFa.contains("مولوی") ||
-                nameFa.contains("فردوسی") ||
-                nameFa.contains("خیام") ||
-                nameFa.contains("سعدی") -> TehroIcons.HistoryEdu
+                    nameFa.contains("مولوی") ||
+                    nameFa.contains("فردوسی") ||
+                    nameFa.contains("خیام") ||
+                    nameFa.contains("سعدی") -> TehroIcons.HistoryEdu
             nameFa.contains("میدان") -> TehroIcons.TripOrigin
             nameFa.contains("فرودگاه") -> TehroIcons.LocalAirport
             nameFa.contains("خرداد") || nameFa.contains("هفتم تیر") -> TehroIcons.Event
@@ -96,4 +122,5 @@ data class Station(
             else -> null
         }
     }
+
 }

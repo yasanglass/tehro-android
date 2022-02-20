@@ -19,10 +19,8 @@ import dev.yasan.metro.tehran.data.repo.stat.StatRepository
 import dev.yasan.metro.tehran.data.repo.stat.StatRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepositoryImp
-import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepository
-import dev.yasan.metro.tehran.data.repo.station.accessibility.StationAccessibilityRepositoryImp
-import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepository
-import dev.yasan.metro.tehran.data.repo.station.location.StationLocationRepositoryImp
+import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepository
+import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepositoryImp
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
@@ -63,21 +61,21 @@ class ApplicationModule {
         metroDatabase.databaseInformationDAO()
 
     @Provides
-    fun provideStationLocationDAO(metroDatabase: MetroDatabase) =
-        metroDatabase.stationLocationDAO()
-
-    @Provides
     fun provideInterchangeDAO(metroDatabase: MetroDatabase) = metroDatabase.interchangeDAO()
 
     @Provides
     fun provideLineDAO(metroDatabase: MetroDatabase) = metroDatabase.lineDAO()
 
     @Provides
-    fun provideStationDAO(metroDatabase: MetroDatabase) = metroDatabase.stationDAO()
+    fun provideAccessibilityLevelBlindnessDAO(metroDatabase: MetroDatabase) =
+        metroDatabase.accessibilityLevelBlindnessDAO()
 
     @Provides
-    fun provideStationAccessibilityDAO(metroDatabase: MetroDatabase) =
-        metroDatabase.stationStationAccessibilityDAO()
+    fun provideAccessibilityLevelWheelchairDAO(metroDatabase: MetroDatabase) =
+        metroDatabase.accessibilityLevelWheelchairDAO()
+
+    @Provides
+    fun provideStationDAO(metroDatabase: MetroDatabase) = metroDatabase.stationDAO()
 
     @Singleton
     @Provides
@@ -86,13 +84,23 @@ class ApplicationModule {
 
     @Singleton
     @Provides
-    fun provideStationRepository(stationDAO: StationDAO): StationRepository =
-        StationRepositoryImp(stationDAO = stationDAO)
+    fun provideStationRepository(
+        stationDAO: StationDAO,
+        intersectionRepository: IntersectionRepository,
+        lineRepository: LineRepository,
+        accessibilityRepository: AccessibilityRepository
+    ): StationRepository =
+        StationRepositoryImp(
+            stationDAO = stationDAO,
+            intersectionRepository = intersectionRepository,
+            lineRepository = lineRepository,
+            accessibilityRepository = accessibilityRepository
+        )
 
     @Singleton
     @Provides
-    fun provideInterchangeRepository(IntersectionDAO: IntersectionDAO): IntersectionRepository =
-        IntersectionRepositoryImp(IntersectionDAO = IntersectionDAO)
+    fun provideInterchangeRepository(intersectionDAO: IntersectionDAO): IntersectionRepository =
+        IntersectionRepositoryImp(intersectionDAO = intersectionDAO)
 
     @Singleton
     @Provides
@@ -101,29 +109,25 @@ class ApplicationModule {
 
     @Singleton
     @Provides
-    fun provideStationLocationRepository(stationLocationDAO: StationLocationDAO): StationLocationRepository =
-        StationLocationRepositoryImp(stationLocationDAO = stationLocationDAO)
-
-    @Singleton
-    @Provides
-    fun provideStationAccessibilityRepository(stationAccessibilityDAO: StationAccessibilityDAO): StationAccessibilityRepository =
-        StationAccessibilityRepositoryImp(stationAccessibilityDAO = stationAccessibilityDAO)
+    fun provideAccessibilityRepository(
+        accessibilityLevelBlindnessDAO: AccessibilityLevelBlindnessDAO,
+        accessibilityLevelWheelchairDAO: AccessibilityLevelWheelchairDAO
+    ): AccessibilityRepository = AccessibilityRepositoryImp(
+        accessibilityLevelBlindnessDAO = accessibilityLevelBlindnessDAO,
+        accessibilityLevelWheelchairDAO = accessibilityLevelWheelchairDAO
+    )
 
     @Singleton
     @Provides
     fun provideStatRepository(
         intersectionDAO: IntersectionDAO,
         lineDAO: LineDAO,
-        stationAccessibilityDAO: StationAccessibilityDAO,
         stationDAO: StationDAO,
-        stationLocationDAO: StationLocationDAO
     ): StatRepository =
         StatRepositoryImp(
             intersectionDAO = intersectionDAO,
             lineDAO = lineDAO,
-            stationAccessibilityDAO = stationAccessibilityDAO,
             stationDAO = stationDAO,
-            stationLocationDAO = stationLocationDAO
         )
 
 }

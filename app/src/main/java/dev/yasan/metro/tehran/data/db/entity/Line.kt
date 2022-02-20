@@ -1,10 +1,7 @@
 package dev.yasan.metro.tehran.data.db.entity
 
 import androidx.compose.ui.graphics.Color
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Ignore
-import androidx.room.PrimaryKey
+import androidx.room.*
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.util.LocaleHelper
 import kotlinx.parcelize.IgnoredOnParcel
@@ -37,4 +34,5 @@ data class Line(
      * @see nameEn
      */
     val name: String get() = if (LocaleHelper.isFarsi) nameFa else nameEn.uppercase()
+
 }

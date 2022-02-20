@@ -55,4 +55,5 @@ object LocaleHelper {
         .replace("7", "٧")
         .replace("8", "۸")
         .replace("9", "۹")
+
 }

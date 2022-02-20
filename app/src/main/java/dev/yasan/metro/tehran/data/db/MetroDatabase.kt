@@ -4,6 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.db.entity.*
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
 import javax.inject.Inject
 
 @Database(
@@ -12,10 +14,10 @@ import javax.inject.Inject
         Station::class,
         Intersection::class,
         DatabaseInformation::class,
-        StationLocation::class,
-        StationAccessibility::class
+        AccessibilityLevelWheelchair::class,
+        AccessibilityLevelBlindness::class
     ],
-    version = 3,
+    version = 4,
 )
 abstract class MetroDatabase : RoomDatabase() {
 
@@ -28,8 +30,10 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun interchangeDAO(): IntersectionDAO
     abstract fun lineDAO(): LineDAO
     abstract fun stationDAO(): StationDAO
-    abstract fun stationLocationDAO(): StationLocationDAO
-    abstract fun stationStationAccessibilityDAO(): StationAccessibilityDAO
+    abstract fun accessibilityLevelBlindnessDAO(): AccessibilityLevelBlindnessDAO
+    abstract fun accessibilityLevelWheelchairDAO(): AccessibilityLevelWheelchairDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
+
 }
+

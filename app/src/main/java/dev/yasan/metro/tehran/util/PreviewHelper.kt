@@ -2,6 +2,9 @@ package dev.yasan.metro.tehran.util
 
 import androidx.compose.ui.graphics.Color
 import dev.yasan.metro.tehran.data.db.entity.*
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
 
 /**
  * Provides dummy data to composable previews. All dummy variables for previews must be created here so they can be reused.
@@ -71,7 +74,13 @@ object PreviewHelper {
             nameFa = "امام حسین",
             lineId = 6,
             positionInLine = 0,
-            intersectionId = 11
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             intersection = interchange11
         },
@@ -81,7 +90,13 @@ object PreviewHelper {
             nameFa = "میدان شهدا",
             lineId = 6,
             positionInLine = 1,
-            intersectionId = 7
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             intersection = interchange7
         },
@@ -91,7 +106,13 @@ object PreviewHelper {
             nameFa = "بعثت",
             lineId = 6,
             positionInLine = 2,
-            intersectionId = null
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ),
         Station(
             id = 31,
@@ -99,7 +120,13 @@ object PreviewHelper {
             nameFa = "دولت\u200Cآباد",
             lineId = 6,
             positionInLine = 3,
-            intersectionId = null
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         )
     )
 
@@ -114,7 +141,13 @@ object PreviewHelper {
             nameEn = "Meydan-e Shohada",
             positionInLine = 1,
             lineId = 6,
-            intersectionId = 7
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -124,7 +157,13 @@ object PreviewHelper {
             nameEn = "Meydan-e Shohada",
             positionInLine = 5,
             lineId = 4,
-            intersectionId = 7
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -141,7 +180,13 @@ object PreviewHelper {
             nameEn = "Emam Hossein",
             positionInLine = 1,
             lineId = 6,
-            intersectionId = 11
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -151,7 +196,13 @@ object PreviewHelper {
             nameEn = "Emam Hossein",
             positionInLine = 5,
             lineId = 2,
-            intersectionId = 11
+            locationLatitude = null,
+            locationLongitude = null,
+            mapX = null,
+            mapY = null,
+            hasEmergencyMedicalServices = false,
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -163,4 +214,38 @@ object PreviewHelper {
         lastModifiedMonth = 2,
         lastModifiedYear = 2022
     )
+
+    val accessibilityLevels = sequenceOf<AccessibilityLevel>(
+        AccessibilityLevelBlindness(
+            id = 1,
+            descriptionEn = "Not accessible to the visually impaired",
+            descriptionFa = "فاقد مسیر نابینایان",
+        ),
+        AccessibilityLevelBlindness(
+            id =2,
+            descriptionEn = "Accessible to the visually impaired on platforms only",
+            descriptionFa = "دارای مسیر نابینابان در سکو\u200Cها",
+        ),
+        AccessibilityLevelBlindness(
+            id = 3,
+            descriptionEn = "Accessible to the visually impaired",
+            descriptionFa = "دارای مسیر نابینایان در تمام ایستگاه",
+        ),
+        AccessibilityLevelWheelchair(
+            id = 1,
+            descriptionEn = "Not accessible to the visually impaired",
+            descriptionFa = "فاقد مسیر نابینایان",
+        ),
+        AccessibilityLevelWheelchair(
+            id =2,
+            descriptionEn = "Accessible to the visually impaired on platforms only",
+            descriptionFa = "دارای مسیر نابینابان در سکو\u200Cها",
+        ),
+        AccessibilityLevelWheelchair(
+            id = 3,
+            descriptionEn = "Accessible to the visually impaired",
+            descriptionFa = "دارای مسیر نابینایان در تمام ایستگاه",
+        ),
+    )
+
 }

@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -32,9 +33,8 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
-import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityBlindIndicator
 import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityEmsIndicator
-import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityWheelchairIndicator
+import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityIndicator
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -95,23 +95,29 @@ fun StationScreenSuccess(
                     .padding(horizontal = grid(2))
             ) {
 
-                station.accessibility?.let { accessibility ->
+                AccessibilityEmsIndicator(
+                    modifier = Modifier.padding(bottom = grid(2)),
+                    emergencyMedicalServices = station.hasEmergencyMedicalServices
+                )
 
-                    AccessibilityEmsIndicator(emergencyMedicalServices = accessibility.emergencyMedicalServices)
+                for (accessibility in listOf(
+                    station.accessibilityLevelBlindness,
+                    station.accessibilityLevelWheelchair
+                )
+                ) {
 
-                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+                    accessibility?.let {
 
-                    AccessibilityBlindIndicator(accessibilityBlind = accessibility.blindAccessibilityLevel)
+                        AccessibilityIndicator(
+                            modifier = Modifier.padding(bottom = grid(2)),
+                            accessibility = it
+                        )
 
-                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
-                    AccessibilityWheelchairIndicator(accessibilityWheelchair = accessibility.wheelchairAccessibilityLevel)
-
-                    Spacer(modifier = Modifier.requiredHeight(grid(2)))
+                    }
 
                 }
 
-                station.location?.let {
+                if (station.hasLocation) {
 
                     TehButton(
                         modifier = Modifier.fillMaxWidth(),
@@ -120,7 +126,7 @@ fun StationScreenSuccess(
                         colorBorder = colorResource(id = R.color.text_title),
                         onClick = {
 
-                            val uri = "geo:${it.latitude},${it.longitude}"
+                            val uri = "geo:${station.locationLatitude},${station.locationLongitude}"
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
 
                             try {
@@ -148,9 +154,9 @@ fun StationScreenSuccess(
                             when (line.type) {
                                 LineType.METRO_BRANCH ->
                                     "${stringResource(id = R.string.line)} ${line.name} (${
-                                    stringResource(
-                                        id = R.string.branch
-                                    )
+                                        stringResource(
+                                            id = R.string.branch
+                                        )
                                     })"
                                 else -> "${stringResource(id = R.string.line)} ${line.name}"
                             }
