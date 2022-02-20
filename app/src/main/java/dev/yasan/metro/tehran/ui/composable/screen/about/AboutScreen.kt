@@ -9,7 +9,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
+import dev.yasan.metro.tehran.BuildConfig
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.ui.composable.common.teh.TehFooter
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.app.AboutSegmentApp
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.dev.AboutSegmentDev
@@ -65,7 +67,11 @@ fun AboutScreen(
         }
 
         item {
-            Spacer(modifier = Modifier.requiredHeight(grid(8)))
+            TehFooter(text = "${BuildConfig.VERSION_NAME} - ${BuildConfig.VERSION_CODE} - ${BuildConfig.FLAVOR} - ${BuildConfig.BUILD_TYPE}")
+        }
+
+        item {
+            Spacer(modifier = Modifier.requiredHeight(grid(2)))
         }
 
     }
