@@ -64,6 +64,10 @@ fun AboutScreen(
             }
         }
 
+        item {
+            Spacer(modifier = Modifier.requiredHeight(grid(8)))
+        }
+
     }
 
     DisposableEffect(key1 = aboutViewModel) {
