@@ -76,8 +76,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             intersection = interchange11
         },
@@ -92,8 +92,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             intersection = interchange7
         },
@@ -108,8 +108,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ),
         Station(
             id = 31,
@@ -122,8 +122,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         )
     )
 
@@ -143,8 +143,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -159,8 +159,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -182,8 +182,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -198,8 +198,8 @@ object PreviewHelper {
             mapX = null,
             mapY = null,
             hasEmergencyMedicalServices = null,
-            accessibilityBlindness = null,
-            accessibilityWheelchair = null
+            accessibilityBlindnessInt = null,
+            accessibilityWheelchairInt = null
         ).apply {
             line = lines.toList()[lineId - 1]
         }

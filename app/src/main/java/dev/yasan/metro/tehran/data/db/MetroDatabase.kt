@@ -30,6 +30,8 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun interchangeDAO(): IntersectionDAO
     abstract fun lineDAO(): LineDAO
     abstract fun stationDAO(): StationDAO
+    abstract fun accessibilityLevelBlindnessDAO(): AccessibilityLevelBlindnessDAO
+    abstract fun accessibilityLevelWheelchairDAO(): AccessibilityLevelWheelchairDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
 

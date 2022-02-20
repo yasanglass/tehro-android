@@ -19,6 +19,8 @@ import dev.yasan.metro.tehran.data.repo.stat.StatRepository
 import dev.yasan.metro.tehran.data.repo.stat.StatRepositoryImp
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.StationRepositoryImp
+import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepository
+import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepositoryImp
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
@@ -65,6 +67,14 @@ class ApplicationModule {
     fun provideLineDAO(metroDatabase: MetroDatabase) = metroDatabase.lineDAO()
 
     @Provides
+    fun provideAccessibilityLevelBlindnessDAO(metroDatabase: MetroDatabase) =
+        metroDatabase.accessibilityLevelBlindnessDAO()
+
+    @Provides
+    fun provideAccessibilityLevelWheelchairDAO(metroDatabase: MetroDatabase) =
+        metroDatabase.accessibilityLevelWheelchairDAO()
+
+    @Provides
     fun provideStationDAO(metroDatabase: MetroDatabase) = metroDatabase.stationDAO()
 
     @Singleton
@@ -77,12 +87,14 @@ class ApplicationModule {
     fun provideStationRepository(
         stationDAO: StationDAO,
         intersectionRepository: IntersectionRepository,
-        lineRepository: LineRepository
+        lineRepository: LineRepository,
+        accessibilityRepository: AccessibilityRepository
     ): StationRepository =
         StationRepositoryImp(
             stationDAO = stationDAO,
             intersectionRepository = intersectionRepository,
-            lineRepository = lineRepository
+            lineRepository = lineRepository,
+            accessibilityRepository = accessibilityRepository
         )
 
     @Singleton
@@ -94,6 +106,16 @@ class ApplicationModule {
     @Provides
     fun provideDatabaseInformationRepository(databaseInformationDAO: DatabaseInformationDAO): DatabaseInformationRepository =
         DatabaseInformationRepositoryImp(databaseInformationDAO = databaseInformationDAO)
+
+    @Singleton
+    @Provides
+    fun provideAccessibilityRepository(
+        accessibilityLevelBlindnessDAO: AccessibilityLevelBlindnessDAO,
+        accessibilityLevelWheelchairDAO: AccessibilityLevelWheelchairDAO
+    ): AccessibilityRepository = AccessibilityRepositoryImp(
+        accessibilityLevelBlindnessDAO = accessibilityLevelBlindnessDAO,
+        accessibilityLevelWheelchairDAO = accessibilityLevelWheelchairDAO
+    )
 
     @Singleton
     @Provides

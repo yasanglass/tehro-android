@@ -54,11 +54,11 @@ data class Station(
     @ColumnInfo(
         name = "accessibility_wheelchair_level",
         index = true
-    ) val accessibilityWheelchair: Int?,
+    ) val accessibilityWheelchairInt: Int?,
     @ColumnInfo(
         name = "accessibility_blindness_level",
         index = true
-    ) val accessibilityBlindness: Int?,
+    ) val accessibilityBlindnessInt: Int?,
 ) {
 
     /**
@@ -75,6 +75,14 @@ data class Station(
     @Ignore
     @IgnoredOnParcel
     var line: Line? = null
+
+    @Ignore
+    @IgnoredOnParcel
+    var accessibilityLevelWheelchair: AccessibilityLevelWheelchair? = null
+
+    @Ignore
+    @IgnoredOnParcel
+    var accessibilityLevelBlindness: AccessibilityLevelBlindness? = null
 
     /**
      * If the station has valid location data.

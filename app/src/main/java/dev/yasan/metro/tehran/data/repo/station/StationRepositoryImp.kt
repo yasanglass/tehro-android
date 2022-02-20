@@ -5,6 +5,7 @@ import dev.yasan.metro.tehran.data.db.dao.StationDAO
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepository
+import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepository
 import javax.inject.Inject
 
 /**
@@ -13,7 +14,8 @@ import javax.inject.Inject
 class StationRepositoryImp @Inject constructor(
     private val stationDAO: StationDAO,
     private val intersectionRepository: IntersectionRepository,
-    private val lineRepository: LineRepository
+    private val lineRepository: LineRepository,
+    private val accessibilityRepository: AccessibilityRepository
 ) : StationRepository {
 
     companion object {
@@ -33,13 +35,8 @@ class StationRepositoryImp @Inject constructor(
     }
 
     override suspend fun fetchAdditionalStationData(station: Station): Station {
-        Log.d(TAG, "fetchAdditionalStationData: ${station.nameEn}: Start")
         intersectionRepository.getIntersectionByStationId(stationId = station.id)
             ?.let { intersection ->
-                Log.d(
-                    TAG,
-                    "fetchAdditionalStationData: ${station.nameEn}: station has intersection"
-                )
                 intersection.stationA =
                     getStation(stationId = intersection.stationIdA)?.apply {
                         line = lineRepository.getLine(lineId = this.lineId)
@@ -52,6 +49,17 @@ class StationRepositoryImp @Inject constructor(
                     station.intersection = intersection
                 }
             }
+
+        station.accessibilityBlindnessInt?.let { levelId ->
+            station.accessibilityLevelBlindness =
+                accessibilityRepository.getBlindnessAccessibilityById(levelId = levelId)
+        }
+
+        station.accessibilityWheelchairInt?.let { levelId ->
+            station.accessibilityLevelWheelchair =
+                accessibilityRepository.getWheelchairAccessibilityById(levelId = levelId)
+        }
+
         return station
     }
 
