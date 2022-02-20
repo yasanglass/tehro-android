@@ -77,6 +77,11 @@ data class Station(
     var line: Line? = null
 
     /**
+     * If the station has valid location data.
+     */
+    val hasLocation: Boolean get() = locationLatitude != null && locationLongitude != null
+
+    /**
      * @return A custom icon based on the name of the station.
      */
     fun getIcon(): ImageVector? {

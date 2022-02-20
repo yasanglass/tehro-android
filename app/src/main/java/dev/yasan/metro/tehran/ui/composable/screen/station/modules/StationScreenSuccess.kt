@@ -1,15 +1,21 @@
 package dev.yasan.metro.tehran.ui.composable.screen.station.modules
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.icons.sharp.Map
 import androidx.compose.material.icons.sharp.MultipleStop
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -39,6 +45,8 @@ fun StationScreenSuccess(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
+
+    val context = LocalContext.current
 
     LazyColumn(
         modifier = Modifier
@@ -98,9 +106,10 @@ fun StationScreenSuccess(
 
                     Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
-                }
+                }*/
 
-                station.location?.let {
+
+                if (station.hasLocation) {
 
                     TehButton(
                         modifier = Modifier.fillMaxWidth(),
@@ -109,7 +118,7 @@ fun StationScreenSuccess(
                         colorBorder = colorResource(id = R.color.text_title),
                         onClick = {
 
-                            val uri = "geo:${it.latitude},${it.longitude}"
+                            val uri = "geo:${station.locationLatitude},${station.locationLongitude}"
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
 
                             try {
@@ -127,7 +136,7 @@ fun StationScreenSuccess(
 
                     Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
-                }*/
+                }
 
                 station.intersection?.let { intersection ->
 
@@ -137,9 +146,9 @@ fun StationScreenSuccess(
                             when (line.type) {
                                 LineType.METRO_BRANCH ->
                                     "${stringResource(id = R.string.line)} ${line.name} (${
-                                    stringResource(
-                                        id = R.string.branch
-                                    )
+                                        stringResource(
+                                            id = R.string.branch
+                                        )
                                     })"
                                 else -> "${stringResource(id = R.string.line)} ${line.name}"
                             }
