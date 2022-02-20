@@ -26,6 +26,9 @@ import dev.yasan.metro.tehran.ui.theme.dimenDivider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 
+/**
+ * Composable function that presents a level-based [AccessibilityLevel] object.
+ */
 @Composable
 fun AccessibilityIndicator(
     modifier: Modifier = Modifier,

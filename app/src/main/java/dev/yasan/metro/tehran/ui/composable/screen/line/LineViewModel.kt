@@ -41,15 +41,11 @@ class LineViewModel @Inject constructor(
         viewModelScope.launch(dispatchers.io) {
             Log.d(TAG, "loadStations: starting")
             _stations.postValue(Resource.Loading())
-            try {
-                val stationsList = stationRepository.getStations(lineId = lineId, complete = true)
-                if (stationsList.isNotEmpty()) {
-                    _stations.postValue(Resource.Success(data = stationsList))
-                } else {
-                    _stations.postValue(Resource.Error(messageResourceId = R.string.no_stations_found))
-                }
-            } catch (e: Exception) {
-                Log.d(TAG, "loadStations: ${e.message}")
+            val stationsList = stationRepository.getStations(lineId = lineId, complete = true)
+            if (stationsList.isNotEmpty()) {
+                _stations.postValue(Resource.Success(data = stationsList))
+            } else {
+                _stations.postValue(Resource.Error(messageResourceId = R.string.no_stations_found))
             }
         }
     }

@@ -24,6 +24,9 @@ import dev.yasan.metro.tehran.ui.theme.dimenDivider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 
+/**
+ * Composable function that presents EMS availability of a station.
+ */
 @Composable
 fun AccessibilityEmsIndicator(
     modifier: Modifier = Modifier,

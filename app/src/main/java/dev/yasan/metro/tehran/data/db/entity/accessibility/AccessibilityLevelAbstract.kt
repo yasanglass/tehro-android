@@ -3,6 +3,9 @@ package dev.yasan.metro.tehran.data.db.entity.accessibility
 import androidx.room.Ignore
 import dev.yasan.metro.tehran.util.LocaleHelper
 
+/**
+ * Abstract class that handles basic accessibility level data.
+ */
 abstract class AccessibilityLevel(
     open val id: Int,
     open val descriptionEn: String,
@@ -20,6 +23,9 @@ abstract class AccessibilityLevel(
         MAX
     }
 
+    /**
+     * @return The object's [Type] based on its [id].
+     */
     fun getType(): Type {
         return when (id) {
             1 -> {
