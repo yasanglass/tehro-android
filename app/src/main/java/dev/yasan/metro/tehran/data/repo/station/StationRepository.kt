@@ -13,12 +13,25 @@ interface StationRepository {
      *
      * @see StationDAO
      */
-    suspend fun getStations(lineId: Int): List<Station>
+    suspend fun getStations(lineId: Int, complete: Boolean = false): List<Station>
 
     /**
      * @return A [Station] with matching id if any exist.
      *
      * @see StationDAO
      */
-    suspend fun getStation(stationId: Int): Station?
+    suspend fun getStation(stationId: Int, complete: Boolean = false): Station?
+
+    /**
+     * Loads additional data into the [Station] object including interchange (if it has any)
+     * and data inside the interchange (stations & lines inside stations).
+     */
+    suspend fun fetchAdditionalStationData(station: Station): Station
+
+    /**
+     * Loads additional data into the [Station] objects including interchange (if it has any)
+     * and data inside the interchange (stations & lines inside stations).
+     */
+    suspend fun fetchAdditionalStationData(stations: List<Station>): List<Station>
+
 }

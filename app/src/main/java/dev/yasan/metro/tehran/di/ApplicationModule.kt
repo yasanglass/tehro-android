@@ -74,13 +74,21 @@ class ApplicationModule {
 
     @Singleton
     @Provides
-    fun provideStationRepository(stationDAO: StationDAO): StationRepository =
-        StationRepositoryImp(stationDAO = stationDAO)
+    fun provideStationRepository(
+        stationDAO: StationDAO,
+        intersectionRepository: IntersectionRepository,
+        lineRepository: LineRepository
+    ): StationRepository =
+        StationRepositoryImp(
+            stationDAO = stationDAO,
+            intersectionRepository = intersectionRepository,
+            lineRepository = lineRepository
+        )
 
     @Singleton
     @Provides
-    fun provideInterchangeRepository(IntersectionDAO: IntersectionDAO): IntersectionRepository =
-        IntersectionRepositoryImp(IntersectionDAO = IntersectionDAO)
+    fun provideInterchangeRepository(intersectionDAO: IntersectionDAO): IntersectionRepository =
+        IntersectionRepositoryImp(intersectionDAO = intersectionDAO)
 
     @Singleton
     @Provides

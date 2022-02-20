@@ -13,5 +13,13 @@ interface IntersectionRepository {
      *
      * @see IntersectionDAO
      */
-    suspend fun getIntersection(interchangeId: Int): Intersection?
+    suspend fun getIntersection(intersectionId: Int): Intersection?
+
+    /**
+     * @return A [Intersection] with matching station if any exist.
+     *
+     * @see IntersectionDAO
+     */
+    suspend fun getIntersectionByStationId(stationId: Int): Intersection?
+
 }

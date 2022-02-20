@@ -8,10 +8,15 @@ import javax.inject.Inject
  * The main implementation of [IntersectionRepository].
  */
 class IntersectionRepositoryImp @Inject constructor(
-    private val IntersectionDAO: IntersectionDAO
+    private val intersectionDAO: IntersectionDAO
 ) : IntersectionRepository {
 
-    override suspend fun getIntersection(interchangeId: Int): Intersection? {
-        return IntersectionDAO.getById(intersectionId = interchangeId)
+    override suspend fun getIntersection(intersectionId: Int): Intersection? {
+        return intersectionDAO.getById(intersectionId = intersectionId)
     }
+
+    override suspend fun getIntersectionByStationId(stationId: Int): Intersection? {
+        return intersectionDAO.getByStationId(stationId = stationId)
+    }
+
 }
