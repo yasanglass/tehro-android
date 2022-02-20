@@ -18,7 +18,6 @@ class AccessibilityLevelBlindness(
 ): AccessibilityLevel(
     id = id,
     descriptionEn = descriptionEn,
-    descriptionFa = descriptionFa
+    descriptionFa = descriptionFa,
+    maxValue = 3
 )
-
-

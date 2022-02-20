@@ -2,6 +2,9 @@ package dev.yasan.metro.tehran.util
 
 import androidx.compose.ui.graphics.Color
 import dev.yasan.metro.tehran.data.db.entity.*
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
 
 /**
  * Provides dummy data to composable previews. All dummy variables for previews must be created here so they can be reused.
@@ -75,7 +78,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         ).apply {
@@ -91,7 +94,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         ).apply {
@@ -107,7 +110,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         ),
@@ -121,7 +124,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         )
@@ -142,7 +145,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         ).apply {
@@ -158,7 +161,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         ).apply {
@@ -181,7 +184,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         ).apply {
@@ -197,7 +200,7 @@ object PreviewHelper {
             locationLongitude = null,
             mapX = null,
             mapY = null,
-            hasEmergencyMedicalServices = null,
+            hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = null,
             accessibilityWheelchairInt = null
         ).apply {
@@ -210,6 +213,39 @@ object PreviewHelper {
         lastModifiedDay = 22,
         lastModifiedMonth = 2,
         lastModifiedYear = 2022
+    )
+
+    val accessibilityLevels = sequenceOf<AccessibilityLevel>(
+        AccessibilityLevelBlindness(
+            id = 1,
+            descriptionEn = "Not accessible to the visually impaired",
+            descriptionFa = "فاقد مسیر نابینایان",
+        ),
+        AccessibilityLevelBlindness(
+            id =2,
+            descriptionEn = "Accessible to the visually impaired on platforms only",
+            descriptionFa = "دارای مسیر نابینابان در سکو\u200Cها",
+        ),
+        AccessibilityLevelBlindness(
+            id = 3,
+            descriptionEn = "Accessible to the visually impaired",
+            descriptionFa = "دارای مسیر نابینایان در تمام ایستگاه",
+        ),
+        AccessibilityLevelWheelchair(
+            id = 1,
+            descriptionEn = "Not accessible to the visually impaired",
+            descriptionFa = "فاقد مسیر نابینایان",
+        ),
+        AccessibilityLevelWheelchair(
+            id =2,
+            descriptionEn = "Accessible to the visually impaired on platforms only",
+            descriptionFa = "دارای مسیر نابینابان در سکو\u200Cها",
+        ),
+        AccessibilityLevelWheelchair(
+            id = 3,
+            descriptionEn = "Accessible to the visually impaired",
+            descriptionFa = "دارای مسیر نابینایان در تمام ایستگاه",
+        ),
     )
 
 }

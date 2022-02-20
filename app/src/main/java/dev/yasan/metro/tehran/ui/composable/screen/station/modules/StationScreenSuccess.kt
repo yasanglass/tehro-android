@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -33,6 +34,7 @@ import dev.yasan.metro.tehran.data.db.entity.LineType
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityEmsIndicator
+import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityIndicator
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -93,22 +95,27 @@ fun StationScreenSuccess(
                     .padding(horizontal = grid(2))
             ) {
 
-                station.hasEmergencyMedicalServices?.let { ems ->
+                AccessibilityEmsIndicator(
+                    modifier = Modifier.padding(bottom = grid(2)),
+                    emergencyMedicalServices = station.hasEmergencyMedicalServices
+                )
 
-                    AccessibilityEmsIndicator(
-                        modifier = Modifier.padding(bottom = grid(2)),
-                        emergencyMedicalServices = ems
-                    )
+                for (accessibility in listOf(
+                    station.accessibilityLevelBlindness,
+                    station.accessibilityLevelWheelchair
+                )
+                ) {
+
+                    accessibility?.let {
+
+                        AccessibilityIndicator(
+                            modifier = Modifier.padding(bottom = grid(2)),
+                            accessibility = it
+                        )
+
+                    }
 
                 }
-
-                //AccessibilityBlindIndicator(accessibilityBlind = accessibility.blindAccessibilityLevel)
-
-                //Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
-                //AccessibilityWheelchairIndicator(accessibilityWheelchair = accessibility.wheelchairAccessibilityLevel)
-
-                //Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
                 if (station.hasLocation) {
 

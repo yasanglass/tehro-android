@@ -50,7 +50,7 @@ data class Station(
     @ColumnInfo(name = "location_long") val locationLongitude: Double?,
     @ColumnInfo(name = "map_x") val mapX: Int?,
     @ColumnInfo(name = "map_y") val mapY: Int?,
-    @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean?,
+    @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean,
     @ColumnInfo(
         name = "accessibility_wheelchair_level",
         index = true

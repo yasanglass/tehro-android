@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 4,
-    "identityHash": "b473bbc14cc717c513311ef22a566ffa",
+    "identityHash": "97a8708b15950677dd7e6abe0b902055",
     "entities": [
       {
         "tableName": "lines",
@@ -51,7 +51,7 @@
       },
       {
         "tableName": "stations",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name_fa` TEXT NOT NULL, `name_en` TEXT NOT NULL, `line_id` INTEGER NOT NULL, `position_in_line` INTEGER NOT NULL, `location_lat` REAL, `location_long` REAL, `map_x` INTEGER, `map_y` INTEGER, `has_emergency_medical_services` INTEGER, `accessibility_wheelchair_level` INTEGER, `accessibility_blindness_level` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`line_id`) REFERENCES `lines`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_wheelchair_level`) REFERENCES `stations_accessibility_wheelchair_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_blindness_level`) REFERENCES `stations_accessibility_blindness_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name_fa` TEXT NOT NULL, `name_en` TEXT NOT NULL, `line_id` INTEGER NOT NULL, `position_in_line` INTEGER NOT NULL, `location_lat` REAL, `location_long` REAL, `map_x` INTEGER, `map_y` INTEGER, `has_emergency_medical_services` INTEGER NOT NULL, `accessibility_wheelchair_level` INTEGER, `accessibility_blindness_level` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`line_id`) REFERENCES `lines`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_wheelchair_level`) REFERENCES `stations_accessibility_wheelchair_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`accessibility_blindness_level`) REFERENCES `stations_accessibility_blindness_levels`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -111,16 +111,16 @@
             "fieldPath": "hasEmergencyMedicalServices",
             "columnName": "has_emergency_medical_services",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           },
           {
-            "fieldPath": "accessibilityWheelchair",
+            "fieldPath": "accessibilityWheelchairInt",
             "columnName": "accessibility_wheelchair_level",
             "affinity": "INTEGER",
             "notNull": false
           },
           {
-            "fieldPath": "accessibilityBlindness",
+            "fieldPath": "accessibilityBlindnessInt",
             "columnName": "accessibility_blindness_level",
             "affinity": "INTEGER",
             "notNull": false
@@ -377,7 +377,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b473bbc14cc717c513311ef22a566ffa')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '97a8708b15950677dd7e6abe0b902055')"
     ]
   }
 }
