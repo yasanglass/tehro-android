@@ -90,6 +90,11 @@ data class Station(
     val hasLocation: Boolean get() = locationLatitude != null && locationLongitude != null
 
     /**
+     * @return If the station is exactly the same station but in another line.
+     */
+    fun isVirtuallyTheSame(other: Station) = nameEn == other.nameEn
+
+    /**
      * @return A custom icon based on the name of the station.
      */
     fun getIcon(): ImageVector? {
