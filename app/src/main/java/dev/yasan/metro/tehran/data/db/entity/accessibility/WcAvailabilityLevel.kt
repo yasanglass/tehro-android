@@ -19,20 +19,7 @@ class WcAvailabilityLevel(
     id = id,
     descriptionEn = descriptionEn,
     descriptionFa = descriptionFa,
-    maxValue = 0
-) {
-
-    override fun getType(): Type {
-        return when (id) {
-            1 -> {
-                Type.MIN
-            }
-            else -> {
-                Type.MAX
-            }
-        }
-    }
-
-}
+    maxValue = 3
+)
 
 

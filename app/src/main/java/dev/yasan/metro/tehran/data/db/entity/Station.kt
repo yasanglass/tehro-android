@@ -37,6 +37,12 @@ import kotlinx.parcelize.IgnoredOnParcel
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("accessibility_blindness_level"),
             onDelete = ForeignKey.NO_ACTION
+        ),
+        ForeignKey(
+            entity = WcAvailabilityLevel::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("wc"),
+            onDelete = ForeignKey.NO_ACTION
         )
     ]
 )
@@ -54,15 +60,18 @@ data class Station(
     @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean,
     @ColumnInfo(
         name = "accessibility_wheelchair_level",
-        index = true
+        index = true,
+        defaultValue = "1"
     ) val accessibilityWheelchairInt: Int,
     @ColumnInfo(
         name = "accessibility_blindness_level",
-        index = true
+        index = true,
+        defaultValue = "1"
     ) val accessibilityBlindnessInt: Int,
     @ColumnInfo(
         name = "wc",
-        index = true
+        index = true,
+        defaultValue = "1"
     ) val wcAvailabilityLevelInt: Int,
 ) {
 

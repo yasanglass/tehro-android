@@ -6,6 +6,7 @@ import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.db.entity.*
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
 import javax.inject.Inject
 
 @Database(
@@ -15,7 +16,8 @@ import javax.inject.Inject
         Intersection::class,
         DatabaseInformation::class,
         AccessibilityLevelWheelchair::class,
-        AccessibilityLevelBlindness::class
+        AccessibilityLevelBlindness::class,
+        WcAvailabilityLevel::class
     ],
     version = 6,
 )

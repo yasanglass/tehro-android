@@ -26,7 +26,7 @@ abstract class AccessibilityLevel(
     /**
      * @return The object's [Type] based on its [id].
      */
-    open fun getType(): Type {
+    fun getType(): Type {
         return when (id) {
             1 -> {
                 Type.MIN
