@@ -1,10 +1,11 @@
 # Tehro Changelog
 
-## Unreleased
+## v2.2.0
 
 - Added All accessibility information for all stations.
 - New rest room availability information for stations.
 - Improved Tehro logo on top of the About screen.
+- New Statistics segment on the About screen.
 
 ## v2.1.1
 
