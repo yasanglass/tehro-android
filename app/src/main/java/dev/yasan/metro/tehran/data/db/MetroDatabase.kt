@@ -6,6 +6,7 @@ import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.db.entity.*
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
 import javax.inject.Inject
 
 @Database(
@@ -15,9 +16,10 @@ import javax.inject.Inject
         Intersection::class,
         DatabaseInformation::class,
         AccessibilityLevelWheelchair::class,
-        AccessibilityLevelBlindness::class
+        AccessibilityLevelBlindness::class,
+        WcAvailabilityLevel::class
     ],
-    version = 5,
+    version = 6,
 )
 abstract class MetroDatabase : RoomDatabase() {
 
@@ -32,6 +34,7 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun stationDAO(): StationDAO
     abstract fun accessibilityLevelBlindnessDAO(): AccessibilityLevelBlindnessDAO
     abstract fun accessibilityLevelWheelchairDAO(): AccessibilityLevelWheelchairDAO
+    abstract fun wcAvailabilityLevelDAO(): WcAvailabilityLevelDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
 

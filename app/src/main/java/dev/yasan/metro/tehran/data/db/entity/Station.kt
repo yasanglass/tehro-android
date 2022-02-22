@@ -6,6 +6,7 @@ import androidx.room.*
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.PrideHelper
@@ -36,6 +37,12 @@ import kotlinx.parcelize.IgnoredOnParcel
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("accessibility_blindness_level"),
             onDelete = ForeignKey.NO_ACTION
+        ),
+        ForeignKey(
+            entity = WcAvailabilityLevel::class,
+            parentColumns = arrayOf("id"),
+            childColumns = arrayOf("wc"),
+            onDelete = ForeignKey.NO_ACTION
         )
     ]
 )
@@ -53,12 +60,19 @@ data class Station(
     @ColumnInfo(name = "has_emergency_medical_services") val hasEmergencyMedicalServices: Boolean,
     @ColumnInfo(
         name = "accessibility_wheelchair_level",
-        index = true
+        index = true,
+        defaultValue = "1"
     ) val accessibilityWheelchairInt: Int,
     @ColumnInfo(
         name = "accessibility_blindness_level",
-        index = true
+        index = true,
+        defaultValue = "1"
     ) val accessibilityBlindnessInt: Int,
+    @ColumnInfo(
+        name = "wc",
+        index = true,
+        defaultValue = "1"
+    ) val wcInt: Int,
 ) {
 
     /**
@@ -83,6 +97,10 @@ data class Station(
     @Ignore
     @IgnoredOnParcel
     var accessibilityLevelBlindness: AccessibilityLevelBlindness? = null
+
+    @Ignore
+    @IgnoredOnParcel
+    var wc: WcAvailabilityLevel? = null
 
     /**
      * If the station has valid location data.

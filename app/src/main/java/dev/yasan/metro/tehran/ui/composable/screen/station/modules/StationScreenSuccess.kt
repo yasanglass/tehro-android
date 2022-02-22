@@ -100,11 +100,11 @@ fun StationScreenSuccess(
                     emergencyMedicalServices = station.hasEmergencyMedicalServices
                 )
 
-                for (accessibility in listOf(
+                listOf(
                     station.accessibilityLevelBlindness,
-                    station.accessibilityLevelWheelchair
-                )
-                ) {
+                    station.accessibilityLevelWheelchair,
+                    station.wc
+                ).forEach { accessibility ->
 
                     accessibility?.let {
 
@@ -175,6 +175,7 @@ fun StationScreenSuccess(
                         Spacer(modifier = Modifier.requiredHeight(grid(2)))
                     }
                 }
+
             }
 
         }
