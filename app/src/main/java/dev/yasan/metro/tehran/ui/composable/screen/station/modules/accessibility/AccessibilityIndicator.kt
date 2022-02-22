@@ -20,6 +20,7 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
 import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.dimenDivider
@@ -42,6 +43,7 @@ fun AccessibilityIndicator(
     val icon = when (accessibility) {
         is AccessibilityLevelWheelchair -> TehroIcons.Accessible
         is AccessibilityLevelBlindness -> TehroIcons.VisibilityOff
+        is WcAvailabilityLevel -> TehroIcons.Wc
         else -> TehroIcons.Info
     }
 
