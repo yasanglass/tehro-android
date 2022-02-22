@@ -122,12 +122,12 @@ class ApplicationModule {
     fun provideStatRepository(
         intersectionDAO: IntersectionDAO,
         lineDAO: LineDAO,
-        stationDAO: StationDAO,
+        stationRepository: StationRepository
     ): StatRepository =
         StatRepositoryImp(
             intersectionDAO = intersectionDAO,
             lineDAO = lineDAO,
-            stationDAO = stationDAO,
+            stationRepository = stationRepository,
         )
 
 }

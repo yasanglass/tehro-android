@@ -16,6 +16,7 @@ import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.app.AboutSegmentApp
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.dev.AboutSegmentDev
 import dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat.SegmentStats
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat.SegmentStatsComplex
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.util.LocaleHelper
@@ -34,6 +35,7 @@ fun AboutScreen(
 
     val databaseInformation = aboutViewModel.databaseInformation.observeAsState()
     val stats = aboutViewModel.stats.observeAsState()
+    val statsComplex = aboutViewModel.statsComplex.observeAsState()
 
     TehScreen(
         title = stringResource(id = R.string.about),
@@ -57,13 +59,20 @@ fun AboutScreen(
         }
 
         item {
-            stats.value?.let { statsResource ->
-                SegmentStats(
-                    statsResource = statsResource,
-                    databaseInformation = databaseInformation.value?.data
-                )
-                Spacer(modifier = Modifier.requiredHeight(grid(2)))
-            }
+            SegmentStats(
+                statsResource = stats.value,
+                databaseInformation = databaseInformation.value?.data
+            )
+            Spacer(modifier = Modifier.requiredHeight(grid(2)))
+        }
+
+        item {
+            Spacer(modifier = Modifier.requiredHeight(grid(2)))
+        }
+
+        item {
+            SegmentStatsComplex(statsComplexResource = statsComplex.value)
+            Spacer(modifier = Modifier.requiredHeight(grid(2)))
         }
 
         item {
@@ -81,7 +90,10 @@ fun AboutScreen(
             aboutViewModel.loadDatabaseInformation()
         }
         if (stats.value is Resource.Initial) {
-            aboutViewModel.loadStats()
+            aboutViewModel.loadBasicStats()
+        }
+        if (statsComplex.value is Resource.Initial) {
+            aboutViewModel.loadComplexStats()
         }
         onDispose {
 

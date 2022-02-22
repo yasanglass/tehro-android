@@ -4,11 +4,9 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
-import androidx.compose.material.icons.sharp.Launch
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -18,31 +16,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
-import dev.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
-import dev.yasan.metro.tehran.data.db.entity.Stat
-import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
+import dev.yasan.metro.tehran.data.db.entity.StatComplex
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehDivider
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
-import dev.yasan.metro.tehran.ui.composable.screen.about.modules.AboutLinks
-import dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat.list.StatsList
-import dev.yasan.metro.tehran.ui.theme.TehroIcons
+import dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat.list.StatComplexList
 import dev.yasan.metro.tehran.util.LocaleHelper
 
 /**
  * A segment of [AboutScreen] that shows information about the app.
  */
 @Composable
-fun SegmentStats(
-    statsResource: Resource<List<Stat>>?,
-    databaseInformation: DatabaseInformation?,
+fun SegmentStatsComplex(
+    statsComplexResource: Resource<List<StatComplex>>?,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
-
-    val context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -54,7 +44,7 @@ fun SegmentStats(
 
         Text(
             modifier = Modifier.padding(grid(2)),
-            text = stringResource(R.string.database).uppercase(),
+            text = stringResource(R.string.statistics).uppercase(),
             fontFamily = fontFamily,
             fontSize = 18.sp,
             color = colorResource(id = R.color.text_title),
@@ -62,7 +52,8 @@ fun SegmentStats(
             fontWeight = FontWeight.Black
         )
 
-        when (statsResource) {
+        when (statsComplexResource) {
+
             is Resource.Error -> {
                 Text(
                     modifier = Modifier.padding(grid(2)),
@@ -75,50 +66,16 @@ fun SegmentStats(
                     fontStyle = FontStyle.Italic
                 )
             }
+
             is Resource.Success -> {
 
-                val stats = statsResource.data ?: emptyList()
+                val statsComplex = statsComplexResource.data ?: emptyList()
 
-                StatsList(
-                    stats = stats,
+                StatComplexList(
+                    stats = statsComplex,
                     fontFamily = fontFamily,
                     forceFarsi = forceFarsi
                 )
-
-                TehButton(
-                    modifier = Modifier.padding(vertical = grid(2)),
-                    title = stringResource(id = R.string.github),
-                    icon = TehroIcons.Launch,
-                    onClick = {
-                        WebHelper.openWebView(
-                            context = context,
-                            url = AboutLinks.URL_DATABASE_GITHUB
-                        )
-                    },
-                    fontFamily = fontFamily,
-                )
-
-                databaseInformation?.let { info ->
-
-                    Spacer(modifier = Modifier.requiredHeight(grid()))
-
-                    TehDivider()
-
-                    Text(
-                        modifier = Modifier
-                            .padding(top = grid(2))
-                            .padding(horizontal = grid(2)),
-                        text = stringResource(
-                            id = R.string.database_last_modified_on_date,
-                            info.getLastModifiedString(forceFarsi = forceFarsi)
-                        ),
-                        fontFamily = fontFamily,
-                        fontSize = 12.sp,
-                        color = colorResource(id = R.color.text_desc),
-                        textAlign = TextAlign.Center
-                    )
-
-                }
 
             }
             else -> {

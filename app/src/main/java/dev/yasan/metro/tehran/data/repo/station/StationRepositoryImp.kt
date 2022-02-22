@@ -22,6 +22,26 @@ class StationRepositoryImp @Inject constructor(
         private const val TAG = "StationRepositoryImp"
     }
 
+    override suspend fun getStations(
+        complete: Boolean,
+        removeDuplicate: Boolean
+    ): List<Station> {
+        val stations: ArrayList<Station> = if (complete || removeDuplicate)
+            fetchAdditionalStationData(stations = stationDAO.getAll()) as ArrayList
+        else stationDAO.getAll() as ArrayList
+
+        if (!removeDuplicate) return stations
+
+        val distinctStations = ArrayList<Station>()
+
+        stations.forEach { station ->
+            if (distinctStations.none { it.nameEn == station.nameEn })
+                distinctStations.add(station)
+        }
+
+        return distinctStations
+    }
+
     override suspend fun getStations(lineId: Int, complete: Boolean): List<Station> {
         val stations = stationDAO.getByLineId(lineId = lineId)
         return if (complete) fetchAdditionalStationData(stations = stations)
@@ -59,7 +79,7 @@ class StationRepositoryImp @Inject constructor(
             station.accessibilityLevelWheelchair =
                 accessibilityRepository.getWheelchairAccessibilityById(levelId = levelId)
         }
-        
+
         return station
     }
 

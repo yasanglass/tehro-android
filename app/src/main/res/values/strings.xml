@@ -50,4 +50,5 @@
     <string name="database">Database</string>
     <string name="station_location">Station Location</string>
     <string name="station_accessibility">Station Accessibility</string>
+    <string name="statistics">Statistics</string>
 </resources>

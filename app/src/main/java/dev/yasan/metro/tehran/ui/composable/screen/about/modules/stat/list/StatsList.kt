@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat
+package dev.yasan.metro.tehran.ui.composable.screen.about.modules.stat.list
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background

@@ -11,12 +11,26 @@ interface StationRepository {
     /**
      * @return A list of all [Station]s.
      *
+     * @param complete If the all foreign keys should be loaded.
+     * @param removeDuplicate If the duplicate intersections should be removed.
+     *
+     * @see StationDAO
+     */
+    suspend fun getStations(complete: Boolean = false, removeDuplicate: Boolean = false): List<Station>
+
+    /**
+     * @return A list of all [Station]s in the line with the matching [lineId].
+     *
+     * @param complete If the all foreign keys should be loaded.
+     *
      * @see StationDAO
      */
     suspend fun getStations(lineId: Int, complete: Boolean = false): List<Station>
 
     /**
      * @return A [Station] with matching id if any exist.
+     *
+     * @param complete If the all foreign keys should be loaded.
      *
      * @see StationDAO
      */
