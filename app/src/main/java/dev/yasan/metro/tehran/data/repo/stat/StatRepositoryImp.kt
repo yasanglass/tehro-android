@@ -102,6 +102,8 @@ class StatRepositoryImp @Inject constructor(
 
         // TODO load titles from the database directly 
 
+        // FIXME: Fix the titles not always being up to date to the device language
+
         return listOf(
             StatComplex(
                 titleEn = "Emergency medical services",
