@@ -52,6 +52,7 @@ class StatRepositoryImp @Inject constructor(
             value = stations.filter { !it.hasEmergencyMedicalServices }.size,
             total = stations.size
         )
+
         val blindLevel1Percentage = toPercentage(
             value = stations.filter { it.accessibilityBlindnessInt == 1 }.size,
             total = stations.size
@@ -64,6 +65,7 @@ class StatRepositoryImp @Inject constructor(
             value = stations.filter { it.accessibilityBlindnessInt == 3 }.size,
             total = stations.size
         )
+
         val wheelchairLevel1Percentage = toPercentage(
             value = stations.filter { it.accessibilityWheelchairInt == 1 }.size,
             total = stations.size
@@ -84,6 +86,21 @@ class StatRepositoryImp @Inject constructor(
             value = stations.filter { it.accessibilityWheelchairInt == 5 }.size,
             total = stations.size
         )
+
+        val wcLevel1Percentage = toPercentage(
+            value = stations.filter { it.wcInt == 1 }.size,
+            total = stations.size
+        )
+        val wcLevel2Percentage = toPercentage(
+            value = stations.filter { it.wcInt == 2 }.size,
+            total = stations.size
+        )
+        val wcLevel3Percentage = toPercentage(
+            value = stations.filter { it.wcInt == 3 }.size,
+            total = stations.size
+        )
+
+        // TODO load titles from the database directly 
 
         return listOf(
             StatComplex(
@@ -147,7 +164,26 @@ class StatRepositoryImp @Inject constructor(
                 titleEn = "Elevator from street to ticket sales hall & from ticket sales hall to platform",
                 titleFa = "آسانسور از سطح خیابان به سالن فروش بلیت و از سالن فروش بلیت به سکو",
                 value = wheelchairLevel5Percentage,
-            )
+            ),
+            StatComplex(
+                titleEn = "Rest Room",
+                titleFa = "سرویس بهداشتی",
+            ),
+            StatComplex(
+                titleEn = "Rest room not available",
+                titleFa = "فاقد سرویس بهداشتی",
+                value = wcLevel1Percentage,
+            ),
+            StatComplex(
+                titleEn = "Rest room available close to the station",
+                titleFa = "دارای سرویس بهداشتی در کنار ایستگاه",
+                value = wcLevel2Percentage,
+            ),
+            StatComplex(
+                titleEn = "Rest room available just outside the station",
+                titleFa = "دارای سرویس بهداشتی در محوطه بیرونی ایستگاه",
+                value = wcLevel3Percentage,
+            ),
         )
     }
 
