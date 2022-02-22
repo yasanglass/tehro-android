@@ -26,7 +26,7 @@ abstract class AccessibilityLevel(
     /**
      * @return The object's [Type] based on its [id].
      */
-    fun getType(): Type {
+    open fun getType(): Type {
         return when (id) {
             1 -> {
                 Type.MIN
@@ -45,6 +45,7 @@ abstract class AccessibilityLevel(
      * @see descriptionFa
      * @see descriptionEn
      */
-    fun description(forceFarsi: Boolean = false): String = if (LocaleHelper.isFarsi || forceFarsi) descriptionFa else descriptionEn
+    fun description(forceFarsi: Boolean = false): String =
+        if (LocaleHelper.isFarsi || forceFarsi) descriptionFa else descriptionEn
 
 }

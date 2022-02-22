@@ -5,6 +5,7 @@ import dev.yasan.metro.tehran.data.db.entity.*
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
 
 /**
  * Provides dummy data to composable previews. All dummy variables for previews must be created here so they can be reused.
@@ -80,7 +81,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
-            accessibilityWheelchairInt = 3
+            accessibilityWheelchairInt = 3,
+            wcAvailabilityLevelInt = 2
         ).apply {
             intersection = interchange11
         },
@@ -96,7 +98,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 3,
-            accessibilityWheelchairInt = 2
+            accessibilityWheelchairInt = 2,
+            wcAvailabilityLevelInt = 2
         ).apply {
             intersection = interchange7
         },
@@ -112,7 +115,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
-            accessibilityWheelchairInt = 1
+            accessibilityWheelchairInt = 1,
+            wcAvailabilityLevelInt = 2
         ),
         Station(
             id = 31,
@@ -126,7 +130,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 3,
-            accessibilityWheelchairInt = 2
+            accessibilityWheelchairInt = 2,
+            wcAvailabilityLevelInt = 2
         )
     )
 
@@ -147,7 +152,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
-            accessibilityWheelchairInt = 3
+            accessibilityWheelchairInt = 3,
+            wcAvailabilityLevelInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -163,7 +169,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
-            accessibilityWheelchairInt = 3
+            accessibilityWheelchairInt = 3,
+            wcAvailabilityLevelInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -186,7 +193,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
-            accessibilityWheelchairInt = 3
+            accessibilityWheelchairInt = 3,
+            wcAvailabilityLevelInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -202,7 +210,8 @@ object PreviewHelper {
             mapY = null,
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
-            accessibilityWheelchairInt = 3
+            accessibilityWheelchairInt = 3,
+            wcAvailabilityLevelInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -245,6 +254,21 @@ object PreviewHelper {
             id = 3,
             descriptionEn = "Accessible to the visually impaired",
             descriptionFa = "دارای مسیر نابینایان در تمام ایستگاه",
+        ),
+        WcAvailabilityLevel(
+            id = 1,
+            descriptionEn = "Rest room not available",
+            descriptionFa = "فاقد سرویس بهداشتی",
+        ),
+        WcAvailabilityLevel(
+            id = 2,
+            descriptionEn = "Rest room available just outside the station",
+            descriptionFa = "دارای سرویس بهداشتی در محوطه بیرونی ایستگاه",
+        ),
+        WcAvailabilityLevel(
+            id = 3,
+            descriptionEn = "Rest room available close to the station",
+            descriptionFa = "دارای سرویس بهداشتی در کنار ایستگاه",
         ),
     )
 

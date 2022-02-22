@@ -6,6 +6,7 @@ import androidx.room.*
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.PrideHelper
@@ -59,6 +60,10 @@ data class Station(
         name = "accessibility_blindness_level",
         index = true
     ) val accessibilityBlindnessInt: Int,
+    @ColumnInfo(
+        name = "wc",
+        index = true
+    ) val wcAvailabilityLevelInt: Int,
 ) {
 
     /**
@@ -83,6 +88,10 @@ data class Station(
     @Ignore
     @IgnoredOnParcel
     var accessibilityLevelBlindness: AccessibilityLevelBlindness? = null
+
+    @Ignore
+    @IgnoredOnParcel
+    var wc: WcAvailabilityLevel? = null
 
     /**
      * If the station has valid location data.
