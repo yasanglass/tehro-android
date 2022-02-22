@@ -1,6 +1,5 @@
 package dev.yasan.metro.tehran.data.repo.station
 
-import android.util.Log
 import dev.yasan.metro.tehran.data.db.dao.StationDAO
 import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
@@ -78,6 +77,11 @@ class StationRepositoryImp @Inject constructor(
         station.accessibilityWheelchairInt.let { levelId ->
             station.accessibilityLevelWheelchair =
                 accessibilityRepository.getWheelchairAccessibilityById(levelId = levelId)
+        }
+
+        station.wcInt.let { levelId ->
+            station.wc =
+                accessibilityRepository.getWcAvailabilityLevelById(levelId = levelId)
         }
 
         return station

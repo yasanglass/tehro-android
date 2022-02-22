@@ -64,6 +64,9 @@ class ApplicationModule {
     fun provideInterchangeDAO(metroDatabase: MetroDatabase) = metroDatabase.interchangeDAO()
 
     @Provides
+    fun provideWcAvailabilityLevelDAO(metroDatabase: MetroDatabase) = metroDatabase.wcAvailabilityLevelDAO()
+
+    @Provides
     fun provideLineDAO(metroDatabase: MetroDatabase) = metroDatabase.lineDAO()
 
     @Provides
@@ -111,10 +114,12 @@ class ApplicationModule {
     @Provides
     fun provideAccessibilityRepository(
         accessibilityLevelBlindnessDAO: AccessibilityLevelBlindnessDAO,
-        accessibilityLevelWheelchairDAO: AccessibilityLevelWheelchairDAO
+        accessibilityLevelWheelchairDAO: AccessibilityLevelWheelchairDAO,
+        wcAvailabilityLevelDAO: WcAvailabilityLevelDAO
     ): AccessibilityRepository = AccessibilityRepositoryImp(
         accessibilityLevelBlindnessDAO = accessibilityLevelBlindnessDAO,
-        accessibilityLevelWheelchairDAO = accessibilityLevelWheelchairDAO
+        accessibilityLevelWheelchairDAO = accessibilityLevelWheelchairDAO,
+        wcAvailabilityLevelDAO = wcAvailabilityLevelDAO
     )
 
     @Singleton

@@ -72,7 +72,7 @@ data class Station(
         name = "wc",
         index = true,
         defaultValue = "1"
-    ) val wcAvailabilityLevelInt: Int,
+    ) val wcInt: Int,
 ) {
 
     /**

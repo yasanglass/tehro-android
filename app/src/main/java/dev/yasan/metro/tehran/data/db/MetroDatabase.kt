@@ -34,6 +34,7 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun stationDAO(): StationDAO
     abstract fun accessibilityLevelBlindnessDAO(): AccessibilityLevelBlindnessDAO
     abstract fun accessibilityLevelWheelchairDAO(): AccessibilityLevelWheelchairDAO
+    abstract fun wcAvailabilityLevelDAO(): WcAvailabilityLevelDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
 

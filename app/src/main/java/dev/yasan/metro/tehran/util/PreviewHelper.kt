@@ -82,7 +82,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
             accessibilityWheelchairInt = 3,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         ).apply {
             intersection = interchange11
         },
@@ -99,7 +99,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 3,
             accessibilityWheelchairInt = 2,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         ).apply {
             intersection = interchange7
         },
@@ -116,7 +116,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
             accessibilityWheelchairInt = 1,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         ),
         Station(
             id = 31,
@@ -131,7 +131,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 3,
             accessibilityWheelchairInt = 2,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         )
     )
 
@@ -153,7 +153,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
             accessibilityWheelchairInt = 3,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -170,7 +170,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
             accessibilityWheelchairInt = 3,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -194,7 +194,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
             accessibilityWheelchairInt = 3,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
@@ -211,7 +211,7 @@ object PreviewHelper {
             hasEmergencyMedicalServices = false,
             accessibilityBlindnessInt = 2,
             accessibilityWheelchairInt = 3,
-            wcAvailabilityLevelInt = 2
+            wcInt = 2
         ).apply {
             line = lines.toList()[lineId - 1]
         }
