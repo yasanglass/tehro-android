@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
@@ -107,8 +108,8 @@ fun AboutSegmentApp(
                 modifier = Modifier.padding(grid(3)),
                 text = stringResource(R.string.app_name).uppercase(),
                 fontFamily = fontFamily,
-                fontSize = 32.sp,
-                color = colorResource(id = R.color.black),
+                fontSize = if (LocaleHelper.isFarsi) 40.sp else 32.sp,
+                color = colorResource(id = R.color.white),
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Black,
             )
