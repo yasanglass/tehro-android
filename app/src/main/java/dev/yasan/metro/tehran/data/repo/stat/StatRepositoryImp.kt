@@ -109,15 +109,16 @@ class StatRepositoryImp @Inject constructor(
                 titleEn = "Emergency medical services",
                 titleFa = "خدمات اورژانس پزشکی"
             ),
-            StatComplex(
-                titleEn = "Emergency medical services available",
-                titleFa = "دارای خدمات اورژانس پزشکی",
-                value = withEmsPercentage
-            ),
+
             StatComplex(
                 titleEn = "Emergency medical services not available",
                 titleFa = "فاقد خدمات اورژانس پزشکی",
                 value = withoutEmsPercentage
+            ),
+            StatComplex(
+                titleEn = "Emergency medical services available",
+                titleFa = "دارای خدمات اورژانس پزشکی",
+                value = withEmsPercentage
             ),
             StatComplex(
                 titleEn = "Visually Impaired",
