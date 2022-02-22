@@ -17,7 +17,7 @@ import javax.inject.Inject
         AccessibilityLevelWheelchair::class,
         AccessibilityLevelBlindness::class
     ],
-    version = 4,
+    version = 5,
 )
 abstract class MetroDatabase : RoomDatabase() {
 

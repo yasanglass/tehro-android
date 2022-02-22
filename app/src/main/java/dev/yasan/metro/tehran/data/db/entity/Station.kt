@@ -54,11 +54,11 @@ data class Station(
     @ColumnInfo(
         name = "accessibility_wheelchair_level",
         index = true
-    ) val accessibilityWheelchairInt: Int?,
+    ) val accessibilityWheelchairInt: Int,
     @ColumnInfo(
         name = "accessibility_blindness_level",
         index = true
-    ) val accessibilityBlindnessInt: Int?,
+    ) val accessibilityBlindnessInt: Int,
 ) {
 
     /**

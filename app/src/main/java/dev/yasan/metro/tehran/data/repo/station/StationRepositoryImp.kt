@@ -50,16 +50,16 @@ class StationRepositoryImp @Inject constructor(
                 }
             }
 
-        station.accessibilityBlindnessInt?.let { levelId ->
+        station.accessibilityBlindnessInt.let { levelId ->
             station.accessibilityLevelBlindness =
                 accessibilityRepository.getBlindnessAccessibilityById(levelId = levelId)
         }
 
-        station.accessibilityWheelchairInt?.let { levelId ->
+        station.accessibilityWheelchairInt.let { levelId ->
             station.accessibilityLevelWheelchair =
                 accessibilityRepository.getWheelchairAccessibilityById(levelId = levelId)
         }
-
+        
         return station
     }
 
