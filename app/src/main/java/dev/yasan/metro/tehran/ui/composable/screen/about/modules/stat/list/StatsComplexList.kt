@@ -36,30 +36,44 @@ fun StatComplexList(
             .background(color = colorResource(id = R.color.layer_foreground))
     ) {
         stats.forEach { stat ->
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            if (stat.value != null) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(vertical = grid(), horizontal = grid(2)),
+                        text = stat.title,
+                        color = colorResource(id = R.color.text_desc),
+                        fontFamily = fontFamily,
+                        textAlign = TextAlign.Start,
+                        fontSize = 12.sp
+                    )
+                    val text = stat.value.toString()
+                    Text(
+                        modifier = Modifier.padding(vertical = grid(), horizontal = grid(2)),
+                        text =
+                        if (LocaleHelper.isFarsi || forceFarsi)
+                            text.toPersianNumbers()
+                        else
+                            text,
+                        color = colorResource(id = R.color.text_title),
+                        fontFamily = fontFamily,
+                        textAlign = TextAlign.End,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 12.sp
+                    )
+                }
+            } else {
                 Text(
                     modifier = Modifier
-                        .weight(1f)
+                        .fillMaxWidth()
                         .padding(vertical = grid(), horizontal = grid(2)),
                     text = stat.title,
-                    color = colorResource(id = R.color.text_desc),
-                    fontFamily = fontFamily,
-                    textAlign = TextAlign.Start,
-                    fontSize = 12.sp
-                )
-                val text = stat.value.toString()
-                Text(
-                    modifier = Modifier.padding(vertical = grid(), horizontal = grid(2)),
-                    text =
-                    if (LocaleHelper.isFarsi || forceFarsi)
-                        text.toPersianNumbers()
-                    else
-                        text,
                     color = colorResource(id = R.color.text_title),
                     fontFamily = fontFamily,
-                    textAlign = TextAlign.End,
+                    textAlign = TextAlign.Center,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 12.sp
+                    fontSize = 14.sp
                 )
             }
         }

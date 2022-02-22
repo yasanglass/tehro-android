@@ -87,6 +87,10 @@ class StatRepositoryImp @Inject constructor(
 
         return listOf(
             StatComplex(
+                titleEn = "Emergency medical services",
+                titleFa = "خدمات اورژانس پزشکی"
+            ),
+            StatComplex(
                 titleEn = "Emergency medical services available",
                 titleFa = "دارای خدمات اورژانس پزشکی",
                 value = withEmsPercentage
@@ -95,6 +99,10 @@ class StatRepositoryImp @Inject constructor(
                 titleEn = "Emergency medical services not available",
                 titleFa = "فاقد خدمات اورژانس پزشکی",
                 value = withoutEmsPercentage
+            ),
+            StatComplex(
+                titleEn = "Visually Impaired",
+                titleFa = "نابینایان"
             ),
             StatComplex(
                 titleEn = "Not accessible to the visually impaired",
@@ -110,6 +118,10 @@ class StatRepositoryImp @Inject constructor(
                 titleEn = "Accessible to the visually impaired",
                 titleFa = "دارای مسیر نابینایان در تمام ایستگاه",
                 value = blindLevel3Percentage,
+            ),
+            StatComplex(
+                titleEn = "ٌWheelchair",
+                titleFa = "ویلچر"
             ),
             StatComplex(
                 titleEn = "Not wheelchair accessible",
