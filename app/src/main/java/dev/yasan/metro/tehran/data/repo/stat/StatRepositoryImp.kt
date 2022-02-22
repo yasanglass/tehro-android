@@ -31,8 +31,6 @@ class StatRepositoryImp @Inject constructor(
         val lineCount = lineDAO.getAll().size
         val stationCount = stations.size
 
-        getComplexStatistics()
-
         return listOf(
             Stat(titleStringResourceId = R.string.stations, stationCount),
             Stat(titleStringResourceId = R.string.intersections, intersectionCount),
