@@ -19,7 +19,7 @@ interface WcAvailabilityLevelDAO {
     /**
      * @return A [WcAvailabilityLevel] with the matching id if any exist.
      */
-    @Query("SELECT * FROM stations_accessibility_wheelchair_levels WHERE id=:id")
+    @Query("SELECT * FROM stations_wc_availability_levels WHERE id=:id")
     suspend fun getById(id: Int): WcAvailabilityLevel?
 
 }
