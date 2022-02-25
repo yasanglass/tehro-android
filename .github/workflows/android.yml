@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   gradle:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Root
       uses: actions/checkout@v2
@@ -38,14 +38,8 @@ jobs:
     - name: Make Gradle executable
       run: chmod +x ./gradlew
 
-    - name: Gradle Check
+    - name: Gradlew Check
       run: ./gradlew check
-
-    - name: Gradle Connected Check
-      uses: reactivecircus/android-emulator-runner@v2
-      with:
-        api-level: 30
-        script: ./gradlew connectedCheck
 
     - name: Upload Ruler Reports
       uses: actions/upload-artifact@v2
