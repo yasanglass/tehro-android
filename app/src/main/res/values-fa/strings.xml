@@ -39,13 +39,13 @@
     <string name="accessibility_wheelchair_level_3">آسانسور از سالن فروش بلیت به سکو</string>
     <string name="accessibility_wheelchair_max">آسانسور از سطح خیابان به سالن فروش بلیت و از سالن فروش بلیت به سکو</string>
     <string name="ems_available">دارای خدمات اورژانس پزشکی</string>
-    <string name="ems_unavailable">قافد خدمات اورژانس پزشکی</string>
+    <string name="ems_unavailable">فاقد خدمات اورژانس پزشکی</string>
     <string name="emergency_medical_services">خدمات اورژانس پزشکی</string>
     <string name="accessibility_blind_not_accessible">فاقد مسیر نابینایان</string>
-    <string name="accessibility_blind_platforms_only">دارای مسیر نابینابان در سکو‌ها</string>
+    <string name="accessibility_blind_platforms_only">دارای مسیر نابینایان در سکو‌ها</string>
     <string name="accessibility_blind_fully_accessible">دارای مسیر نابینایان در تمام ایستگاه</string>
     <string name="stations">ایستگاه‌ها</string>
-    <string name="database">پایگاه داده</string>
+    <string name="database">پایگاه‌داده</string>
     <string name="intersections">تقاطع‌ها</string>
     <string name="station_location">لوکیشن ایستگاه‌ها</string>
     <string name="station_accessibility">دسترسی ایستگاه‌ها</string>

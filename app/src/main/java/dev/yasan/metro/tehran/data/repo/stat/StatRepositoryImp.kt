@@ -140,7 +140,7 @@ class StatRepositoryImp @Inject constructor(
                 value = blindLevel3Percentage,
             ),
             StatComplex(
-                titleEn = "ٌWheelchair",
+                titleEn = "Wheelchair",
                 titleFa = "ویلچر"
             ),
             StatComplex(
@@ -169,21 +169,21 @@ class StatRepositoryImp @Inject constructor(
                 value = wheelchairLevel5Percentage,
             ),
             StatComplex(
-                titleEn = "Rest Room",
+                titleEn = "Restroom",
                 titleFa = "سرویس بهداشتی",
             ),
             StatComplex(
-                titleEn = "Rest room not available",
+                titleEn = "Restroom not available",
                 titleFa = "فاقد سرویس بهداشتی",
                 value = wcLevel1Percentage,
             ),
             StatComplex(
-                titleEn = "Rest room available close to the station",
+                titleEn = "Restroom available close to the station",
                 titleFa = "دارای سرویس بهداشتی در کنار ایستگاه",
                 value = wcLevel2Percentage,
             ),
             StatComplex(
-                titleEn = "Rest room available just outside the station",
+                titleEn = "Restroom available just outside the station",
                 titleFa = "دارای سرویس بهداشتی در محوطه بیرونی ایستگاه",
                 value = wcLevel3Percentage,
             ),
