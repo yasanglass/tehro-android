@@ -17,26 +17,8 @@ android {
         minSdk 21
         targetSdk 31
 
-        advancedVersioning {
-            nameOptions {
-                versionMajor 2
-                versionMinor 2
-                versionPatch 0
-            }
-            codeOptions {
-                versionCodeType 'GIT_COMMIT_COUNT'
-            }
-            outputOptions {
-                renameOutput true
-                nameFormat 'tehro-${versionName}-${versionCode}-${buildType}-${flavorName}'
-            }
-        }
-
-        def appVersionName = advancedVersioning.versionName
-        def appVersionCode = advancedVersioning.versionCode
-
         versionCode 220
-        versionName appVersionName
+        versionName "2.2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
