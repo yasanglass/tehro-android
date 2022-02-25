@@ -1,5 +1,9 @@
 # Tehro Changelog
 
+## v2.2.1
+
+- Fixed & updated some strings.
+
 ## v2.2.0
 
 - Added All accessibility information for all stations.
