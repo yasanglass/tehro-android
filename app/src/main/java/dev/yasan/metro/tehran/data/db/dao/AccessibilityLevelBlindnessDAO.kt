@@ -15,6 +15,12 @@ import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBli
 interface AccessibilityLevelBlindnessDAO {
 
     /**
+     * @return A list of all [AccessibilityLevelBlindness].
+     */
+    @Query("SELECT * FROM stations_accessibility_blindness_levels")
+    suspend fun getAll(): List<AccessibilityLevelBlindness>
+
+    /**
      * @return A [AccessibilityLevelBlindness] with the matching id if any exist.
      */
     @Query("SELECT * FROM stations_accessibility_blindness_levels WHERE id=:id")

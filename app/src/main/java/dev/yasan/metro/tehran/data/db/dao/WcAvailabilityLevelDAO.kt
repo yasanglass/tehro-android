@@ -17,6 +17,12 @@ import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
 interface WcAvailabilityLevelDAO {
 
     /**
+     * @return A list of all [WcAvailabilityLevel]s.
+     */
+    @Query("SELECT * FROM stations_wc_availability_levels")
+    suspend fun getAll(): List<WcAvailabilityLevel>
+
+    /**
      * @return A [WcAvailabilityLevel] with the matching id if any exist.
      */
     @Query("SELECT * FROM stations_wc_availability_levels WHERE id=:id")

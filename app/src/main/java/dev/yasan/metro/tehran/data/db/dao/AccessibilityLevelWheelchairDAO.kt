@@ -16,6 +16,12 @@ import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWhe
 interface AccessibilityLevelWheelchairDAO {
 
     /**
+     * @return A list of all [AccessibilityLevelWheelchair].
+     */
+    @Query("SELECT * FROM stations_accessibility_wheelchair_levels")
+    suspend fun getAll(): List<AccessibilityLevelWheelchair>
+
+    /**
      * @return A [AccessibilityLevelWheelchair] with the matching id if any exist.
      */
     @Query("SELECT * FROM stations_accessibility_wheelchair_levels WHERE id=:id")

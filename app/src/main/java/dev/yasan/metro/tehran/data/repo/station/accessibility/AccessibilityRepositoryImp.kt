@@ -22,12 +22,24 @@ class AccessibilityRepositoryImp @Inject constructor(
     private val wcAvailabilityLevelDAO: WcAvailabilityLevelDAO
 ) : AccessibilityRepository {
 
+    override suspend fun getBlindnessAccessibilityList(): List<AccessibilityLevelBlindness> {
+        return accessibilityLevelBlindnessDAO.getAll()
+    }
+
     override suspend fun getBlindnessAccessibilityById(levelId: Int): AccessibilityLevelBlindness? {
         return accessibilityLevelBlindnessDAO.getById(id = levelId)
     }
 
+    override suspend fun getWheelchairAccessibilityList(): List<AccessibilityLevelWheelchair> {
+        return accessibilityLevelWheelchairDAO.getAll()
+    }
+
     override suspend fun getWheelchairAccessibilityById(levelId: Int): AccessibilityLevelWheelchair? {
         return accessibilityLevelWheelchairDAO.getById(id = levelId)
+    }
+
+    override suspend fun getWcAvailabilityLevels(): List<WcAvailabilityLevel> {
+        return wcAvailabilityLevelDAO.getAll()
     }
 
     override suspend fun getWcAvailabilityLevelById(levelId: Int): WcAvailabilityLevel? {

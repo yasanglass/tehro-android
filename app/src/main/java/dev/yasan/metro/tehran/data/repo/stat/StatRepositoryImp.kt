@@ -1,11 +1,11 @@
 package dev.yasan.metro.tehran.data.repo.stat
 
-import android.util.Log
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.dao.*
 import dev.yasan.metro.tehran.data.db.entity.Stat
 import dev.yasan.metro.tehran.data.db.entity.StatComplex
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
+import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepository
 import javax.inject.Inject
 
 /**
@@ -14,7 +14,8 @@ import javax.inject.Inject
 class StatRepositoryImp @Inject constructor(
     private val intersectionDAO: IntersectionDAO,
     private val lineDAO: LineDAO,
-    private val stationRepository: StationRepository
+    private val stationRepository: StationRepository,
+    private val accessibilityRepository: AccessibilityRepository
 ) : StatRepository {
 
     companion object {
@@ -41,8 +42,12 @@ class StatRepositoryImp @Inject constructor(
 
     override suspend fun getComplexStatistics(): List<StatComplex> {
 
+        // FIXME Adjust the return type to support resourceIds
+
         val stations =
             stationRepository.getStations(complete = false, removeDuplicate = true)
+
+        val list = ArrayList<StatComplex>()
 
         val withEmsPercentage = toPercentage(
             value = stations.filter { it.hasEmergencyMedicalServices }.size,
@@ -53,141 +58,86 @@ class StatRepositoryImp @Inject constructor(
             total = stations.size
         )
 
-        val blindLevel1Percentage = toPercentage(
-            value = stations.filter { it.accessibilityBlindnessInt == 1 }.size,
-            total = stations.size
-        )
-        val blindLevel2Percentage = toPercentage(
-            value = stations.filter { it.accessibilityBlindnessInt == 2 }.size,
-            total = stations.size
-        )
-        val blindLevel3Percentage = toPercentage(
-            value = stations.filter { it.accessibilityBlindnessInt == 3 }.size,
-            total = stations.size
-        )
-
-        val wheelchairLevel1Percentage = toPercentage(
-            value = stations.filter { it.accessibilityWheelchairInt == 1 }.size,
-            total = stations.size
-        )
-        val wheelchairLevel2Percentage = toPercentage(
-            value = stations.filter { it.accessibilityWheelchairInt == 2 }.size,
-            total = stations.size
-        )
-        val wheelchairLevel3Percentage = toPercentage(
-            value = stations.filter { it.accessibilityWheelchairInt == 3 }.size,
-            total = stations.size
-        )
-        val wheelchairLevel4Percentage = toPercentage(
-            value = stations.filter { it.accessibilityWheelchairInt == 4 }.size,
-            total = stations.size
-        )
-        val wheelchairLevel5Percentage = toPercentage(
-            value = stations.filter { it.accessibilityWheelchairInt == 5 }.size,
-            total = stations.size
+        list.addAll(
+            listOf(
+                StatComplex(
+                    titleEn = "Emergency medical services",
+                    titleFa = "خدمات اورژانس پزشکی"
+                ),
+                StatComplex(
+                    titleEn = "Emergency medical services not available",
+                    titleFa = "فاقد خدمات اورژانس پزشکی",
+                    value = withoutEmsPercentage
+                ),
+                StatComplex(
+                    titleEn = "Emergency medical services available",
+                    titleFa = "دارای خدمات اورژانس پزشکی",
+                    value = withEmsPercentage
+                ),
+            )
         )
 
-        val wcLevel1Percentage = toPercentage(
-            value = stations.filter { it.wcInt == 1 }.size,
-            total = stations.size
-        )
-        val wcLevel2Percentage = toPercentage(
-            value = stations.filter { it.wcInt == 2 }.size,
-            total = stations.size
-        )
-        val wcLevel3Percentage = toPercentage(
-            value = stations.filter { it.wcInt == 3 }.size,
-            total = stations.size
-        )
-
-        // TODO load titles from the database directly 
-
-        // FIXME: Fix the titles not always being up to date to the device language
-
-        return listOf(
-            StatComplex(
-                titleEn = "Emergency medical services",
-                titleFa = "خدمات اورژانس پزشکی"
-            ),
-
-            StatComplex(
-                titleEn = "Emergency medical services not available",
-                titleFa = "فاقد خدمات اورژانس پزشکی",
-                value = withoutEmsPercentage
-            ),
-            StatComplex(
-                titleEn = "Emergency medical services available",
-                titleFa = "دارای خدمات اورژانس پزشکی",
-                value = withEmsPercentage
-            ),
+        list.add(
             StatComplex(
                 titleEn = "Visually Impaired",
                 titleFa = "نابینایان"
-            ),
-            StatComplex(
-                titleEn = "Not accessible to the visually impaired",
-                titleFa = "فاقد مسیر نابینایان",
-                value = blindLevel1Percentage,
-            ),
-            StatComplex(
-                titleEn = "Accessible to the visually impaired on platforms only",
-                titleFa = "دارای مسیر نابینابان در سکو\u200Cها",
-                value = blindLevel2Percentage,
-            ),
-            StatComplex(
-                titleEn = "Accessible to the visually impaired",
-                titleFa = "دارای مسیر نابینایان در تمام ایستگاه",
-                value = blindLevel3Percentage,
-            ),
+            )
+        )
+
+        accessibilityRepository.getBlindnessAccessibilityList().forEach { level ->
+            list.add(
+                StatComplex(
+                    titleEn = level.descriptionEn,
+                    titleFa = level.descriptionFa,
+                    value = toPercentage(
+                        value = stations.filter { station -> station.accessibilityBlindnessInt == level.id }.size,
+                        total = stations.size
+                    ),
+                )
+            )
+        }
+
+        list.add(
             StatComplex(
                 titleEn = "Wheelchair",
                 titleFa = "ویلچر"
-            ),
-            StatComplex(
-                titleEn = "Not wheelchair accessible",
-                titleFa = "با ویلچر قابل دسترسی نیست",
-                value = wheelchairLevel1Percentage,
-            ),
-            StatComplex(
-                titleEn = "Elevator from street to one platform",
-                titleFa = "آسانسور از سطح خیابان به یک سکو",
-                value = wheelchairLevel2Percentage,
-            ),
-            StatComplex(
-                titleEn = "Elevator from street to both platforms",
-                titleFa = "آسانسور از سطح خیابان به هر دو سکو",
-                value = wheelchairLevel3Percentage,
-            ),
-            StatComplex(
-                titleEn = "Elevator from ticket sales hall to platform",
-                titleFa = "آسانسور از سالن فروش بلیت به سکو",
-                value = wheelchairLevel4Percentage,
-            ),
-            StatComplex(
-                titleEn = "Elevator from street to ticket sales hall & from ticket sales hall to platform",
-                titleFa = "آسانسور از سطح خیابان به سالن فروش بلیت و از سالن فروش بلیت به سکو",
-                value = wheelchairLevel5Percentage,
-            ),
+            )
+        )
+
+        accessibilityRepository.getWheelchairAccessibilityList().forEach { level ->
+            list.add(
+                StatComplex(
+                    titleEn = level.descriptionEn,
+                    titleFa = level.descriptionFa,
+                    value = toPercentage(
+                        value = stations.filter { station -> station.accessibilityWheelchairInt == level.id }.size,
+                        total = stations.size
+                    ),
+                )
+            )
+        }
+
+        list.add(
             StatComplex(
                 titleEn = "Restroom",
                 titleFa = "سرویس بهداشتی",
-            ),
-            StatComplex(
-                titleEn = "Restroom not available",
-                titleFa = "فاقد سرویس بهداشتی",
-                value = wcLevel1Percentage,
-            ),
-            StatComplex(
-                titleEn = "Restroom available close to the station",
-                titleFa = "دارای سرویس بهداشتی در کنار ایستگاه",
-                value = wcLevel2Percentage,
-            ),
-            StatComplex(
-                titleEn = "Restroom available just outside the station",
-                titleFa = "دارای سرویس بهداشتی در محوطه بیرونی ایستگاه",
-                value = wcLevel3Percentage,
-            ),
+            )
         )
+
+        accessibilityRepository.getWcAvailabilityLevels().forEach { level ->
+            list.add(
+                StatComplex(
+                    titleEn = level.descriptionEn,
+                    titleFa = level.descriptionFa,
+                    value = toPercentage(
+                        value = stations.filter { station -> station.wcInt == level.id }.size,
+                        total = stations.size
+                    ),
+                )
+            )
+        }
+
+        return list
     }
 
 }
