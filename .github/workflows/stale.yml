@@ -23,7 +23,7 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-message: 'Looks like this issue has not been updated in 14 days. Is it still needed?'
         stale-pr-message: 'Looks like this PR has not been updated in 14 days. Is it still needed?'
-        days-before-stale: 14
+        days-before-stale: 60
         close-issue-message: 'Looks like this stale issue has not been updated in 7 days. Closing the issue.'
         close-pr-message: 'Looks like this stale PR has not been updated in 7 days. Closing the PR.'
         days-before-close: 7
