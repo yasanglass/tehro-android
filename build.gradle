@@ -9,6 +9,8 @@ buildscript {
         compose_version = '1.1.1'
         accompanist_version = '0.23.1'
         lifecycle_version = '2.4.1'
+        mockito_version = '2.28.1'
+        junit_version = '4.13.2'
     }
     repositories {
         google()
