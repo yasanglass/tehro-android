@@ -56,10 +56,6 @@ android {
             dimension dimenStore
             applicationIdSuffix(".github")
         }
-        fdroid {
-            dimension dimenStore
-            applicationIdSuffix(".fdroid")
-        }
     }
 
     compileOptions {
