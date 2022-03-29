@@ -49,10 +49,6 @@ android {
         play {
             dimension dimenStore
         }
-        bazaar {
-            dimension dimenStore
-            applicationIdSuffix(".bazaar")
-        }
         github {
             dimension dimenStore
             applicationIdSuffix(".github")
