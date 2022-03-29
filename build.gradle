@@ -22,6 +22,9 @@ buildscript {
         classpath 'com.android.tools.build:gradle:7.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.firebase:perf-plugin:1.4.1'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
         classpath 'me.moallemi.gradle:advanced-build-version:2.0.0'
         classpath "com.spotify.ruler:ruler-gradle-plugin:1.2.0"
 
