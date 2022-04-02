@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.data.repo.station
+package dev.yasan.metro.tehran.domain.repository.station
 
 import dev.yasan.metro.tehran.data.db.dao.StationDAO
 import dev.yasan.metro.tehran.model.tehro.Station

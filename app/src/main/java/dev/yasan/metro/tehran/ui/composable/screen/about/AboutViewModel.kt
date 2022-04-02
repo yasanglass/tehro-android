@@ -11,8 +11,8 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.model.tehro.DatabaseInformation
 import dev.yasan.metro.tehran.model.tehro.Stat
 import dev.yasan.metro.tehran.model.tehro.StatComplex
-import dev.yasan.metro.tehran.data.repo.dbinfo.DatabaseInformationRepository
-import dev.yasan.metro.tehran.data.repo.stat.StatRepository
+import dev.yasan.metro.tehran.domain.repository.dbinfo.DatabaseInformationRepository
+import dev.yasan.metro.tehran.domain.repository.stat.StatRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

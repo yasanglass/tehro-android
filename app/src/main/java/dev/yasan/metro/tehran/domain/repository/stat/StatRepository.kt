@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.data.repo.stat
+package dev.yasan.metro.tehran.domain.repository.stat
 
 import dev.yasan.metro.tehran.model.tehro.Stat
 import dev.yasan.metro.tehran.model.tehro.StatComplex

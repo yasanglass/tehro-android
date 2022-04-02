@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.data.repo.station.accessibility
+package dev.yasan.metro.tehran.domain.repository.accessibility
 
 import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness

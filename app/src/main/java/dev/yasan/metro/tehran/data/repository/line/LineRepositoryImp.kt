@@ -1,6 +1,7 @@
-package dev.yasan.metro.tehran.data.repo.line
+package dev.yasan.metro.tehran.data.repository.line
 
 import dev.yasan.metro.tehran.data.db.dao.LineDAO
+import dev.yasan.metro.tehran.domain.repository.line.LineRepository
 import dev.yasan.metro.tehran.model.tehro.Line
 import javax.inject.Inject
 

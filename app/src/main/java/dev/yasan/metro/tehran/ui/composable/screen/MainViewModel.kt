@@ -9,7 +9,7 @@ import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.model.tehro.Line
-import dev.yasan.metro.tehran.data.repo.line.LineRepository
+import dev.yasan.metro.tehran.domain.repository.line.LineRepository
 import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
 import kotlinx.coroutines.launch
 import javax.inject.Inject

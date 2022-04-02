@@ -1,8 +1,9 @@
-package dev.yasan.metro.tehran.data.repo.station.accessibility
+package dev.yasan.metro.tehran.data.repository.accessibility
 
 import dev.yasan.metro.tehran.data.db.dao.AccessibilityLevelBlindnessDAO
 import dev.yasan.metro.tehran.data.db.dao.AccessibilityLevelWheelchairDAO
 import dev.yasan.metro.tehran.data.db.dao.WcAvailabilityLevelDAO
+import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
 import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel

@@ -1,6 +1,7 @@
-package dev.yasan.metro.tehran.data.repo.intersection
+package dev.yasan.metro.tehran.data.repository.intersection
 
 import dev.yasan.metro.tehran.data.db.dao.IntersectionDAO
+import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.model.tehro.Intersection
 import javax.inject.Inject
 

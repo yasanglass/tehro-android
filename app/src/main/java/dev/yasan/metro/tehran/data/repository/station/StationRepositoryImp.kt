@@ -1,10 +1,11 @@
-package dev.yasan.metro.tehran.data.repo.station
+package dev.yasan.metro.tehran.data.repository.station
 
 import dev.yasan.metro.tehran.data.db.dao.StationDAO
 import dev.yasan.metro.tehran.model.tehro.Station
-import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
-import dev.yasan.metro.tehran.data.repo.line.LineRepository
-import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepository
+import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository
+import dev.yasan.metro.tehran.domain.repository.line.LineRepository
+import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
+import dev.yasan.metro.tehran.domain.repository.station.StationRepository
 import javax.inject.Inject
 
 /**
