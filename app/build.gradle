@@ -46,13 +46,6 @@ android {
     def dimenStore = 'store'
     flavorDimensions dimenStore
     productFlavors {
-        play {
-            dimension dimenStore
-        }
-        github {
-            dimension dimenStore
-            applicationIdSuffix(".github")
-        }
         fdroid {
             dimension dimenStore
             applicationIdSuffix(".fdroid")
