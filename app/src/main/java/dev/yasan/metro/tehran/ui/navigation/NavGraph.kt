@@ -1,11 +1,9 @@
 package dev.yasan.metro.tehran.ui.navigation
 
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.expandIn
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
@@ -29,7 +27,6 @@ import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationScreen
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationViewModel
-import dev.yasan.metro.tehran.ui.theme.themePrimary
 
 /**
  * The main navigation graph for Tehro.
@@ -94,15 +91,12 @@ fun NavGraph(
                 val lineId =
                     it.arguments?.getInt(NavRoutes.EXTRA_LINE_ID) ?: 0
 
-                val line = mainViewModel.getLineById(lineId = lineId)
-
-                systemUiController.setStatusBarColor(color = line?.color ?: Color.DarkGray)
-
                 LineScreen(
                     lineViewModel = lineViewModel,
                     navController = navController,
-                    line = line
+                    lineId = lineId
                 )
+
             }
 
             composable(route = NavRoutes.routeMap()) {

@@ -46,14 +46,4 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    /**
-     * Fetches a line using an id from the already loaded lines list in [MainViewModel].
-     * This is used as a "faster" alternative to loading the line directly from [MetroDatabase].
-     */
-    fun getLineById(lineId: Int): Line? {
-        _lines.value?.data?.forEach { line ->
-            if (line.id == lineId) return line
-        }
-        return null
-    }
 }

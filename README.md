@@ -12,7 +12,7 @@ Tehro is a guide app for Tehran Metro powered by [Jetpack Compose](https://devel
 
 ## Releases
 
-You can get the official releases from either [GitHub](https://github.com/yasandev/tehro-android/releases), [F-Droid](https://f-droid.org/packages/dev.yasan.metro.fdroid/), [Cafe Bazaar](https://cafebazaar.ir/app/dev.yasan.metro.bazaar) or [Google Play Store](https://play.google.com/store/apps/details?id=dev.yasan.metro).
+You can get the official releases from either [GitHub](https://github.com/yasandev/tehro-android/releases), [F-Droid](https://f-droid.org/packages/dev.yasan.metro.fdroid/) or [Google Play Store](https://play.google.com/store/apps/details?id=dev.yasan.metro).
 
 ## Database
 

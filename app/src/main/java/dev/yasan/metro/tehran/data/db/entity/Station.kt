@@ -2,7 +2,9 @@ package dev.yasan.metro.tehran.data.db.entity
 
 import androidx.compose.material.icons.sharp.*
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.room.*
+import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
