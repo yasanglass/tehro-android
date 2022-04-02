@@ -1,7 +1,10 @@
 package dev.yasan.metro.tehran.data.db.entity
 
+import android.content.Context
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.room.*
+import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.util.LocaleHelper
 import kotlinx.parcelize.IgnoredOnParcel
@@ -34,5 +37,16 @@ data class Line(
      * @see nameEn
      */
     val name: String get() = if (LocaleHelper.isFarsi) nameFa else nameEn.uppercase()
+
+    /**
+     * Similar to [name], but adds proper suffixes to the line name.
+     */
+    fun getFullName(context: Context): String {
+        var mName = "${context.getString(R.string.line)} $name"
+        if (type == LineType.METRO_BRANCH) {
+            mName += " ${context.getString(R.string.branch)}"
+        }
+        return mName
+    }
 
 }
