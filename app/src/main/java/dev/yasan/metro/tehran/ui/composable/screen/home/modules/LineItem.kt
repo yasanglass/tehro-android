@@ -21,7 +21,7 @@ import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.entity.Line
 import dev.yasan.metro.tehran.data.db.entity.LineType
-import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.navigation.Navigator
 import dev.yasan.metro.tehran.ui.preview.line.LineListPreviewProvider
 import dev.yasan.metro.tehran.ui.preview.line.LinePreviewProvider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
@@ -49,7 +49,10 @@ fun LineItem(
                 .fillMaxWidth()
                 .background(color = color)
                 .clickable {
-                    navController.navigate(route = NavRoutes.routeLine(line = line))
+                    Navigator.navigateToLineDetails(
+                        navController = navController,
+                        line = line
+                    )
                 }
                 .padding(grid(2)),
             verticalAlignment = Alignment.CenterVertically

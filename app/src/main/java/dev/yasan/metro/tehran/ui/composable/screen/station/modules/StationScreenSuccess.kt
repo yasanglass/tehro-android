@@ -4,7 +4,6 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -35,7 +34,7 @@ import dev.yasan.metro.tehran.data.db.entity.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityEmsIndicator
 import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityIndicator
-import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.navigation.Navigator
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
@@ -168,7 +167,10 @@ fun StationScreenSuccess(
                             title = intersectionButtonTitle,
                             icon = TehroIcons.MultipleStop,
                             onClick = {
-                                navController.navigate(NavRoutes.routeLine(line = line))
+                                Navigator.navigateToLineDetails(
+                                    navController = navController,
+                                    line = line
+                                )
                             }
                         )
 
