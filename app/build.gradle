@@ -6,7 +6,6 @@ plugins {
     id 'kotlin-parcelize'
     id 'me.moallemi.advanced-build-version'
     id 'com.adarshr.test-logger' version '3.2.0'
-    id 'com.spotify.ruler'
 }
 
 android {
@@ -152,18 +151,4 @@ dependencies {
     androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
 
-}
-
-ruler {
-    abi.set("arm64-v8a")
-    locale.set("en")
-    screenDensity.set(480)
-    sdkVersion.set(27)
-    ownershipFile.set(project.layout.projectDirectory.file("ownership.yaml"))
-    defaultOwner.set("third-party")
-}
-
-tasks.named("check").configure {
-    dependsOn("analyzePlayDebugBundle")
-    dependsOn("analyzePlayReleaseBundle")
 }
