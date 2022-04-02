@@ -1,5 +1,9 @@
 # Tehro Changelog
 
+## Unreleased
+
+- Fixed state restore if the app process was killed on the line screen.
+
 ## v2.2.1
 
 - Fixed & updated some strings.
