@@ -1,14 +1,12 @@
-package dev.yasan.metro.tehran.data.db.entity
+package dev.yasan.metro.tehran.model.tehro
 
 import androidx.compose.material.icons.sharp.*
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
 import androidx.room.*
-import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.MetroDatabase
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
-import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.PrideHelper

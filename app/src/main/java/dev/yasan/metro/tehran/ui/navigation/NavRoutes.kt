@@ -1,7 +1,7 @@
 package dev.yasan.metro.tehran.ui.navigation
 
-import dev.yasan.metro.tehran.data.db.entity.Line
-import dev.yasan.metro.tehran.data.db.entity.Station
+import dev.yasan.metro.tehran.model.tehro.Line
+import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen

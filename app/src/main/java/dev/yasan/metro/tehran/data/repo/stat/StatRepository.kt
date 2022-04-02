@@ -1,7 +1,7 @@
 package dev.yasan.metro.tehran.data.repo.stat
 
-import dev.yasan.metro.tehran.data.db.entity.Stat
-import dev.yasan.metro.tehran.data.db.entity.StatComplex
+import dev.yasan.metro.tehran.model.tehro.Stat
+import dev.yasan.metro.tehran.model.tehro.StatComplex
 
 /**
  * Handles all data related to [Stat].

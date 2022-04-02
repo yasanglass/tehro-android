@@ -16,8 +16,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.Stat
-import dev.yasan.metro.tehran.data.db.entity.StatComplex
+import dev.yasan.metro.tehran.model.tehro.Stat
+import dev.yasan.metro.tehran.model.tehro.StatComplex
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.extension.toPersianNumbers
 

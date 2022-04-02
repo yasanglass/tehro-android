@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.data.db.dao
 import androidx.room.Dao
 import androidx.room.Query
 import dev.yasan.metro.tehran.data.db.MetroDatabase
-import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
+import dev.yasan.metro.tehran.model.tehro.DatabaseInformation
 
 /**
  * Data access object for [DatabaseInformation].

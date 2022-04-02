@@ -17,10 +17,10 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
-import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevel
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
 import dev.yasan.metro.tehran.ui.preview.station.accessibility.StationAccessibilityPreviewProvider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 import dev.yasan.metro.tehran.ui.theme.dimenDivider

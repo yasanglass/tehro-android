@@ -3,10 +3,13 @@ package dev.yasan.metro.tehran.data.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import dev.yasan.metro.tehran.data.db.dao.*
-import dev.yasan.metro.tehran.data.db.entity.*
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
-import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.model.tehro.DatabaseInformation
+import dev.yasan.metro.tehran.model.tehro.Intersection
+import dev.yasan.metro.tehran.model.tehro.Line
+import dev.yasan.metro.tehran.model.tehro.Station
 import javax.inject.Inject
 
 @Database(

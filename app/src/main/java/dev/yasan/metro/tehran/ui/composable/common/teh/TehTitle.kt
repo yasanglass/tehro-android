@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.Line
+import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.ui.preview.line.LinePreviewProvider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper

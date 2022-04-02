@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.data.db.entity
+package dev.yasan.metro.tehran.model.tehro
 
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 

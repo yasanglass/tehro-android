@@ -2,7 +2,7 @@ package dev.yasan.metro.tehran.ui.navigation
 
 import android.util.Log
 import androidx.navigation.NavController
-import dev.yasan.metro.tehran.data.db.entity.Line
+import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 
 /**

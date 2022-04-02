@@ -2,9 +2,7 @@ package dev.yasan.metro.tehran.ui.preview.stat
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.Stat
-import dev.yasan.metro.tehran.data.db.entity.Station
-import dev.yasan.metro.tehran.util.PreviewHelper
+import dev.yasan.metro.tehran.model.tehro.Stat
 
 /**
  * Provides preview parameters for [List]<[Stat]>.

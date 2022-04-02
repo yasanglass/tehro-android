@@ -2,8 +2,8 @@ package dev.yasan.metro.tehran.data.repo.stat
 
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.dao.*
-import dev.yasan.metro.tehran.data.db.entity.Stat
-import dev.yasan.metro.tehran.data.db.entity.StatComplex
+import dev.yasan.metro.tehran.model.tehro.Stat
+import dev.yasan.metro.tehran.model.tehro.StatComplex
 import dev.yasan.metro.tehran.data.repo.station.StationRepository
 import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepository
 import javax.inject.Inject

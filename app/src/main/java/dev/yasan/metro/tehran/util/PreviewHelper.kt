@@ -1,11 +1,11 @@
 package dev.yasan.metro.tehran.util
 
 import androidx.compose.ui.graphics.Color
-import dev.yasan.metro.tehran.data.db.entity.*
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
-import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevel
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.model.tehro.*
 
 /**
  * Provides dummy data to composable previews. All dummy variables for previews must be created here so they can be reused.

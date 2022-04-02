@@ -19,8 +19,8 @@ import androidx.navigation.compose.rememberNavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.Line
-import dev.yasan.metro.tehran.data.db.entity.LineType
+import dev.yasan.metro.tehran.model.tehro.Line
+import dev.yasan.metro.tehran.model.tehro.LineType
 import dev.yasan.metro.tehran.ui.navigation.Navigator
 import dev.yasan.metro.tehran.ui.preview.line.LineListPreviewProvider
 import dev.yasan.metro.tehran.ui.preview.line.LinePreviewProvider

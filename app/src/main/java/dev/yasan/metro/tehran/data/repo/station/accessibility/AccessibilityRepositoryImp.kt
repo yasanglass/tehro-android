@@ -1,16 +1,11 @@
 package dev.yasan.metro.tehran.data.repo.station.accessibility
 
-import android.util.Log
 import dev.yasan.metro.tehran.data.db.dao.AccessibilityLevelBlindnessDAO
 import dev.yasan.metro.tehran.data.db.dao.AccessibilityLevelWheelchairDAO
-import dev.yasan.metro.tehran.data.db.dao.StationDAO
 import dev.yasan.metro.tehran.data.db.dao.WcAvailabilityLevelDAO
-import dev.yasan.metro.tehran.data.db.entity.Station
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelWheelchair
-import dev.yasan.metro.tehran.data.db.entity.accessibility.WcAvailabilityLevel
-import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
-import dev.yasan.metro.tehran.data.repo.line.LineRepository
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
 import javax.inject.Inject
 
 /**

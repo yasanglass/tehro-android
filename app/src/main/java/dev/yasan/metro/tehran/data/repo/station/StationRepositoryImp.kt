@@ -1,7 +1,7 @@
 package dev.yasan.metro.tehran.data.repo.station
 
 import dev.yasan.metro.tehran.data.db.dao.StationDAO
-import dev.yasan.metro.tehran.data.db.entity.Station
+import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.data.repo.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.data.repo.line.LineRepository
 import dev.yasan.metro.tehran.data.repo.station.accessibility.AccessibilityRepository

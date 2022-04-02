@@ -1,9 +1,11 @@
-package dev.yasan.metro.tehran.data.db.entity
+package dev.yasan.metro.tehran.model.tehro
 
 import android.content.Context
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.util.LocaleHelper

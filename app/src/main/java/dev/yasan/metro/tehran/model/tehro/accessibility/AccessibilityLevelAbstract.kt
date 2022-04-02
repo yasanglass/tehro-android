@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.data.db.entity.accessibility
+package dev.yasan.metro.tehran.model.tehro.accessibility
 
 import androidx.room.Ignore
 import dev.yasan.metro.tehran.util.LocaleHelper
