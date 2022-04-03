@@ -13,7 +13,8 @@ import dev.yasan.metro.tehran.ui.composable.screen.station.modules.StationScreen
 fun StationScreen(
     stationViewModel: StationViewModel,
     navController: NavController,
-    stationId: Int
+    stationId: Int,
+    fromSearch: Boolean
 ) {
 
     fun loadData() {
@@ -33,10 +34,15 @@ fun StationScreen(
         }
         is Resource.Success -> {
             val station = stationResource.value!!.data!!
-            StationScreenSuccess(station = station, navController = navController)
+            StationScreenSuccess(
+                station = station,
+                navController = navController,
+                fromSearch = fromSearch
+            )
         }
         else -> {
             TehProgress()
         }
     }
+
 }

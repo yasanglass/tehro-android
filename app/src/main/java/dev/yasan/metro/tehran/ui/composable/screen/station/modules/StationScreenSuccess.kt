@@ -45,6 +45,7 @@ fun StationScreenSuccess(
     station: Station,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    fromSearch: Boolean = false,
     forceFarsi: Boolean = false
 ) {
 
@@ -145,26 +146,15 @@ fun StationScreenSuccess(
 
                 }
 
-                station.intersection?.let { intersection ->
+                if (fromSearch) {
 
-                    intersection.getOppositeLine(stationId = station.id)?.let { line ->
-
-                        val intersectionButtonTitle: String =
-                            when (line.type) {
-                                LineType.METRO_BRANCH ->
-                                    "${stringResource(id = R.string.line)} ${line.name} (${
-                                        stringResource(
-                                            id = R.string.branch
-                                        )
-                                    })"
-                                else -> "${stringResource(id = R.string.line)} ${line.name}"
-                            }
+                    station.line?.let { line ->
 
                         TehButton(
                             colorBackground = line.color,
                             colorBorder = line.color,
                             modifier = Modifier.fillMaxWidth(),
-                            title = intersectionButtonTitle,
+                            title = line.name,
                             icon = TehroIcons.MultipleStop,
                             onClick = {
                                 Navigator.navigateToLineDetails(
@@ -175,7 +165,46 @@ fun StationScreenSuccess(
                         )
 
                         Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
                     }
+
+                } else {
+
+                    station.intersection?.let { intersection ->
+
+                        intersection.getOppositeLine(stationId = station.id)?.let { line ->
+
+                            val intersectionButtonTitle: String =
+                                when (line.type) {
+                                    LineType.METRO_BRANCH ->
+                                        "${stringResource(id = R.string.line)} ${line.name} (${
+                                            stringResource(
+                                                id = R.string.branch
+                                            )
+                                        })"
+                                    else -> "${stringResource(id = R.string.line)} ${line.name}"
+                                }
+
+                            TehButton(
+                                colorBackground = line.color,
+                                colorBorder = line.color,
+                                modifier = Modifier.fillMaxWidth(),
+                                title = intersectionButtonTitle,
+                                icon = TehroIcons.MultipleStop,
+                                onClick = {
+                                    Navigator.navigateToLineDetails(
+                                        navController = navController,
+                                        line = line
+                                    )
+                                }
+                            )
+
+                            Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
+                        }
+
+                    }
+
                 }
 
             }

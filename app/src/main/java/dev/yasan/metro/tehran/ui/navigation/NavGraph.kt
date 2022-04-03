@@ -135,19 +135,26 @@ fun NavGraph(
                     navArgument(NavRoutes.EXTRA_STATION_ID) {
                         type = NavType.IntType
                     },
+                    navArgument(NavRoutes.EXTRA_FROM_SEARCH) {
+                        type = NavType.BoolType
+                    }
                 )
             ) {
 
                 val stationId =
                     it.arguments?.getInt(NavRoutes.EXTRA_STATION_ID) ?: 0
+                val fromSearch =
+                    it.arguments?.getBoolean(NavRoutes.EXTRA_FROM_SEARCH) ?: false
 
                 val stationViewModel: StationViewModel = hiltViewModel(it)
 
                 StationScreen(
                     stationViewModel = stationViewModel,
                     navController = navController,
-                    stationId = stationId
+                    stationId = stationId,
+                    fromSearch = fromSearch
                 )
+
             }
 
         }

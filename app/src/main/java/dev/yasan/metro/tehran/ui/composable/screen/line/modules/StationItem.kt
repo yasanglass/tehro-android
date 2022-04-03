@@ -80,7 +80,7 @@ fun StationItem(
             .fillMaxWidth()
             .background(color = colorBackground)
             .clickable {
-                navController.navigate(NavRoutes.routeStation(station = station))
+                navController.navigate(NavRoutes.routeStation(station = station, fromSearch = mode == StationItemMode.SearchScreen))
             }
             .border(width = dimenDivider, color = colorBorder)
             .padding(horizontal = grid(2))
