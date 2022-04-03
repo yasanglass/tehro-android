@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Map
+import androidx.compose.material.icons.sharp.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,7 +51,7 @@ fun HomeButton(
     ) {
         Text(
             modifier = Modifier.weight(1f),
-            text = stringResource(id = R.string.map).uppercase(),
+            text = title.uppercase(),
             color = colorForeground,
             fontFamily = fontFamily,
             fontWeight = FontWeight.Bold,
@@ -58,7 +59,7 @@ fun HomeButton(
         )
         Spacer(modifier = Modifier.requiredWidth(grid(2)))
         Icon(
-            imageVector = TehroIcons.Map,
+            imageVector = icon,
             contentDescription = title,
             tint = colorForeground
         )
@@ -68,7 +69,14 @@ fun HomeButton(
 @Preview(
     name = "Map Button [en]",
     group = "Map Button",
-    locale = "en"
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Map Button [en]",
+    group = "Map Button",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun MapButtonPreviewEn() {
@@ -90,7 +98,14 @@ private fun MapButtonPreviewEn() {
 @Preview(
     name = "Map Button [fa]",
     group = "Map Button",
-    locale = "fa"
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Map Button [fa]",
+    group = "Map Button",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 private fun MapButtonPreviewFa() {
@@ -110,13 +125,19 @@ private fun MapButtonPreviewFa() {
 }
 
 @Preview(
-    name = "Map Button [en]",
-    group = "Map Button",
+    name = "Search Button [en]",
+    group = "Search Button",
+    locale = "en",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Search Button [en]",
+    group = "Search Button",
     locale = "en",
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun MapButtonPreviewEnDark() {
+private fun SearchButtonPreviewEn() {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -124,8 +145,8 @@ private fun MapButtonPreviewEnDark() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
         HomeButton(
-            title = stringResource(id = R.string.map),
-            icon = TehroIcons.Map,
+            title = stringResource(id = R.string.search),
+            icon = TehroIcons.Search,
             fontFamily = rubikFamily,
         ) {}
         Spacer(modifier = Modifier.requiredHeight(grid()))
@@ -133,13 +154,19 @@ private fun MapButtonPreviewEnDark() {
 }
 
 @Preview(
-    name = "Map Button [fa]",
-    group = "Map Button",
+    name = "Search Button [fa]",
+    group = "Search Button",
+    locale = "fa",
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
+@Preview(
+    name = "Search Button [fa]",
+    group = "Search Button",
     locale = "fa",
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-private fun MapButtonPreviewFaDark() {
+private fun SearchButtonPreviewFa() {
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.layer_midground))
@@ -147,8 +174,8 @@ private fun MapButtonPreviewFaDark() {
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
         HomeButton(
-            title = stringResource(id = R.string.map),
-            icon = TehroIcons.Map,
+            title = stringResource(id = R.string.search),
+            icon = TehroIcons.Search,
             fontFamily = vazirFamily,
         ) {}
         Spacer(modifier = Modifier.requiredHeight(grid()))
