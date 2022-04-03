@@ -13,6 +13,10 @@ object Navigator {
 
     private const val TAG = "Navigator"
 
+    fun navigateToMap(navController: NavController) {
+        navController.navigate(NavRoutes.routeMap())
+    }
+
     /**
      * Navigates to [LineScreen].
      */

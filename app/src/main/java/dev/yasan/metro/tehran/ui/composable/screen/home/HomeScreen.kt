@@ -23,6 +23,7 @@ import dev.yasan.metro.tehran.ui.composable.screen.home.modules.HomeButton
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.LineItem
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.navigation.Navigator
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
 
 /**
@@ -63,7 +64,7 @@ fun HomeScreen(
 
                 item {
                     HomeButton(title = stringResource(id = R.string.map), icon = TehroIcons.Map) {
-                        navController.navigate(NavRoutes.routeMap())
+                        Navigator.navigateToMap(navController = navController)
                     }
                 }
 
