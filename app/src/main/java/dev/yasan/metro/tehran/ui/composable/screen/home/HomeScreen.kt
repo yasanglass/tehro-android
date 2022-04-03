@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.sharp.Info
+import androidx.compose.material.icons.sharp.Map
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -18,8 +19,8 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.*
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.AppVersionFooter
+import dev.yasan.metro.tehran.ui.composable.screen.home.modules.HomeButton
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.LineItem
-import dev.yasan.metro.tehran.ui.composable.screen.home.modules.MapButton
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
@@ -61,7 +62,9 @@ fun HomeScreen(
                 }
 
                 item {
-                    MapButton(navController = navController)
+                    HomeButton(title = stringResource(id = R.string.map), icon = TehroIcons.Map) {
+                        navController.navigate(NavRoutes.routeMap())
+                    }
                 }
 
                 item {

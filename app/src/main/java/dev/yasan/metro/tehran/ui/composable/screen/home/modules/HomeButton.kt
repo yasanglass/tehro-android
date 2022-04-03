@@ -11,31 +11,29 @@ import androidx.compose.material.icons.sharp.Map
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
-import dev.yasan.metro.tehran.ui.navigation.NavRoutes
-import dev.yasan.metro.tehran.ui.theme.*
+import dev.yasan.metro.tehran.ui.theme.TehroIcons
+import dev.yasan.metro.tehran.ui.theme.dimenDivider
+import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.extension.getTextOnColor
 
-/**
- * A simple button that navigated the user to [MapScreen].
- */
 @Composable
-fun MapButton(
+fun HomeButton(
     modifier: Modifier = Modifier,
-    navController: NavController,
+    title: String,
+    icon: ImageVector,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    onClick: () -> Unit
 ) {
     val colorBackground = colorResource(id = R.color.layer_foreground)
     val colorForeground = colorBackground.getTextOnColor()
@@ -46,9 +44,7 @@ fun MapButton(
             .fillMaxWidth()
             .background(color = colorBackground)
             .border(width = dimenDivider, color = colorForeground)
-            .clickable {
-                navController.navigate(NavRoutes.routeMap())
-            }
+            .clickable(onClick = onClick)
             .padding(grid(2)),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -63,7 +59,7 @@ fun MapButton(
         Spacer(modifier = Modifier.requiredWidth(grid(2)))
         Icon(
             imageVector = TehroIcons.Map,
-            contentDescription = stringResource(id = R.string.map),
+            contentDescription = title,
             tint = colorForeground
         )
     }
@@ -82,7 +78,11 @@ private fun MapButtonPreviewEn() {
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        MapButton(navController = rememberNavController(), fontFamily = rubikFamily)
+        HomeButton(
+            title = stringResource(id = R.string.map),
+            icon = TehroIcons.Map,
+            fontFamily = rubikFamily,
+        ) {}
         Spacer(modifier = Modifier.requiredHeight(grid()))
     }
 }
@@ -100,7 +100,11 @@ private fun MapButtonPreviewFa() {
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        MapButton(navController = rememberNavController(), fontFamily = vazirFamily)
+        HomeButton(
+            title = stringResource(id = R.string.map),
+            icon = TehroIcons.Map,
+            fontFamily = vazirFamily,
+        ) {}
         Spacer(modifier = Modifier.requiredHeight(grid()))
     }
 }
@@ -119,7 +123,11 @@ private fun MapButtonPreviewEnDark() {
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        MapButton(navController = rememberNavController(), fontFamily = rubikFamily)
+        HomeButton(
+            title = stringResource(id = R.string.map),
+            icon = TehroIcons.Map,
+            fontFamily = rubikFamily,
+        ) {}
         Spacer(modifier = Modifier.requiredHeight(grid()))
     }
 }
@@ -138,7 +146,11 @@ private fun MapButtonPreviewFaDark() {
             .padding(bottom = grid())
     ) {
         Spacer(modifier = Modifier.requiredHeight(grid()))
-        MapButton(navController = rememberNavController(), fontFamily = vazirFamily)
+        HomeButton(
+            title = stringResource(id = R.string.map),
+            icon = TehroIcons.Map,
+            fontFamily = vazirFamily,
+        ) {}
         Spacer(modifier = Modifier.requiredHeight(grid()))
     }
 }
