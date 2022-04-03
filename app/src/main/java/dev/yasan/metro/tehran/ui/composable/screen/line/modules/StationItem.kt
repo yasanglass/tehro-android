@@ -1,6 +1,7 @@
 package dev.yasan.metro.tehran.ui.composable.screen.line.modules
 
 import android.content.res.Configuration
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -26,9 +27,18 @@ import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.station.StationListPreviewProvider
 import dev.yasan.metro.tehran.ui.preview.station.StationPreviewProvider
-import dev.yasan.metro.tehran.ui.theme.*
+import dev.yasan.metro.tehran.ui.theme.TehroIcons
+import dev.yasan.metro.tehran.ui.theme.dimenDivider
+import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.extension.getTextOnColor
+
+enum class StationItemMode {
+    LineScreen,
+    SearchScreen
+}
+
+private const val TAG = "StationItem"
 
 /**
  * Composable function that shows a single [Station].
@@ -38,16 +48,30 @@ fun StationItem(
     station: Station,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    mode: StationItemMode = StationItemMode.LineScreen,
     forceFarsi: Boolean = false
 ) {
+
+    Log.d(TAG, "StationItem: mode=$mode")
+
     val hasInterchange = station.intersection != null
     val oppositeLineColor = station.intersection?.getOppositeLine(stationId = station.id)?.color
-    val colorBackground = oppositeLineColor ?: colorResource(id = R.color.layer_foreground)
-    val colorBorder = oppositeLineColor ?: colorResource(id = R.color.divider)
 
-    val colorForeground =
-        if (hasInterchange) colorBackground.getTextOnColor()
-        else colorResource(id = R.color.text_title)
+    val colorBackgroundDefault = colorResource(id = R.color.layer_foreground)
+    val colorBackground = when (mode) {
+        StationItemMode.SearchScreen -> station.line?.color ?: colorBackgroundDefault
+        else -> oppositeLineColor ?: colorBackgroundDefault
+    }
+
+    val colorBorder = when (mode) {
+        StationItemMode.SearchScreen -> colorBackground
+        else -> oppositeLineColor ?: colorResource(id = R.color.divider)
+    }
+
+    val colorForeground = when (mode) {
+        StationItemMode.SearchScreen -> colorBackground.getTextOnColor()
+        else -> if (hasInterchange) colorBackground.getTextOnColor() else colorResource(id = R.color.text_title)
+    }
 
     Row(
         modifier = Modifier

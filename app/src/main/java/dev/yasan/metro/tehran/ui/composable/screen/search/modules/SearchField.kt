@@ -16,8 +16,12 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.sharp.Clear
 import androidx.compose.material.icons.sharp.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -40,6 +44,8 @@ fun SearchField(
     onDone: () -> Unit,
 ) {
 
+    val focusRequester = remember { FocusRequester() }
+
     Column(modifier = modifier) {
 
         OutlinedTextField(
@@ -53,7 +59,8 @@ fun SearchField(
                     end = grid(2),
                     top = grid(),
                     bottom = grid(2)
-                ),
+                )
+                .focusRequester(focusRequester),
             value = value,
             onValueChange = {
                 if (it.length <= 10) {
@@ -114,6 +121,11 @@ fun SearchField(
 
         TehDivider()
 
+    }
+
+    DisposableEffect(Unit) {
+        focusRequester.requestFocus()
+        onDispose { }
     }
 
 }

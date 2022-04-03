@@ -34,10 +34,21 @@ class SearchViewModel @Inject constructor(
         Log.d(TAG, "search: $query")
         viewModelScope.launch(dispatchers.io) {
             _results.postValue(Resource.Loading())
-            try {
-                _results.postValue(Resource.Success(stationRepository.searchStations(query = query)))
-            } catch (e: Exception) {
-                _results.postValue(Resource.Error(messageResourceId = R.string.error))
+            if (query.isBlank()) {
+                _results.postValue(Resource.Success(emptyList()))
+            } else {
+                try {
+                    _results.postValue(
+                        Resource.Success(
+                            stationRepository.searchStations(
+                                complete = true,
+                                query = query
+                            )
+                        )
+                    )
+                } catch (e: Exception) {
+                    _results.postValue(Resource.Error(messageResourceId = R.string.error))
+                }
             }
         }
     }

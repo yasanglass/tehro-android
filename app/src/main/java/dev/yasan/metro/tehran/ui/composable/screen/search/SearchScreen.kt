@@ -13,6 +13,7 @@ import androidx.navigation.NavController
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItem
+import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItemMode
 import dev.yasan.metro.tehran.ui.composable.screen.search.modules.SearchField
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -52,6 +53,7 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
             StationItem(
                 station = station,
                 navController = navController,
+                mode = StationItemMode.SearchScreen
             )
         }
 

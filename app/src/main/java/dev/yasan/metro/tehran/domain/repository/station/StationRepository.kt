@@ -16,7 +16,10 @@ interface StationRepository {
      *
      * @see StationDAO
      */
-    suspend fun getStations(complete: Boolean = false, removeDuplicate: Boolean = false): List<Station>
+    suspend fun getStations(
+        complete: Boolean = false,
+        removeDuplicate: Boolean = false
+    ): List<Station>
 
     /**
      * @return A list of all [Station]s in the line with the matching [lineId].
@@ -48,6 +51,6 @@ interface StationRepository {
      */
     suspend fun fetchAdditionalStationData(stations: List<Station>): List<Station>
 
-    suspend fun searchStations(query: String): List<Station>
+    suspend fun searchStations(complete: Boolean, query: String): List<Station>
 
 }

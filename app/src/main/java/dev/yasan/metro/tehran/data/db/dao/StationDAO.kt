@@ -34,7 +34,7 @@ interface StationDAO {
     /**
      * @return A [Station] that matches the query if any exist.
      */
-    @Query("SELECT * FROM stations WHERE name_en LIKE '%' || :query || '%' OR name_fa LIKE '%' || :query || '%'")
+    @Query("SELECT * FROM stations WHERE name_en LIKE '%' || :query || '%' OR name_fa LIKE '%' || :query || '%' ORDER BY name_en COLLATE NOCASE ASC")
     suspend fun search(query: String): List<Station>
 
 }

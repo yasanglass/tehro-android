@@ -55,6 +55,9 @@ class StationRepositoryImp @Inject constructor(
     }
 
     override suspend fun fetchAdditionalStationData(station: Station): Station {
+
+        station.line = lineRepository.getLine(lineId = station.lineId)
+
         intersectionRepository.getIntersectionByStationId(stationId = station.id)
             ?.let { intersection ->
                 intersection.stationA =
@@ -95,8 +98,10 @@ class StationRepositoryImp @Inject constructor(
             }
         }
 
-    override suspend fun searchStations(query: String): List<Station> {
-        return stationDAO.search(query = query)
+    override suspend fun searchStations(complete: Boolean, query: String): List<Station> {
+        val stations = stationDAO.search(query = query)
+        return if (complete) fetchAdditionalStationData(stations = stations)
+        else stations
     }
 
 }
