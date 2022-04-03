@@ -6,6 +6,7 @@ import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationScreen
+import dev.yasan.metro.tehran.ui.composable.screen.search.SearchScreen
 
 /**
  * Handles all the navigation routes used on [NavGraph].
@@ -50,6 +51,15 @@ object NavRoutes {
      * @return Navigation route for [StationScreen].
      */
     fun routeStationBase() = "$ROUTE_STATION/{$EXTRA_STATION_ID}"
+
+    // Search
+
+    private const val ROUTE_SEARCH = "search"
+
+    /**
+     * @return Navigation route for [SearchScreen].
+     */
+    fun routeSearch() = ROUTE_SEARCH
 
     // Map
 

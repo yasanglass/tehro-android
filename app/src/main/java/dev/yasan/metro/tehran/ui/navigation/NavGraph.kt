@@ -25,6 +25,8 @@ import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapViewModel
+import dev.yasan.metro.tehran.ui.composable.screen.search.SearchScreen
+import dev.yasan.metro.tehran.ui.composable.screen.search.SearchViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationScreen
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationViewModel
 
@@ -99,6 +101,16 @@ fun NavGraph(
 
             }
 
+            composable(route = NavRoutes.routeSearch()) {
+
+                systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
+
+                val searchViewModel: SearchViewModel = hiltViewModel(it)
+
+                SearchScreen(viewModel = searchViewModel)
+
+            }
+
             composable(route = NavRoutes.routeMap()) {
 
                 systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
@@ -137,6 +149,7 @@ fun NavGraph(
                     stationId = stationId
                 )
             }
+
         }
     }
 }
