@@ -48,4 +48,6 @@ interface StationRepository {
      */
     suspend fun fetchAdditionalStationData(stations: List<Station>): List<Station>
 
+    suspend fun searchStations(query: String): List<Station>
+
 }

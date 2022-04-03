@@ -31,4 +31,10 @@ interface StationDAO {
     @Query("SELECT * FROM stations WHERE line_id=:lineId")
     suspend fun getByLineId(lineId: Int): List<Station>
 
+    /**
+     * @return A [Station] that matches the query if any exist.
+     */
+    @Query("SELECT * FROM stations WHERE name_en LIKE '%' || :query || '%' OR name_fa LIKE '%' || :query || '%'")
+    suspend fun search(query: String): List<Station>
+
 }

@@ -107,7 +107,7 @@ fun NavGraph(
 
                 val searchViewModel: SearchViewModel = hiltViewModel(it)
 
-                SearchScreen(viewModel = searchViewModel)
+                SearchScreen(viewModel = searchViewModel, navController = navController)
 
             }
 
