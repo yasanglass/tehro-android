@@ -1,8 +1,9 @@
 # Tehro Changelog
 
-## Unreleased
+## v2.3.1
 
 - Added station search support.
+- Fixed map loading indicator's exit animation.
 
 ## v2.3.0
 
