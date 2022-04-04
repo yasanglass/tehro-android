@@ -25,6 +25,7 @@ class SearchViewModel @Inject constructor(
 
     companion object {
         private const val TAG = "SearchViewModel"
+        private const val SEARCH_QUERY_MIN_LENGTH = 2
     }
 
     private var _results = MutableLiveData<Resource<List<Station>>>(Resource.Initial())
@@ -34,7 +35,7 @@ class SearchViewModel @Inject constructor(
         Log.d(TAG, "search: $query")
         viewModelScope.launch(dispatchers.io) {
             _results.postValue(Resource.Loading())
-            if (query.isBlank()) {
+            if (query.length < SEARCH_QUERY_MIN_LENGTH) {
                 _results.postValue(Resource.Success(emptyList()))
             } else {
                 try {
