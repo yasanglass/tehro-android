@@ -29,8 +29,8 @@ import androidx.navigation.compose.rememberNavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.LineType
-import dev.yasan.metro.tehran.data.db.entity.Station
+import dev.yasan.metro.tehran.model.misc.LaunchSource
+import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityEmsIndicator
 import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityIndicator
@@ -45,6 +45,7 @@ fun StationScreenSuccess(
     station: Station,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    launchSource: LaunchSource,
     forceFarsi: Boolean = false
 ) {
 
@@ -145,37 +146,54 @@ fun StationScreenSuccess(
 
                 }
 
-                station.intersection?.let { intersection ->
+                if (launchSource == LaunchSource.SEARCH) {
 
-                    intersection.getOppositeLine(stationId = station.id)?.let { line ->
-
-                        val intersectionButtonTitle: String =
-                            when (line.type) {
-                                LineType.METRO_BRANCH ->
-                                    "${stringResource(id = R.string.line)} ${line.name} (${
-                                        stringResource(
-                                            id = R.string.branch
-                                        )
-                                    })"
-                                else -> "${stringResource(id = R.string.line)} ${line.name}"
-                            }
+                    station.line?.let { line ->
 
                         TehButton(
                             colorBackground = line.color,
                             colorBorder = line.color,
                             modifier = Modifier.fillMaxWidth(),
-                            title = intersectionButtonTitle,
+                            title = line.getFullName(context = context),
                             icon = TehroIcons.MultipleStop,
                             onClick = {
                                 Navigator.navigateToLineDetails(
                                     navController = navController,
-                                    line = line
+                                    line = line,
+                                    launchSource = launchSource
                                 )
                             }
                         )
 
                         Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
                     }
+
+                }
+
+                station.intersection?.let { intersection ->
+
+                    intersection.getOppositeLine(stationId = station.id)?.let { line ->
+
+                        TehButton(
+                            colorBackground = line.color,
+                            colorBorder = line.color,
+                            modifier = Modifier.fillMaxWidth(),
+                            title = line.getFullName(context = context),
+                            icon = TehroIcons.MultipleStop,
+                            onClick = {
+                                Navigator.navigateToLineDetails(
+                                    navController = navController,
+                                    line = line,
+                                    launchSource = launchSource
+                                )
+                            }
+                        )
+
+                        Spacer(modifier = Modifier.requiredHeight(grid(2)))
+
+                    }
+
                 }
 
             }
@@ -201,7 +219,8 @@ private fun StationScreenSuccessPreviewEn(@PreviewParameter(StationPreviewProvid
     StationScreenSuccess(
         station = station,
         fontFamily = rubikFamily,
-        navController = rememberNavController()
+        navController = rememberNavController(),
+        launchSource = LaunchSource.LINE
     )
 }
 
@@ -223,6 +242,7 @@ private fun StationScreenSuccessPreviewFa(@PreviewParameter(StationPreviewProvid
         station = station,
         fontFamily = vazirFamily,
         forceFarsi = true,
-        navController = rememberNavController()
+        navController = rememberNavController(),
+        launchSource = LaunchSource.LINE
     )
 }

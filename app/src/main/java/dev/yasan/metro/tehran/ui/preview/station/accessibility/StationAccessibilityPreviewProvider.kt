@@ -1,9 +1,7 @@
 package dev.yasan.metro.tehran.ui.preview.station.accessibility
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import dev.yasan.metro.tehran.data.db.entity.Station
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevel
-import dev.yasan.metro.tehran.data.db.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevel
 import dev.yasan.metro.tehran.util.PreviewHelper
 
 /**

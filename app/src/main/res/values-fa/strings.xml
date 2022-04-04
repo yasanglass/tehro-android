@@ -12,7 +12,7 @@
     <string name="yasan_logo">لوگو یاسان</string>
     <string name="map">نقشه</string>
     <string name="lines">خط‌ها</string>
-    <string name="no_stations_found">هیچ ایستگاه‌ای پیدا نشد</string>
+    <string name="no_stations_found">ایستگاه‌ای پیدا نشد</string>
     <string name="no_lines_found">هیچ خطی پیدا نشد</string>
     <string name="version_prefix">"نسخه "</string>
     <string name="branch">انشعاب</string>
@@ -50,4 +50,7 @@
     <string name="station_location">لوکیشن ایستگاه‌ها</string>
     <string name="station_accessibility">دسترسی ایستگاه‌ها</string>
     <string name="statistics">آمار</string>
+    <string name="search">جست‌وجو</string>
+    <string name="line_name">نام ایستگاه</string>
+    <string name="group_by_line">گروه‌بندی نسبت به خط</string>
 </resources>

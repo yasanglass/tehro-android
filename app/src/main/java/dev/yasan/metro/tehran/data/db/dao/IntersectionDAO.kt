@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.data.db.dao
 import androidx.room.Dao
 import androidx.room.Query
 import dev.yasan.metro.tehran.data.db.MetroDatabase
-import dev.yasan.metro.tehran.data.db.entity.Intersection
+import dev.yasan.metro.tehran.model.tehro.Intersection
 
 /**
  * Data access object for [Intersection].

@@ -8,11 +8,11 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
-import dev.yasan.metro.tehran.data.db.entity.Stat
-import dev.yasan.metro.tehran.data.db.entity.StatComplex
-import dev.yasan.metro.tehran.data.repo.dbinfo.DatabaseInformationRepository
-import dev.yasan.metro.tehran.data.repo.stat.StatRepository
+import dev.yasan.metro.tehran.model.tehro.DatabaseInformation
+import dev.yasan.metro.tehran.model.tehro.Stat
+import dev.yasan.metro.tehran.model.tehro.StatComplex
+import dev.yasan.metro.tehran.domain.repository.dbinfo.DatabaseInformationRepository
+import dev.yasan.metro.tehran.domain.repository.stat.StatRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

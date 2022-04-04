@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.data.db.dao
 import androidx.room.Dao
 import androidx.room.Query
 import dev.yasan.metro.tehran.data.db.MetroDatabase
-import dev.yasan.metro.tehran.data.db.entity.Station
+import dev.yasan.metro.tehran.model.tehro.Station
 
 /**
  * Data access object for [Station].
@@ -30,5 +30,11 @@ interface StationDAO {
      */
     @Query("SELECT * FROM stations WHERE line_id=:lineId")
     suspend fun getByLineId(lineId: Int): List<Station>
+
+    /**
+     * @return A [Station] that matches the query if any exist.
+     */
+    @Query("SELECT * FROM stations WHERE name_en LIKE '%' || :query || '%' OR name_fa LIKE '%' || :query || '%' ORDER BY name_en COLLATE NOCASE ASC")
+    suspend fun search(query: String): List<Station>
 
 }

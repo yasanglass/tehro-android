@@ -1,7 +1,7 @@
 name: Android CI
 on:   
   push:
-    branches: [ main, telemetry ]
+    branches: [ main ]
   pull_request:
     branches: [ '*' ]
   workflow_dispatch:

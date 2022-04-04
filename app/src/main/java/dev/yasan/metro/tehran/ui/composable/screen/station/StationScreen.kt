@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.navigation.NavController
 import dev.yasan.kit.core.Resource
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehError
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehErrorType
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
@@ -13,7 +14,8 @@ import dev.yasan.metro.tehran.ui.composable.screen.station.modules.StationScreen
 fun StationScreen(
     stationViewModel: StationViewModel,
     navController: NavController,
-    stationId: Int
+    stationId: Int,
+    launchSource: LaunchSource
 ) {
 
     fun loadData() {
@@ -33,10 +35,15 @@ fun StationScreen(
         }
         is Resource.Success -> {
             val station = stationResource.value!!.data!!
-            StationScreenSuccess(station = station, navController = navController)
+            StationScreenSuccess(
+                station = station,
+                navController = navController,
+                launchSource = launchSource
+            )
         }
         else -> {
             TehProgress()
         }
     }
+
 }

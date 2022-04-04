@@ -20,8 +20,8 @@ import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
 import dev.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.DatabaseInformation
-import dev.yasan.metro.tehran.data.db.entity.Stat
+import dev.yasan.metro.tehran.model.tehro.DatabaseInformation
+import dev.yasan.metro.tehran.model.tehro.Stat
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehDivider
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress

@@ -1,10 +1,12 @@
 package dev.yasan.metro.tehran.ui.navigation
 
-import dev.yasan.metro.tehran.data.db.entity.Line
-import dev.yasan.metro.tehran.data.db.entity.Station
+import dev.yasan.metro.tehran.model.misc.LaunchSource
+import dev.yasan.metro.tehran.model.tehro.Line
+import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
+import dev.yasan.metro.tehran.ui.composable.screen.search.SearchScreen
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationScreen
 
 /**
@@ -40,16 +42,26 @@ object NavRoutes {
 
     private const val ROUTE_STATION = "station"
     const val EXTRA_STATION_ID = "stationId"
+    const val EXTRA_LAUNCH_SOURCE = "launchSource"
 
     /**
      * @return Navigation route for [StationScreen] with navigation arguments.
      */
-    fun routeStation(station: Station) = "$ROUTE_STATION/${station.id}"
+    fun routeStation(station: Station, launchSource: LaunchSource) = "$ROUTE_STATION/${station.id}/${launchSource.ordinal}"
 
     /**
      * @return Navigation route for [StationScreen].
      */
-    fun routeStationBase() = "$ROUTE_STATION/{$EXTRA_STATION_ID}"
+    fun routeStationBase() = "$ROUTE_STATION/{$EXTRA_STATION_ID}/{$EXTRA_LAUNCH_SOURCE}"
+
+    // Search
+
+    private const val ROUTE_SEARCH = "search"
+
+    /**
+     * @return Navigation route for [SearchScreen].
+     */
+    fun routeSearch() = ROUTE_SEARCH
 
     // Map
 

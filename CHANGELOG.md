@@ -1,8 +1,15 @@
 # Tehro Changelog
 
-## Unreleased
+## v2.3.1
+
+- Added station search support.
+- Fixed map loading indicator's exit animation.
+
+## v2.3.0
 
 - Fixed state restore if the app process was killed on the line screen.
+- Line screen navigations no longer stack on top of each other and only the last one is kept.
+- Added Firebase (Analytics, Crashlytics & Performance) on GitHub & Play builds.
 
 ## v2.2.1
 

@@ -2,7 +2,8 @@ package dev.yasan.metro.tehran.ui.navigation
 
 import android.util.Log
 import androidx.navigation.NavController
-import dev.yasan.metro.tehran.data.db.entity.Line
+import dev.yasan.metro.tehran.model.misc.LaunchSource
+import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 
 /**
@@ -13,13 +14,25 @@ object Navigator {
 
     private const val TAG = "Navigator"
 
+    fun navigateToSearch(navController: NavController) {
+        navController.navigate(NavRoutes.routeSearch())
+    }
+
+    fun navigateToMap(navController: NavController) {
+        navController.navigate(NavRoutes.routeMap())
+    }
+
     /**
      * Navigates to [LineScreen].
      */
-    fun navigateToLineDetails(navController: NavController, line: Line) {
+    fun navigateToLineDetails(
+        navController: NavController,
+        line: Line,
+        launchSource: LaunchSource
+    ) {
         Log.d(TAG, "navigateToLineDetails: line ${line.nameEn}")
         navController.navigate(NavRoutes.routeLine(line = line)) {
-            popUpTo(NavRoutes.routeLineBase()) {
+            popUpTo(if (launchSource == LaunchSource.LINE) NavRoutes.routeLineBase() else NavRoutes.routeSearch()) {
                 inclusive = true
             }
         }

@@ -11,9 +11,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.entity.Station
-import dev.yasan.metro.tehran.data.repo.line.LineRepository
-import dev.yasan.metro.tehran.data.repo.station.StationRepository
+import dev.yasan.metro.tehran.model.tehro.Station
+import dev.yasan.metro.tehran.domain.repository.line.LineRepository
+import dev.yasan.metro.tehran.domain.repository.station.StationRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

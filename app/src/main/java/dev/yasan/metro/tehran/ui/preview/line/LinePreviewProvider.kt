@@ -1,7 +1,7 @@
 package dev.yasan.metro.tehran.ui.preview.line
 
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import dev.yasan.metro.tehran.data.db.entity.Line
+import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.util.PreviewHelper
 
 /**
