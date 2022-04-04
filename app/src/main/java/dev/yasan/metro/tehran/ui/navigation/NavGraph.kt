@@ -17,6 +17,7 @@ import com.google.accompanist.navigation.material.bottomSheet
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutViewModel
@@ -135,16 +136,16 @@ fun NavGraph(
                     navArgument(NavRoutes.EXTRA_STATION_ID) {
                         type = NavType.IntType
                     },
-                    navArgument(NavRoutes.EXTRA_FROM_SEARCH) {
-                        type = NavType.BoolType
+                    navArgument(NavRoutes.EXTRA_LAUNCH_SOURCE) {
+                        type = NavType.IntType
                     }
                 )
             ) {
 
                 val stationId =
                     it.arguments?.getInt(NavRoutes.EXTRA_STATION_ID) ?: 0
-                val fromSearch =
-                    it.arguments?.getBoolean(NavRoutes.EXTRA_FROM_SEARCH) ?: false
+                val launchSource =
+                    it.arguments?.getInt(NavRoutes.EXTRA_LAUNCH_SOURCE) ?: LaunchSource.INVALID.ordinal
 
                 val stationViewModel: StationViewModel = hiltViewModel(it)
 
@@ -152,7 +153,7 @@ fun NavGraph(
                     stationViewModel = stationViewModel,
                     navController = navController,
                     stationId = stationId,
-                    fromSearch = fromSearch
+                    launchSource = LaunchSource.fromInt(launchSource)
                 )
 
             }

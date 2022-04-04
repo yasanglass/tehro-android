@@ -14,6 +14,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehError
@@ -79,6 +80,7 @@ fun LineScreen(
                     StationItem(
                         station = station,
                         navController = navController,
+                        launchSource = LaunchSource.LINE
                     )
                 }
 

@@ -1,5 +1,6 @@
 package dev.yasan.metro.tehran.ui.navigation
 
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
@@ -41,17 +42,17 @@ object NavRoutes {
 
     private const val ROUTE_STATION = "station"
     const val EXTRA_STATION_ID = "stationId"
-    const val EXTRA_FROM_SEARCH = "fromSearch"
+    const val EXTRA_LAUNCH_SOURCE = "launchSource"
 
     /**
      * @return Navigation route for [StationScreen] with navigation arguments.
      */
-    fun routeStation(station: Station, fromSearch: Boolean = false) = "$ROUTE_STATION/${station.id}/${fromSearch}"
+    fun routeStation(station: Station, launchSource: LaunchSource) = "$ROUTE_STATION/${station.id}/${launchSource.ordinal}"
 
     /**
      * @return Navigation route for [StationScreen].
      */
-    fun routeStationBase() = "$ROUTE_STATION/{$EXTRA_STATION_ID}/{$EXTRA_FROM_SEARCH}"
+    fun routeStationBase() = "$ROUTE_STATION/{$EXTRA_STATION_ID}/{$EXTRA_LAUNCH_SOURCE}"
 
     // Search
 

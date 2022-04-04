@@ -1,7 +1,6 @@
 package dev.yasan.metro.tehran.ui.composable.screen.line.modules
 
 import android.content.res.Configuration
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -23,6 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
 import dev.yasan.metro.tehran.ui.preview.station.StationListPreviewProvider
@@ -32,11 +32,6 @@ import dev.yasan.metro.tehran.ui.theme.dimenDivider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.extension.getTextOnColor
-
-enum class StationItemMode {
-    LineScreen,
-    SearchScreen
-}
 
 private const val TAG = "StationItem"
 
@@ -48,28 +43,26 @@ fun StationItem(
     station: Station,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
-    mode: StationItemMode = StationItemMode.LineScreen,
+    launchSource: LaunchSource,
     forceFarsi: Boolean = false
 ) {
-
-    Log.d(TAG, "StationItem: mode=$mode")
 
     val hasInterchange = station.intersection != null
     val oppositeLineColor = station.intersection?.getOppositeLine(stationId = station.id)?.color
 
     val colorBackgroundDefault = colorResource(id = R.color.layer_foreground)
-    val colorBackground = when (mode) {
-        StationItemMode.SearchScreen -> station.line?.color ?: colorBackgroundDefault
+    val colorBackground = when (launchSource) {
+        LaunchSource.SEARCH -> station.line?.color ?: colorBackgroundDefault
         else -> oppositeLineColor ?: colorBackgroundDefault
     }
 
-    val colorBorder = when (mode) {
-        StationItemMode.SearchScreen -> colorBackground
+    val colorBorder = when (launchSource) {
+        LaunchSource.SEARCH -> colorBackground
         else -> oppositeLineColor ?: colorResource(id = R.color.divider)
     }
 
-    val colorForeground = when (mode) {
-        StationItemMode.SearchScreen -> colorBackground.getTextOnColor()
+    val colorForeground = when (launchSource) {
+        LaunchSource.SEARCH -> colorBackground.getTextOnColor()
         else -> if (hasInterchange) colorBackground.getTextOnColor() else colorResource(id = R.color.text_title)
     }
 
@@ -80,7 +73,12 @@ fun StationItem(
             .fillMaxWidth()
             .background(color = colorBackground)
             .clickable {
-                navController.navigate(NavRoutes.routeStation(station = station, fromSearch = mode == StationItemMode.SearchScreen))
+                navController.navigate(
+                    NavRoutes.routeStation(
+                        station = station,
+                        launchSource = launchSource,
+                    )
+                )
             }
             .border(width = dimenDivider, color = colorBorder)
             .padding(horizontal = grid(2))
@@ -143,7 +141,8 @@ private fun StationItemPreviewFa(@PreviewParameter(StationPreviewProvider::class
             station = station,
             navController = rememberNavController(),
             fontFamily = vazirFamily,
-            forceFarsi = true
+            forceFarsi = true,
+            launchSource = LaunchSource.LINE
         )
         Spacer(modifier = Modifier.requiredHeight(grid(0.5f)))
     }
@@ -173,7 +172,8 @@ private fun StationItemPreviewEn(@PreviewParameter(StationPreviewProvider::class
             station = station,
             navController = rememberNavController(),
             fontFamily = rubikFamily,
-            forceFarsi = false
+            forceFarsi = false,
+            launchSource = LaunchSource.LINE
         )
         Spacer(modifier = Modifier.requiredHeight(grid(0.5f)))
     }
@@ -201,7 +201,8 @@ private fun StationItemsPreviewEn(@PreviewParameter(StationListPreviewProvider::
                 station = station,
                 navController = navController,
                 fontFamily = rubikFamily,
-                forceFarsi = false
+                forceFarsi = false,
+                launchSource = LaunchSource.LINE
             )
         }
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
@@ -230,7 +231,8 @@ private fun StationItemsPreviewFa(@PreviewParameter(StationListPreviewProvider::
                 station = station,
                 navController = navController,
                 fontFamily = vazirFamily,
-                forceFarsi = true
+                forceFarsi = true,
+                launchSource = LaunchSource.LINE
             )
         }
         Spacer(modifier = Modifier.requiredHeight(grid(2)))

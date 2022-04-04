@@ -29,6 +29,7 @@ import androidx.navigation.compose.rememberNavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.LineType
 import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
@@ -45,7 +46,7 @@ fun StationScreenSuccess(
     station: Station,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
-    fromSearch: Boolean = false,
+    launchSource: LaunchSource,
     forceFarsi: Boolean = false
 ) {
 
@@ -146,7 +147,7 @@ fun StationScreenSuccess(
 
                 }
 
-                if (fromSearch) {
+                if (launchSource == LaunchSource.SEARCH) {
 
                     station.line?.let { line ->
 
@@ -230,7 +231,8 @@ private fun StationScreenSuccessPreviewEn(@PreviewParameter(StationPreviewProvid
     StationScreenSuccess(
         station = station,
         fontFamily = rubikFamily,
-        navController = rememberNavController()
+        navController = rememberNavController(),
+        launchSource = LaunchSource.LINE
     )
 }
 
@@ -252,6 +254,7 @@ private fun StationScreenSuccessPreviewFa(@PreviewParameter(StationPreviewProvid
         station = station,
         fontFamily = vazirFamily,
         forceFarsi = true,
-        navController = rememberNavController()
+        navController = rememberNavController(),
+        launchSource = LaunchSource.LINE
     )
 }
