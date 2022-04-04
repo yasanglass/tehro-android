@@ -1,0 +1,2 @@
+- Added station search support.
+- Fixed map loading indicator's exit animation.
