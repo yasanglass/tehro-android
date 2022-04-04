@@ -2,6 +2,8 @@ package dev.yasan.metro.tehran.ui.composable.screen.map
 
 import android.util.Log
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,7 +23,6 @@ import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehTitle
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
-import dev.yasan.metro.tehran.ui.theme.themePrimary
 
 private const val TAG = "MapScreen"
 
@@ -92,9 +93,14 @@ fun MapScreen(mapViewModel: MapViewModel) {
                 }
             )
 
-            androidx.compose.animation.AnimatedVisibility(visible = isLoaded.value != true) {
+            androidx.compose.animation.AnimatedVisibility(
+                visible = isLoaded.value != true,
+                enter = fadeIn(),
+                exit = fadeOut()
+            ) {
                 TehProgress()
             }
+
         }
     }
 }
