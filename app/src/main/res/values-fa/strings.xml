@@ -52,4 +52,5 @@
     <string name="statistics">آمار</string>
     <string name="search">جست‌وجو</string>
     <string name="line_name">نام ایستگاه</string>
+    <string name="group_by_line">دسته‌بندی نسبت به خط</string>
 </resources>

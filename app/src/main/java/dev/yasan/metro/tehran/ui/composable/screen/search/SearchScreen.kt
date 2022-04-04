@@ -24,6 +24,7 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehFooter
+import dev.yasan.metro.tehran.ui.composable.common.teh.TehProgress
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehSwitchable
 import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItem
@@ -42,10 +43,12 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
     val focusManager = LocalFocusManager.current
 
     val queryState = rememberSaveable { mutableStateOf("") }
-    val results = viewModel.results.observeAsState()
-    val resultsList = results.value?.data ?: emptyList()
+    val groupEnabled = rememberSaveable { mutableStateOf(true) }
 
-    val groupEnabled = rememberSaveable { mutableStateOf(false) }
+    val results = viewModel.results.observeAsState()
+    val loading = viewModel.loading.observeAsState()
+
+    val resultsList = results.value?.data ?: emptyList()
 
     TehScreen(title = stringResource(id = R.string.search)) {
 
@@ -63,13 +66,25 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                 }
             )
 
+        }
+
+        item {
             TehSwitchable(
-                title = "Group by line",
+                title = stringResource(R.string.group_by_line),
                 fontFamily = LocaleHelper.properFontFamily,
                 getter = { groupEnabled.value },
                 setter = { groupEnabled.value = it }
             )
+        }
 
+        item {
+            AnimatedVisibility(
+                visible = loading.value == true,
+                enter = expandVertically() + fadeIn(),
+                exit = shrinkVertically() + fadeOut()
+            ) {
+                TehProgress()
+            }
         }
 
         item {

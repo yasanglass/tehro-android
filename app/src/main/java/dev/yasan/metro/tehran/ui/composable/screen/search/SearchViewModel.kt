@@ -25,18 +25,27 @@ class SearchViewModel @Inject constructor(
 
     companion object {
         private const val TAG = "SearchViewModel"
-        private const val SEARCH_QUERY_MIN_LENGTH = 2
+        private const val SEARCH_QUERY_MIN_LENGTH = 1
     }
+
+    private var _loading = MutableLiveData<Boolean>(false)
+    val loading: LiveData<Boolean> get() = _loading
 
     private var _results = MutableLiveData<Resource<List<Station>>>(Resource.Initial())
     val results: LiveData<Resource<List<Station>>> get() = _results
 
+    /**
+     * Search stations by query. Unlike everywhere else, this method never posts [Resource.Loading].
+     * This is done to prevent the UI from flickering when the user is typing.
+     * Loading state is posted on [_loading] instead.
+     */
     fun search(query: String) {
         Log.d(TAG, "search: $query")
         viewModelScope.launch(dispatchers.io) {
-            _results.postValue(Resource.Loading())
-            if (query.length < SEARCH_QUERY_MIN_LENGTH) {
+            _loading.postValue(true)
+            if (query.trim().length < SEARCH_QUERY_MIN_LENGTH) {
                 _results.postValue(Resource.Success(emptyList()))
+                _loading.postValue(false)
             } else {
                 try {
                     _results.postValue(
@@ -47,8 +56,10 @@ class SearchViewModel @Inject constructor(
                             )
                         )
                     )
+                    _loading.postValue(false)
                 } catch (e: Exception) {
                     _results.postValue(Resource.Error(messageResourceId = R.string.error))
+                    _loading.postValue(false)
                 }
             }
         }
