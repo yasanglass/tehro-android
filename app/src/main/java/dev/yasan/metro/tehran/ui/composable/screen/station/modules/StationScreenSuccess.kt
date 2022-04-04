@@ -30,7 +30,6 @@ import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.model.misc.LaunchSource
-import dev.yasan.metro.tehran.model.tehro.LineType
 import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehButton
 import dev.yasan.metro.tehran.ui.composable.screen.station.modules.accessibility.AccessibilityEmsIndicator
@@ -155,7 +154,7 @@ fun StationScreenSuccess(
                             colorBackground = line.color,
                             colorBorder = line.color,
                             modifier = Modifier.fillMaxWidth(),
-                            title = line.name,
+                            title = line.getFullName(context = context),
                             icon = TehroIcons.MultipleStop,
                             onClick = {
                                 Navigator.navigateToLineDetails(
@@ -175,22 +174,11 @@ fun StationScreenSuccess(
 
                         intersection.getOppositeLine(stationId = station.id)?.let { line ->
 
-                            val intersectionButtonTitle: String =
-                                when (line.type) {
-                                    LineType.METRO_BRANCH ->
-                                        "${stringResource(id = R.string.line)} ${line.name} (${
-                                            stringResource(
-                                                id = R.string.branch
-                                            )
-                                        })"
-                                    else -> "${stringResource(id = R.string.line)} ${line.name}"
-                                }
-
                             TehButton(
                                 colorBackground = line.color,
                                 colorBorder = line.color,
                                 modifier = Modifier.fillMaxWidth(),
-                                title = intersectionButtonTitle,
+                                title = line.getFullName(context = context),
                                 icon = TehroIcons.MultipleStop,
                                 onClick = {
                                     Navigator.navigateToLineDetails(
