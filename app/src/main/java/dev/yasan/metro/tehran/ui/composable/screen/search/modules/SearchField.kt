@@ -8,6 +8,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
@@ -55,8 +57,8 @@ fun SearchField(
                 )
                 .fillMaxWidth()
                 .padding(
-                    start = grid(2),
-                    end = grid(2),
+                    start = grid(1.5f),
+                    end = grid(1.5f),
                     top = grid(),
                     bottom = grid(2)
                 )
@@ -99,7 +101,8 @@ fun SearchField(
                 onDone = {
                     onDone()
                 }
-            ), trailingIcon = {
+            ),
+            trailingIcon = {
                 AnimatedVisibility(
                     visible = value.isNotEmpty(),
                     enter = fadeIn(),
@@ -115,8 +118,8 @@ fun SearchField(
                             .padding(grid(2))
                     )
                 }
-            }
-
+            },
+            shape = RoundedCornerShape(0.dp)
         )
 
         TehDivider()
