@@ -159,6 +159,16 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
 
         item {
             AnimatedVisibility(
+                visible = queryState.value.isNotBlank() && resultsList.isEmpty(),
+                enter = expandVertically() + fadeIn(),
+                exit = shrinkVertically() + fadeOut()
+            ) {
+                TehFooter(text = stringResource(R.string.no_stations_found))
+            }
+        }
+
+        item {
+            AnimatedVisibility(
                 visible = resultsList.isNotEmpty(),
                 enter = expandVertically() + fadeIn(),
                 exit = shrinkVertically() + fadeOut()
