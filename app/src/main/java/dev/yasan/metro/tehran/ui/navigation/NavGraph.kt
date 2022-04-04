@@ -17,6 +17,7 @@ import com.google.accompanist.navigation.material.bottomSheet
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutViewModel
@@ -25,6 +26,8 @@ import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapViewModel
+import dev.yasan.metro.tehran.ui.composable.screen.search.SearchScreen
+import dev.yasan.metro.tehran.ui.composable.screen.search.SearchViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationScreen
 import dev.yasan.metro.tehran.ui.composable.screen.station.StationViewModel
 
@@ -99,6 +102,16 @@ fun NavGraph(
 
             }
 
+            composable(route = NavRoutes.routeSearch()) {
+
+                systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
+
+                val searchViewModel: SearchViewModel = hiltViewModel(it)
+
+                SearchScreen(viewModel = searchViewModel, navController = navController)
+
+            }
+
             composable(route = NavRoutes.routeMap()) {
 
                 systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
@@ -123,20 +136,28 @@ fun NavGraph(
                     navArgument(NavRoutes.EXTRA_STATION_ID) {
                         type = NavType.IntType
                     },
+                    navArgument(NavRoutes.EXTRA_LAUNCH_SOURCE) {
+                        type = NavType.IntType
+                    }
                 )
             ) {
 
                 val stationId =
                     it.arguments?.getInt(NavRoutes.EXTRA_STATION_ID) ?: 0
+                val launchSource =
+                    it.arguments?.getInt(NavRoutes.EXTRA_LAUNCH_SOURCE) ?: LaunchSource.INVALID.ordinal
 
                 val stationViewModel: StationViewModel = hiltViewModel(it)
 
                 StationScreen(
                     stationViewModel = stationViewModel,
                     navController = navController,
-                    stationId = stationId
+                    stationId = stationId,
+                    launchSource = LaunchSource.fromInt(launchSource)
                 )
+
             }
+
         }
     }
 }

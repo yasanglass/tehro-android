@@ -46,7 +46,7 @@ data class Line(
     fun getFullName(context: Context): String {
         var mName = "${context.getString(R.string.line)} $name"
         if (type == LineType.METRO_BRANCH) {
-            mName += " ${context.getString(R.string.branch)}"
+            mName += " (${context.getString(R.string.branch)})"
         }
         return mName
     }

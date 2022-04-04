@@ -13,6 +13,14 @@ object Navigator {
 
     private const val TAG = "Navigator"
 
+    fun navigateToSearch(navController: NavController) {
+        navController.navigate(NavRoutes.routeSearch())
+    }
+
+    fun navigateToMap(navController: NavController) {
+        navController.navigate(NavRoutes.routeMap())
+    }
+
     /**
      * Navigates to [LineScreen].
      */

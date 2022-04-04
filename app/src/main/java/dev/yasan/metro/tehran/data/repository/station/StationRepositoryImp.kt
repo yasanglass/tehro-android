@@ -1,11 +1,11 @@
 package dev.yasan.metro.tehran.data.repository.station
 
 import dev.yasan.metro.tehran.data.db.dao.StationDAO
-import dev.yasan.metro.tehran.model.tehro.Station
+import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
 import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.domain.repository.line.LineRepository
-import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
 import dev.yasan.metro.tehran.domain.repository.station.StationRepository
+import dev.yasan.metro.tehran.model.tehro.Station
 import javax.inject.Inject
 
 /**
@@ -55,6 +55,9 @@ class StationRepositoryImp @Inject constructor(
     }
 
     override suspend fun fetchAdditionalStationData(station: Station): Station {
+
+        station.line = lineRepository.getLine(lineId = station.lineId)
+
         intersectionRepository.getIntersectionByStationId(stationId = station.id)
             ?.let { intersection ->
                 intersection.stationA =
@@ -94,5 +97,11 @@ class StationRepositoryImp @Inject constructor(
                 add(fetchAdditionalStationData(station = station))
             }
         }
+
+    override suspend fun searchStations(complete: Boolean, query: String): List<Station> {
+        val stations = stationDAO.search(query = query)
+        return if (complete) fetchAdditionalStationData(stations = stations)
+        else stations
+    }
 
 }

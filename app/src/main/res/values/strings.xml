@@ -51,4 +51,7 @@
     <string name="station_location">Station Location</string>
     <string name="station_accessibility">Station Accessibility</string>
     <string name="statistics">Statistics</string>
+    <string name="search">Search</string>
+    <string name="line_name">Line Name</string>
+    <string name="group_by_line">Group by Line</string>
 </resources>
