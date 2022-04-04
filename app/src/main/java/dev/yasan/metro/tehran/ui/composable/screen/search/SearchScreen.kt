@@ -88,7 +88,13 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
         }
 
         item {
-            Spacer(modifier = Modifier.requiredHeight(grid()))
+            AnimatedVisibility(
+                visible = !groupEnabled.value,
+                enter = expandVertically() + fadeIn(),
+                exit = shrinkVertically() + fadeOut()
+            ) {
+                Spacer(modifier = Modifier.requiredHeight(grid()))
+            }
         }
 
         if (groupEnabled.value) {
