@@ -116,7 +116,10 @@ fun TehSwitchable(
                             setter(it)
                         },
                         colors = SwitchDefaults.colors(
+                            checkedThumbColor = colorResource(id = R.color.text_title),
                             uncheckedThumbColor = colorResource(id = R.color.text_desc),
+                            checkedTrackColor = colorResource(id = R.color.text_title),
+                            uncheckedTrackColor = colorResource(id = R.color.text_desc),
                         ),
                         enabled = enabled
                     )
