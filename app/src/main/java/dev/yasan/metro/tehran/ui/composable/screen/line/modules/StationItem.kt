@@ -44,6 +44,7 @@ fun StationItem(
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     launchSource: LaunchSource,
+    onClickExtra: () -> Unit = {},
     forceFarsi: Boolean = false
 ) {
 
@@ -73,6 +74,7 @@ fun StationItem(
             .fillMaxWidth()
             .background(color = colorBackground)
             .clickable {
+                onClickExtra()
                 navController.navigate(
                     NavRoutes.routeStation(
                         station = station,

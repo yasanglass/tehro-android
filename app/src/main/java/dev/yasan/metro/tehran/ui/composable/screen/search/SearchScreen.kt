@@ -16,7 +16,10 @@ import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItem
 import dev.yasan.metro.tehran.ui.composable.screen.search.modules.SearchField
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(
+    ExperimentalComposeUiApi::class,
+    androidx.compose.foundation.ExperimentalFoundationApi::class
+)
 @Composable
 fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
 
@@ -31,7 +34,7 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
 
     TehScreen(title = stringResource(id = R.string.search)) {
 
-        item {
+        stickyHeader {
 
             SearchField(
                 value = queryState.value,
@@ -49,11 +52,16 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
 
         items(
             items = results.value?.data ?: emptyList(),
-            key = { station -> station.id }) { station ->
+            key = { station -> station.id }
+        ) { station ->
             StationItem(
                 station = station,
                 navController = navController,
-                launchSource = LaunchSource.SEARCH
+                launchSource = LaunchSource.SEARCH,
+                onClickExtra = {
+                    keyboardController?.hide()
+                    focusManager.clearFocus()
+                }
             )
         }
 
