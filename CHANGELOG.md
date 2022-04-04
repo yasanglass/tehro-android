@@ -1,5 +1,9 @@
 # Tehro Changelog
 
+## Unreleased
+
+- Added station search support.
+
 ## v2.3.0
 
 - Fixed state restore if the app process was killed on the line screen.
