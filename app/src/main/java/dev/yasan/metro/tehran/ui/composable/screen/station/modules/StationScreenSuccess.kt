@@ -159,7 +159,8 @@ fun StationScreenSuccess(
                             onClick = {
                                 Navigator.navigateToLineDetails(
                                     navController = navController,
-                                    line = line
+                                    line = line,
+                                    launchSource = launchSource
                                 )
                             }
                         )
@@ -183,7 +184,8 @@ fun StationScreenSuccess(
                             onClick = {
                                 Navigator.navigateToLineDetails(
                                     navController = navController,
-                                    line = line
+                                    line = line,
+                                    launchSource = launchSource
                                 )
                             }
                         )

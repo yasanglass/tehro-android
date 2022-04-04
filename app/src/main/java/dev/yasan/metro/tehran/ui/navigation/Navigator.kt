@@ -2,6 +2,7 @@ package dev.yasan.metro.tehran.ui.navigation
 
 import android.util.Log
 import androidx.navigation.NavController
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 
@@ -24,10 +25,14 @@ object Navigator {
     /**
      * Navigates to [LineScreen].
      */
-    fun navigateToLineDetails(navController: NavController, line: Line) {
+    fun navigateToLineDetails(
+        navController: NavController,
+        line: Line,
+        launchSource: LaunchSource
+    ) {
         Log.d(TAG, "navigateToLineDetails: line ${line.nameEn}")
         navController.navigate(NavRoutes.routeLine(line = line)) {
-            popUpTo(NavRoutes.routeLineBase()) {
+            popUpTo(if (launchSource == LaunchSource.LINE) NavRoutes.routeLineBase() else NavRoutes.routeSearch()) {
                 inclusive = true
             }
         }

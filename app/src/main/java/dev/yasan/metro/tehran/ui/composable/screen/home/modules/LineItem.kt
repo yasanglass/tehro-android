@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.model.tehro.LineType
 import dev.yasan.metro.tehran.ui.navigation.Navigator
@@ -51,7 +52,8 @@ fun LineItem(
                 .clickable {
                     Navigator.navigateToLineDetails(
                         navController = navController,
-                        line = line
+                        line = line,
+                        launchSource = LaunchSource.LINE
                     )
                 }
                 .padding(grid(2)),
