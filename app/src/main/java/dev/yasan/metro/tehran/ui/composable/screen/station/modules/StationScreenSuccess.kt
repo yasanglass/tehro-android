@@ -168,29 +168,27 @@ fun StationScreenSuccess(
 
                     }
 
-                } else {
+                }
 
-                    station.intersection?.let { intersection ->
+                station.intersection?.let { intersection ->
 
-                        intersection.getOppositeLine(stationId = station.id)?.let { line ->
+                    intersection.getOppositeLine(stationId = station.id)?.let { line ->
 
-                            TehButton(
-                                colorBackground = line.color,
-                                colorBorder = line.color,
-                                modifier = Modifier.fillMaxWidth(),
-                                title = line.getFullName(context = context),
-                                icon = TehroIcons.MultipleStop,
-                                onClick = {
-                                    Navigator.navigateToLineDetails(
-                                        navController = navController,
-                                        line = line
-                                    )
-                                }
-                            )
+                        TehButton(
+                            colorBackground = line.color,
+                            colorBorder = line.color,
+                            modifier = Modifier.fillMaxWidth(),
+                            title = line.getFullName(context = context),
+                            icon = TehroIcons.MultipleStop,
+                            onClick = {
+                                Navigator.navigateToLineDetails(
+                                    navController = navController,
+                                    line = line
+                                )
+                            }
+                        )
 
-                            Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
-                        }
+                        Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
                     }
 
