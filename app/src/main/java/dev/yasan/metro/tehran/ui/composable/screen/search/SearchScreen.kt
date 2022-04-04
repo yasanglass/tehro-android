@@ -25,6 +25,7 @@ import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehFooter
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
+import dev.yasan.metro.tehran.ui.composable.common.teh.TehSwitchable
 import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItem
 import dev.yasan.metro.tehran.ui.composable.screen.search.modules.SearchField
 import dev.yasan.metro.tehran.util.LocaleHelper
@@ -44,6 +45,8 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
     val results = viewModel.results.observeAsState()
     val resultsList = results.value?.data ?: emptyList()
 
+    val groupEnabled = rememberSaveable { mutableStateOf(false) }
+
     TehScreen(title = stringResource(id = R.string.search)) {
 
         stickyHeader {
@@ -60,38 +63,63 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                 }
             )
 
+            TehSwitchable(
+                title = "Group by line",
+                fontFamily = LocaleHelper.properFontFamily,
+                getter = { groupEnabled.value },
+                setter = { groupEnabled.value = it }
+            )
+
         }
 
         item {
             Spacer(modifier = Modifier.requiredHeight(grid()))
         }
 
-        val groupedResults = resultsList.groupBy { it.line }
-            .toSortedMap(compareBy<Line?> { it?.id ?: 0 }.thenBy { it?.name ?: "" })
+        if (groupEnabled.value) {
 
-        groupedResults.forEach { group ->
+            val groupedResults = resultsList.groupBy { it.line }
+                .toSortedMap(compareBy<Line?> { it?.id ?: 0 }.thenBy { it?.name ?: "" })
 
-            item {
-                AnimatedVisibility(
-                    visible = groupedResults.keys.size > 1,
-                    enter = expandVertically() + fadeIn(),
-                    exit = shrinkVertically() + fadeOut()
-                ) {
+            groupedResults.forEach { group ->
+
+                item {
+
                     Text(
                         modifier = Modifier
                             .padding(horizontal = grid(2))
                             .padding(top = grid(2), bottom = grid()),
-                        text = group.key?.getFullName(context = context)
-                            ?: stringResource(id = R.string.line),
+                        text = (group.key?.getFullName(context = context)
+                            ?: stringResource(id = R.string.line)).uppercase(),
                         color = colorResource(id = R.color.text_title),
                         fontFamily = LocaleHelper.properFontFamily,
                         fontWeight = FontWeight.Bold
                     )
+
                 }
+
+                items(
+                    items = group.value,
+                    key = { station -> station.id }
+                ) { station ->
+                    StationItem(
+                        modifier = Modifier.animateItemPlacement(),
+                        station = station,
+                        navController = navController,
+                        launchSource = LaunchSource.SEARCH,
+                        onClickExtra = {
+                            keyboardController?.hide()
+                            focusManager.clearFocus()
+                        }
+                    )
+                }
+
             }
 
+        } else {
+
             items(
-                items = group.value,
+                items = resultsList,
                 key = { station -> station.id }
             ) { station ->
                 StationItem(
@@ -121,3 +149,5 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
     }
 
 }
+
+

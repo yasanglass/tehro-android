@@ -37,6 +37,7 @@ import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.ui.composable.common.teh.TehDivider
 import dev.yasan.metro.tehran.ui.theme.TehroIcons
+import dev.yasan.metro.tehran.util.LocaleHelper
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -77,8 +78,8 @@ fun SearchField(
             ),
             label = {
                 Text(
-                    text = stringResource(id = R.string.search),
-                    fontFamily = rubikFamily,
+                    text = stringResource(id = R.string.line_name),
+                    fontFamily = LocaleHelper.properFontFamily,
                     color = colorResource(id = R.color.text_title)
                 )
             },
