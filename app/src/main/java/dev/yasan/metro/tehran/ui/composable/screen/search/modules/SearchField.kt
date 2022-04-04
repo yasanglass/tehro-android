@@ -14,6 +14,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.sharp.Clear
 import androidx.compose.material.icons.sharp.Search
 import androidx.compose.runtime.Composable
@@ -53,7 +54,7 @@ fun SearchField(
         OutlinedTextField(
             modifier = Modifier
                 .background(
-                    color = colorResource(id = R.color.layer_foreground)
+                    color = colorResource(id = R.color.layer_midground)
                 )
                 .fillMaxWidth()
                 .padding(
@@ -86,6 +87,7 @@ fun SearchField(
                 Icon(
                     TehroIcons.Search,
                     contentDescription = stringResource(id = R.string.search),
+                    tint = colorResource(id = R.color.text_title),
                     modifier = Modifier
                         .clickable(onClick = onDone)
                         .padding(grid(2))
@@ -111,6 +113,7 @@ fun SearchField(
                     Icon(
                         TehroIcons.Clear,
                         contentDescription = null,
+                        tint = colorResource(id = R.color.text_title),
                         modifier = Modifier
                             .clickable {
                                 onValueChange("")
@@ -119,7 +122,12 @@ fun SearchField(
                     )
                 }
             },
-            shape = RoundedCornerShape(0.dp)
+            shape = RoundedCornerShape(0.dp),
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                cursorColor = colorResource(id = R.color.text_title),
+                focusedBorderColor = colorResource(id = R.color.text_title),
+                unfocusedBorderColor = colorResource(id = R.color.text_desc)
+            )
         )
 
         TehDivider()

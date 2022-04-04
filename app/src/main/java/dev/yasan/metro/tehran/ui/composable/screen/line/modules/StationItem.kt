@@ -40,6 +40,7 @@ private const val TAG = "StationItem"
  */
 @Composable
 fun StationItem(
+    modifier: Modifier = Modifier,
     station: Station,
     navController: NavController,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
@@ -68,7 +69,7 @@ fun StationItem(
     }
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .padding(horizontal = grid(1.5f))
             .padding(top = grid())
             .fillMaxWidth()
