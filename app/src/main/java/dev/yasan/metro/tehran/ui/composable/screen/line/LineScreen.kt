@@ -1,11 +1,15 @@
 package dev.yasan.metro.tehran.ui.composable.screen.line
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.sharp.SwapVert
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -14,6 +18,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.Action
 import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.model.tehro.Station
@@ -24,6 +29,7 @@ import dev.yasan.metro.tehran.ui.composable.common.teh.TehScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.modules.StationItem
 import dev.yasan.metro.tehran.ui.navigation.NavGraph
 import dev.yasan.metro.tehran.ui.navigation.NavRoutes
+import dev.yasan.metro.tehran.ui.theme.TehroIcons
 
 /**
  * This screen shows the detailed data for a single [Line] which mainly includes the list of [Station]s inside it.
@@ -32,6 +38,7 @@ import dev.yasan.metro.tehran.ui.navigation.NavRoutes
  * @see NavRoutes.routeLine
  * @see NavRoutes.routeLineBase
  */
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun LineScreen(
     lineViewModel: LineViewModel,
@@ -45,6 +52,8 @@ fun LineScreen(
 
     rememberSystemUiController().setStatusBarColor(color = lineColor.value ?: Color.DarkGray)
 
+    val orderAscending = rememberSaveable { mutableStateOf(true) }
+
     LaunchedEffect(key1 = stations.value) {
         if (stations.value is Resource.Initial) {
             lineViewModel.loadStations(lineId = lineId)
@@ -53,7 +62,14 @@ fun LineScreen(
 
     TehScreen(
         title = title.value ?: "",
-        color = lineColor.value ?: Color.DarkGray
+        color = lineColor.value ?: Color.DarkGray,
+        action = Action(
+            icon = TehroIcons.SwapVert,
+            text = "",
+            onClick = {
+                orderAscending.value = !orderAscending.value
+            }
+        )
     ) {
 
         when (stations.value) {
@@ -67,6 +83,7 @@ fun LineScreen(
             is Resource.Success -> {
 
                 val list = stations.value?.data ?: ArrayList()
+
                 val stationCount = list.size
 
                 item {
@@ -74,10 +91,17 @@ fun LineScreen(
                 }
 
                 items(
-                    items = list,
+                    items = list.apply {
+                        if (orderAscending.value) {
+                            sortBy { it.positionInLine }
+                        } else {
+                            sortByDescending { it.positionInLine }
+                        }
+                    },
                     key = { it.id }
                 ) { station ->
                     StationItem(
+                        modifier = Modifier.animateItemPlacement(),
                         station = station,
                         navController = navController,
                         launchSource = LaunchSource.LINE
