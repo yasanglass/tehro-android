@@ -28,7 +28,7 @@ interface StationDAO {
     /**
      * @return A [Station] with matching line id if any exist.
      */
-    @Query("SELECT * FROM stations WHERE line_id=:lineId")
+    @Query("SELECT * FROM stations WHERE line_id=:lineId ORDER BY position_in_line")
     suspend fun getByLineId(lineId: Int): List<Station>
 
     /**
