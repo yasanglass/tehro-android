@@ -1,5 +1,9 @@
 # Tehro Changelog
 
+## Unreleased
+
+- Fixed stations not being sorted by their position in line on Line screen.
+
 ## v2.3.1
 
 - Added station search support.
