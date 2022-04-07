@@ -3,7 +3,12 @@ package dev.yasan.metro.tehran.ui.composable.common.teh
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,6 +24,7 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.Action
 import dev.yasan.metro.tehran.model.tehro.Line
 import dev.yasan.metro.tehran.ui.preview.line.LinePreviewProvider
 import dev.yasan.metro.tehran.ui.theme.vazirFamily
@@ -35,26 +41,39 @@ fun TehTitle(
     title: String,
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     colorBackground: Color = colorResource(id = R.color.layer_foreground),
-    colorText: Color = colorBackground.getTextOnColor()
+    colorText: Color = colorBackground.getTextOnColor(),
+    action: Action? = null,
 ) {
     Column(
         modifier = modifier.fillMaxWidth()
     ) {
-        Box(
+        Row(
             Modifier
                 .fillMaxWidth()
-                .background(color = colorBackground)
-                .padding(grid(2)),
-            contentAlignment = Alignment.Center
+                .background(color = colorBackground),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(grid(2)),
                 text = title.uppercase(),
                 fontFamily = fontFamily,
                 fontWeight = FontWeight.Black,
                 fontSize = 18.sp,
                 color = colorText,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Start
             )
+            action?.let {
+                Icon(
+                    modifier = Modifier
+                        .clickable(onClick = action.onClick)
+                        .padding(grid(2)),
+                    imageVector = it.icon,
+                    contentDescription = it.text,
+                    tint = colorText
+                )
+            }
         }
         TehDivider()
     }
