@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.sharp.Info
 import androidx.compose.material.icons.sharp.Map
 import androidx.compose.material.icons.sharp.Search
+import androidx.compose.material.icons.sharp.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -17,6 +18,7 @@ import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.parts.branding.YasanBrandingFooter
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.Action
 import dev.yasan.metro.tehran.ui.composable.common.teh.*
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.AppVersionFooter
@@ -45,7 +47,16 @@ fun HomeScreen(
         mainViewModel.loadLines()
     }
 
-    TehScreen(title = stringResource(id = R.string.app_name)) {
+    TehScreen(
+        title = stringResource(id = R.string.app_name),
+        action = Action(
+            icon = TehroIcons.Settings,
+            onClick = {
+                // TODO launch settings screen
+            },
+            text = stringResource(id = R.string.settings)
+        ),
+    ) {
 
         when (lines.value) {
             is Resource.Error -> {
@@ -64,7 +75,10 @@ fun HomeScreen(
                 }
 
                 item {
-                    HomeButton(title = stringResource(id = R.string.search), icon = TehroIcons.Search) {
+                    HomeButton(
+                        title = stringResource(id = R.string.search),
+                        icon = TehroIcons.Search
+                    ) {
                         Navigator.navigateToSearch(navController = navController)
                     }
                 }

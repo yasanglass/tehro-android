@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.Action
 import dev.yasan.metro.tehran.util.LocaleHelper
 
 /**
@@ -28,6 +29,7 @@ fun TehScreen(
     title: String,
     color: Color = colorResource(id = R.color.layer_foreground),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
+    action: Action? = null,
     content: LazyListScope.() -> Unit
 ) {
 
@@ -37,7 +39,12 @@ fun TehScreen(
             .background(color = colorResource(id = R.color.layer_midground))
     ) {
 
-        TehTitle(title = title, colorBackground = color, fontFamily = fontFamily)
+        TehTitle(
+            title = title,
+            colorBackground = color,
+            fontFamily = fontFamily,
+            action = action
+        )
 
         LazyColumn(
             modifier = Modifier
