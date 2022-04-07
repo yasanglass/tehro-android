@@ -1,5 +1,6 @@
 package dev.yasan.metro.tehran.ui.composable.screen.line
 
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.requiredHeight
@@ -7,10 +8,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.sharp.SwapVert
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
@@ -60,10 +63,13 @@ fun LineScreen(
         }
     }
 
+    val buttonAngle by animateFloatAsState(if (orderAscending.value) 180f else 0f)
+
     TehScreen(
         title = title.value ?: "",
         color = lineColor.value ?: Color.DarkGray,
         action = Action(
+            iconModifier = Modifier.rotate(buttonAngle),
             icon = TehroIcons.SwapVert,
             text = "",
             onClick = {
