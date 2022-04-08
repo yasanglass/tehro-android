@@ -11,8 +11,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.domain.repository.line.LineRepository
-import dev.yasan.metro.tehran.domain.repository.station.StationRepository
+import dev.yasan.metro.tehran.domain.usecase.line.GetLineUseCase
+import dev.yasan.metro.tehran.domain.usecase.station.GetStationsListUseCase
 import dev.yasan.metro.tehran.model.tehro.Station
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -26,8 +26,8 @@ import javax.inject.Inject
 class LineViewModel @Inject constructor(
     application: Application,
     private val dispatchers: DispatcherProvider,
-    private val stationRepository: StationRepository,
-    private val lineRepository: LineRepository
+    private val getStationsListUseCase: GetStationsListUseCase,
+    private val getLineUseCase: GetLineUseCase
 ) : AndroidViewModel(application) {
 
     companion object {
@@ -50,11 +50,11 @@ class LineViewModel @Inject constructor(
         viewModelScope.launch(dispatchers.io) {
             Log.d(TAG, "loadStations: $lineId")
             _stations.postValue(Resource.Loading())
-            val line = lineRepository.getLine(lineId = lineId)
+            val line = getLineUseCase(lineId = lineId)
             if (line != null) {
                 _title.postValue(line.getFullName(context = getApplication()))
                 _lineColor.postValue(line.color)
-                val stationsList = stationRepository.getStations(lineId = lineId, complete = true)
+                val stationsList = getStationsListUseCase(lineId = lineId, complete = true)
                 if (stationsList.isNotEmpty()) {
                     _stations.postValue(Resource.Success(data = ArrayList(stationsList)))
                 } else {

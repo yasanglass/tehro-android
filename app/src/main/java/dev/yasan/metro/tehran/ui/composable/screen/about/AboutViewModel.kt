@@ -8,11 +8,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.domain.usecase.dbinfo.GetDatabaseInformationUseCase
+import dev.yasan.metro.tehran.domain.usecase.stat.GetBasicStatisticsUseCase
+import dev.yasan.metro.tehran.domain.usecase.stat.GetComplexStatisticsUseCase
 import dev.yasan.metro.tehran.model.tehro.DatabaseInformation
 import dev.yasan.metro.tehran.model.tehro.Stat
 import dev.yasan.metro.tehran.model.tehro.StatComplex
-import dev.yasan.metro.tehran.domain.repository.dbinfo.DatabaseInformationRepository
-import dev.yasan.metro.tehran.domain.repository.stat.StatRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,8 +25,9 @@ import javax.inject.Inject
 @HiltViewModel
 class AboutViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
-    private val databaseInformationRepository: DatabaseInformationRepository,
-    private val statRepository: StatRepository
+    private val getDatabaseInformationUseCase: GetDatabaseInformationUseCase,
+    private val getBasicStatisticsUseCase: GetBasicStatisticsUseCase,
+    private val getComplexStatisticsUseCase: GetComplexStatisticsUseCase
 ) : ViewModel() {
 
     companion object {
@@ -38,7 +40,7 @@ class AboutViewModel @Inject constructor(
      fun loadDatabaseInformation() {
         viewModelScope.launch(dispatchers.io) {
             _databaseInformation.postValue(Resource.Loading())
-            val data = databaseInformationRepository.getInformation()
+            val data = getDatabaseInformationUseCase()
             if (data != null) {
                 _databaseInformation.postValue(Resource.Success(data = data))
             } else {
@@ -53,7 +55,7 @@ class AboutViewModel @Inject constructor(
      fun loadBasicStats() {
         viewModelScope.launch(dispatchers.io) {
             _stats.postValue(Resource.Loading())
-            val data = statRepository.getBasicStatistics()
+            val data = getBasicStatisticsUseCase()
             if (data.isNotEmpty()) {
                 _stats.postValue(Resource.Success(data = data))
             } else {
@@ -68,7 +70,7 @@ class AboutViewModel @Inject constructor(
     fun loadComplexStats() {
         viewModelScope.launch(dispatchers.io) {
             _statsComplex.postValue(Resource.Loading())
-            val data = statRepository.getComplexStatistics()
+            val data = getComplexStatisticsUseCase()
             if (data.isNotEmpty()) {
                 _statsComplex.postValue(Resource.Success(data = data))
             } else {

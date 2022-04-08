@@ -1,4 +1,4 @@
-package dev.yasan.metro.tehran.ui.composable.screen
+package dev.yasan.metro.tehran.ui.composable.screen.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,23 +8,20 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.domain.usecase.line.GetLinesListUseCase
 import dev.yasan.metro.tehran.model.tehro.Line
-import dev.yasan.metro.tehran.domain.repository.line.LineRepository
-import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- * Shared ViewModel in the whole Tehro application.
- * Its the main ViewModel of [HomeScreen] and the additional ViewModel for the rest of the navigation routes.
+ * ViewModel for [HomeScreen]..
  *
  * @see loadLines
- * @see getLineById
  */
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class HomeViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
-    private val lineRepository: LineRepository
+    private val getLinesListUseCase: GetLinesListUseCase
 ) : ViewModel() {
 
     private var _lines = MutableLiveData<Resource<ArrayList<Line>>>(Resource.Initial())
@@ -36,7 +33,7 @@ class MainViewModel @Inject constructor(
     fun loadLines() {
         viewModelScope.launch(dispatchers.io) {
             _lines.postValue(Resource.Loading())
-            val data = (lineRepository.getLines() as ArrayList).apply { sortBy { it.id } }
+            val data = (getLinesListUseCase() as ArrayList).apply { sortBy { it.id } }
             if (data.isNotEmpty()) {
                 _lines.postValue(Resource.Success(data = data))
             } else {

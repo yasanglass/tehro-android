@@ -8,15 +8,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.domain.usecase.station.GetStationUseCase
 import dev.yasan.metro.tehran.model.tehro.Station
-import dev.yasan.metro.tehran.domain.repository.station.StationRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class StationViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
-    private val stationRepository: StationRepository,
+    private val getStationUseCase: GetStationUseCase
 ) : ViewModel() {
 
     private var _station = MutableLiveData<Resource<Station>>(Resource.Initial())
@@ -28,7 +28,7 @@ class StationViewModel @Inject constructor(
     fun loadStation(stationId: Int) {
         viewModelScope.launch(dispatchers.io) {
             _station.postValue(Resource.Loading())
-            val mStation = stationRepository.getStation(stationId = stationId, complete = true)
+            val mStation = getStationUseCase(stationId = stationId, complete = true)
             if (mStation != null) {
                 _station.postValue(Resource.Success(data = mStation))
             } else {

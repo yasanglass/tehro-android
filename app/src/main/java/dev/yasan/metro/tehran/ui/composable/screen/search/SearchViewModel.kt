@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.domain.repository.station.StationRepository
+import dev.yasan.metro.tehran.domain.usecase.station.SearchStationsUseCase
 import dev.yasan.metro.tehran.model.tehro.Station
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -20,7 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val dispatchers: DispatcherProvider,
-    private val stationRepository: StationRepository
+    private val searchStationsUseCase: SearchStationsUseCase
 ) : ViewModel() {
 
     companion object {
@@ -50,7 +50,7 @@ class SearchViewModel @Inject constructor(
                 try {
                     _results.postValue(
                         Resource.Success(
-                            stationRepository.searchStations(
+                            searchStationsUseCase(
                                 complete = true,
                                 query = query
                             )

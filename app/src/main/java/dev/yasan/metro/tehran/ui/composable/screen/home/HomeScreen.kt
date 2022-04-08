@@ -19,7 +19,6 @@ import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.model.misc.Action
 import dev.yasan.metro.tehran.ui.composable.common.teh.*
-import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.AppVersionFooter
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.HomeButton
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.LineItem
@@ -36,14 +35,14 @@ import dev.yasan.metro.tehran.ui.theme.TehroIcons
  */
 @Composable
 fun HomeScreen(
-    mainViewModel: MainViewModel,
+    homeViewModel: HomeViewModel,
     navController: NavController
 ) {
 
-    val lines = mainViewModel.lines.observeAsState()
+    val lines = homeViewModel.lines.observeAsState()
 
     if (lines.value is Resource.Initial) {
-        mainViewModel.loadLines()
+        homeViewModel.loadLines()
     }
 
     TehScreen(
@@ -61,7 +60,7 @@ fun HomeScreen(
             is Resource.Error -> {
                 item {
                     TehError {
-                        mainViewModel.loadLines()
+                        homeViewModel.loadLines()
                     }
                 }
             }

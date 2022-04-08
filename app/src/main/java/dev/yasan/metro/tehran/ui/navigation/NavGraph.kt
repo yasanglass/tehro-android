@@ -18,10 +18,10 @@ import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.model.misc.LaunchSource
-import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutScreen
 import dev.yasan.metro.tehran.ui.composable.screen.about.AboutViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.home.HomeScreen
+import dev.yasan.metro.tehran.ui.composable.screen.home.HomeViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineScreen
 import dev.yasan.metro.tehran.ui.composable.screen.line.LineViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.map.MapScreen
@@ -50,8 +50,6 @@ fun NavGraph(
     val systemUiController = rememberSystemUiController()
         .apply { setNavigationBarColor(color = colorResource(id = R.color.layer_background)) }
 
-    val mainViewModel: MainViewModel = hiltViewModel()
-
     ModalBottomSheetLayout(bottomSheetNavigator) {
         AnimatedNavHost(
             navController = navController,
@@ -74,8 +72,10 @@ fun NavGraph(
 
                 systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
 
+                val homeViewModel: HomeViewModel = hiltViewModel(it)
+
                 HomeScreen(
-                    mainViewModel = mainViewModel,
+                    homeViewModel = homeViewModel,
                     navController = navController
                 )
             }
