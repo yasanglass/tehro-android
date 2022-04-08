@@ -7,7 +7,7 @@ import dev.yasan.metro.tehran.data.db.MetroDatabase
 import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
-import dev.yasan.metro.tehran.ui.theme.TehroIcons
+import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.PrideHelper
 import kotlinx.parcelize.IgnoredOnParcel
