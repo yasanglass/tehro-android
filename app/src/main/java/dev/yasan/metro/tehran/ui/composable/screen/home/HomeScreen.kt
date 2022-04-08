@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.sharp.Info
 import androidx.compose.material.icons.sharp.Map
 import androidx.compose.material.icons.sharp.Search
-import androidx.compose.material.icons.sharp.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -50,11 +49,11 @@ fun HomeScreen(
     TehScreen(
         title = stringResource(id = R.string.app_name),
         action = Action(
-            icon = TehroIcons.Settings,
+            icon = TehroIcons.Search,
             onClick = {
-                // TODO launch settings screen
+                Navigator.navigateToSearch(navController = navController)
             },
-            text = stringResource(id = R.string.settings)
+            text = stringResource(id = R.string.search)
         ),
     ) {
 
@@ -72,15 +71,6 @@ fun HomeScreen(
 
                 item {
                     Spacer(modifier = Modifier.requiredHeight(grid()))
-                }
-
-                item {
-                    HomeButton(
-                        title = stringResource(id = R.string.search),
-                        icon = TehroIcons.Search
-                    ) {
-                        Navigator.navigateToSearch(navController = navController)
-                    }
                 }
 
                 item {
