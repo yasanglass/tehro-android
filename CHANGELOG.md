@@ -1,5 +1,13 @@
 # Tehro Changelog
 
+## Unreleased
+
+- The search button is now moved to the top of screen.
+- Added the new option to reverse the order of stations on Line screen with a button.
+- Fixed stations not being sorted by their position in line on Line screen.
+- Added Android TV banner.
+- Added Android TV (leanback) launcher support.
+
 ## v2.3.1
 
 - Added station search support.
