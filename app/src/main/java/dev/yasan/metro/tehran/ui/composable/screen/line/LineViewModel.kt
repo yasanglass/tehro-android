@@ -11,9 +11,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.model.tehro.Station
 import dev.yasan.metro.tehran.domain.repository.line.LineRepository
 import dev.yasan.metro.tehran.domain.repository.station.StationRepository
+import dev.yasan.metro.tehran.model.tehro.Station
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -34,8 +34,8 @@ class LineViewModel @Inject constructor(
         private const val TAG = "LineViewModel"
     }
 
-    private var _stations = MutableLiveData<Resource<List<Station>>>(Resource.Initial())
-    val stations: LiveData<Resource<List<Station>>> get() = _stations
+    private var _stations = MutableLiveData<Resource<ArrayList<Station>>>(Resource.Initial())
+    val stations: LiveData<Resource<ArrayList<Station>>> get() = _stations
 
     private var _title = MutableLiveData("Line")
     val title: LiveData<String> get() = _title
@@ -56,7 +56,7 @@ class LineViewModel @Inject constructor(
                 _lineColor.postValue(line.color)
                 val stationsList = stationRepository.getStations(lineId = lineId, complete = true)
                 if (stationsList.isNotEmpty()) {
-                    _stations.postValue(Resource.Success(data = stationsList))
+                    _stations.postValue(Resource.Success(data = ArrayList(stationsList)))
                 } else {
                     _stations.postValue(Resource.Error(messageResourceId = R.string.no_stations_found))
                 }

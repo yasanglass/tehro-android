@@ -17,6 +17,7 @@ import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.parts.branding.YasanBrandingFooter
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
+import dev.yasan.metro.tehran.model.misc.Action
 import dev.yasan.metro.tehran.ui.composable.common.teh.*
 import dev.yasan.metro.tehran.ui.composable.screen.MainViewModel
 import dev.yasan.metro.tehran.ui.composable.screen.home.modules.AppVersionFooter
@@ -45,7 +46,16 @@ fun HomeScreen(
         mainViewModel.loadLines()
     }
 
-    TehScreen(title = stringResource(id = R.string.app_name)) {
+    TehScreen(
+        title = stringResource(id = R.string.app_name),
+        action = Action(
+            icon = TehroIcons.Search,
+            onClick = {
+                Navigator.navigateToSearch(navController = navController)
+            },
+            text = stringResource(id = R.string.search)
+        ),
+    ) {
 
         when (lines.value) {
             is Resource.Error -> {
@@ -61,12 +71,6 @@ fun HomeScreen(
 
                 item {
                     Spacer(modifier = Modifier.requiredHeight(grid()))
-                }
-
-                item {
-                    HomeButton(title = stringResource(id = R.string.search), icon = TehroIcons.Search) {
-                        Navigator.navigateToSearch(navController = navController)
-                    }
                 }
 
                 item {
