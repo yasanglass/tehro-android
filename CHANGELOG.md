@@ -1,6 +1,6 @@
 # Tehro Changelog
 
-## Unreleased
+## v2.3.2
 
 - The search button is now moved to the top of screen.
 - Added the new option to reverse the order of stations on Line screen with a button.
