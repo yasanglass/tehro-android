@@ -118,7 +118,7 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
 
     // Leak Canary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 
     // Subsampling Scale ImageView
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
