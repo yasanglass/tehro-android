@@ -7,8 +7,8 @@ import dev.yasan.metro.tehran.presentation.composable.screen.about.AboutScreen
  */
 object AboutLinks {
 
-    const val URL_APP_GITHUB = "https://github.com/yasandev/tehro-android"
-    const val URL_DATABASE_GITHUB = "https://github.com/yasandev/tehro-database"
+    const val URL_APP_GITHUB = "https://github.com/yasan-org/tehro-android"
+    const val URL_DATABASE_GITHUB = "https://github.com/yasan-org/tehro-database"
 
     const val URL_DEV_TELEGRAM = "https://t.me/YASANupdates"
     const val URL_DEV_INSTAGRAM = "https://www.instagram.com/Yasandev"
