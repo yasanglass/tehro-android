@@ -15,5 +15,4 @@ object AboutLinks {
     const val URL_DEV_DISCORD = "https://discord.gg/8BQrfyA"
     const val URL_DEV_MEDIUM = "https://yasandev.medium.com"
     const val URL_DEV_TWITTER_EN = "https://twitter.com/YASAN"
-    const val URL_DEV_TWITTER_FA = "https://twitter.com/YASANfa"
 }
