@@ -8,6 +8,7 @@ import androidx.compose.material.icons.sharp.Info
 import androidx.compose.material.icons.sharp.Map
 import androidx.compose.material.icons.sharp.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -39,10 +40,12 @@ fun HomeScreen(
     navController: NavController
 ) {
 
-    val lines = homeViewModel.lines.observeAsState()
+    val lines = homeViewModel.lines.observeAsState(initial = Resource.Initial())
 
-    if (lines.value is Resource.Initial) {
-        homeViewModel.loadLines()
+    LaunchedEffect(key1 = lines.value) {
+        if (lines.value is Resource.Initial) {
+            homeViewModel.loadLines()
+        }
     }
 
     TehScreen(
@@ -66,7 +69,7 @@ fun HomeScreen(
             }
             is Resource.Success -> {
 
-                val list = lines.value?.data ?: ArrayList()
+                val list = lines.value.data ?: ArrayList()
 
                 item {
                     Spacer(modifier = Modifier.requiredHeight(grid()))
