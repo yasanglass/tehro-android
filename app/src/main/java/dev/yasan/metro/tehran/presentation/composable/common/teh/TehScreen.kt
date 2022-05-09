@@ -31,7 +31,7 @@ fun TehScreen(
     title: String,
     color: Color = colorResource(id = R.color.layer_foreground),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
-    action: Action? = null,
+    actions: List<Action> = emptyList(),
     state: LazyListState = rememberLazyListState(),
     content: LazyListScope.() -> Unit
 ) {
@@ -46,7 +46,7 @@ fun TehScreen(
             title = title,
             colorBackground = color,
             fontFamily = fontFamily,
-            action = action
+            actions = actions
         )
 
         LazyColumn(

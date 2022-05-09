@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.sharp.Info
+import androidx.compose.material.icons.sharp.LocalBar
 import androidx.compose.material.icons.sharp.Map
 import androidx.compose.material.icons.sharp.Search
 import androidx.compose.runtime.Composable
@@ -50,13 +51,15 @@ fun HomeScreen(
 
     TehScreen(
         title = stringResource(id = R.string.app_name),
-        action = Action(
-            icon = TehroIcons.Search,
-            onClick = {
-                Navigator.navigateToSearch(navController = navController)
-            },
-            text = stringResource(id = R.string.search)
-        ),
+        actions = listOf(
+            Action(
+                icon = TehroIcons.Search,
+                onClick = {
+                    Navigator.navigateToSearch(navController = navController)
+                },
+                text = stringResource(id = R.string.search)
+            )
+        )
     ) {
 
         when (lines.value) {

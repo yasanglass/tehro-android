@@ -68,13 +68,15 @@ fun LineScreen(
     TehScreen(
         title = title.value,
         color = lineColor.value,
-        action = Action(
-            iconModifier = Modifier.rotate(buttonAngle),
-            icon = TehroIcons.SwapVert,
-            text = "",
-            onClick = {
-                orderAscending.value = !orderAscending.value
-            }
+        actions = listOf(
+            Action(
+                iconModifier = Modifier.rotate(buttonAngle),
+                icon = TehroIcons.SwapVert,
+                text = "",
+                onClick = {
+                    orderAscending.value = !orderAscending.value
+                }
+            )
         )
     ) {
 
