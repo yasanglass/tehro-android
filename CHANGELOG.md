@@ -1,5 +1,11 @@
 # Tehro Changelog
 
+## v2.3.3
+
+- Added almost all of the missing station locations.
+- Improved how station locations are launched on supported map apps.
+- Updated social links.
+
 ## v2.3.2
 
 - The search button is now moved to the top of the screen.
