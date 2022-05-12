@@ -44,7 +44,7 @@ fun TehTitle(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     colorBackground: Color = colorResource(id = R.color.layer_foreground),
     colorText: Color = colorBackground.getTextOnColor(),
-    action: Action? = null,
+    actions: List<Action> = emptyList(),
 ) {
     Column(
         modifier = modifier.fillMaxWidth()
@@ -66,15 +66,15 @@ fun TehTitle(
                 color = colorText,
                 textAlign = TextAlign.Start
             )
-            action?.let {
+            actions.reversed().forEach { action ->
                 Icon(
                     modifier = action.iconModifier
                         .padding(grid())
                         .clip(CircleShape)
                         .clickable(onClick = action.onClick)
                         .padding(grid()),
-                    imageVector = it.icon,
-                    contentDescription = it.text,
+                    imageVector = action.icon,
+                    contentDescription = action.text,
                     tint = colorText
                 )
             }

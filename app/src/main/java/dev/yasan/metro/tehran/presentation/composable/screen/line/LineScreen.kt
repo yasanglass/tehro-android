@@ -49,11 +49,11 @@ fun LineScreen(
     lineId: Int,
 ) {
 
-    val title = lineViewModel.title.observeAsState()
-    val lineColor = lineViewModel.lineColor.observeAsState()
-    val stations = lineViewModel.stations.observeAsState()
+    val title = lineViewModel.title.observeAsState(initial = "")
+    val lineColor = lineViewModel.lineColor.observeAsState(initial = Color.DarkGray)
+    val stations = lineViewModel.stations.observeAsState(initial = Resource.Initial())
 
-    rememberSystemUiController().setStatusBarColor(color = lineColor.value ?: Color.DarkGray)
+    rememberSystemUiController().setStatusBarColor(color = lineColor.value)
 
     val orderAscending = rememberSaveable { mutableStateOf(true) }
 
@@ -66,15 +66,17 @@ fun LineScreen(
     val buttonAngle by animateFloatAsState(if (orderAscending.value) 180f else 0f)
 
     TehScreen(
-        title = title.value ?: "",
-        color = lineColor.value ?: Color.DarkGray,
-        action = Action(
-            iconModifier = Modifier.rotate(buttonAngle),
-            icon = TehroIcons.SwapVert,
-            text = "",
-            onClick = {
-                orderAscending.value = !orderAscending.value
-            }
+        title = title.value,
+        color = lineColor.value,
+        actions = listOf(
+            Action(
+                iconModifier = Modifier.rotate(buttonAngle),
+                icon = TehroIcons.SwapVert,
+                text = "",
+                onClick = {
+                    orderAscending.value = !orderAscending.value
+                }
+            )
         )
     ) {
 
@@ -88,7 +90,7 @@ fun LineScreen(
             }
             is Resource.Success -> {
 
-                val list = stations.value?.data ?: ArrayList()
+                val list = stations.value.data ?: ArrayList()
 
                 val stationCount = list.size
 

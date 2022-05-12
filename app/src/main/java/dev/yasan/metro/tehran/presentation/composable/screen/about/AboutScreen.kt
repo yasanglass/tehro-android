@@ -33,9 +33,9 @@ fun AboutScreen(
     aboutViewModel: AboutViewModel
 ) {
 
-    val databaseInformation = aboutViewModel.databaseInformation.observeAsState()
-    val stats = aboutViewModel.stats.observeAsState()
-    val statsComplex = aboutViewModel.statsComplex.observeAsState()
+    val databaseInformation = aboutViewModel.databaseInformation.observeAsState(initial = Resource.Initial())
+    val stats = aboutViewModel.stats.observeAsState(initial = Resource.Initial())
+    val statsComplex = aboutViewModel.statsComplex.observeAsState(initial = Resource.Initial())
 
     TehScreen(
         title = stringResource(id = R.string.about),
@@ -61,7 +61,7 @@ fun AboutScreen(
         item {
             SegmentStats(
                 statsResource = stats.value,
-                databaseInformation = databaseInformation.value?.data
+                databaseInformation = databaseInformation.value.data
             )
             Spacer(modifier = Modifier.requiredHeight(grid(2)))
         }

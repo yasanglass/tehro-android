@@ -36,7 +36,7 @@ private const val TAG = "MapScreen"
 @Composable
 fun MapScreen(mapViewModel: MapViewModel) {
 
-    val isLoaded = mapViewModel.isLoaded.observeAsState()
+    val isLoaded = mapViewModel.isLoaded.observeAsState(initial = false)
 
     class MapEventListener : SubsamplingScaleImageView.OnImageEventListener {
 
@@ -94,7 +94,7 @@ fun MapScreen(mapViewModel: MapViewModel) {
             )
 
             androidx.compose.animation.AnimatedVisibility(
-                visible = isLoaded.value != true,
+                visible = !isLoaded.value,
                 enter = fadeIn(),
                 exit = fadeOut()
             ) {

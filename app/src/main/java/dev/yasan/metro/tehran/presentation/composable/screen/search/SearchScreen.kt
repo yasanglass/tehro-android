@@ -20,6 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import dev.yasan.kit.compose.foundation.grid
+import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.model.misc.LaunchSource
 import dev.yasan.metro.tehran.model.tehro.Line
@@ -45,10 +46,10 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
     val queryState = rememberSaveable { mutableStateOf("") }
     val groupEnabled = rememberSaveable { mutableStateOf(true) }
 
-    val results = viewModel.results.observeAsState()
-    val loading = viewModel.loading.observeAsState()
+    val results = viewModel.results.observeAsState(initial = Resource.Initial())
+    val loading = viewModel.loading.observeAsState(initial = true)
 
-    val resultsList = results.value?.data ?: emptyList()
+    val resultsList = results.value.data ?: emptyList()
 
     TehScreen(title = stringResource(id = R.string.search)) {
 
@@ -79,7 +80,7 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
 
         item {
             AnimatedVisibility(
-                visible = loading.value == true,
+                visible = loading.value,
                 enter = expandVertically() + fadeIn(),
                 exit = shrinkVertically() + fadeOut()
             ) {

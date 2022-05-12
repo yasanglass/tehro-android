@@ -126,8 +126,10 @@ fun StationScreenSuccess(
                         colorBorder = colorResource(id = R.color.text_title),
                         onClick = {
 
-                            val uri = "geo:${station.locationLatitude},${station.locationLongitude}"
-                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+                            val intent = Intent(
+                                Intent.ACTION_VIEW,
+                                Uri.parse("geo:${station.locationLatitude},${station.locationLongitude}?q=${station.locationLatitude},${station.locationLongitude}(${station.name})")
+                            )
 
                             try {
                                 context.startActivity(intent)

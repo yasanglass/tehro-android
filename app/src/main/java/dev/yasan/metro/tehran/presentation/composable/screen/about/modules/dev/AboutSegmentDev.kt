@@ -58,7 +58,7 @@ fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFamily) {
 
             AboutLinkButton(
                 icon = AboutIcons.twitterIcon(),
-                url = if (LocaleHelper.isFarsi) AboutLinks.URL_DEV_TWITTER_FA else AboutLinks.URL_DEV_TWITTER_EN,
+                url = AboutLinks.URL_DEV_TWITTER_EN,
                 contentDescription = stringResource(
                     id = R.string.twitter
                 ),

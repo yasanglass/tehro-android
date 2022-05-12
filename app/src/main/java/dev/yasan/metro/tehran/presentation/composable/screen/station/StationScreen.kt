@@ -22,7 +22,7 @@ fun StationScreen(
         stationViewModel.loadStation(stationId = stationId)
     }
 
-    val stationResource = stationViewModel.station.observeAsState()
+    val stationResource = stationViewModel.station.observeAsState(initial = Resource.Initial())
 
     when (stationResource.value) {
         is Resource.Initial -> {
@@ -34,7 +34,7 @@ fun StationScreen(
             }
         }
         is Resource.Success -> {
-            val station = stationResource.value!!.data!!
+            val station = stationResource.value.data!!
             StationScreenSuccess(
                 station = station,
                 navController = navController,

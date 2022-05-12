@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,7 +31,8 @@ fun TehScreen(
     title: String,
     color: Color = colorResource(id = R.color.layer_foreground),
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
-    action: Action? = null,
+    actions: List<Action> = emptyList(),
+    state: LazyListState = rememberLazyListState(),
     content: LazyListScope.() -> Unit
 ) {
 
@@ -43,7 +46,7 @@ fun TehScreen(
             title = title,
             colorBackground = color,
             fontFamily = fontFamily,
-            action = action
+            actions = actions
         )
 
         LazyColumn(
@@ -51,6 +54,7 @@ fun TehScreen(
                 .animateContentSize()
                 .fillMaxWidth()
                 .weight(1f),
+            state = state,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
