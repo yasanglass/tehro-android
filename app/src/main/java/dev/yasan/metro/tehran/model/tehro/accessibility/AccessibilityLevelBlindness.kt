@@ -1,7 +1,7 @@
 package dev.yasan.metro.tehran.model.tehro.accessibility
 
 import androidx.room.*
-import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import dev.yasan.metro.tehran.model.tehro.Station
 
 /**

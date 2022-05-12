@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.model.tehro
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import dev.yasan.metro.tehran.util.LocaleHelper
 import dev.yasan.metro.tehran.util.extension.toPersianNumbers
 import saman.zamani.persiandate.PersianDate

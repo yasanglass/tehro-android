@@ -1,7 +1,7 @@
 package dev.yasan.metro.tehran.model.tehro
 
 import androidx.room.*
-import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import kotlinx.parcelize.IgnoredOnParcel
 
 /**

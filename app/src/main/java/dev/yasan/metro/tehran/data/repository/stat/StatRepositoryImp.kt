@@ -1,7 +1,7 @@
 package dev.yasan.metro.tehran.data.repository.stat
 
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.dao.*
+import dev.yasan.metro.tehran.data.source.local.database.dao.*
 import dev.yasan.metro.tehran.model.tehro.Stat
 import dev.yasan.metro.tehran.model.tehro.StatComplex
 import dev.yasan.metro.tehran.domain.repository.station.StationRepository

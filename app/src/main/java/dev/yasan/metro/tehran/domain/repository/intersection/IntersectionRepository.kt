@@ -1,6 +1,6 @@
 package dev.yasan.metro.tehran.domain.repository.intersection
 
-import dev.yasan.metro.tehran.data.db.dao.IntersectionDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.IntersectionDAO
 import dev.yasan.metro.tehran.model.tehro.Intersection
 
 /**

@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.model.tehro.accessibility
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import dev.yasan.metro.tehran.model.tehro.Station
 
 /**

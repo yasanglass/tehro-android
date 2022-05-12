@@ -1,8 +1,8 @@
-package dev.yasan.metro.tehran.data.db
+package dev.yasan.metro.tehran.data.source.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import dev.yasan.metro.tehran.data.db.dao.*
+import dev.yasan.metro.tehran.data.source.local.database.dao.*
 import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel

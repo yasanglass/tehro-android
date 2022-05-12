@@ -7,7 +7,7 @@ import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import dev.yasan.metro.tehran.util.LocaleHelper
 import kotlinx.parcelize.IgnoredOnParcel
 

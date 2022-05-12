@@ -1,6 +1,6 @@
 package dev.yasan.metro.tehran.model.tehro
 
-import dev.yasan.metro.tehran.data.db.MetroDatabase
+import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 
 /**
  * This class represents the type of a [Line] based on the data on [MetroDatabase].
