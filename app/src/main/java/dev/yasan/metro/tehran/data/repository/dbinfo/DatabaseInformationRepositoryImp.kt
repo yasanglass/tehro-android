@@ -2,7 +2,7 @@ package dev.yasan.metro.tehran.data.repository.dbinfo
 
 import dev.yasan.metro.tehran.data.source.local.database.dao.DatabaseInformationDAO
 import dev.yasan.metro.tehran.domain.repository.dbinfo.DatabaseInformationRepository
-import dev.yasan.metro.tehran.model.tehro.DatabaseInformation
+import dev.yasan.metro.tehran.domain.entity.dbinfo.DatabaseInformation
 import javax.inject.Inject
 
 /**

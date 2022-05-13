@@ -1,9 +1,9 @@
 package dev.yasan.metro.tehran.domain.repository.accessibility
 
-import dev.yasan.metro.tehran.model.tehro.Station
-import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
-import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
-import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.domain.entity.station.Station
+import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.domain.entity.accessibility.WcAvailabilityLevel
 
 /**
  * Handles all data related to [Station] accessibility.

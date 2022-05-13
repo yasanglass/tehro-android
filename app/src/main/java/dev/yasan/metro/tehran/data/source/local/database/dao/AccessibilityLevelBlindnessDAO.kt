@@ -3,7 +3,7 @@ package dev.yasan.metro.tehran.data.source.local.database.dao
 import androidx.room.Dao
 import androidx.room.Query
 import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
-import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelBlindness
 
 /**
  * Data access object for [AccessibilityLevelBlindness].

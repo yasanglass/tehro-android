@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import dagger.hilt.android.AndroidEntryPoint
-import dev.yasan.metro.tehran.presentation.composable.TehroApp
+import dev.yasan.metro.tehran.presentation.compose.TehroApp
 
 /**
  * The main & only activity of Tehro.

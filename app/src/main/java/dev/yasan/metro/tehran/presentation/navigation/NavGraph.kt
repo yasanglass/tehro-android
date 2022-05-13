@@ -17,19 +17,19 @@ import com.google.accompanist.navigation.material.bottomSheet
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.model.misc.LaunchSource
-import dev.yasan.metro.tehran.presentation.composable.screen.about.AboutScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.about.AboutViewModel
-import dev.yasan.metro.tehran.presentation.composable.screen.home.HomeScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.home.HomeViewModel
-import dev.yasan.metro.tehran.presentation.composable.screen.line.LineScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.line.LineViewModel
-import dev.yasan.metro.tehran.presentation.composable.screen.map.MapScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.map.MapViewModel
-import dev.yasan.metro.tehran.presentation.composable.screen.search.SearchScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.search.SearchViewModel
-import dev.yasan.metro.tehran.presentation.composable.screen.station.StationScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.station.StationViewModel
+import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
+import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutViewModel
+import dev.yasan.metro.tehran.presentation.compose.screen.home.HomeScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.home.HomeViewModel
+import dev.yasan.metro.tehran.presentation.compose.screen.line.LineScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.line.LineViewModel
+import dev.yasan.metro.tehran.presentation.compose.screen.map.MapScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.map.MapViewModel
+import dev.yasan.metro.tehran.presentation.compose.screen.search.SearchScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.search.SearchViewModel
+import dev.yasan.metro.tehran.presentation.compose.screen.station.StationScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.station.StationViewModel
 
 /**
  * The main navigation graph for Tehro.

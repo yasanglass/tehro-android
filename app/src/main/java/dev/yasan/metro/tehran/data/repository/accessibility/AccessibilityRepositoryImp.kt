@@ -4,9 +4,9 @@ import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelB
 import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelWheelchairDAO
 import dev.yasan.metro.tehran.data.source.local.database.dao.WcAvailabilityLevelDAO
 import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
-import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelBlindness
-import dev.yasan.metro.tehran.model.tehro.accessibility.AccessibilityLevelWheelchair
-import dev.yasan.metro.tehran.model.tehro.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelBlindness
+import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelWheelchair
+import dev.yasan.metro.tehran.domain.entity.accessibility.WcAvailabilityLevel
 import javax.inject.Inject
 
 /**

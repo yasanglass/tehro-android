@@ -1,13 +1,13 @@
 package dev.yasan.metro.tehran.presentation.navigation
 
-import dev.yasan.metro.tehran.model.misc.LaunchSource
-import dev.yasan.metro.tehran.model.tehro.Line
-import dev.yasan.metro.tehran.model.tehro.Station
-import dev.yasan.metro.tehran.presentation.composable.screen.home.HomeScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.line.LineScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.map.MapScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.search.SearchScreen
-import dev.yasan.metro.tehran.presentation.composable.screen.station.StationScreen
+import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
+import dev.yasan.metro.tehran.domain.entity.line.Line
+import dev.yasan.metro.tehran.domain.entity.station.Station
+import dev.yasan.metro.tehran.presentation.compose.screen.home.HomeScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.line.LineScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.map.MapScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.search.SearchScreen
+import dev.yasan.metro.tehran.presentation.compose.screen.station.StationScreen
 
 /**
  * Handles all the navigation routes used on [NavGraph].
