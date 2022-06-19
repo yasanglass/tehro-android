@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
@@ -46,7 +47,8 @@ fun StationItem(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     launchSource: LaunchSource,
     onClickExtra: () -> Unit = {},
-    forceFarsi: Boolean = false
+    forceFarsi: Boolean = false,
+    distance: Int? = null
 ) {
 
     val hasInterchange = station.intersection != null
@@ -98,14 +100,28 @@ fun StationItem(
             Spacer(modifier = Modifier.requiredWidth(grid(2)))
         }
 
-        Text(
+        Column(
             modifier = Modifier.weight(1f),
-            text = if (forceFarsi) station.nameFa else station.name,
-            color = colorForeground,
-            fontFamily = fontFamily,
-            fontWeight = FontWeight.Bold,
-            fontSize = 16.sp,
-        )
+        ) {
+            Text(
+                text = if (forceFarsi) station.nameFa else station.name,
+                color = colorForeground,
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp,
+            )
+            distance?.let {
+                val isClose = it < 1000
+                val distanceText = if (isClose) "$it meters away" else "${it / 1000} kilometers away"
+                Text(
+                    text = distanceText,
+                    color = colorForeground,
+                    fontFamily = fontFamily,
+                    fontWeight = if (isClose) FontWeight.Bold else FontWeight.Light,
+                    fontSize = 12.sp,
+                )
+            }
+        }
 
         if (hasInterchange) {
             Spacer(modifier = Modifier.requiredWidth(grid(2)))
