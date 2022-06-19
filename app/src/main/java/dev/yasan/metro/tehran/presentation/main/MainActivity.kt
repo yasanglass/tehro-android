@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import dagger.hilt.android.AndroidEntryPoint
 import dev.yasan.metro.tehran.presentation.compose.TehroApp
@@ -27,3 +29,6 @@ class MainActivity : ComponentActivity() {
     }
 
 }
+
+@Composable
+fun mainActivity() = LocalContext.current as MainActivity
