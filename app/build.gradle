@@ -75,7 +75,7 @@ advancedVersioning.renameOutputApk()
 
 dependencies {
     // YASAN Development Kit
-    implementation 'com.github.yasan-org:ydk-android:f31915d6d8'
+    implementation 'com.github.yasan-org:ydk-android:1.1.0'
 
     // Misc
     implementation 'androidx.core:core-ktx:1.7.0'
