@@ -3,6 +3,7 @@ package dev.yasan.metro.tehran.presentation.composable.common.teh
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import dev.yasan.metro.tehran.presentation.compose.common.teh.TehFooter
 import dev.yasan.metro.tehran.presentation.main.MainActivity
 import org.junit.Rule
 import org.junit.Test
