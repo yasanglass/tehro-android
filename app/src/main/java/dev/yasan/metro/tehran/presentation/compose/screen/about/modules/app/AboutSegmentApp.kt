@@ -35,6 +35,7 @@ import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehDivider
 import dev.yasan.metro.tehran.presentation.compose.preview.PreviewDataHolder
 import dev.yasan.metro.tehran.presentation.compose.preview.provider.dbinfo.DatabaseInformationPreviewProvider
+import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
 import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.AboutLinks
 import kotlinx.coroutines.delay
 

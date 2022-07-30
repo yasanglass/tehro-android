@@ -19,9 +19,7 @@ import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.parts.branding.YasanBrandingFooter
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.AboutIcons
-import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.AboutLinkButton
-import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.AboutLinks
+import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 
@@ -48,55 +46,6 @@ fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFamily) {
             color = colorResource(id = R.color.text_title),
             textAlign = TextAlign.Center
         )
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-            AboutLinkButton(
-                icon = AboutIcons.twitterIcon(),
-                url = AboutLinks.URL_DEV_TWITTER_EN,
-                contentDescription = stringResource(
-                    id = R.string.twitter
-                ),
-            )
-
-            AboutLinkButton(
-                icon = AboutIcons.telegramIcon(),
-                url = AboutLinks.URL_DEV_TELEGRAM,
-                contentDescription = stringResource(
-                    id = R.string.telegram_channel
-                ),
-            )
-
-            AboutLinkButton(
-                icon = AboutIcons.mediumIcon(),
-                url = AboutLinks.URL_DEV_MEDIUM,
-                contentDescription = stringResource(
-                    id = R.string.medium
-                ),
-            )
-
-            AboutLinkButton(
-                icon = AboutIcons.discordIcon(),
-                url = AboutLinks.URL_DEV_DISCORD,
-                contentDescription = stringResource(
-                    id = R.string.discord_server
-                ),
-            )
-
-            AboutLinkButton(
-                icon = AboutIcons.instagramIcon(),
-                url = AboutLinks.URL_DEV_INSTAGRAM,
-                contentDescription = stringResource(
-                    id = R.string.instagram
-                ),
-            )
-        }
-
-        Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
         Divider(modifier = Modifier.background(color = colorResource(id = R.color.divider)))
     }
