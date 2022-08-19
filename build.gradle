@@ -10,7 +10,7 @@ buildscript {
         compose_version = '1.2.1'
         accompanist_version = '0.25.1'
         lifecycle_version = '2.5.1'
-        mockito_version = '2.28.3'
+        mockito_version = '2.28.1'
         junit_version = '4.13.2'
     }
     repositories {
