@@ -22,7 +22,6 @@ import androidx.navigation.NavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehFooter
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehProgress
@@ -30,6 +29,7 @@ import dev.yasan.metro.tehran.presentation.compose.common.teh.TehScreen
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehSwitchable
 import dev.yasan.metro.tehran.presentation.compose.screen.line.modules.StationItem
 import dev.yasan.metro.tehran.presentation.compose.screen.search.modules.SearchField
+import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 
 @OptIn(
@@ -66,7 +66,6 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                     focusManager.clearFocus()
                 }
             )
-
         }
 
         item {
@@ -111,13 +110,14 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                         modifier = Modifier
                             .padding(horizontal = grid(2))
                             .padding(top = grid(2), bottom = grid()),
-                        text = (group.key?.getFullName(context = context)
-                            ?: stringResource(id = R.string.line)).uppercase(),
+                        text = (
+                            group.key?.getFullName(context = context)
+                                ?: stringResource(id = R.string.line)
+                            ).uppercase(),
                         color = colorResource(id = R.color.text_title),
                         fontFamily = LocaleHelper.properFontFamily,
                         fontWeight = FontWeight.Bold
                     )
-
                 }
 
                 items(
@@ -135,9 +135,7 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                         }
                     )
                 }
-
             }
-
         } else {
 
             items(
@@ -155,7 +153,6 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                     }
                 )
             }
-
         }
 
         item {
@@ -177,9 +174,5 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                 TehFooter(text = stringResource(R.string.n_stations, resultsList.size))
             }
         }
-
     }
-
 }
-
-

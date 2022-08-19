@@ -235,7 +235,7 @@ object PreviewDataHolder {
             descriptionFa = "فاقد مسیر نابینایان",
         ),
         AccessibilityLevelBlindness(
-            id =2,
+            id = 2,
             descriptionEn = "Accessible to the visually impaired on platforms only",
             descriptionFa = "دارای مسیر نابینابان در سکو\u200Cها",
         ),
@@ -250,7 +250,7 @@ object PreviewDataHolder {
             descriptionFa = "فاقد مسیر نابینایان",
         ),
         AccessibilityLevelWheelchair(
-            id =2,
+            id = 2,
             descriptionEn = "Accessible to the visually impaired on platforms only",
             descriptionFa = "دارای مسیر نابینابان در سکو\u200Cها",
         ),
@@ -275,5 +275,4 @@ object PreviewDataHolder {
             descriptionFa = "دارای سرویس بهداشتی در کنار ایستگاه",
         ),
     )
-
 }

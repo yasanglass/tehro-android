@@ -29,15 +29,15 @@ import androidx.navigation.compose.rememberNavController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.domain.entity.station.Station
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
+import dev.yasan.metro.tehran.presentation.compose.preview.provider.station.StationPreviewProvider
 import dev.yasan.metro.tehran.presentation.compose.screen.station.modules.accessibility.AccessibilityEmsIndicator
 import dev.yasan.metro.tehran.presentation.compose.screen.station.modules.accessibility.AccessibilityIndicator
 import dev.yasan.metro.tehran.presentation.navigation.Navigator
-import dev.yasan.metro.tehran.presentation.compose.preview.provider.station.StationPreviewProvider
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
+import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 
 @Composable
@@ -70,7 +70,6 @@ fun StationScreenSuccess(
                     tint = colorResource(id = R.color.text_title)
                 )
             }
-
         }
 
         item {
@@ -84,7 +83,6 @@ fun StationScreenSuccess(
                 fontWeight = FontWeight.Bold,
                 fontSize = 22.sp
             )
-
         }
 
         item {
@@ -112,9 +110,7 @@ fun StationScreenSuccess(
                             modifier = Modifier.padding(bottom = grid(2)),
                             accessibility = it
                         )
-
                     }
-
                 }
 
                 if (station.hasLocation) {
@@ -140,12 +136,10 @@ fun StationScreenSuccess(
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
-
                         }
                     )
 
                     Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
                 }
 
                 if (launchSource == LaunchSource.SEARCH) {
@@ -168,9 +162,7 @@ fun StationScreenSuccess(
                         )
 
                         Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
                     }
-
                 }
 
                 station.intersection?.let { intersection ->
@@ -193,13 +185,9 @@ fun StationScreenSuccess(
                         )
 
                         Spacer(modifier = Modifier.requiredHeight(grid(2)))
-
                     }
-
                 }
-
             }
-
         }
     }
 }

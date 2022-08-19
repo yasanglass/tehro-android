@@ -8,5 +8,4 @@ import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 data class StatComplex(val titleEn: String, val titleFa: String, val value: Any? = null) {
 
     val title = if (LocaleHelper.isFarsi) titleFa else titleEn
-
 }

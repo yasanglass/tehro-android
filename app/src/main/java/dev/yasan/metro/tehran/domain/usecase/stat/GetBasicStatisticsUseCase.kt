@@ -8,5 +8,4 @@ class GetBasicStatisticsUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke() = statRepository.getBasicStatistics()
-
 }

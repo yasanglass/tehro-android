@@ -10,5 +10,4 @@ import dev.yasan.metro.tehran.presentation.compose.preview.PreviewDataHolder
 class StationListPreviewProvider : PreviewParameterProvider<List<Station>> {
 
     override val values = sequenceOf(PreviewDataHolder.lineSixStations.toList())
-
 }

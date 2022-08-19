@@ -10,5 +10,4 @@ import dev.yasan.metro.tehran.presentation.compose.preview.PreviewDataHolder
 class StationAccessibilityPreviewProvider : PreviewParameterProvider<AccessibilityLevel> {
 
     override val values = PreviewDataHolder.accessibilityLevels
-
 }

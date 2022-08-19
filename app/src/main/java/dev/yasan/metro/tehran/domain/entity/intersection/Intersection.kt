@@ -2,8 +2,8 @@ package dev.yasan.metro.tehran.domain.entity.intersection
 
 import androidx.room.*
 import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
-import dev.yasan.metro.tehran.domain.entity.station.Station
 import dev.yasan.metro.tehran.domain.entity.line.Line
+import dev.yasan.metro.tehran.domain.entity.station.Station
 import kotlinx.parcelize.IgnoredOnParcel
 
 /**

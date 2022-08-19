@@ -8,8 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.domain.usecase.line.GetLinesListUseCase
 import dev.yasan.metro.tehran.domain.entity.line.Line
+import dev.yasan.metro.tehran.domain.usecase.line.GetLinesListUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -41,5 +41,4 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
-
 }

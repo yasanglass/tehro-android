@@ -10,5 +10,4 @@ import dev.yasan.metro.tehran.presentation.compose.preview.PreviewDataHolder
 class LinePreviewProvider : PreviewParameterProvider<Line> {
 
     override val values = PreviewDataHolder.lines
-
 }

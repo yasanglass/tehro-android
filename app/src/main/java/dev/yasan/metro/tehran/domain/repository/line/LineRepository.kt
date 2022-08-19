@@ -21,5 +21,4 @@ interface LineRepository {
      * @see LineDAO
      */
     suspend fun getLine(lineId: Int): Line?
-
 }

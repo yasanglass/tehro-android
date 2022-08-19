@@ -2,9 +2,9 @@ package dev.yasan.metro.tehran.presentation.navigation
 
 import android.util.Log
 import androidx.navigation.NavController
-import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.presentation.compose.screen.line.LineScreen
+import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 
 /**
  * Navigation helper object.
@@ -37,5 +37,4 @@ object Navigator {
             }
         }
     }
-
 }

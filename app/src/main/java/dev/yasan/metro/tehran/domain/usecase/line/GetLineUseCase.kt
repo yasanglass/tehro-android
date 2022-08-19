@@ -8,5 +8,4 @@ class GetLineUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(lineId: Int) = lineRepository.getLine(lineId = lineId)
-
 }

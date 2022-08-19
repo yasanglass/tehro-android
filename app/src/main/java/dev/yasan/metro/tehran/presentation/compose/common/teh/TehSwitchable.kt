@@ -53,7 +53,7 @@ fun TehSwitchable(
                         checkedState.value = !checkedState.value
                         setter(checkedState.value)
                     } else if (!disabledReason.isNullOrBlank()) {
-                         Toast
+                        Toast
                             .makeText(context, disabledReason, Toast.LENGTH_SHORT)
                             .show()
                     }

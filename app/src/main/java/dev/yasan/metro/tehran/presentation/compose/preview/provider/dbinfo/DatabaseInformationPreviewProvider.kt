@@ -10,5 +10,4 @@ import dev.yasan.metro.tehran.presentation.compose.preview.PreviewDataHolder
 class DatabaseInformationPreviewProvider : PreviewParameterProvider<DatabaseInformation?> {
 
     override val values = sequenceOf(PreviewDataHolder.databaseInformation, null)
-
 }

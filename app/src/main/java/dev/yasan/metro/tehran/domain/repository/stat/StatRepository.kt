@@ -17,5 +17,4 @@ interface StatRepository {
      * @return A list of all complex statistics about the database.
      */
     suspend fun getComplexStatistics(): List<StatComplex>
-
 }

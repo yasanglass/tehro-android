@@ -30,5 +30,4 @@ interface IntersectionDAO {
      */
     @Query("SELECT * FROM intersections WHERE :stationId IN(station_a, station_b)")
     suspend fun getByStationId(stationId: Int): Intersection?
-
 }

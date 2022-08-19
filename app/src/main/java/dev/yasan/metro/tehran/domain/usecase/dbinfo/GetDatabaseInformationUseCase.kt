@@ -8,5 +8,4 @@ class GetDatabaseInformationUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke() = databaseInformationRepository.getInformation()
-
 }

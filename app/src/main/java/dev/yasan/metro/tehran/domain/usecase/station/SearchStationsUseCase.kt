@@ -9,5 +9,4 @@ class SearchStationsUseCase @Inject constructor(
 
     suspend operator fun invoke(query: String, complete: Boolean) =
         stationRepository.searchStations(query = query, complete = complete)
-
 }

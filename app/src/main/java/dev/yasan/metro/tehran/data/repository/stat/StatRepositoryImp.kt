@@ -4,9 +4,9 @@ import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.data.source.local.database.dao.*
 import dev.yasan.metro.tehran.domain.entity.stat.Stat
 import dev.yasan.metro.tehran.domain.entity.stat.StatComplex
-import dev.yasan.metro.tehran.domain.repository.station.StationRepository
 import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
 import dev.yasan.metro.tehran.domain.repository.stat.StatRepository
+import dev.yasan.metro.tehran.domain.repository.station.StationRepository
 import javax.inject.Inject
 
 /**
@@ -38,7 +38,6 @@ class StatRepositoryImp @Inject constructor(
             Stat(titleStringResourceId = R.string.intersections, intersectionCount),
             Stat(titleStringResourceId = R.string.lines, lineCount),
         )
-
     }
 
     override suspend fun getComplexStatistics(): List<StatComplex> {
@@ -140,7 +139,6 @@ class StatRepositoryImp @Inject constructor(
 
         return list
     }
-
 }
 
 fun toPercentage(value: Int, total: Int): String =

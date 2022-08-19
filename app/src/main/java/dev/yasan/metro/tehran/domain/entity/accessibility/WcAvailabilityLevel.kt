@@ -21,5 +21,3 @@ class WcAvailabilityLevel(
     descriptionFa = descriptionFa,
     maxValue = 3
 )
-
-

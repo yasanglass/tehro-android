@@ -24,5 +24,4 @@ interface AccessibilityLevelWheelchairDAO {
      */
     @Query("SELECT * FROM stations_accessibility_wheelchair_levels WHERE id=:id")
     suspend fun getById(id: Int): AccessibilityLevelWheelchair?
-
 }

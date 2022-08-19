@@ -52,5 +52,4 @@ interface StationRepository {
     suspend fun fetchAdditionalStationData(stations: List<Station>): List<Station>
 
     suspend fun searchStations(complete: Boolean, query: String): List<Station>
-
 }

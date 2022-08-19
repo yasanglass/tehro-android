@@ -1,8 +1,8 @@
 package dev.yasan.metro.tehran.data.repository.line
 
 import dev.yasan.metro.tehran.data.source.local.database.dao.LineDAO
-import dev.yasan.metro.tehran.domain.repository.line.LineRepository
 import dev.yasan.metro.tehran.domain.entity.line.Line
+import dev.yasan.metro.tehran.domain.repository.line.LineRepository
 import javax.inject.Inject
 
 /**
@@ -19,5 +19,4 @@ class LineRepositoryImp @Inject constructor(
     override suspend fun getLine(lineId: Int): Line? {
         return lineDAO.getById(lineId = lineId)
     }
-
 }

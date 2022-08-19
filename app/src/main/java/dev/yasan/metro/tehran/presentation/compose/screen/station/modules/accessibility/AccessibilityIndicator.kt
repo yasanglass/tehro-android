@@ -93,7 +93,6 @@ fun AccessibilityIndicator(
                     tint = colorResource(id = R.color.text_title)
                 )
             }
-
         }
     }
 }
@@ -142,5 +141,3 @@ private fun AccessibilityIndicatorPreviewFa(
         forceFarsi = true
     )
 }
-
-

@@ -117,9 +117,7 @@ fun SegmentStats(
                         color = colorResource(id = R.color.text_desc),
                         textAlign = TextAlign.Center
                     )
-
                 }
-
             }
             else -> {
                 TehProgress()
@@ -128,6 +126,5 @@ fun SegmentStats(
 
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
         TehDivider()
-
     }
 }

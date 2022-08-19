@@ -1,9 +1,9 @@
 package dev.yasan.metro.tehran.domain.repository.accessibility
 
-import dev.yasan.metro.tehran.domain.entity.station.Station
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.domain.entity.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.domain.entity.station.Station
 
 /**
  * Handles all data related to [Station] accessibility.
@@ -39,5 +39,4 @@ interface AccessibilityRepository {
      * @return An [WcAvailabilityLevel] with the matching id if any exist.
      */
     suspend fun getWcAvailabilityLevelById(levelId: Int): WcAvailabilityLevel?
-
 }

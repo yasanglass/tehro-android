@@ -21,8 +21,6 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.presentation.util.entity.Action
-import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.domain.entity.station.Station
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehError
@@ -33,6 +31,8 @@ import dev.yasan.metro.tehran.presentation.compose.screen.line.modules.StationIt
 import dev.yasan.metro.tehran.presentation.navigation.NavGraph
 import dev.yasan.metro.tehran.presentation.navigation.NavRoutes
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
+import dev.yasan.metro.tehran.presentation.util.entity.Action
+import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 
 /**
  * This screen shows the detailed data for a single [Line] which mainly includes the list of [Station]s inside it.

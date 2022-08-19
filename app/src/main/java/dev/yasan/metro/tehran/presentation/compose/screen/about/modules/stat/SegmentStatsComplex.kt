@@ -76,7 +76,6 @@ fun SegmentStatsComplex(
                     fontFamily = fontFamily,
                     forceFarsi = forceFarsi
                 )
-
             }
             else -> {
                 TehProgress()
@@ -85,6 +84,5 @@ fun SegmentStatsComplex(
 
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
         TehDivider()
-
     }
 }

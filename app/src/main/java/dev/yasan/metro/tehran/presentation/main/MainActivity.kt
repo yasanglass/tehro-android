@@ -18,7 +18,8 @@ import dev.yasan.metro.tehran.presentation.compose.TehroApp
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @OptIn(ExperimentalMaterialNavigationApi::class,
+    @OptIn(
+        ExperimentalMaterialNavigationApi::class,
         ExperimentalAnimationApi::class
     )
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,6 @@ class MainActivity : ComponentActivity() {
             TehroApp()
         }
     }
-
 }
 
 @Composable

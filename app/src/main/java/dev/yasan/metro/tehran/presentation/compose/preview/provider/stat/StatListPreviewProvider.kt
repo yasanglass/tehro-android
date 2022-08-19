@@ -16,5 +16,4 @@ class StatListPreviewProvider : PreviewParameterProvider<List<Stat>> {
             Stat(R.string.intersections, 75),
         )
     )
-
 }

@@ -34,7 +34,5 @@ data class DatabaseInformation(
         } else {
             "$lastModifiedYear-$lastModifiedMonth-$lastModifiedDay"
         }
-
     }
-
 }

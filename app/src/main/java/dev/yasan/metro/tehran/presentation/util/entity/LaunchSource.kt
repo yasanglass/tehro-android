@@ -15,7 +15,5 @@ enum class LaunchSource {
     companion object {
 
         fun fromInt(int: Int) = LaunchSource.values().getOrNull(int) ?: INVALID
-
     }
-
 }

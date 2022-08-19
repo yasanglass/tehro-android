@@ -9,5 +9,4 @@ class GetStationsListUseCase @Inject constructor(
 
     suspend operator fun invoke(lineId: Int, complete: Boolean = false) =
         stationRepository.getStations(lineId = lineId, complete = complete)
-
 }

@@ -50,5 +50,4 @@ data class Line(
         }
         return mName
     }
-
 }

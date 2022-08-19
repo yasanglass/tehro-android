@@ -3,10 +3,10 @@ package dev.yasan.metro.tehran.data.repository.accessibility
 import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelBlindnessDAO
 import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelWheelchairDAO
 import dev.yasan.metro.tehran.data.source.local.database.dao.WcAvailabilityLevelDAO
-import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.domain.entity.accessibility.WcAvailabilityLevel
+import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
 import javax.inject.Inject
 
 /**
@@ -41,5 +41,4 @@ class AccessibilityRepositoryImp @Inject constructor(
     override suspend fun getWcAvailabilityLevelById(levelId: Int): WcAvailabilityLevel? {
         return wcAvailabilityLevelDAO.getById(id = levelId)
     }
-
 }

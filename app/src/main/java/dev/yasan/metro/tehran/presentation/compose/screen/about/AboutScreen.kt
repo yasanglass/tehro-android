@@ -82,7 +82,6 @@ fun AboutScreen(
         item {
             Spacer(modifier = Modifier.requiredHeight(grid(2)))
         }
-
     }
 
     DisposableEffect(key1 = aboutViewModel) {
@@ -96,8 +95,6 @@ fun AboutScreen(
             aboutViewModel.loadComplexStats()
         }
         onDispose {
-
         }
     }
-
 }

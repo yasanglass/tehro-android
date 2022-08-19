@@ -7,20 +7,20 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.yasan.kit.core.DispatcherProvider
+import dev.yasan.metro.tehran.data.repository.accessibility.AccessibilityRepositoryImp
+import dev.yasan.metro.tehran.data.repository.dbinfo.DatabaseInformationRepositoryImp
+import dev.yasan.metro.tehran.data.repository.intersection.IntersectionRepositoryImp
+import dev.yasan.metro.tehran.data.repository.line.LineRepositoryImp
+import dev.yasan.metro.tehran.data.repository.stat.StatRepositoryImp
+import dev.yasan.metro.tehran.data.repository.station.StationRepositoryImp
 import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import dev.yasan.metro.tehran.data.source.local.database.dao.*
-import dev.yasan.metro.tehran.domain.repository.dbinfo.DatabaseInformationRepository
-import dev.yasan.metro.tehran.data.repository.dbinfo.DatabaseInformationRepositoryImp
-import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository
-import dev.yasan.metro.tehran.data.repository.intersection.IntersectionRepositoryImp
-import dev.yasan.metro.tehran.domain.repository.line.LineRepository
-import dev.yasan.metro.tehran.data.repository.line.LineRepositoryImp
-import dev.yasan.metro.tehran.domain.repository.stat.StatRepository
-import dev.yasan.metro.tehran.data.repository.stat.StatRepositoryImp
-import dev.yasan.metro.tehran.domain.repository.station.StationRepository
-import dev.yasan.metro.tehran.data.repository.station.StationRepositoryImp
 import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
-import dev.yasan.metro.tehran.data.repository.accessibility.AccessibilityRepositoryImp
+import dev.yasan.metro.tehran.domain.repository.dbinfo.DatabaseInformationRepository
+import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository
+import dev.yasan.metro.tehran.domain.repository.line.LineRepository
+import dev.yasan.metro.tehran.domain.repository.stat.StatRepository
+import dev.yasan.metro.tehran.domain.repository.station.StationRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
@@ -136,7 +136,4 @@ class ApplicationModule {
             stationRepository = stationRepository,
             accessibilityRepository = accessibilityRepository
         )
-
 }
-
-

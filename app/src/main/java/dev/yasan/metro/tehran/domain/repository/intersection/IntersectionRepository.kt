@@ -21,5 +21,4 @@ interface IntersectionRepository {
      * @see IntersectionDAO
      */
     suspend fun getIntersectionByStationId(stationId: Int): Intersection?
-
 }

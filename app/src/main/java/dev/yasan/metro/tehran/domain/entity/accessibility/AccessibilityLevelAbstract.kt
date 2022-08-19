@@ -47,5 +47,4 @@ abstract class AccessibilityLevel(
      */
     fun description(forceFarsi: Boolean = false): String =
         if (LocaleHelper.isFarsi || forceFarsi) descriptionFa else descriptionEn
-
 }

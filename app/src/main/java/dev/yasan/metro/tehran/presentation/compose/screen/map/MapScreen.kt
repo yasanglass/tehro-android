@@ -100,7 +100,6 @@ fun MapScreen(mapViewModel: MapViewModel) {
             ) {
                 TehProgress()
             }
-
         }
     }
 }

@@ -40,6 +40,4 @@ abstract class MetroDatabase : RoomDatabase() {
     abstract fun wcAvailabilityLevelDAO(): WcAvailabilityLevelDAO
 
     class CallBack @Inject constructor() : RoomDatabase.Callback()
-
 }
-

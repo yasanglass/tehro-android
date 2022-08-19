@@ -136,10 +136,10 @@ data class Station(
             nameFa.contains("راه‌آهن") -> TehroIcons.Train
             nameFa.contains("گلشهر") -> TehroIcons.LocalFlorist
             nameFa.contains("رودکی") ||
-                    nameFa.contains("مولوی") ||
-                    nameFa.contains("فردوسی") ||
-                    nameFa.contains("خیام") ||
-                    nameFa.contains("سعدی") -> TehroIcons.HistoryEdu
+                nameFa.contains("مولوی") ||
+                nameFa.contains("فردوسی") ||
+                nameFa.contains("خیام") ||
+                nameFa.contains("سعدی") -> TehroIcons.HistoryEdu
             nameFa.contains("میدان") -> TehroIcons.TripOrigin
             nameFa.contains("فرودگاه") -> TehroIcons.LocalAirport
             nameFa.contains("خرداد") || nameFa.contains("هفتم تیر") -> TehroIcons.Event
@@ -147,5 +147,4 @@ data class Station(
             else -> null
         }
     }
-
 }

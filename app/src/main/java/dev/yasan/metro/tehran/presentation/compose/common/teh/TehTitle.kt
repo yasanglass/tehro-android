@@ -81,7 +81,6 @@ fun TehTitle(
         }
         TehDivider()
     }
-
 }
 
 @Preview(name = "Teh Title (En)", group = "Base (Day)", locale = "en", uiMode = UI_MODE_NIGHT_NO)

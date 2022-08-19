@@ -59,8 +59,6 @@ fun TehScreen(
         ) {
 
             content()
-
         }
     }
-
 }

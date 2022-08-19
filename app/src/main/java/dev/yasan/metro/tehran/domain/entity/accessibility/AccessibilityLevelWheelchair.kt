@@ -17,11 +17,9 @@ class AccessibilityLevelWheelchair(
     @ColumnInfo(name = "id") override val id: Int,
     @ColumnInfo(name = "description_en") override val descriptionEn: String,
     @ColumnInfo(name = "description_fa") override val descriptionFa: String,
-): AccessibilityLevel(
+) : AccessibilityLevel(
     id = id,
     descriptionEn = descriptionEn,
     descriptionFa = descriptionFa,
     maxValue = 5
 )
-
-

@@ -9,5 +9,4 @@ object AboutLinks {
 
     const val URL_APP_GITHUB = "https://github.com/yasan-org/tehro-android"
     const val URL_DATABASE_GITHUB = "https://github.com/yasan-org/tehro-database"
-
 }

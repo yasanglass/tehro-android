@@ -1,8 +1,8 @@
 package dev.yasan.metro.tehran.data.repository.intersection
 
 import dev.yasan.metro.tehran.data.source.local.database.dao.IntersectionDAO
-import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository
 import dev.yasan.metro.tehran.domain.entity.intersection.Intersection
+import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository
 import javax.inject.Inject
 
 /**
@@ -19,5 +19,4 @@ class IntersectionRepositoryImp @Inject constructor(
     override suspend fun getIntersectionByStationId(stationId: Int): Intersection? {
         return intersectionDAO.getByStationId(stationId = stationId)
     }
-
 }

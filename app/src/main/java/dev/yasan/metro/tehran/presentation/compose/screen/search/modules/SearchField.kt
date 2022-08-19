@@ -132,12 +132,10 @@ fun SearchField(
         )
 
         TehDivider()
-
     }
 
     DisposableEffect(Unit) {
         focusRequester.requestFocus()
         onDispose { }
     }
-
 }

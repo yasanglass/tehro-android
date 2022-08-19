@@ -8,5 +8,4 @@ class GetComplexStatisticsUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke() = statRepository.getComplexStatistics()
-
 }

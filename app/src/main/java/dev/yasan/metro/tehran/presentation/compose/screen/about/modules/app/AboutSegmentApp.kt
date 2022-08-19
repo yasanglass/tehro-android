@@ -28,15 +28,15 @@ import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.dbinfo.DatabaseInformation
-import dev.yasan.metro.tehran.presentation.theme.TehroIcons
-import dev.yasan.metro.tehran.presentation.theme.vazirFamily
-import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehDivider
 import dev.yasan.metro.tehran.presentation.compose.preview.PreviewDataHolder
 import dev.yasan.metro.tehran.presentation.compose.preview.provider.dbinfo.DatabaseInformationPreviewProvider
 import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
 import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.AboutLinks
+import dev.yasan.metro.tehran.presentation.theme.TehroIcons
+import dev.yasan.metro.tehran.presentation.theme.vazirFamily
+import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 import kotlinx.coroutines.delay
 
 /**
@@ -135,7 +135,6 @@ fun AboutSegmentApp(
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
         TehDivider()
-
     }
 }
 

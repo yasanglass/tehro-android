@@ -8,12 +8,12 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.domain.usecase.dbinfo.GetDatabaseInformationUseCase
-import dev.yasan.metro.tehran.domain.usecase.stat.GetBasicStatisticsUseCase
-import dev.yasan.metro.tehran.domain.usecase.stat.GetComplexStatisticsUseCase
 import dev.yasan.metro.tehran.domain.entity.dbinfo.DatabaseInformation
 import dev.yasan.metro.tehran.domain.entity.stat.Stat
 import dev.yasan.metro.tehran.domain.entity.stat.StatComplex
+import dev.yasan.metro.tehran.domain.usecase.dbinfo.GetDatabaseInformationUseCase
+import dev.yasan.metro.tehran.domain.usecase.stat.GetBasicStatisticsUseCase
+import dev.yasan.metro.tehran.domain.usecase.stat.GetComplexStatisticsUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -37,7 +37,7 @@ class AboutViewModel @Inject constructor(
     private var _databaseInformation = MutableLiveData<Resource<DatabaseInformation>>(Resource.Initial())
     val databaseInformation: LiveData<Resource<DatabaseInformation>> get() = _databaseInformation
 
-     fun loadDatabaseInformation() {
+    fun loadDatabaseInformation() {
         viewModelScope.launch(dispatchers.io) {
             _databaseInformation.postValue(Resource.Loading())
             val data = getDatabaseInformationUseCase()
@@ -52,7 +52,7 @@ class AboutViewModel @Inject constructor(
     private var _stats = MutableLiveData<Resource<List<Stat>>>(Resource.Initial())
     val stats: LiveData<Resource<List<Stat>>> get() = _stats
 
-     fun loadBasicStats() {
+    fun loadBasicStats() {
         viewModelScope.launch(dispatchers.io) {
             _stats.postValue(Resource.Loading())
             val data = getBasicStatisticsUseCase()
@@ -78,5 +78,4 @@ class AboutViewModel @Inject constructor(
             }
         }
     }
-
 }

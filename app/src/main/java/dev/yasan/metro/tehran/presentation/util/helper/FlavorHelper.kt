@@ -26,5 +26,4 @@ object FlavorHelper {
             else -> context.getString(R.string.unknown)
         }
     }
-
 }

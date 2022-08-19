@@ -24,5 +24,4 @@ interface WcAvailabilityLevelDAO {
      */
     @Query("SELECT * FROM stations_wc_availability_levels WHERE id=:id")
     suspend fun getById(id: Int): WcAvailabilityLevel?
-
 }

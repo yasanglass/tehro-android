@@ -17,7 +17,6 @@ import com.google.accompanist.navigation.material.bottomSheet
 import com.google.accompanist.navigation.material.rememberBottomSheetNavigator
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
 import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutViewModel
 import dev.yasan.metro.tehran.presentation.compose.screen.home.HomeScreen
@@ -30,6 +29,7 @@ import dev.yasan.metro.tehran.presentation.compose.screen.search.SearchScreen
 import dev.yasan.metro.tehran.presentation.compose.screen.search.SearchViewModel
 import dev.yasan.metro.tehran.presentation.compose.screen.station.StationScreen
 import dev.yasan.metro.tehran.presentation.compose.screen.station.StationViewModel
+import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 
 /**
  * The main navigation graph for Tehro.
@@ -99,7 +99,6 @@ fun NavGraph(
                     navController = navController,
                     lineId = lineId
                 )
-
             }
 
             composable(route = NavRoutes.routeSearch()) {
@@ -109,7 +108,6 @@ fun NavGraph(
                 val searchViewModel: SearchViewModel = hiltViewModel(it)
 
                 SearchScreen(viewModel = searchViewModel, navController = navController)
-
             }
 
             composable(route = NavRoutes.routeMap()) {
@@ -155,9 +153,7 @@ fun NavGraph(
                     stationId = stationId,
                     launchSource = LaunchSource.fromInt(launchSource)
                 )
-
             }
-
         }
     }
 }

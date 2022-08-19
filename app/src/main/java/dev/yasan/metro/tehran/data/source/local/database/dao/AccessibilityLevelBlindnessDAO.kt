@@ -24,5 +24,4 @@ interface AccessibilityLevelBlindnessDAO {
      */
     @Query("SELECT * FROM stations_accessibility_blindness_levels WHERE id=:id")
     suspend fun getById(id: Int): AccessibilityLevelBlindness?
-
 }
