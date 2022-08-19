@@ -40,6 +40,7 @@ jobs:
         run: cat ./app/build/reports/detekt/detekt.md >> $GITHUB_STEP_SUMMARY
 
   unit_tests:
+    needs: [ detekt ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -66,6 +67,7 @@ jobs:
         run: ./gradlew test
 
   android_tests:
+    needs: [ detekt ]
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
