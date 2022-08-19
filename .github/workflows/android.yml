@@ -124,7 +124,7 @@ jobs:
           path: app/build/outputs/apk/*/debug/*.apk
 
   assemble_release:
-    needs: [ assemble_debug ]
+    needs: [ unit_tests, android_tests ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
