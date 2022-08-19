@@ -1,6 +1,10 @@
 package dev.yasan.metro.tehran.domain.entity.intersection
 
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Ignore
+import androidx.room.PrimaryKey
 import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.domain.entity.station.Station
@@ -18,12 +22,13 @@ import kotlinx.parcelize.IgnoredOnParcel
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("station_a"),
             onDelete = ForeignKey.NO_ACTION
-        ), ForeignKey(
+        ),
+        ForeignKey(
             entity = Station::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("station_b"),
             onDelete = ForeignKey.NO_ACTION
-        )
+        ),
     ],
 )
 data class Intersection(

@@ -5,7 +5,11 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -28,7 +32,9 @@ import androidx.compose.ui.unit.sp
 import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.presentation.theme.*
+import dev.yasan.metro.tehran.presentation.theme.TehroIcons
+import dev.yasan.metro.tehran.presentation.theme.dimenDivider
+import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 import dev.yasan.metro.tehran.presentation.util.helper.extension.getTextOnColor
 

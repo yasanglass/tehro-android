@@ -1,6 +1,7 @@
 package dev.yasan.metro.tehran.presentation.compose.screen.about
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.livedata.observeAsState

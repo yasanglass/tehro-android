@@ -1,13 +1,16 @@
 package dev.yasan.metro.tehran.presentation.compose.common.teh
 
 import android.widget.Toast
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material.Checkbox
+import androidx.compose.material.Icon
+import androidx.compose.material.Switch
+import androidx.compose.material.SwitchDefaults
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -28,7 +31,6 @@ enum class TehSwitchableType {
     SWITCH, CHECKBOX
 }
 
-@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun TehSwitchable(
     title: String,
@@ -64,7 +66,7 @@ fun TehSwitchable(
         ) {
             if (icon != null) {
                 Icon(
-                    icon,
+                    imageVector = icon,
                     contentDescription = title,
                     tint = colorResource(id = R.color.text_title),
                     modifier = Modifier.padding(end = grid(2))

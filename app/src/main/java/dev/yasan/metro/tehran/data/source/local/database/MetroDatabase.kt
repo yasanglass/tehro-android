@@ -2,7 +2,13 @@ package dev.yasan.metro.tehran.data.source.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import dev.yasan.metro.tehran.data.source.local.database.dao.*
+import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelBlindnessDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelWheelchairDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.DatabaseInformationDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.IntersectionDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.LineDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.StationDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.WcAvailabilityLevelDAO
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelBlindness
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelWheelchair
 import dev.yasan.metro.tehran.domain.entity.accessibility.WcAvailabilityLevel

@@ -18,7 +18,11 @@ import dev.yasan.kit.compose.foundation.grid
 import dev.yasan.kit.compose.parts.branding.YasanBrandingFooter
 import dev.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
-import dev.yasan.metro.tehran.presentation.compose.common.teh.*
+import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
+import dev.yasan.metro.tehran.presentation.compose.common.teh.TehError
+import dev.yasan.metro.tehran.presentation.compose.common.teh.TehProgress
+import dev.yasan.metro.tehran.presentation.compose.common.teh.TehScreen
+import dev.yasan.metro.tehran.presentation.compose.common.teh.TehSegmentTitle
 import dev.yasan.metro.tehran.presentation.compose.screen.home.modules.AppVersionFooter
 import dev.yasan.metro.tehran.presentation.compose.screen.home.modules.HomeButton
 import dev.yasan.metro.tehran.presentation.compose.screen.home.modules.LineItem

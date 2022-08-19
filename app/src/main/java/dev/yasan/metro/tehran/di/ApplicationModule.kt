@@ -14,7 +14,13 @@ import dev.yasan.metro.tehran.data.repository.line.LineRepositoryImp
 import dev.yasan.metro.tehran.data.repository.stat.StatRepositoryImp
 import dev.yasan.metro.tehran.data.repository.station.StationRepositoryImp
 import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
-import dev.yasan.metro.tehran.data.source.local.database.dao.*
+import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelBlindnessDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.AccessibilityLevelWheelchairDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.DatabaseInformationDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.IntersectionDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.LineDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.StationDAO
+import dev.yasan.metro.tehran.data.source.local.database.dao.WcAvailabilityLevelDAO
 import dev.yasan.metro.tehran.domain.repository.accessibility.AccessibilityRepository
 import dev.yasan.metro.tehran.domain.repository.dbinfo.DatabaseInformationRepository
 import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionRepository

@@ -27,7 +27,8 @@ import dev.yasan.metro.tehran.presentation.util.helper.extension.toPersianNumber
 fun AppVersionFooter(
     fontFamily: FontFamily = LocaleHelper.properFontFamily
 ) {
-    val versionName = if (LocaleHelper.isFarsi) BuildConfig.VERSION_NAME.toPersianNumbers() else BuildConfig.VERSION_NAME
+    val versionName =
+        if (LocaleHelper.isFarsi) BuildConfig.VERSION_NAME.toPersianNumbers() else BuildConfig.VERSION_NAME
     val flavorName = FlavorHelper.getFlavorName(context = LocalContext.current)
     TehFooter(
         text = "${stringResource(id = R.string.app_name)} ${stringResource(id = R.string.version_prefix)}$versionName   ·   $flavorName",

@@ -1,6 +1,8 @@
 package dev.yasan.metro.tehran.domain.entity.accessibility
 
-import androidx.room.*
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import dev.yasan.metro.tehran.data.source.local.database.MetroDatabase
 import dev.yasan.metro.tehran.domain.entity.station.Station
 
