@@ -2,12 +2,37 @@ name: Android CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, telemetry ]
   pull_request:
   workflow_dispatch:
 
 jobs:
+
+  detekt:
+    name: "Detekt"
+    runs-on: [ self-hosted ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run detekt
+        run: ./gradlew detekt
+
+      - name: Add Detekt report
+        if: success() || failure()
+        run: cat ./app/build/reports/detekt/detekt.md >> $GITHUB_STEP_SUMMARY
+
+      - name: Push Detekt autocorrect 
+        if: failure() && github.event_name != 'pull_request'
+        run: |
+          git remote set-url origin git@github.com:yasan-org/tehro-android.git
+          git add .
+          git commit -m "Detekt auto correct"
+          git push origin 
+
   unit_tests:
+    name: "Tests"
+    needs: [ detekt ]
     runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v2
@@ -34,6 +59,8 @@ jobs:
         run: ./gradlew test
 
   android_tests:
+    name: "Instrumented Tests"
+    needs: [ detekt ]
     runs-on: [ macos-latest ]
     steps:
       - uses: actions/checkout@v2
@@ -97,7 +124,7 @@ jobs:
           path: app/build/outputs/apk/*/debug/*.apk
 
   assemble_release:
-    needs: [ unit_tests, android_tests ]
+    needs: [ assemble_debug ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
