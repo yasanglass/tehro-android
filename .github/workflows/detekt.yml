@@ -1,0 +1,29 @@
+name: Detekt
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  detekt:
+    name: Detekt
+    runs-on: [ self-hosted ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Run detekt
+        run: ./gradlew detekt
+
+      - name: Add Detekt report
+        if: success() || failure()
+        run: cat ./build/reports/detekt/detekt.md >> $GITHUB_STEP_SUMMARY
+
+      - name: Push Detekt autocorrect 
+        if: failure() && github.repository_owner == 'yasan-org'
+        run: |
+          git remote set-url origin git@github.com:yasan-org/tehro-android.git
+          git add .
+          git commit -m "Detekt auto correct"
+          git push origin
