@@ -18,8 +18,8 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.core.Resource
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.stat.StatComplex
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehDivider

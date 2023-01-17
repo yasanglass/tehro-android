@@ -22,14 +22,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.compose.preview.bool.BooleanPreviewProvider
-import dev.yasan.kit.compose.type.rubikFamily
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.theme.dimenDivider
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.para.bool.ParaBoolean
 
 /**
  * Composable function that presents EMS availability of a station.
@@ -97,7 +97,7 @@ fun AccessibilityEmsIndicator(
 )
 @Composable
 private fun AccessibilityEmsIndicatorPreviewEn(
-    @PreviewParameter(BooleanPreviewProvider::class) available: Boolean
+    @PreviewParameter(ParaBoolean::class) available: Boolean
 ) {
     AccessibilityEmsIndicator(
         emergencyMedicalServices = available,
@@ -119,7 +119,7 @@ private fun AccessibilityEmsIndicatorPreviewEn(
 )
 @Composable
 private fun AccessibilityEmsIndicatorPreviewFa(
-    @PreviewParameter(BooleanPreviewProvider::class) available: Boolean
+    @PreviewParameter(ParaBoolean::class) available: Boolean
 ) {
     AccessibilityEmsIndicator(
         emergencyMedicalServices = available,

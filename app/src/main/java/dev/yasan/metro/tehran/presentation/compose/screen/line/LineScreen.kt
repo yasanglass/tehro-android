@@ -18,8 +18,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.core.Resource
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.domain.entity.station.Station

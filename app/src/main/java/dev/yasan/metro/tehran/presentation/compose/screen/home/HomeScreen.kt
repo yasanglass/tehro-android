@@ -14,9 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.compose.parts.branding.YasanBrandingFooter
-import dev.yasan.kit.core.Resource
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehError
@@ -31,6 +30,7 @@ import dev.yasan.metro.tehran.presentation.navigation.NavRoutes
 import dev.yasan.metro.tehran.presentation.navigation.Navigator
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.util.entity.Action
+import glass.yasan.kit.compose.components.YasanBrandingFooter
 
 /**
  * The Main/home screen of Tehro. This is the first navigation route that the users see.

@@ -23,8 +23,8 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
-import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.core.Resource
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehFooter

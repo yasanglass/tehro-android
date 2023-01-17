@@ -8,8 +8,8 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
-import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.core.Resource
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.BuildConfig
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehFooter

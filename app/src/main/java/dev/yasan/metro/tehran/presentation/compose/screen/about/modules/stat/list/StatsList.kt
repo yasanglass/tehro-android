@@ -17,8 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import dev.yasan.kit.compose.foundation.grid
-import dev.yasan.kit.compose.type.rubikFamily
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.stat.Stat
 import dev.yasan.metro.tehran.presentation.compose.preview.provider.stat.StatListPreviewProvider

@@ -6,7 +6,6 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.yasan.kit.core.DispatcherProvider
 import dev.yasan.metro.tehran.data.repository.accessibility.AccessibilityRepositoryImp
 import dev.yasan.metro.tehran.data.repository.dbinfo.DatabaseInformationRepositoryImp
 import dev.yasan.metro.tehran.data.repository.intersection.IntersectionRepositoryImp
@@ -27,6 +26,7 @@ import dev.yasan.metro.tehran.domain.repository.intersection.IntersectionReposit
 import dev.yasan.metro.tehran.domain.repository.line.LineRepository
 import dev.yasan.metro.tehran.domain.repository.stat.StatRepository
 import dev.yasan.metro.tehran.domain.repository.station.StationRepository
+import glass.yasan.kit.core.DispatcherProvider
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
