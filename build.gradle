@@ -1,7 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        detekt_version = '1.22.0'
         room_version = '2.5.0'
         coil_version = '2.2.2'
         hilt_version = '2.44.2'
