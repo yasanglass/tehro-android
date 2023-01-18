@@ -3,12 +3,12 @@ package dev.yasan.metro.tehran.presentation.compose.screen.station
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.navigation.NavController
-import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehError
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehErrorType
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehProgress
 import dev.yasan.metro.tehran.presentation.compose.screen.station.modules.StationScreenSuccess
 import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
+import glass.yasan.kit.core.Resource
 
 @Composable
 fun StationScreen(
@@ -17,7 +17,6 @@ fun StationScreen(
     stationId: Int,
     launchSource: LaunchSource
 ) {
-
     fun loadData() {
         stationViewModel.loadStation(stationId = stationId)
     }

@@ -20,9 +20,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.core.Resource
-import glass.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.dbinfo.DatabaseInformation
 import dev.yasan.metro.tehran.domain.entity.stat.Stat
@@ -34,6 +31,9 @@ import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.AboutLin
 import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.stat.list.StatsList
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
+import glass.yasan.kit.core.WebHelper
 
 /**
  * A segment of [AboutScreen] that shows information about the app.
@@ -45,7 +45,6 @@ fun SegmentStats(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
-
     val context = LocalContext.current
 
     Column(
@@ -55,7 +54,6 @@ fun SegmentStats(
             .background(color = colorResource(id = R.color.layer_foreground)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Text(
             modifier = Modifier.padding(grid(2)),
             text = stringResource(R.string.database).uppercase(),
@@ -80,7 +78,6 @@ fun SegmentStats(
                 )
             }
             is Resource.Success -> {
-
                 val stats = statsResource.data ?: emptyList()
 
                 StatsList(

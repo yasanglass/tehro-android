@@ -32,12 +32,12 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehDivider
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -47,11 +47,9 @@ fun SearchField(
     onValueChange: (String) -> Unit,
     onDone: () -> Unit,
 ) {
-
     val focusRequester = remember { FocusRequester() }
 
     Column(modifier = modifier) {
-
         OutlinedTextField(
             modifier = Modifier
                 .background(

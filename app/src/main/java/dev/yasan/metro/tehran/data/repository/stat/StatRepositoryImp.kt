@@ -42,7 +42,6 @@ class StatRepositoryImp @Inject constructor(
     }
 
     override suspend fun getComplexStatistics(): List<StatComplex> {
-
         // FIXME Adjust the return type to support resourceIds
 
         val stations =

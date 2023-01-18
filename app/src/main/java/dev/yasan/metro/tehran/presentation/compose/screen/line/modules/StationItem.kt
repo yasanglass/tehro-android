@@ -25,8 +25,6 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.station.Station
 import dev.yasan.metro.tehran.presentation.compose.preview.provider.station.StationListPreviewProvider
@@ -38,6 +36,8 @@ import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 import dev.yasan.metro.tehran.presentation.util.helper.extension.getTextOnColor
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 
 private const val TAG = "StationItem"
 
@@ -54,7 +54,6 @@ fun StationItem(
     onClickExtra: () -> Unit = {},
     forceFarsi: Boolean = false
 ) {
-
     val hasInterchange = station.intersection != null
     val oppositeLineColor = station.intersection?.getOppositeLine(stationId = station.id)?.color
 
@@ -94,7 +93,6 @@ fun StationItem(
             .padding(vertical = grid(1.25f)),
         verticalAlignment = Alignment.CenterVertically
     ) {
-
         station.getIcon()?.let {
             Icon(
                 imageVector = it,

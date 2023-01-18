@@ -16,11 +16,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 
 /**
  * Tehro-themed segment title. Similar to [TehTitle] but has no background.

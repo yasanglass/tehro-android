@@ -23,8 +23,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehFooter
@@ -35,6 +33,8 @@ import dev.yasan.metro.tehran.presentation.compose.screen.line.modules.StationIt
 import dev.yasan.metro.tehran.presentation.compose.screen.search.modules.SearchField
 import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 
 @OptIn(
     ExperimentalComposeUiApi::class,
@@ -42,7 +42,6 @@ import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 )
 @Composable
 fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
-
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusManager = LocalFocusManager.current
@@ -56,9 +55,7 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
     val resultsList = results.value.data ?: emptyList()
 
     TehScreen(title = stringResource(id = R.string.search)) {
-
         stickyHeader {
-
             SearchField(
                 value = queryState.value,
                 onValueChange = {
@@ -102,14 +99,12 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
         }
 
         if (groupEnabled.value) {
-
             val groupedResults = resultsList.groupBy { it.line }
                 .toSortedMap(compareBy<Line?> { it?.id ?: 0 }.thenBy { it?.name ?: "" })
 
             groupedResults.forEach { group ->
 
                 item {
-
                     Text(
                         modifier = Modifier
                             .padding(horizontal = grid(2))
@@ -141,7 +136,6 @@ fun SearchScreen(viewModel: SearchViewModel, navController: NavController) {
                 }
             }
         } else {
-
             items(
                 items = resultsList,
                 key = { station -> station.id }

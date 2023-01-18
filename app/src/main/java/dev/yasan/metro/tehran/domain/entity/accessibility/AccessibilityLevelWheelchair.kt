@@ -14,7 +14,8 @@ import dev.yasan.metro.tehran.domain.entity.station.Station
 @Entity(tableName = "stations_accessibility_wheelchair_levels")
 class AccessibilityLevelWheelchair(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "id") override val id: Int,
+    @ColumnInfo(name = "id")
+    override val id: Int,
     @ColumnInfo(name = "description_en") override val descriptionEn: String,
     @ColumnInfo(name = "description_fa") override val descriptionFa: String,
 ) : AccessibilityLevel(

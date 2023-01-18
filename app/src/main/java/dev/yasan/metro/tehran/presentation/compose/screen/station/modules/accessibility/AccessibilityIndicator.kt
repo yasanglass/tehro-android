@@ -24,8 +24,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevel
 import dev.yasan.metro.tehran.domain.entity.accessibility.AccessibilityLevelBlindness
@@ -36,6 +34,8 @@ import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.theme.dimenDivider
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 
 /**
  * Composable function that presents a level-based [AccessibilityLevel] object.
@@ -47,7 +47,6 @@ fun AccessibilityIndicator(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
-
     val paddingSize = grid(2)
 
     val icon = when (accessibility) {
@@ -63,7 +62,6 @@ fun AccessibilityIndicator(
             .background(color = colorResource(id = R.color.layer_midground))
             .border(width = dimenDivider, color = colorResource(id = R.color.divider))
     ) {
-
         Row(
             modifier = Modifier
                 .fillMaxWidth()

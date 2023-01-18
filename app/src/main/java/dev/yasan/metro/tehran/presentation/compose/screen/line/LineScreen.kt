@@ -18,8 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.domain.entity.station.Station
@@ -33,6 +31,8 @@ import dev.yasan.metro.tehran.presentation.navigation.NavRoutes
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.util.entity.Action
 import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 
 /**
  * This screen shows the detailed data for a single [Line] which mainly includes the list of [Station]s inside it.
@@ -48,7 +48,6 @@ fun LineScreen(
     navController: NavController,
     lineId: Int,
 ) {
-
     val title = lineViewModel.title.observeAsState(initial = "")
     val lineColor = lineViewModel.lineColor.observeAsState(initial = Color.DarkGray)
     val stations = lineViewModel.stations.observeAsState(initial = Resource.Initial())
@@ -79,7 +78,6 @@ fun LineScreen(
             )
         )
     ) {
-
         when (stations.value) {
             is Resource.Error -> {
                 item {
@@ -89,7 +87,6 @@ fun LineScreen(
                 }
             }
             is Resource.Success -> {
-
                 val list = stations.value.data ?: ArrayList()
 
                 val stationCount = list.size

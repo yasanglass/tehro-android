@@ -18,8 +18,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.stat.StatComplex
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehDivider
@@ -27,6 +25,8 @@ import dev.yasan.metro.tehran.presentation.compose.common.teh.TehProgress
 import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
 import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.stat.list.StatComplexList
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 
 /**
  * A segment of [AboutScreen] that shows information about the app.
@@ -37,7 +37,6 @@ fun SegmentStatsComplex(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     forceFarsi: Boolean = false
 ) {
-
     Column(
         modifier = Modifier
             .animateContentSize()
@@ -45,7 +44,6 @@ fun SegmentStatsComplex(
             .background(color = colorResource(id = R.color.layer_foreground)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Text(
             modifier = Modifier.padding(grid(2)),
             text = stringResource(R.string.statistics).uppercase(),
@@ -57,7 +55,6 @@ fun SegmentStatsComplex(
         )
 
         when (statsComplexResource) {
-
             is Resource.Error -> {
                 Text(
                     modifier = Modifier.padding(grid(2)),
@@ -72,7 +69,6 @@ fun SegmentStatsComplex(
             }
 
             is Resource.Success -> {
-
                 val statsComplex = statsComplexResource.data ?: emptyList()
 
                 StatComplexList(

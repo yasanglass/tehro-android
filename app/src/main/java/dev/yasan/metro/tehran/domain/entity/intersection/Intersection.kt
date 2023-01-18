@@ -33,7 +33,8 @@ import kotlinx.parcelize.IgnoredOnParcel
 )
 data class Intersection(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "id")
+    val id: Int,
     @ColumnInfo(name = "station_a", index = true) val stationIdA: Int,
     @ColumnInfo(name = "station_b", index = true) val stationIdB: Int,
 ) {
@@ -58,7 +59,10 @@ data class Intersection(
      * @see stationB
      */
     fun getOppositeLine(stationId: Int): Line? {
-        return if (stationId == stationIdA) stationB?.line
-        else stationA?.line
+        return if (stationId == stationIdA) {
+            stationB?.line
+        } else {
+            stationA?.line
+        }
     }
 }

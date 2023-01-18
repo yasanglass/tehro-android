@@ -26,17 +26,20 @@ class StationRepositoryImp @Inject constructor(
         complete: Boolean,
         removeDuplicate: Boolean
     ): List<Station> {
-        val stations: ArrayList<Station> = if (complete || removeDuplicate)
+        val stations: ArrayList<Station> = if (complete || removeDuplicate) {
             fetchAdditionalStationData(stations = stationDAO.getAll()) as ArrayList
-        else stationDAO.getAll() as ArrayList
+        } else {
+            stationDAO.getAll() as ArrayList
+        }
 
         if (!removeDuplicate) return stations
 
         val distinctStations = ArrayList<Station>()
 
         stations.forEach { station ->
-            if (distinctStations.none { it.nameEn == station.nameEn })
+            if (distinctStations.none { it.nameEn == station.nameEn }) {
                 distinctStations.add(station)
+            }
         }
 
         return distinctStations
@@ -44,18 +47,23 @@ class StationRepositoryImp @Inject constructor(
 
     override suspend fun getStations(lineId: Int, complete: Boolean): List<Station> {
         val stations = stationDAO.getByLineId(lineId = lineId)
-        return if (complete) fetchAdditionalStationData(stations = stations)
-        else stations
+        return if (complete) {
+            fetchAdditionalStationData(stations = stations)
+        } else {
+            stations
+        }
     }
 
     override suspend fun getStation(stationId: Int, complete: Boolean): Station? {
         val station = stationDAO.getById(stationId = stationId)
-        return if (station == null || !complete) station
-        else fetchAdditionalStationData(station = station)
+        return if (station == null || !complete) {
+            station
+        } else {
+            fetchAdditionalStationData(station = station)
+        }
     }
 
     override suspend fun fetchAdditionalStationData(station: Station): Station {
-
         station.line = lineRepository.getLine(lineId = station.lineId)
 
         intersectionRepository.getIntersectionByStationId(stationId = station.id)
@@ -100,7 +108,10 @@ class StationRepositoryImp @Inject constructor(
 
     override suspend fun searchStations(complete: Boolean, query: String): List<Station> {
         val stations = stationDAO.search(query = query)
-        return if (complete) fetchAdditionalStationData(stations = stations)
-        else stations
+        return if (complete) {
+            fetchAdditionalStationData(stations = stations)
+        } else {
+            stations
+        }
     }
 }

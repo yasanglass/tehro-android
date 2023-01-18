@@ -34,9 +34,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
-import glass.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.dbinfo.DatabaseInformation
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
@@ -48,6 +45,9 @@ import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.AboutLin
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
+import glass.yasan.kit.core.WebHelper
 import kotlinx.coroutines.delay
 
 /**
@@ -57,7 +57,6 @@ import kotlinx.coroutines.delay
 fun AboutSegmentApp(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
 ) {
-
     val context = LocalContext.current
 
     val lineColors = PreviewDataHolder.lineColors
@@ -86,7 +85,6 @@ fun AboutSegmentApp(
             .background(color = colorResource(id = R.color.layer_foreground)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()

@@ -30,8 +30,6 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.station.Station
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
@@ -43,6 +41,8 @@ import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 
 @Composable
 fun StationScreenSuccess(
@@ -52,7 +52,6 @@ fun StationScreenSuccess(
     launchSource: LaunchSource,
     forceFarsi: Boolean = false
 ) {
-
     val context = LocalContext.current
 
     LazyColumn(
@@ -61,9 +60,7 @@ fun StationScreenSuccess(
             .background(color = colorResource(id = R.color.layer_foreground)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         item {
-
             station.getIcon()?.let {
                 Icon(
                     modifier = Modifier
@@ -77,7 +74,6 @@ fun StationScreenSuccess(
         }
 
         item {
-
             Text(
                 modifier = Modifier.padding(grid(2)),
                 text = if (forceFarsi) station.nameFa else station.name,
@@ -90,13 +86,11 @@ fun StationScreenSuccess(
         }
 
         item {
-
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = grid(2))
             ) {
-
                 AccessibilityEmsIndicator(
                     modifier = Modifier.padding(bottom = grid(2)),
                     emergencyMedicalServices = station.hasEmergencyMedicalServices
@@ -109,7 +103,6 @@ fun StationScreenSuccess(
                 ).forEach { accessibility ->
 
                     accessibility?.let {
-
                         AccessibilityIndicator(
                             modifier = Modifier.padding(bottom = grid(2)),
                             accessibility = it
@@ -118,17 +111,17 @@ fun StationScreenSuccess(
                 }
 
                 if (station.hasLocation) {
-
                     TehButton(
                         modifier = Modifier.fillMaxWidth(),
                         title = stringResource(R.string.view_on_map),
                         icon = TehroIcons.Map,
                         colorBorder = colorResource(id = R.color.text_title),
                         onClick = {
-
                             val intent = Intent(
                                 Intent.ACTION_VIEW,
-                                Uri.parse("geo:${station.locationLatitude},${station.locationLongitude}?q=${station.locationLatitude},${station.locationLongitude}(${station.name})")
+                                Uri.parse(
+                                    "geo:${station.locationLatitude},${station.locationLongitude}?q=${station.locationLatitude},${station.locationLongitude}(${station.name})"
+                                )
                             )
 
                             try {
@@ -147,7 +140,6 @@ fun StationScreenSuccess(
                 }
 
                 if (launchSource == LaunchSource.SEARCH) {
-
                     station.line?.let { line ->
 
                         TehButton(

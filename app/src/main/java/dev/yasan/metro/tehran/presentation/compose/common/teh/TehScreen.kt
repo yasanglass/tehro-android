@@ -35,13 +35,11 @@ fun TehScreen(
     state: LazyListState = rememberLazyListState(),
     content: LazyListScope.() -> Unit
 ) {
-
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(color = colorResource(id = R.color.layer_midground))
     ) {
-
         TehTitle(
             title = title,
             colorBackground = color,
@@ -57,7 +55,6 @@ fun TehScreen(
             state = state,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
             content()
         }
     }

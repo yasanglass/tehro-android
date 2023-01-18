@@ -24,7 +24,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.line.Line
 import dev.yasan.metro.tehran.presentation.compose.preview.provider.line.LinePreviewProvider
@@ -32,6 +31,7 @@ import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.entity.Action
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 import dev.yasan.metro.tehran.presentation.util.helper.extension.getTextOnColor
+import glass.yasan.kit.compose.foundation.grid
 
 /**
  * Tehro-themed screen title.

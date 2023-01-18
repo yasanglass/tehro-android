@@ -14,8 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehButton
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehError
@@ -31,6 +29,8 @@ import dev.yasan.metro.tehran.presentation.navigation.Navigator
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.util.entity.Action
 import glass.yasan.kit.compose.components.YasanBrandingFooter
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 
 /**
  * The Main/home screen of Tehro. This is the first navigation route that the users see.
@@ -43,7 +43,6 @@ fun HomeScreen(
     homeViewModel: HomeViewModel,
     navController: NavController
 ) {
-
     val lines = homeViewModel.lines.observeAsState(initial = Resource.Initial())
 
     LaunchedEffect(key1 = lines.value) {
@@ -64,7 +63,6 @@ fun HomeScreen(
             )
         )
     ) {
-
         when (lines.value) {
             is Resource.Error -> {
                 item {
@@ -74,7 +72,6 @@ fun HomeScreen(
                 }
             }
             is Resource.Success -> {
-
                 val list = lines.value.data ?: ArrayList()
 
                 item {

@@ -22,13 +22,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.theme.dimenDivider
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 import glass.yasan.para.bool.ParaBoolean
 
 /**
@@ -40,7 +40,6 @@ fun AccessibilityEmsIndicator(
     emergencyMedicalServices: Boolean,
     fontFamily: FontFamily = LocaleHelper.properFontFamily
 ) {
-
     val paddingSize = grid(2)
 
     Column(
@@ -49,7 +48,6 @@ fun AccessibilityEmsIndicator(
             .background(color = colorResource(id = R.color.layer_midground))
             .border(width = dimenDivider, color = colorResource(id = R.color.divider))
     ) {
-
         val text =
             stringResource(id = if (emergencyMedicalServices) R.string.ems_available else R.string.ems_unavailable)
 

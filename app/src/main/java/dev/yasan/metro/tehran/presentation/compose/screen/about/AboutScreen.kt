@@ -8,8 +8,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.BuildConfig
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.compose.common.teh.TehFooter
@@ -21,6 +19,8 @@ import dev.yasan.metro.tehran.presentation.compose.screen.about.modules.stat.Seg
 import dev.yasan.metro.tehran.presentation.navigation.NavGraph
 import dev.yasan.metro.tehran.presentation.navigation.NavRoutes
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.Resource
 
 /**
  * The about screen. Shows information about the app & the developer(s).
@@ -33,7 +33,6 @@ fun AboutScreen(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     aboutViewModel: AboutViewModel
 ) {
-
     val databaseInformation = aboutViewModel.databaseInformation.observeAsState(initial = Resource.Initial())
     val stats = aboutViewModel.stats.observeAsState(initial = Resource.Initial())
     val statsComplex = aboutViewModel.statsComplex.observeAsState(initial = Resource.Initial())
@@ -42,7 +41,6 @@ fun AboutScreen(
         title = stringResource(id = R.string.about),
         fontFamily = fontFamily
     ) {
-
         item {
             AboutSegmentApp()
         }
@@ -77,7 +75,9 @@ fun AboutScreen(
         }
 
         item {
-            TehFooter(text = "${BuildConfig.VERSION_NAME} - ${BuildConfig.VERSION_CODE} - ${BuildConfig.FLAVOR} - ${BuildConfig.BUILD_TYPE}")
+            TehFooter(
+                text = "${BuildConfig.VERSION_NAME} - ${BuildConfig.VERSION_CODE} - ${BuildConfig.FLAVOR} - ${BuildConfig.BUILD_TYPE}"
+            )
         }
 
         item {

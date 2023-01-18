@@ -12,10 +12,10 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.core.WebHelper
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.core.WebHelper
 
 /**
  * A simple composable that shows a clickable icon. Meant to be used on [AboutScreen].

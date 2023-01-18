@@ -35,7 +35,6 @@ private const val TAG = "MapScreen"
 @ExperimentalAnimationApi
 @Composable
 fun MapScreen(mapViewModel: MapViewModel) {
-
     val isLoaded = mapViewModel.isLoaded.observeAsState(initial = false)
 
     class MapEventListener : SubsamplingScaleImageView.OnImageEventListener {
@@ -71,7 +70,6 @@ fun MapScreen(mapViewModel: MapViewModel) {
             .fillMaxSize()
             .background(colorResource(id = R.color.layer_midground))
     ) {
-
         TehTitle(title = stringResource(id = R.string.map))
 
         Box(
@@ -80,7 +78,6 @@ fun MapScreen(mapViewModel: MapViewModel) {
                 .weight(1f),
             contentAlignment = Alignment.Center
         ) {
-
             AndroidView(
                 modifier = Modifier.fillMaxSize(),
                 factory = {

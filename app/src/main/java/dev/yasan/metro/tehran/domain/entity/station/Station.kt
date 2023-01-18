@@ -75,7 +75,8 @@ import kotlinx.parcelize.IgnoredOnParcel
 )
 data class Station(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "id")
+    val id: Int,
     @ColumnInfo(name = "name_fa") val nameFa: String,
     @ColumnInfo(name = "name_en") val nameEn: String,
     @ColumnInfo(name = "line_id", index = true) val lineId: Int,

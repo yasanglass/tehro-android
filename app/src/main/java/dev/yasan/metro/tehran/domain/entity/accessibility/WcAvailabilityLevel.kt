@@ -12,7 +12,8 @@ import dev.yasan.metro.tehran.domain.entity.station.Station
 @Entity(tableName = "stations_wc_availability_levels")
 class WcAvailabilityLevel(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "id") override val id: Int,
+    @ColumnInfo(name = "id")
+    override val id: Int,
     @ColumnInfo(name = "description_en") override val descriptionEn: String,
     @ColumnInfo(name = "description_fa") override val descriptionFa: String,
 ) : AccessibilityLevel(

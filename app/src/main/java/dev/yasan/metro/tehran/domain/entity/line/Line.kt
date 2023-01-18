@@ -18,7 +18,8 @@ import kotlinx.parcelize.IgnoredOnParcel
 @Entity(tableName = "lines")
 data class Line(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "id")
+    val id: Int,
     @ColumnInfo(name = "name_fa") val nameFa: String,
     @ColumnInfo(name = "name_en") val nameEn: String,
     @ColumnInfo(name = "color") val colorHex: String?,
@@ -30,8 +31,11 @@ data class Line(
     val type = LineType.fromInt(typeInt)
 
     val color: Color
-        get() = if (!colorHex.isNullOrBlank())
-            Color(android.graphics.Color.parseColor("#$colorHex")) else Color.DarkGray
+        get() = if (!colorHex.isNullOrBlank()) {
+            Color(android.graphics.Color.parseColor("#$colorHex"))
+        } else {
+            Color.DarkGray
+        }
 
     /**
      * The proper name based on the device's default language.

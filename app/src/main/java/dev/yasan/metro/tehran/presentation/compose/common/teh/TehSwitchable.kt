@@ -24,8 +24,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
 import dev.yasan.metro.tehran.R
+import glass.yasan.kit.compose.foundation.grid
 
 enum class TehSwitchableType {
     SWITCH, CHECKBOX
@@ -43,7 +43,6 @@ fun TehSwitchable(
     enabled: Boolean = true,
     disabledReason: String? = null,
 ) {
-
     val context = LocalContext.current
     val checkedState: MutableState<Boolean> = remember { mutableStateOf(getter()) }
 

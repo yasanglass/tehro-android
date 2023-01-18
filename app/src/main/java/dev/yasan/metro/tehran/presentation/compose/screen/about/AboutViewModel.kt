@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import glass.yasan.kit.core.DispatcherProvider
-import glass.yasan.kit.core.Resource
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.dbinfo.DatabaseInformation
 import dev.yasan.metro.tehran.domain.entity.stat.Stat
@@ -14,6 +12,8 @@ import dev.yasan.metro.tehran.domain.entity.stat.StatComplex
 import dev.yasan.metro.tehran.domain.usecase.dbinfo.GetDatabaseInformationUseCase
 import dev.yasan.metro.tehran.domain.usecase.stat.GetBasicStatisticsUseCase
 import dev.yasan.metro.tehran.domain.usecase.stat.GetComplexStatisticsUseCase
+import glass.yasan.kit.core.DispatcherProvider
+import glass.yasan.kit.core.Resource
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

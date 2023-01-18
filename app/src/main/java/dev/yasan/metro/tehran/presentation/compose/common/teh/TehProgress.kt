@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
-import glass.yasan.kit.compose.foundation.grid
 import dev.yasan.metro.tehran.R
+import glass.yasan.kit.compose.foundation.grid
 
 /**
  * Tehro-themed progress indicator.

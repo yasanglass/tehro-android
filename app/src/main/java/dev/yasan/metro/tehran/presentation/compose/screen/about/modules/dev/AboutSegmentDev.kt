@@ -18,25 +18,23 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.compose.screen.about.AboutScreen
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 import glass.yasan.kit.compose.components.YasanBrandingFooter
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 
 /**
  * A segment of [AboutScreen] that shows information about the app's developer.
  */
 @Composable
 fun AboutSegmentDev(fontFamily: FontFamily = LocaleHelper.properFontFamily) {
-
     Column(
         modifier = Modifier.background(color = colorResource(id = R.color.layer_foreground)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Spacer(modifier = Modifier.requiredHeight(grid(2)))
 
         YasanBrandingFooter(spacerTop = 0.dp, spacerBottom = 0.dp)

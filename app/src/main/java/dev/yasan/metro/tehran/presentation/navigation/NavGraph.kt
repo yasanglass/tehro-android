@@ -44,7 +44,6 @@ import dev.yasan.metro.tehran.presentation.util.entity.LaunchSource
 fun NavGraph(
     startDestination: String = NavRoutes.routeHome()
 ) {
-
     val bottomSheetNavigator = rememberBottomSheetNavigator()
     val navController = rememberAnimatedNavController(bottomSheetNavigator)
     val systemUiController = rememberSystemUiController()
@@ -67,9 +66,7 @@ fun NavGraph(
                 fadeOut()
             },
         ) {
-
             composable(route = NavRoutes.routeHome()) {
-
                 systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
 
                 val homeViewModel: HomeViewModel = hiltViewModel(it)
@@ -88,7 +85,6 @@ fun NavGraph(
                     },
                 )
             ) {
-
                 val lineViewModel: LineViewModel = hiltViewModel(it)
 
                 val lineId =
@@ -102,7 +98,6 @@ fun NavGraph(
             }
 
             composable(route = NavRoutes.routeSearch()) {
-
                 systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
 
                 val searchViewModel: SearchViewModel = hiltViewModel(it)
@@ -111,7 +106,6 @@ fun NavGraph(
             }
 
             composable(route = NavRoutes.routeMap()) {
-
                 systemUiController.setStatusBarColor(color = colorResource(id = R.color.layer_midground))
 
                 val mapViewModel: MapViewModel = hiltViewModel(it)
@@ -122,7 +116,6 @@ fun NavGraph(
             composable(
                 route = NavRoutes.routeAbout(),
             ) {
-
                 val aboutViewModel: AboutViewModel = hiltViewModel(it)
 
                 AboutScreen(aboutViewModel = aboutViewModel)
@@ -139,7 +132,6 @@ fun NavGraph(
                     }
                 )
             ) {
-
                 val stationId =
                     it.arguments?.getInt(NavRoutes.EXTRA_STATION_ID) ?: 0
                 val launchSource =

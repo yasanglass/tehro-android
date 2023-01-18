@@ -14,7 +14,8 @@ import saman.zamani.persiandate.PersianDate
 @Entity(tableName = "information")
 data class DatabaseInformation(
     @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "id") val id: Int,
+    @ColumnInfo(name = "id")
+    val id: Int,
     @ColumnInfo(name = "last_modified_year") val lastModifiedYear: Int,
     @ColumnInfo(name = "last_modified_month") val lastModifiedMonth: Int,
     @ColumnInfo(name = "last_modified_day") val lastModifiedDay: Int,

@@ -14,12 +14,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.domain.entity.stat.Stat
 import dev.yasan.metro.tehran.domain.entity.stat.StatComplex
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
 import dev.yasan.metro.tehran.presentation.util.helper.extension.toPersianNumbers
+import glass.yasan.kit.compose.foundation.grid
 
 /**
  * Shows a list of [Stat]s in a Composable.
@@ -52,10 +52,11 @@ fun StatComplexList(
                     Text(
                         modifier = Modifier.padding(vertical = grid(), horizontal = grid(2)),
                         text =
-                        if (LocaleHelper.isFarsi || forceFarsi)
+                        if (LocaleHelper.isFarsi || forceFarsi) {
                             text.toPersianNumbers()
-                        else
-                            text,
+                        } else {
+                            text
+                        },
                         color = colorResource(id = R.color.text_title),
                         fontFamily = fontFamily,
                         textAlign = TextAlign.End,

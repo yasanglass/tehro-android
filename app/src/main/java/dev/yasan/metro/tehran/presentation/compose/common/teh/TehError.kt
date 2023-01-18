@@ -21,12 +21,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import glass.yasan.kit.compose.foundation.grid
-import glass.yasan.kit.compose.type.rubikFamily
 import dev.yasan.metro.tehran.R
 import dev.yasan.metro.tehran.presentation.theme.TehroIcons
 import dev.yasan.metro.tehran.presentation.theme.vazirFamily
 import dev.yasan.metro.tehran.presentation.util.helper.LocaleHelper
+import glass.yasan.kit.compose.foundation.grid
+import glass.yasan.kit.compose.type.rubikFamily
 
 /**
  * Different types/styles of errors that can be shown on [TehError].
@@ -37,6 +37,7 @@ enum class TehErrorType {
      * Must be used for errors that can potentially be solved by retrying.
      */
     ERROR_TRY_AGAIN,
+
     /**
      * This error type lets the user to go to the previous navigation route.
      * Must be used for errors that can never be solved by retrying.
@@ -61,7 +62,6 @@ fun TehError(
     fontFamily: FontFamily = LocaleHelper.properFontFamily,
     onClick: () -> Unit
 ) {
-
     val buttonText = when (type) {
         TehErrorType.ERROR_GO_BACK -> stringResource(id = R.string.back)
         TehErrorType.ERROR_TRY_AGAIN -> stringResource(id = R.string.try_again)
@@ -79,7 +79,6 @@ fun TehError(
             .padding(grid(2)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
         Text(
             text = title,
             fontFamily = fontFamily,
